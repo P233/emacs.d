@@ -1,0 +1,6 @@
+.DS_Store
+elpa/
+auto-save-list/
+snippets/*-mode/
+/recentf
+/smex-items
