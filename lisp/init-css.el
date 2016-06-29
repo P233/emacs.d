@@ -4,6 +4,7 @@
 
 (add-hook 'scss-mode-hook
           (lambda ()
+            (setq-local company-backends '(company-dabbrev-code company-dabbrev))
             (flycheck-select-checker 'scss-lint)
             (flycheck-mode)
             (emmet-mode)))

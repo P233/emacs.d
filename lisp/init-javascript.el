@@ -3,13 +3,12 @@
   :init
   (setq tern-command '("tern" "--no-port-file")))
 
-(use-package company-tern
-  :init
-  (add-to-list 'company-backends '(company-tern :with company-dabbrev)))
+(use-package company-tern)
 
 
 (defun enable-js-minor-modes ()
-  "enable eslint and tern"
+  "set local company-backends, and enable eslint & tern"
+  (setq-local company-backends '((company-tern :with company-dabbrev)))
   (flycheck-select-checker 'javascript-eslint)
   (flycheck-mode)
   (tern-mode))
