@@ -8,7 +8,7 @@
 
 (defun enable-js-minor-modes ()
   "set local company-backends, and enable eslint & tern"
-  (setq-local company-backends '((company-tern :with company-dabbrev)))
+  (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
   (flycheck-select-checker 'javascript-eslint)
   (flycheck-mode)
   (tern-mode))
