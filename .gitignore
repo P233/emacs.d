@@ -2,5 +2,6 @@
 elpa/
 auto-save-list/
 snippets/*-mode/
+pyim/
 /recentf
 /smex-items
