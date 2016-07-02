@@ -201,4 +201,7 @@
 (use-package osx-dictionary)
 
 
+(use-package writeroom-mode)
+
+
 (provide 'init-packages)
