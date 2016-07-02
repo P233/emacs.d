@@ -22,7 +22,7 @@
 
 ;; Fonts
 (set-frame-font "Eco Coding 16" t t)
-(set-fontset-font t 'han (font-spec :family "Hiragino Sans GB" :size 15))
+(set-fontset-font t 'han (font-spec :family "PingFang SC"))
 
 
 ;; Theme

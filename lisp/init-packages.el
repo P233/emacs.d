@@ -58,7 +58,7 @@
 
 (use-package evil
   :init
-  (setq evil-shift-width 2
+  (setq evil-shift-width global-indentation-size
         evil-want-C-i-jump nil
         evil-emacs-state-cursor 'bar)
   (evil-mode)
@@ -163,6 +163,11 @@
   (global-set-key (kbd "C-'") 'avy-goto-char-2))
 
 
+(use-package pinyin-search
+  :init
+  (global-set-key (kbd "C-\"") 'pinyin-search))
+
+
 (use-package neotree
   :config
   (add-hook 'neotree-mode-hook
@@ -194,7 +199,6 @@
 
 
 (use-package osx-dictionary)
-
 
 
 (provide 'init-packages)

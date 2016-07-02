@@ -20,6 +20,17 @@
   (define-key emmet-mode-keymap (kbd "<C-return>") nil))
 
 
+(use-package markdown-mode
+  :mode
+  ("README\\.md\\'" . gfm-mode)
+  ("\\.md\\'" . markdown-mode)
+  :init
+  (setq markdown-command "multimarkdown")
+  :config
+  ;; brew install aspell --with-lang-en
+  (add-hook 'markdown-mode-hook 'turn-on-flyspell))
+
+
 (use-package yaml-mode)
 
 
