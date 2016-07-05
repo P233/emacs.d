@@ -29,7 +29,8 @@
         company-minimum-prefix-length 2
         company-dabbrev-downcase nil
         company-auto-complete t
-        company-auto-complete-chars '(?\())
+        company-auto-complete-chars '(?\()
+        company-global-modes '(not org-mode markdown-mode))
   (global-company-mode)
   :config
   (define-key company-active-map (kbd "M-n") nil)
