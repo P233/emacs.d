@@ -1,4 +1,4 @@
-;; Global indentation size
+; Global indentation size
 (defvar global-indentation-size 2
   "indent everything with 2 spaces")
 (setq standard-indent global-indentation-size)

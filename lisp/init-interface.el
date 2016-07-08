@@ -11,7 +11,7 @@
 
 
 ;; Disable blink cursor
-(setq blink-cursor-mode nil)
+(blink-cursor-mode -1)
 
 
 ;; Hide interface elements
