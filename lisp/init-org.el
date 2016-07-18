@@ -1,6 +1,7 @@
 (setq org-startup-folded nil
       org-startup-truncated nil)
 
+(require 'ox-md nil t)
 
 (add-hook 'org-mode-hook
           (lambda ()
