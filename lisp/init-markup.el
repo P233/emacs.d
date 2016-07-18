@@ -36,4 +36,7 @@
 (use-package yaml-mode)
 
 
+(use-package web-beautify)
+
+
 (provide 'init-markup)
