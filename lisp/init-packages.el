@@ -57,29 +57,6 @@
 ;; Evil
 ;;----------------------------------------------------------------------------
 
-;; Evil-mode plugins
-(use-package evil-leader
-  :config
-  (global-evil-leader-mode)
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    "f" 'find-file
-    "b" 'switch-to-buffer
-    "k" 'kill-buffer
-    "s" 'save-buffer
-    "t" 'neotree-toggle))
-
-(use-package evil-nerd-commenter
-  :config
-  (evil-leader/set-key
-    "cl" 'evilnc-comment-or-uncomment-lines
-    "cp" 'evilnc-comment-or-uncomment-paragraphs))
-
-(use-package evil-surround
-  :init
-  (global-evil-surround-mode))
-
-
 ;; Evil-mode
 (use-package evil
   :init
@@ -118,6 +95,30 @@
   (define-key evil-emacs-state-map  (kbd "C-,") 'yas-expand)
   ;; align-regexp shortcut
   (define-key evil-visual-state-map (kbd "C-=") 'align-regexp)) ; end Evil
+
+
+;; Evil-mode plugins
+(use-package evil-leader
+  ;; not works in *scratch* and *Messages*
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader "<SPC>")
+  (evil-leader/set-key
+    "f" 'find-file
+    "b" 'switch-to-buffer
+    "k" 'kill-buffer
+    "s" 'save-buffer
+    "t" 'neotree-toggle))
+
+(use-package evil-nerd-commenter
+  :config
+  (evil-leader/set-key
+    "cl" 'evilnc-comment-or-uncomment-lines
+    "cp" 'evilnc-comment-or-uncomment-paragraphs))
+
+(use-package evil-surround
+  :init
+  (global-evil-surround-mode))
 
 
 ;; VI open line
