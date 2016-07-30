@@ -105,9 +105,11 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
     "f" 'find-file
+    "g" 'counsel-git
     "b" 'switch-to-buffer
     "k" 'kill-buffer
     "s" 'save-buffer
+    "v" 'multi-web-mode
     "t" 'neotree-toggle))
 
 (use-package evil-nerd-commenter
@@ -227,7 +229,7 @@
 (use-package osx-dictionary)
 
 
-(use-package writeroom-mode)
+(use-package browse-kill-ring)
 
 
 (provide 'init-packages)
