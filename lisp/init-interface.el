@@ -39,6 +39,8 @@
   (global-linum-mode t)
   (linum-relative-global-mode))
 
+(column-number-mode)
+
 
 ;; Nyan cat
 (use-package nyan-mode

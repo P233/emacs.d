@@ -109,7 +109,10 @@
     "b" 'switch-to-buffer
     "k" 'kill-buffer
     "s" 'save-buffer
+    "x" 'kill-this-buffer
     "v" 'multi-web-mode
+    "m" 'magit-status
+    "u" 'undo-tree-visualize
     "t" 'neotree-toggle))
 
 (use-package evil-nerd-commenter
