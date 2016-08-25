@@ -5,7 +5,6 @@
       auto-save-default nil
       create-lockfiles nil)
 
-
 (setq ring-bell-function 'ignore)
 
 
@@ -15,6 +14,10 @@
 
 ;; Quick yes
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+
+;; Enable advanced ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
 ;; Make dired use the same buffer for viewing directory
