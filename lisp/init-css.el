@@ -1,3 +1,7 @@
+(require 'css-comb)
+(use-package rainbow-mode)
+
+
 (setq css-indent-offset global-indentation-size)
 
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
@@ -7,10 +11,8 @@
             (setq-local company-backends '(company-files company-dabbrev-code company-dabbrev))
             (flycheck-select-checker 'scss-lint)
             (flycheck-mode)
+            (rainbow-mode)
             (emmet-mode)))
-
-
-(require 'css-comb)
 
 
 (provide 'init-css)
