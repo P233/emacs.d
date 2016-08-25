@@ -18,7 +18,7 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Completion
+;; Company
 ;;----------------------------------------------------------------------------
 
 (use-package company
@@ -28,8 +28,6 @@
         company-show-numbers t
         company-minimum-prefix-length 2
         company-dabbrev-downcase nil
-        ;; company-auto-complete t
-        ;; company-auto-complete-chars '(?\()
         company-global-modes '(not org-mode markdown-mode))
   (global-company-mode)
   :config
@@ -47,6 +45,10 @@
     '(define-key company-active-map (kbd "C-h") #'company-quickhelp-manual-begin)))
 
 
+;;----------------------------------------------------------------------------
+;; Yasnippet
+;;----------------------------------------------------------------------------
+
 (use-package yasnippet
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
@@ -54,10 +56,22 @@
 
 
 ;;----------------------------------------------------------------------------
+;; Magit
+;;----------------------------------------------------------------------------
+
+(use-package magit
+  :bind
+  ("C-x C-'" . magit-status))
+
+(use-package git-gutter
+  :init
+  (global-git-gutter-mode t))
+
+
+;;----------------------------------------------------------------------------
 ;; Evil
 ;;----------------------------------------------------------------------------
 
-;; Evil-mode
 (use-package evil
   :init
   (setq evil-shift-width global-indentation-size
@@ -66,7 +80,11 @@
   (evil-mode)
 
   :config
-  ;; status bar colour
+  ;; Replace evil insert state with Emacs state
+  (defadvice evil-insert-state (around emacs-state-instead-of-insert-state activate)
+    (evil-emacs-state))
+
+  ;; Switching status bar colour
   (add-hook 'post-command-hook
             (lambda ()
               (let ((color (cond ((evil-normal-state-p)  '("#6DB100"))
@@ -76,11 +94,9 @@
                                  (t '("#865C38")))))
                 (set-face-background 'mode-line (car color)))))
 
-  ;; Replace evil insert state with Emacs state
-  (defadvice evil-insert-state (around emacs-state-instead-of-insert-state activate)
-    (evil-emacs-state))
-
-  ;; evil-emacs state key bindings
+  ;; Key bindings for evil-emacs state
+  ;; ---------------------------------
+  ;; unbind "M-."
   (define-key evil-normal-state-map  (kbd "M-.") nil)
 
   (define-key evil-emacs-state-map  [escape]    'evil-normal-state)
@@ -89,17 +105,20 @@
   (define-key evil-emacs-state-map  (kbd "M-n") 'evil-complete-next)
   (define-key evil-emacs-state-map  (kbd "M-P") 'evil-complete-previous-line)
   (define-key evil-emacs-state-map  (kbd "M-N") 'evil-complete-next-line)
-  ;; company shortcut
+  ;; show all yasnippet in company
   (define-key evil-emacs-state-map  (kbd "C-.") 'company-yasnippet)
-  ;; yasnippet shortcut
+  ;; expand yasnippet instead of trigging company autocomple.
   (define-key evil-emacs-state-map  (kbd "C-,") 'yas-expand)
-  ;; align-regexp shortcut
-  (define-key evil-visual-state-map (kbd "C-=") 'align-regexp)) ; end Evil
+  ;; align-regexp
+  (define-key evil-visual-state-map (kbd "C-=") 'align-regexp))
 
 
-;; Evil-mode plugins
+;;----------------------------------------------------------------------------
+;; Evil Plugins
+;;----------------------------------------------------------------------------
+
 (use-package evil-leader
-  ;; not works in *scratch* and *Messages*
+  ;; not works in *Messages*
   :config
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
@@ -124,41 +143,6 @@
 (use-package evil-surround
   :init
   (global-evil-surround-mode))
-
-
-;; VI open line
-;; http://stackoverflow.com/questions/2173324/emacs-equivalents-of-vims-dd-o-o
-(defun vi-open-line-above ()
-  "Insert a newline above the current line and put point at beginning."
-  (interactive)
-  (unless (bolp)
-    (beginning-of-line))
-  (newline)
-  (forward-line -1)
-  (indent-according-to-mode))
-
-(defun vi-open-line-below ()
-  "Insert a newline below the current line and put point at beginning."
-  (interactive)
-  (unless (eolp)
-    (end-of-line))
-  (newline-and-indent))
-
-(global-set-key (kbd "<C-return>")  'vi-open-line-above)
-(global-set-key (kbd "M-RET")       'vi-open-line-below)
-
-
-;;----------------------------------------------------------------------------
-;; Git
-;;----------------------------------------------------------------------------
-
-(use-package magit
-  :bind
-  ("C-x C-'" . magit-status))
-
-(use-package git-gutter
-  :init
-  (global-git-gutter-mode t))
 
 (use-package evil-magit)
 
@@ -188,17 +172,6 @@
 (use-package smex)
 
 
-(use-package avy
-  :init
-  (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
-  (global-set-key (kbd "C-'") 'avy-goto-char-2))
-
-
-(use-package pinyin-search
-  :init
-  (global-set-key (kbd "C-\"") 'pinyin-search))
-
-
 (use-package neotree
   :config
   (add-hook 'neotree-mode-hook
@@ -210,6 +183,17 @@
               (define-key evil-normal-state-local-map (kbd "C-c C-t") 'neotree-hidden-file-toggle))))
 
 
+(use-package avy
+  :init
+  (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
+  (global-set-key (kbd "C-'") 'avy-goto-char-2))
+
+
+(use-package pinyin-search
+  :init
+  (global-set-key (kbd "C-\"") 'pinyin-search))
+
+
 (use-package window-numbering
   :init
   (window-numbering-mode))
@@ -217,22 +201,27 @@
 
 (use-package buffer-move
   :init
-  ;; Resize window
-  (global-set-key (kbd "<S-up>")      'shrink-window)
-  (global-set-key (kbd "<S-down>")    'enlarge-window)
-  (global-set-key (kbd "<S-left>")    'shrink-window-horizontally)
-  (global-set-key (kbd "<S-right>")   'enlarge-window-horizontally)
-  ;; Buffer-move
+  ;; move buffer
   (global-set-key (kbd "<C-S-up>")    'buf-move-up)
   (global-set-key (kbd "<C-S-down>")  'buf-move-down)
   (global-set-key (kbd "<C-S-left>")  'buf-move-left)
-  (global-set-key (kbd "<C-S-right>") 'buf-move-right))
+  (global-set-key (kbd "<C-S-right>") 'buf-move-right)
+  ;; resize window
+  (global-set-key (kbd "<S-up>")      'shrink-window)
+  (global-set-key (kbd "<S-down>")    'enlarge-window)
+  (global-set-key (kbd "<S-left>")    'shrink-window-horizontally)
+  (global-set-key (kbd "<S-right>")   'enlarge-window-horizontally))
+
+
+(use-package browse-kill-ring)
 
 
 (use-package osx-dictionary)
 
 
-(use-package browse-kill-ring)
+;; npm install -g js-beautify
+(use-package web-beautify)
+
 
 
 (provide 'init-packages)

@@ -15,6 +15,7 @@
         web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
 
 
+;; Highlight SCSS block in Vue single-file format
 (use-package multi-web-mode
   :init
   (setq mweb-default-major-mode 'web-mode
@@ -43,8 +44,6 @@
 
 (use-package yaml-mode)
 
-
-(use-package web-beautify)
 
 
 (provide 'init-markup)

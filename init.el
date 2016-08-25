@@ -12,7 +12,7 @@
 (require 'init-code-styles)
 
 
-;; Install Pagkaces
+;; Pagkaces Settings
 (require 'init-packages)
 
 
@@ -23,6 +23,10 @@
 (require 'init-elixir)
 
 (require 'init-org)
+
+
+;; Custom Functions
+(require 'init-fun)
 
 
 (custom-set-variables
