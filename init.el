@@ -26,7 +26,7 @@
 
 
 ;; Custom Functions
-(require 'init-fun)
+(require 'init-my-functions)
 
 
 (custom-set-variables
