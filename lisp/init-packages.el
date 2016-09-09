@@ -143,7 +143,7 @@
     "cp" 'evilnc-comment-or-uncomment-paragraphs))
 
 (use-package evil-surround
-  :init
+  :config
   (global-evil-surround-mode))
 
 (use-package evil-magit)
