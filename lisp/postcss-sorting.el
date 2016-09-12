@@ -1,6 +1,4 @@
-;;; postcss-sorting.el --- Format CSS coding styles by PostCSS Sorting
-
-;; Copyright (C) 2016 Peiwen Lu <hi@peiwen.lu>
+;;; postcss-sorting.el --- Format CSS with postcss-sorting and stylefmt
 
 ;; Author: Peiwen Lu <hi@peiwen.lu>
 ;; Version: 0.1
@@ -8,53 +6,53 @@
 
 ;;; Commentary:
 
+;; Code are heavily borrowed from the following two packages:
+;; - web-beautify.el (https://github.com/yasuyk/web-beautify)
+;; - cssfmt.el (https://github.com/KeenS/cssfmt.el)
+
 ;;; Code:
 
 (defconst postcss-sorting-program "postcss"
   "Executable to use for formatting CSS.")
 
-(defconst postcss-sorting-plugin-arg "-u postcss-sorting"
-  "Use postcss-sorting plugin.")
-
 (defvar postcss-sorting-config-file "~/.postcssrc.json"
   "Use ~/.postcssrc.json for default sorting config.")
 
-(defvar postcss-sorting-syntax "postcss-scss"
+(defvar postcss-sorting-syntax-plugin "postcss-scss"
   "Use postcss-scss plugin for default syntax.")
 
 
 (defun postcss-sorting-command-not-found-message ()
-  "Construct a message about PostCSS not found."
+  "Construct a message about postcss program not found."
   (format
-   "PostCSS is not found. Install it and the dependencies with: `npm install postcss-cli postcss-sorting %s -g`"
-   postcss-sorting-syntax))
+   "postcss-cli is not found. Make sure postcss-cli, stylefmt, postcss-sorting%s are all installed globally by npm."
+   (if postcss-sorting-syntax-plugin (format ", and %s" postcss-sorting-syntax-plugin) "")))
 
 (defun postcss-sorting-format-error-message (buffer-name)
   "Construct a format error message with BUFFER-NAME."
   (format
-   "Could not apply PostCSS. See %s to for details."
+   "Could not apply postcss-sorting. See %s to for details."
    buffer-name))
+
 
 (defun postcss-sorting-get-config-arg ()
   "Construct the config arg with postcss-sorting-config-file."
-  (if (> (length postcss-sorting-config-file) 0)
-      (concat "-c " postcss-sorting-config-file)))
+  (if postcss-sorting-config-file (concat "-c " postcss-sorting-config-file) ""))
 
 (defun postcss-sorting-get-syntax-arg ()
-  "Construct the syntax arg with postcss-sorting-syntax."
-  (if (> (length postcss-sorting-syntax) 0)
-      (concat "-s " postcss-sorting-syntax)))
+  "Construct the syntax arg with postcss-sorting-syntax-plugin."
+  (if postcss-sorting-syntax-plugin (concat "-s " postcss-sorting-syntax-plugin) ""))
 
 (defun postcss-sorting-get-shell-command ()
-  "Join postcss-sorting-program with the constant postcss-sorting-args."
+  "Construct the shell command for postcss-sorting."
   (mapconcat 'identity (list postcss-sorting-program
-                             postcss-sorting-plugin-arg
+                             "-u postcss-sorting"
                              (postcss-sorting-get-config-arg)
                              (postcss-sorting-get-syntax-arg)) " "))
 
 
-(defun postcss-sorting-format-region (beginning end)
-  "Format each line in the BEGINNING .. END region."
+(defun postcss-sorting-sort-region (beginning end)
+  "Sort CSS properties in BEGINNING .. END region."
   ;; Check that postcss-cli is installed.
   (if (executable-find postcss-sorting-program)
       (let* ((output-buffer-name "*PostCSS Sorting*")
@@ -82,18 +80,26 @@
           (message (postcss-sorting-format-error-message output-buffer-name))))
     (message (postcss-sorting-command-not-found-message))))
 
-(defun postcss-sorting-format-buffer ()
-  "Format current buffer."
-  (postcss-sorting-format-region (point-min) (point-max)))
+(defun postcss-sorting-sort-buffer ()
+  "Sort CSS properties in current buffer."
+  (postcss-sorting-sort-region (point-min) (point-max)))
+
+
+(defun postcss-sorting-stylefmt-buffer ()
+  "Format code styles in current buffer with stylefmt."
+  (save-excursion
+    (call-process "stylefmt" nil nil nil (buffer-file-name (current-buffer)))
+    (revert-buffer t t t)))
 
 
 (defun postcss-sorting ()
-  "Format region if active, otherwise the current buffer."
+  "Sort region if active, otherwise sort and format current buffer."
   (interactive)
   (if (use-region-p)
-      (postcss-sorting-format-region
-       (region-beginning) (region-end))
-    (postcss-sorting-format-buffer)))
+      (postcss-sorting-sort-region (region-beginning) (region-end))
+    (progn
+      (postcss-sorting-sort-buffer)
+      (postcss-sorting-stylefmt-buffer))))
 
 
 
