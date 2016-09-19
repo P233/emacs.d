@@ -1,5 +1,5 @@
 ;; npm install -g csscomb
-(require 'postcss-sorting)
+(require 'stylefmt)
 (use-package rainbow-mode)
 
 
