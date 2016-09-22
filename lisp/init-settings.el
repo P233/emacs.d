@@ -12,6 +12,10 @@
 (recentf-mode)
 
 
+;; Enable hs-minor-mode
+(add-hook 'prog-mode-hook (lambda() (hs-minor-mode)))
+
+
 ;; Quick yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 

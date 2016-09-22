@@ -125,16 +125,17 @@
   (global-evil-leader-mode)
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
+    "b" 'switch-to-buffer
     "f" 'find-file
     "g" 'counsel-git
-    "b" 'switch-to-buffer
+    "h" 'hs-toggle-hiding
     "k" 'kill-buffer
-    "s" 'save-buffer
-    "x" 'kill-this-buffer
-    "v" 'multi-web-mode
     "m" 'magit-status
+    "s" 'save-buffer
+    "t" 'neotree-toggle
     "u" 'undo-tree-visualize
-    "t" 'neotree-toggle))
+    "v" 'multi-web-mode
+    "x" 'kill-this-buffer))
 
 (use-package evil-nerd-commenter
   :config
