@@ -10,8 +10,8 @@
 (add-hook 'scss-mode-hook
           (lambda ()
             (setq-local company-backends '(company-files company-dabbrev-code company-dabbrev))
-            (flycheck-select-checker 'scss-lint)
-            (flycheck-mode)
+            ;; (flycheck-select-checker 'scss-lint)
+            ;; (flycheck-mode)
             (emmet-mode)))
 
 
