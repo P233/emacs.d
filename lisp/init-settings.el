@@ -13,7 +13,7 @@
 
 
 ;; Enable hs-minor-mode
-(add-hook 'prog-mode-hook (lambda() (hs-minor-mode)))
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 
 ;; Quick yes
