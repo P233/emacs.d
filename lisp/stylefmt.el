@@ -55,9 +55,8 @@
                              (stylefmt-sorting-get-syntax-arg)) " "))
 
 
-(defun postcss-sorting ()
+(defun stylefmt-sort-buffer ()
   "Sort CSS properties with postcss-sorting in current buffer."
-  (interactive)
   ;; Check that postcss-cli is installed.
   (if (executable-find stylefmt-sorting-program)
       (let* ((output-buffer-name "*PostCSS Sorting*")
@@ -75,6 +74,7 @@
               ;; Reclaim position for a smooth transition.
               (goto-char previous-point)
               (set-window-start nil previous-window-start)
+              (save-buffer) ; save current buffer therefore stylefmt can work properly.
               (message "Applied postcss-sorting.")
               (kill-buffer output-buffer))
           ;; Unfortunately an error causes the buffer to be replaced with
@@ -86,13 +86,20 @@
     (message (stylefmt-sorting-command-not-found-message))))
 
 
-(defun stylefmt ()
+(defun stylefmt-format-buffer ()
   "Format code style with stylefmt in current buffer."
-  (interactive)
   (save-excursion
     (call-process "stylefmt" nil nil nil (buffer-file-name (current-buffer)))
     (revert-buffer t t t))
   (message "Applied stylefmt."))
+
+
+(defun stylefmt ()
+  "Sort and format CSS code in current buffer."
+  (interactive)
+  (progn
+    (stylefmt-sort-buffer)
+    (stylefmt-format-buffer)))
 
 
 
