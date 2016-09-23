@@ -5,6 +5,7 @@
   ("\\.eex\\'" . web-mode)
   ("\\.hbs\\'" . web-mode)
   ("\\.jsx\\'" . web-mode)
+  ("\\.wxml\\'" . web-mode)
   :init
   (setq web-mode-script-padding global-indentation-size
         web-mode-style-padding global-indentation-size
