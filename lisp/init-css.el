@@ -13,6 +13,7 @@
             (setq-local company-backends '(company-files company-dabbrev-code company-dabbrev))
             ;; (flycheck-select-checker 'scss-lint)
             ;; (flycheck-mode)
+            (local-set-key (kbd "C-x C-s") 'stylefmt)
             (emmet-mode)))
 
 
