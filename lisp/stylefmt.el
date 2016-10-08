@@ -58,6 +58,7 @@
 (defun stylefmt-sort-buffer ()
   "Sort CSS properties with postcss-sorting in current buffer."
   ;; Check that postcss-cli is installed.
+  (interactive)
   (if (executable-find stylefmt-sorting-program)
       (let* ((output-buffer-name "*PostCSS Sorting*")
              (output-buffer (get-buffer-create output-buffer-name))
@@ -88,13 +89,14 @@
 
 (defun stylefmt-format-buffer ()
   "Format code style with stylefmt in current buffer."
+  (interactive)
   (save-excursion
     (call-process "stylefmt" nil nil nil (buffer-file-name (current-buffer)))
     (revert-buffer t t t))
   (message "Applied stylefmt."))
 
 
-(defun stylefmt ()
+(defun stylefmt-sort-n-format-buffer ()
   "Sort and format CSS code in current buffer."
   (interactive)
   (progn
