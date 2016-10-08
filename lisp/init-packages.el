@@ -131,6 +131,7 @@
     "h" 'hs-toggle-hiding
     "k" 'kill-buffer
     "m" 'magit-status
+    "r" 'neotree-refresh
     "s" 'save-buffer
     "t" 'neotree-toggle
     "u" 'undo-tree-visualize
