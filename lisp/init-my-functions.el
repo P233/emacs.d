@@ -27,23 +27,17 @@
 (defun my-switch-to-next-window ()
   "Switch to next window"
   (interactive)
-
   (defconst current-window-number (window-numbering-get-number))
-  (defconst total-windows-number (count-unique-visible-buffers))
-
-  (if (eq current-window-number total-windows-number)
+  (if (eq current-window-number (count-unique-visible-buffers))
    (select-window-by-number 1)
    (select-window-by-number (+ current-window-number 1))))
 
 (defun my-switch-to-previous-window ()
   "Switch to previous window"
   (interactive)
-
   (defconst current-window-number (window-numbering-get-number))
-  (defconst total-windows-number (count-unique-visible-buffers))
-
   (if (eq current-window-number 1)
-   (select-window-by-number total-windows-number)
+   (select-window-by-number (count-unique-visible-buffers))
    (select-window-by-number (- current-window-number 1))))
 
 (global-set-key (kbd "M-]") 'my-switch-to-next-window)
