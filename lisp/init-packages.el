@@ -229,5 +229,8 @@
 (use-package web-beautify)
 
 
+(use-package rainbow-delimiters)
+
+
 
 (provide 'init-packages)
