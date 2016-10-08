@@ -29,16 +29,16 @@
   (interactive)
   (defconst current-window-number (window-numbering-get-number))
   (if (eq current-window-number (count-unique-visible-buffers))
-   (select-window-by-number 1)
-   (select-window-by-number (+ current-window-number 1))))
+      (select-window-by-number 1)
+    (select-window-by-number (+ current-window-number 1))))
 
 (defun my-switch-to-previous-window ()
   "Switch to previous window"
   (interactive)
   (defconst current-window-number (window-numbering-get-number))
   (if (eq current-window-number 1)
-   (select-window-by-number (count-unique-visible-buffers))
-   (select-window-by-number (- current-window-number 1))))
+      (select-window-by-number (count-unique-visible-buffers))
+    (select-window-by-number (- current-window-number 1))))
 
 (global-set-key (kbd "M-]") 'my-switch-to-next-window)
 (global-set-key (kbd "M-[") 'my-switch-to-previous-window)
