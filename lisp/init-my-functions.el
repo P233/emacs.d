@@ -19,6 +19,37 @@
 (global-set-key (kbd "C-x 3") 'my-split-window-right)
 
 
+;; http://emacs.stackexchange.com/questions/3494/how-to-count-all-of-the-windows-in-a-frame
+(defun count-unique-visible-buffers ()
+  "Count how many buffers are currently being shown."
+  (length (cl-delete-duplicates (mapcar #'window-buffer (window-list)))))
+
+(defun my-switch-to-next-window ()
+  "Switch to next window"
+  (interactive)
+
+  (defconst current-window-number (window-numbering-get-number))
+  (defconst total-windows-number (count-unique-visible-buffers))
+
+  (if (eq current-window-number total-windows-number)
+   (select-window-by-number 1)
+   (select-window-by-number (+ current-window-number 1))))
+
+(defun my-switch-to-previous-window ()
+  "Switch to previous window"
+  (interactive)
+
+  (defconst current-window-number (window-numbering-get-number))
+  (defconst total-windows-number (count-unique-visible-buffers))
+
+  (if (eq current-window-number 1)
+   (select-window-by-number total-windows-number)
+   (select-window-by-number (- current-window-number 1))))
+
+(global-set-key (kbd "M-]") 'my-switch-to-next-window)
+(global-set-key (kbd "M-[") 'my-switch-to-previous-window)
+
+
 ;;----------------------------------------------------------------------------
 ;; Buffer
 ;;----------------------------------------------------------------------------
