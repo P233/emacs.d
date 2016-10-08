@@ -177,6 +177,8 @@
 
 
 (use-package neotree
+  :init
+  (setq neo-smart-open t)
   :config
   (add-hook 'neotree-mode-hook
             (lambda ()
