@@ -1,6 +1,6 @@
-; Global indentation size
+;; Set global-indentation-size
 (defvar global-indentation-size 2
-  "indent everything with 2 spaces")
+  "Globally shared indentation setting.")
 
 
 ;; Disable backup, auto-save and lockfiles
@@ -10,6 +10,8 @@
       auto-save-default nil
       create-lockfiles nil)
 
+
+;; Disable ring-bell-function
 (setq ring-bell-function 'ignore)
 
 
@@ -17,7 +19,7 @@
 (recentf-mode)
 
 
-;; Quick yes
+;; Enable quick yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 

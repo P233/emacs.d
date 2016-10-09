@@ -3,35 +3,31 @@
       initial-scratch-message "")
 
 
-;; Default Farme size
+;; Hide interface elements
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+
+;; Set fonts
+(set-frame-font "Eco Coding 16" t t)
+(set-fontset-font t 'han (font-spec :family "PingFang SC"))
+
+
+;; Set default farme size
 (setq default-frame-alist '((width  . 180)
                             (height . 52)
                             (top    . 32)
                             (left   . 130)))
 
 
-;; Disable blink cursor
-(blink-cursor-mode -1)
-
-
-;; Hide interface elements
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
-
-;; Fonts
-(set-frame-font "Eco Coding 16" t t)
-(set-fontset-font t 'han (font-spec :family "PingFang SC"))
-
-
-;; Theme
+;; Set theme
 (use-package gruvbox-theme
   :config
   (set-face-foreground 'fringe "#665c54")
   (set-face-foreground 'default "#ebdbb2"))
 
 
-;; Relative line number
+;; Enable relative line number
 (use-package linum-relative
   :init
   (setq linum-relative-current-symbol "->"
@@ -42,11 +38,15 @@
   (set-face-attribute 'linum-relative-current-face nil :foreground "#fabd2f" :weight 'normal))
 
 
-;; Column number
+;; Enable column number
 (column-number-mode)
 
 
-;; Nyan cat
+;; Disable blinking cursor
+(blink-cursor-mode -1)
+
+
+;; Enable nyan-cat mode
 (use-package nyan-mode
   :init
   (setq nyan-bar-length 24)

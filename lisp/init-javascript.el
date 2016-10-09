@@ -1,25 +1,17 @@
-;; npm install -g tern
-(use-package tern
-  :init
-  (setq tern-command '("tern" "--no-port-file")))
-
-(use-package company-tern)
-
-
 (defun my-js-minor-modes ()
-  "set local company-backends, and enable eslint & tern"
+  "Shared minor modes for both js2-mode and web-mode (JSX)."
   (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
   (flycheck-select-checker 'javascript-eslint)
   (flycheck-mode)
   (tern-mode))
 
 
-;; JSX confings
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (equal web-mode-content-type "jsx")
-              (setq-local emmet-expand-jsx-className? t) ; enable emmet className completion
-              (my-js-minor-modes))))
+;; npm install -g tern
+(use-package tern
+  :init
+  (setq tern-command '("tern" "--no-port-file")))
+
+(use-package company-tern)
 
 
 (use-package js2-mode
@@ -37,6 +29,14 @@
 (use-package json-mode
   :init
   (setq js-indent-level global-indentation-size))
+
+
+;; Add support for JSX
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "jsx")
+              (setq-local emmet-expand-jsx-className? t) ; Enable emmet className completion
+              (my-js-minor-modes))))
 
 
 

@@ -1,11 +1,11 @@
 (use-package web-mode
   :mode
-  ("\\.html?\\'" . web-mode)
-  ("\\.vue\\'" . web-mode)
-  ("\\.eex\\'" . web-mode)
-  ("\\.hbs\\'" . web-mode)
-  ("\\.jsx\\'" . web-mode)
+  ("\\.html\\'" . web-mode)
   ("\\.wxml\\'" . web-mode)
+  ("\\.jsx\\'"  . web-mode)
+  ("\\.vue\\'"  . web-mode)
+  ("\\.eex\\'"  . web-mode)
+  ("\\.hbs\\'"  . web-mode)
   :init
   (setq web-mode-script-padding global-indentation-size
         web-mode-style-padding global-indentation-size
