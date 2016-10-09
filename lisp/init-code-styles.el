@@ -1,6 +1,3 @@
-; Global indentation size
-(defvar global-indentation-size 2
-  "indent everything with 2 spaces")
 (setq standard-indent global-indentation-size)
 
 
@@ -24,6 +21,13 @@
 
 ;; Auto bracket
 (electric-pair-mode t)
+
+
+;; Enable hs-minor-mode
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (hs-minor-mode)
+            (rainbow-delimiters-mode)))
 
 
 

@@ -1,3 +1,8 @@
+; Global indentation size
+(defvar global-indentation-size 2
+  "indent everything with 2 spaces")
+
+
 ;; Disable backup, auto-save and lockfiles
 (setq backup-inhibited t
       make-backup-files nil
@@ -10,10 +15,6 @@
 
 ;; Enable recentf-mode
 (recentf-mode)
-
-
-;; Enable hs-minor-mode
-(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 
 ;; Quick yes

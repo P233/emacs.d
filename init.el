@@ -9,7 +9,6 @@
 (require 'init-osx)
 (require 'init-interface)
 (require 'init-settings)
-(require 'init-code-styles)
 
 
 ;; Pagkaces Settings
@@ -17,6 +16,7 @@
 
 
 ;; Language Settings
+(require 'init-code-styles)
 (require 'init-markup)
 (require 'init-css)
 (require 'init-javascript)
