@@ -166,15 +166,6 @@
 
 
 ;;----------------------------------------------------------------------------
-;; GGtags
-;;----------------------------------------------------------------------------
-
-;; brew install --HEAD ctags
-;; brew install global --with-exuberant-ctags
-;; (use-package ggtags)
-
-
-;;----------------------------------------------------------------------------
 ;; Other Packages
 ;;----------------------------------------------------------------------------
 
@@ -227,13 +218,11 @@
 (use-package browse-kill-ring)
 
 
-(use-package osx-dictionary)
-
-
 ;; npm install -g js-beautify
 (use-package web-beautify)
 
 
+(use-package rainbow-mode)
 (use-package rainbow-delimiters)
 
 

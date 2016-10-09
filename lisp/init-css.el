@@ -1,8 +1,3 @@
-;; npm install -g csscomb
-(require 'stylefmt)
-(use-package rainbow-mode)
-
-
 (setq css-indent-offset global-indentation-size)
 
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
