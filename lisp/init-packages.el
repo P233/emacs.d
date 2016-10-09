@@ -65,7 +65,11 @@
 
 (use-package git-gutter
   :init
-  (global-git-gutter-mode t))
+  (global-git-gutter-mode t)
+  :config
+  (set-face-foreground 'git-gutter:modified "#d3869b")
+  (set-face-foreground 'git-gutter:added "#b8bb26")
+  (set-face-foreground 'git-gutter:deleted "#fb4934"))
 
 (use-package git-timemachine)
 
@@ -89,12 +93,13 @@
   ;; Switching status bar colour
   (add-hook 'post-command-hook
             (lambda ()
-              (let ((color (cond ((evil-normal-state-p)  '("#6DB100"))
-                                 ((evil-emacs-state-p)   '("#865C38"))
-                                 ((evil-visual-state-p)  '("#C85700"))
-                                 ((evil-replace-state-p) '("#D12043"))
-                                 (t '("#865C38")))))
-                (set-face-background 'mode-line (car color)))))
+              (let ((color (cond ((evil-normal-state-p)  '("#689d6a"))
+                                 ((evil-emacs-state-p)   '("#076678"))
+                                 ((evil-visual-state-p)  '("#d65d0e"))
+                                 ((evil-replace-state-p) '("#cc241d"))
+                                 (t '("#3c3836")))))
+                (set-face-background 'mode-line (car color))))
+            (set-face-foreground 'mode-line "#ebdbb2"))
 
   ;; Key bindings for evil-emacs state
   ;; ---------------------------------

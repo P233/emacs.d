@@ -15,7 +15,6 @@
 
 
 ;; Hide interface elements
-(menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
@@ -26,9 +25,9 @@
 
 
 ;; Theme
-(use-package birds-of-paradise-plus-theme
-  :init
-  (load-theme 'birds-of-paradise-plus t))
+(use-package gruvbox-theme
+  :config
+  (set-face-foreground 'fringe "#fabd2f"))
 
 
 ;; Relative line number
@@ -37,8 +36,12 @@
   (setq linum-relative-current-symbol "->"
         linum-relative-format "%2s")
   (global-linum-mode t)
-  (linum-relative-global-mode))
+  (linum-relative-global-mode)
+  :config
+  (set-face-attribute 'linum-relative-current-face nil :foreground "#fabd2f" :weight 'normal))
 
+
+;; Column number
 (column-number-mode)
 
 
