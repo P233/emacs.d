@@ -27,7 +27,8 @@
 ;; Theme
 (use-package gruvbox-theme
   :config
-  (set-face-foreground 'fringe "#fabd2f"))
+  (set-face-foreground 'fringe "#665c54")
+  (set-face-foreground 'default "#ebdbb2"))
 
 
 ;; Relative line number
