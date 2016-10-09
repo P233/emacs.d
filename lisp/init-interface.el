@@ -36,7 +36,7 @@
   (setq linum-relative-current-symbol "->"
         linum-relative-format "%2s")
   (global-linum-mode t)
-  (linum-relative-global-mode)
+  (linum-relative-toggle)
   :config
   (set-face-attribute 'linum-relative-current-face nil :foreground "#fabd2f" :weight 'normal))
 
