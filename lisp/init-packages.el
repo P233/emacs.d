@@ -224,7 +224,10 @@
 
 
 (use-package rainbow-mode)
-(use-package rainbow-delimiters)
+(use-package rainbow-delimiters
+  :config
+  (set-face-background 'rainbow-delimiters-unmatched-face "#cc241d")
+  (set-face-background 'rainbow-delimiters-mismatched-face "#cc241d"))
 
 
 
