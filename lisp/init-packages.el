@@ -131,6 +131,7 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
     "b" 'switch-to-buffer
+    "c" 'evil-commentary-line
     "f" 'find-file
     "g" 'counsel-git
     "h" 'hs-toggle-hiding
@@ -143,11 +144,10 @@
     "v" 'multi-web-mode
     "x" 'kill-this-buffer))
 
-(use-package evil-nerd-commenter
-  :config
-  (evil-leader/set-key
-    "cl" 'evilnc-comment-or-uncomment-lines
-    "cp" 'evilnc-comment-or-uncomment-paragraphs))
+
+(use-package evil-commentary
+  :init
+  (evil-commentary-mode))
 
 (use-package evil-surround
   :config
