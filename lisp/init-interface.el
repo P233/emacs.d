@@ -9,7 +9,7 @@
 
 
 ;; Set fonts
-(set-frame-font "Eco Coding 16" t t)
+(set-frame-font "PragmataPro 16" t t)
 (set-fontset-font t 'han (font-spec :family "PingFang SC"))
 
 

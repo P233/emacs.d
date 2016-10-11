@@ -31,6 +31,7 @@
 
 ;; My Packages
 (require 'stylefmt)
+(require 'pragmatapro)
 
 
 ;; Custom File
