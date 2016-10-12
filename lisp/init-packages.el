@@ -117,7 +117,13 @@
   ;; expand yasnippet instead of trigging company autocomple.
   (define-key evil-emacs-state-map  (kbd "C-,") 'yas-expand)
   ;; align-regexp
-  (define-key evil-visual-state-map (kbd "C-=") 'align-regexp))
+  (define-key evil-visual-state-map (kbd "C-=") 'align-regexp)
+  ;; yank without moving cursor
+  (define-key evil-visual-state-map (kbd "y") (lambda ()
+						(interactive)
+						(save-excursion
+						  (call-interactively 'evil-yank)
+						  (backward-char)))))
 
 
 ;;----------------------------------------------------------------------------
