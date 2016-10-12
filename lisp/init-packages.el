@@ -221,7 +221,9 @@
   (global-set-key (kbd "<S-right>")   'enlarge-window-horizontally))
 
 
-(use-package browse-kill-ring)
+(use-package popup-kill-ring
+  :bind
+  ("C-c C-p" . popup-kill-ring))
 
 
 ;; npm install -g js-beautify
