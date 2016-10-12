@@ -142,6 +142,7 @@
     "h" 'hs-toggle-hiding
     "k" 'kill-buffer
     "m" 'magit-status
+    "q" 'kill-buffer-and-window
     "r" 'neotree-refresh
     "s" 'save-buffer
     "t" 'neotree-toggle
