@@ -14,10 +14,10 @@
 
 
 ;; Set default farme size
-(setq default-frame-alist '((width  . 180)
-                            (height . 52)
-                            (top    . 32)
-                            (left   . 130)))
+(setq default-frame-alist '((width  . 200)
+                            (height . 56)
+                            (top    . 0)
+                            (left   . 150)))
 
 
 ;; Set theme
