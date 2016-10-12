@@ -120,10 +120,9 @@
   (define-key evil-visual-state-map (kbd "C-=") 'align-regexp)
   ;; yank without moving cursor
   (define-key evil-visual-state-map (kbd "y") (lambda ()
-						(interactive)
-						(save-excursion
-						  (call-interactively 'evil-yank)
-						  (backward-char)))))
+                                                (interactive)
+                                                (save-excursion
+                                                  (call-interactively 'evil-yank)))))
 
 
 ;;----------------------------------------------------------------------------
