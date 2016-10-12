@@ -226,10 +226,6 @@
   ("C-c C-p" . popup-kill-ring))
 
 
-;; npm install -g js-beautify
-(use-package web-beautify)
-
-
 (use-package rainbow-mode)
 (use-package rainbow-delimiters
   :config

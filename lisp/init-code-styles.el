@@ -1,9 +1,14 @@
 ;; Set standard-indent size
 (setq standard-indent global-indentation-size)
 
-
 ;; Disable tab indentation
 (setq-default indent-tabs-mode nil)
+
+;; Remove trailing whitespace and untabify before saving buffer
+;; only if the buffer was initially clean.
+(use-package whitespace-cleanup-mode
+  :init
+  (global-whitespace-cleanup-mode))
 
 
 ;; Enable subword-mode
@@ -26,11 +31,8 @@
             (rainbow-delimiters-mode)))
 
 
-;; Remove trailing whitespace and untabify before saving file
-(add-hook 'before-save-hook
-          (lambda ()
-            (untabify 1 (point-max))
-            (delete-trailing-whitespace)))
+;; npm install -g js-beautify
+(use-package web-beautify)
 
 
 
