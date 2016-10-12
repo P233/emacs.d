@@ -195,7 +195,7 @@
 (use-package avy
   :init
   (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
-  (global-set-key (kbd "C-'") 'avy-goto-char-2))
+  (global-set-key (kbd "C-'") 'avy-goto-char))
 
 
 (use-package pinyin-search
