@@ -155,6 +155,10 @@
   :init
   (evil-commentary-mode))
 
+(use-package evil-smartparens
+  :init
+  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
+
 (use-package evil-surround
   :config
   (global-evil-surround-mode))
