@@ -3,7 +3,7 @@
 
 
 ;; Disable tab indentation
-(setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 
 ;; Enable subword-mode
@@ -26,11 +26,11 @@
             (rainbow-delimiters-mode)))
 
 
-;; ;; Remove trailing whitespace and untabify before saving file
-;; (add-hook 'before-save-hook
-;;           (lambda ()
-;;             (delete-trailing-whitespace)
-;;             (untabify (point-min) (point-max))))
+;; Remove trailing whitespace and untabify before saving file
+(add-hook 'before-save-hook
+          (lambda ()
+            (untabify 1 (point-max))
+            (delete-trailing-whitespace)))
 
 
 
