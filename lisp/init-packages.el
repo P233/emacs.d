@@ -28,6 +28,7 @@
         company-show-numbers t
         company-minimum-prefix-length 2
         company-dabbrev-downcase nil
+        company-selection-wrap-around t
         company-global-modes '(not org-mode markdown-mode))
   (global-company-mode)
   :config
