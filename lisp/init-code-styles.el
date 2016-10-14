@@ -11,10 +11,6 @@
   (global-whitespace-cleanup-mode))
 
 
-;; Enable subword-mode
-(global-subword-mode t)
-
-
 ;; Enable electric-pair-mode
 (electric-pair-mode t)
 
