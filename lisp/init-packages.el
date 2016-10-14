@@ -91,6 +91,9 @@
   (defadvice evil-insert-state (around emacs-state-instead-of-insert-state activate)
     (evil-emacs-state))
 
+  ;; Evil emacs state for Magit commit
+  (add-hook 'with-editor-mode-hook 'evil-emacs-state)
+
   ;; Switching status bar colour
   (add-hook 'post-command-hook
             (lambda ()
