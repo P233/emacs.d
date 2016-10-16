@@ -1,7 +1,9 @@
 .DS_Store
+recentf
+tramp
+smex-items
+custom.el
+
 elpa/
 auto-save-list/
 snippets/*-mode/
-/recentf
-/smex-items
-/custom.el
