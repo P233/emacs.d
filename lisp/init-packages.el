@@ -146,6 +146,7 @@
     "h" 'hs-toggle-hiding
     "k" 'kill-buffer
     "m" 'magit-status
+    "p" 'parinfer-toggle-mode
     "q" 'kill-buffer-and-window
     "r" 'neotree-refresh
     "s" 'save-buffer
@@ -158,10 +159,6 @@
 (use-package evil-commentary
   :init
   (evil-commentary-mode))
-
-(use-package evil-smartparens
-  :init
-  (add-hook 'smartparens-enabled-hook #'evil-smartparens-mode))
 
 (use-package evil-surround
   :config
