@@ -11,9 +11,6 @@
       create-lockfiles nil)
 
 
-(setq frame-title-format "Emacs")
-
-
 ;; Disable ring-bell-function
 (setq ring-bell-function 'ignore)
 
