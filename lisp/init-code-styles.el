@@ -16,7 +16,7 @@
 
 
 ;; Enable subword-mode
-(subword-mode t)
+(global-subword-mode t)
 
 
 ;; Enable show-paren-mode
