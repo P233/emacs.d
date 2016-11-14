@@ -3,6 +3,7 @@
 ;;----------------------------------------------------------------------------
 
 (use-package counsel
+  :diminish ivy-mode
   :init
   (setq ivy-use-virtual-buffers t
         ivy-height 20
@@ -22,6 +23,7 @@
 ;;----------------------------------------------------------------------------
 
 (use-package company
+  :diminish company-mode
   :init
   (setq company-idle-delay 0
         company-echo-delay 0
@@ -51,6 +53,7 @@
 ;;----------------------------------------------------------------------------
 
 (use-package yasnippet
+  :diminish yas-minor-mode
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (yas-global-mode t))
@@ -65,6 +68,7 @@
   ("C-x C-'" . magit-status))
 
 (use-package git-gutter
+  :diminish git-gutter-mode
   :init
   (global-git-gutter-mode t)
   :config
@@ -157,6 +161,7 @@
 
 
 (use-package evil-commentary
+  :diminish evil-commentary-mode
   :init
   (evil-commentary-mode))
 
