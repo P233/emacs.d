@@ -15,6 +15,10 @@
 (electric-pair-mode t)
 
 
+;; Enable subword-mode
+(subword-mode t)
+
+
 ;; Enable show-paren-mode
 (setq show-paren-delay 0)
 (show-paren-mode t)
