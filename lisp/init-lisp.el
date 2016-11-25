@@ -1,9 +1,3 @@
-;; Clojure(Script)
-(use-package clojure-mode
-  :init
-  (setq clojure-indent-style :align-arguments))
-
-
 ;; Parinfer
 (use-package parinfer
   :init
