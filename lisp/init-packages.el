@@ -67,6 +67,8 @@
   :bind
   ("C-x C-'" . magit-status))
 
+(use-package evil-magit)
+
 (use-package git-gutter
   :diminish git-gutter-mode
   :init
@@ -168,8 +170,6 @@
 (use-package evil-surround
   :config
   (global-evil-surround-mode))
-
-(use-package evil-magit)
 
 
 ;;----------------------------------------------------------------------------
