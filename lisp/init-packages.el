@@ -60,28 +60,6 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Magit
-;;----------------------------------------------------------------------------
-
-(use-package magit
-  :bind
-  ("C-x C-'" . magit-status))
-
-(use-package evil-magit)
-
-(use-package git-gutter
-  :diminish git-gutter-mode
-  :init
-  (global-git-gutter-mode t)
-  :config
-  (set-face-foreground 'git-gutter:modified "#d3869b")
-  (set-face-foreground 'git-gutter:added "#b8bb26")
-  (set-face-foreground 'git-gutter:deleted "#fb4934"))
-
-(use-package git-timemachine)
-
-
-;;----------------------------------------------------------------------------
 ;; Evil
 ;;----------------------------------------------------------------------------
 
@@ -170,6 +148,28 @@
 (use-package evil-surround
   :config
   (global-evil-surround-mode))
+
+
+;;----------------------------------------------------------------------------
+;; Magit
+;;----------------------------------------------------------------------------
+
+(use-package magit
+  :bind
+  ("C-x C-'" . magit-status))
+
+(use-package evil-magit)
+
+(use-package git-gutter
+  :diminish git-gutter-mode
+  :init
+  (global-git-gutter-mode t)
+  :config
+  (set-face-foreground 'git-gutter:modified "#d3869b")
+  (set-face-foreground 'git-gutter:added "#b8bb26")
+  (set-face-foreground 'git-gutter:deleted "#fb4934"))
+
+(use-package git-timemachine)
 
 
 ;;----------------------------------------------------------------------------
