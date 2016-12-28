@@ -1,7 +1,7 @@
 (require 'package)
 (setq package-enable-at-startup nil
-      package-archives '(("gnu"   . "http://elpa.zilongshanren.com/gnu/")
-                          ("melpa" . "http://elpa.zilongshanren.com/melpa/")))
+      package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 (package-initialize)
 
