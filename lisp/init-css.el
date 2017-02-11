@@ -8,6 +8,7 @@
             ;; (flycheck-select-checker 'scss-lint)
             ;; (flycheck-mode)
             (local-set-key (kbd "C-x C-s") 'stylefmt-sort-buffer)
+            (rainbow-mode)
             (emmet-mode)))
 
 
