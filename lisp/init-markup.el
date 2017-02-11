@@ -1,11 +1,7 @@
 (use-package web-mode
   :mode
   ("\\.html\\'" . web-mode)
-  ("\\.wxml\\'" . web-mode)
   ("\\.jsx\\'"  . web-mode)
-  ("\\.vue\\'"  . web-mode)
-  ("\\.eex\\'"  . web-mode)
-  ("\\.hbs\\'"  . web-mode)
   :init
   (setq web-mode-script-padding global-indentation-size
         web-mode-style-padding global-indentation-size
@@ -14,13 +10,6 @@
         web-mode-attr-value-indent-offset global-indentation-size
         web-mode-enable-current-element-highlight t
         web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
-
-
-;; Highlight SCSS block in Vue single-file format
-(use-package multi-web-mode
-  :init
-  (setq mweb-default-major-mode 'web-mode
-        mweb-tags '((scss-mode "<style lang=\"scss\">" "</style>"))))
 
 
 (use-package emmet-mode
