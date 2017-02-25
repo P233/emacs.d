@@ -22,15 +22,10 @@
 (defvar stylefmt-sorting-config-file "~/.postcssrc.json"
   "Use ~/.postcssrc.json for default sorting config.")
 
-(defvar stylefmt-sorting-syntax-plugin "postcss-scss"
-  "Use postcss-scss plugin for default syntax.")
-
 
 (defun stylefmt-sorting-command-not-found-message ()
   "Construct a message about postcss-cli program not found."
-  (format
-   "postcss-cli is not found. Make sure postcss-cli, stylefmt, postcss-sorting%s are all installed globally by npm."
-   (if stylefmt-sorting-syntax-plugin (format ", and %s" stylefmt-sorting-syntax-plugin) "")))
+  (message "postcss-cli is not found. Make sure postcss-cli, stylefmt, and postcss-sorting are all installed globally."))
 
 (defun stylefmt-sorting-command-error-message (buffer-name)
   "Construct a message about postcss-cli program error with BUFFER-NAME."
@@ -43,16 +38,11 @@
   "Construct the config arg with stylefmt-sorting-config-file."
   (if stylefmt-sorting-config-file (concat "-c " stylefmt-sorting-config-file) ""))
 
-(defun stylefmt-sorting-get-syntax-arg ()
-  "Construct the syntax arg with stylefmt-sorting-syntax-plugin."
-  (if stylefmt-sorting-syntax-plugin (concat "-s " stylefmt-sorting-syntax-plugin) ""))
-
 (defun stylefmt-sorting-get-shell-command ()
   "Construct the shell command for postcss-sorting."
   (mapconcat 'identity (list stylefmt-sorting-program
                              "-u postcss-sorting"
-                             (stylefmt-sorting-get-config-arg)
-                             (stylefmt-sorting-get-syntax-arg)) " "))
+                             (stylefmt-sorting-get-config-arg)) " "))
 
 
 (defun stylefmt-sort-buffer ()
@@ -75,7 +65,6 @@
               ;; Reclaim position for a smooth transition.
               (goto-char previous-point)
               (set-window-start nil previous-window-start)
-              (save-buffer) ; save current buffer therefore stylefmt can work properly.
               (message "Applied postcss-sorting.")
               (kill-buffer output-buffer))
           ;; Unfortunately an error causes the buffer to be replaced with
@@ -96,12 +85,13 @@
   (message "Applied stylefmt."))
 
 
-(defun stylefmt-sort-n-format-buffer ()
-  "Sort and format CSS code in current buffer."
+(defun stylefmt-format-n-sort-buffer ()
+  "Format, sort, and save current buffer."
   (interactive)
   (progn
+    (stylefmt-format-buffer)
     (stylefmt-sort-buffer)
-    (stylefmt-format-buffer)))
+    (save-buffer)))
 
 
 
