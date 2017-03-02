@@ -1,8 +1,8 @@
 (defun my-js-minor-modes ()
   "Shared minor modes for both js2-mode and web-mode (JSX)."
   (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
-  (flycheck-select-checker 'javascript-eslint)
-  (flycheck-mode)
+  ;; (flycheck-select-checker 'javascript-eslint)
+  ;; (flycheck-mode)
   (tern-mode))
 
 
@@ -17,6 +17,7 @@
 (use-package js2-mode
   :mode
   ("\\.js$" . js2-mode)
+  ("\\.ts$" . js2-mode)
   :init
   (setq js2-basic-offset global-indentation-size
         js-switch-indent-offset global-indentation-size

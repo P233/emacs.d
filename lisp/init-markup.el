@@ -2,6 +2,7 @@
   :mode
   ("\\.html\\'" . web-mode)
   ("\\.jsx\\'"  . web-mode)
+  ("\\.tsx\\'"  . web-mode)
   :init
   (setq web-mode-script-padding global-indentation-size
         web-mode-style-padding global-indentation-size
