@@ -42,6 +42,7 @@
   "Construct the shell command for postcss-sorting."
   (mapconcat 'identity (list stylefmt-sorting-program
                              "-u postcss-sorting"
+                             "-s postcss-scss"
                              (stylefmt-sorting-get-config-arg)) " "))
 
 
@@ -65,8 +66,9 @@
               ;; Reclaim position for a smooth transition.
               (goto-char previous-point)
               (set-window-start nil previous-window-start)
-              (message "Applied postcss-sorting.")
-              (kill-buffer output-buffer))
+              (kill-buffer output-buffer)
+              (save-buffer)
+              (message "Applied postcss-sorting."))
           ;; Unfortunately an error causes the buffer to be replaced with
           ;; emptiness... so undo that. Kind of an ugly hack. But a
           ;; properly-configured web-beautify shouldn't encounter this much, if
@@ -81,17 +83,17 @@
   (interactive)
   (save-excursion
     (call-process "stylefmt" nil nil nil (buffer-file-name (current-buffer)))
-    (revert-buffer t t t))
+    (revert-buffer t t t)
+    (save-buffer))
   (message "Applied stylefmt."))
 
 
-(defun stylefmt-format-n-sort-buffer ()
-  "Format, sort, and save current buffer."
-  (interactive)
-  (progn
-    (stylefmt-format-buffer)
-    (stylefmt-sort-buffer)
-    (save-buffer)))
+;; (defun stylefmt-format-n-sort-buffer ()
+;;   "Format, sort, and save current buffer."
+;;   (interactive)
+;;   (progn
+;;     (stylefmt-format-buffer)
+;;     (stylefmt-sort-buffer)))
 
 
 
