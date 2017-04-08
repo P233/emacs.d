@@ -19,6 +19,10 @@
 (recentf-mode)
 
 
+;; Auto revert buffer
+(global-auto-revert-mode t)
+
+
 ;; Enable quick yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
