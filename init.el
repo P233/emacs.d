@@ -7,7 +7,6 @@
 
 
 ;; Emacs Settings
-(require 'init-osx)
 (require 'init-interface)
 (require 'init-settings)
 
