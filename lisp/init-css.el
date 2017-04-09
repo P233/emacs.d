@@ -4,7 +4,7 @@
 
 (add-hook 'scss-mode-hook
           (lambda ()
-            (setq-local company-backends '(company-files company-dabbrev-code company-dabbrev))
+            (setq-local company-backends '(company-files company-css))
             (local-set-key (kbd "C-x C-s") 'stylefmt-sort-buffer)
             (rainbow-mode)
             (emmet-mode)))
