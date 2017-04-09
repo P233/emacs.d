@@ -27,6 +27,7 @@
 ;; Enable the following minor modes for programming languages
 (add-hook 'prog-mode-hook
           (lambda ()
+            (hl-sexp-mode)
             (hs-minor-mode)
             (rainbow-delimiters-mode)))
 

@@ -237,6 +237,9 @@
   ("C-c C-p" . popup-kill-ring))
 
 
+(use-package hl-sexp)
+
+
 (use-package rainbow-mode)
 (use-package rainbow-delimiters
   :config
