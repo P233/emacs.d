@@ -11,6 +11,7 @@
 ;; Set fonts
 (set-frame-font "PragmataPro 16" t t)
 (set-fontset-font t 'han (font-spec :family "PingFang SC"))
+(mac-auto-operator-composition-mode t) ; Enable ligatures
 
 
 ;; Set default farme size
