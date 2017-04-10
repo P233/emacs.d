@@ -15,6 +15,10 @@
 (require 'init-packages)
 
 
+;; My Packages
+(require 'stylefmt)
+
+
 ;; Language Settings
 (require 'init-code-styles)
 (require 'init-markup)
@@ -27,10 +31,6 @@
 
 ;; My Functions
 (require 'init-my-functions)
-
-
-;; My Packages
-(require 'stylefmt)
 
 
 ;; Custom File
