@@ -189,7 +189,8 @@
 
 (use-package neotree
   :init
-  (setq neo-smart-open t
+  (setq neo-theme 'arrow
+        neo-smart-open t
         neo-window-position 'right)
   :config
   (add-hook 'neotree-mode-hook
