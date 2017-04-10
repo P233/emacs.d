@@ -25,6 +25,12 @@
 
 
 ;; Enable the following minor modes for programming languages
+(use-package hl-sexp)
+(use-package rainbow-delimiters
+  :config
+  (set-face-background 'rainbow-delimiters-unmatched-face "#cc241d")
+  (set-face-background 'rainbow-delimiters-mismatched-face "#cc241d"))
+
 (add-hook 'prog-mode-hook
           (lambda ()
             (hl-sexp-mode)

@@ -2,6 +2,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 
+(use-package rainbow-mode)
+
 (add-hook 'scss-mode-hook
           (lambda ()
             (setq-local company-backends '(company-files company-css))
