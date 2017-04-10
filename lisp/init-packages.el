@@ -136,7 +136,6 @@
     "s" 'save-buffer
     "t" 'neotree-toggle
     "u" 'undo-tree-visualize
-    "v" 'multi-web-mode
     "x" 'kill-this-buffer))
 
 
