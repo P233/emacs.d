@@ -33,7 +33,6 @@
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (hl-sexp-mode)
             (hs-minor-mode)
             (rainbow-delimiters-mode)))
 
