@@ -78,22 +78,9 @@
   ;; Evil emacs state for Magit commit
   (add-hook 'with-editor-mode-hook 'evil-emacs-state)
 
-  ;; Switching status bar colour
-  (add-hook 'post-command-hook
-            (lambda ()
-              (let ((color (cond ((evil-normal-state-p)  '("#689d6a"))
-                                 ((evil-emacs-state-p)   '("#076678"))
-                                 ((evil-visual-state-p)  '("#d65d0e"))
-                                 ((evil-replace-state-p) '("#cc241d"))
-                                 (t '("#3c3836")))))
-                (set-face-background 'mode-line (car color))))
-            (set-face-foreground 'mode-line "#ebdbb2"))
-
   ;; Key bindings for evil-emacs state
   ;; ---------------------------------
-  ;; unbind "M-."
-  (define-key evil-normal-state-map  (kbd "M-.") nil)
-
+  (define-key evil-normal-state-map (kbd "M-.") nil) ; unbind "M-." for tags
   (define-key evil-emacs-state-map  [escape]    'evil-normal-state)
   (define-key evil-emacs-state-map  (kbd "C-o") 'evil-execute-in-normal-state)
   (define-key evil-emacs-state-map  (kbd "M-p") 'evil-complete-previous)
@@ -162,11 +149,7 @@
 (use-package git-gutter
   :diminish git-gutter-mode
   :init
-  (global-git-gutter-mode t)
-  :config
-  (set-face-foreground 'git-gutter:modified "#d3869b")
-  (set-face-foreground 'git-gutter:added "#b8bb26")
-  (set-face-foreground 'git-gutter:deleted "#fb4934"))
+  (global-git-gutter-mode t))
 
 (use-package git-timemachine)
 
