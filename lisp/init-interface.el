@@ -1,15 +1,18 @@
+;; Set default farme parameters
+(setq default-frame-alist '((width  . 200)
+                            (height . 56)
+                            (top    . 0)
+                            (left   . 150)
+                            (vertical-scroll-bars . nil)))
+
+
 ;; Disable startup screen
 (setq inhibit-startup-message t
       initial-scratch-message "")
 
 
-;; Hide interface elements
+;; Hide tool bar
 (tool-bar-mode -1)
-(toggle-scroll-bar -1)
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (modify-frame-parameters frame
-                                     '((vertical-scroll-bars . nil)))))
 
 
 ;; Show column number
@@ -68,13 +71,6 @@
       (set-face-foreground 'fringe "#665c54")
       (set-face-attribute 'linum-relative-current-face nil :foreground "#fabd2f" :background "#282828" :weight 'normal)
       (setq current-theme-name "gruvbox"))))
-
-
-;; Set default farme size
-(setq default-frame-alist '((width  . 200)
-                            (height . 56)
-                            (top    . 0)
-                            (left   . 150)))
 
 
 
