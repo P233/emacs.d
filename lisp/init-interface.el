@@ -5,7 +5,11 @@
 
 ;; Hide interface elements
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
+(toggle-scroll-bar -1)
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (modify-frame-parameters frame
+                                     '((vertical-scroll-bars . nil)))))
 
 
 ;; Show column number
