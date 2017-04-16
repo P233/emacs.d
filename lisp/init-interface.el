@@ -11,6 +11,10 @@
       initial-scratch-message "")
 
 
+;; Display buffer name on titlebar
+(setq frame-title-format "%b")
+
+
 ;; Hide tool bar
 (tool-bar-mode -1)
 
