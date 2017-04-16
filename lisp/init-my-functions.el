@@ -91,5 +91,22 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "M-DEL") 'my-backward-kill-line)
 
 
+;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
+(defun my-screaming-snake-case-word ()
+  "Convert a camelCase word at point to SCREAMING_SNAKE_CASE."
+  (interactive)
+  (let* ((bounds
+          (if (use-region-p)
+              (cons (region-beginning) (region-end))
+            (bounds-of-thing-at-point 'symbol)))
+         (text (buffer-substring-no-properties (car bounds) (cdr bounds))))
+    (when bounds
+      (delete-region (car bounds) (cdr bounds))
+      (insert (let ((case-fold-search nil))
+                (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
+
+(global-set-key (kbd "M-S") 'my-screaming-snake-case-word)
+
+
 
 (provide 'init-my-functions)
