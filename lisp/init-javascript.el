@@ -36,7 +36,8 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (when (equal web-mode-content-type "jsx")
-              (setq-local emmet-expand-jsx-className? t) ; Enable emmet className completion
+              (setq-local emmet-expand-jsx-className? t)
+              (setq-local web-mode-enable-auto-quoting nil)
               (my-js-minor-modes))))
 
 
