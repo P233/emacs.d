@@ -4,7 +4,7 @@
 
 (use-package rainbow-mode)
 
-(add-hook 'scss-mode-hook
+(add-hook 'css-mode-hook
           (lambda ()
             (setq-local company-backends '(company-files (company-css :with company-dabbrev company-dabbrev-code)))
             (local-set-key (kbd "C-x C-s") 'stylefmt-sort-buffer)
