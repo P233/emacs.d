@@ -174,7 +174,8 @@
   :init
   (setq neo-theme 'arrow
         neo-smart-open t
-        neo-window-position 'right)
+        neo-window-position 'right
+        neo-autorefresh nil)
   :config
   (add-hook 'neotree-mode-hook
             (lambda ()
