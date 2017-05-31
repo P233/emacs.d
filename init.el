@@ -2,7 +2,6 @@
 
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "packages" user-emacs-directory))
 (require 'init-use-package)
 
 
@@ -13,10 +12,6 @@
 
 ;; Pagkaces Settings
 (require 'init-packages)
-
-
-;; My Packages
-(require 'stylefmt)
 
 
 ;; Language Settings

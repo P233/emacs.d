@@ -7,7 +7,7 @@
 (add-hook 'css-mode-hook
           (lambda ()
             (setq-local company-backends '(company-files (company-css :with company-dabbrev company-dabbrev-code)))
-            (local-set-key (kbd "C-x C-s") 'stylefmt-sort-buffer)
+            (local-set-key (kbd "C-x C-s") 'postcss-sorting-buffer)
             (rainbow-mode)
             (emmet-mode)))
 
