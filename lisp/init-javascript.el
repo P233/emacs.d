@@ -19,7 +19,8 @@
   :init
   (setq prettier-js-args '(
                            "--print-width" "100"
-                           "--trailing-comma" "all")))
+                           "--trailing-comma" "all"
+                           "--single-quote" "true")))
 
 
 (use-package js2-mode
