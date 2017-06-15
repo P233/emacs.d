@@ -3,6 +3,7 @@
   (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
   ;; (flycheck-select-checker 'javascript-eslint)
   ;; (flycheck-mode)
+  (prettier-js-mode)
   (tern-mode))
 
 
@@ -12,6 +13,13 @@
   (setq tern-command '("tern" "--no-port-file")))
 
 (use-package company-tern)
+
+
+(use-package prettier-js
+  :init
+  (setq prettier-js-args '(
+                           "--print-width" "100"
+                           "--trailing-comma" "all")))
 
 
 (use-package js2-mode
