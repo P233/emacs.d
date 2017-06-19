@@ -40,13 +40,12 @@
   (nyan-mode))
 
 
-;; Enable relative line number
-(use-package linum-relative
-  :init
-  (setq linum-relative-current-symbol "->"
-        linum-relative-format "%2s")
-  (global-linum-mode t)
-  (linum-relative-toggle))
+;; Relative line number
+(use-package nlinum-relative
+  :config
+  (setq nlinum-relative-redisplay-delay 0
+        nlinum-relative-current-symbol "->")
+  (add-hook 'prog-mode-hook 'nlinum-relative-mode))
 
 
 ;; Set default theme
@@ -54,8 +53,7 @@
   :init
   (load-theme 'gruvbox t)
   (set-face-foreground 'default "#ebdbb2")
-  (set-face-foreground 'fringe "#665c54")
-  (set-face-attribute 'linum-relative-current-face nil :foreground "#fabd2f" :background "#282828" :weight 'normal))
+  (set-face-foreground 'fringe "#665c54"))
 
 
 ;; Switch theme
@@ -67,13 +65,11 @@
         (disable-theme 'gruvbox)
         (set-face-foreground 'default "#000")
         (set-face-foreground 'fringe "#7f7f7f")
-        (set-face-attribute 'linum-relative-current-face nil :foreground "#b92028" :background "#f0f0f0" :weight 'normal)
         (setq current-theme-name "default"))
     (progn
       (load-theme 'gruvbox t)
       (set-face-foreground 'default "#ebdbb2")
       (set-face-foreground 'fringe "#665c54")
-      (set-face-attribute 'linum-relative-current-face nil :foreground "#fabd2f" :background "#282828" :weight 'normal)
       (setq current-theme-name "gruvbox"))))
 
 

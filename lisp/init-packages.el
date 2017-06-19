@@ -146,7 +146,7 @@
 
 (use-package evil-magit)
 
-(use-package git-gutter
+(use-package git-gutter-fringe
   :diminish git-gutter-mode
   :init
   (global-git-gutter-mode t))
