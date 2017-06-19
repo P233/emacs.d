@@ -44,10 +44,6 @@
             (rainbow-delimiters-mode)))
 
 
-;; npm install -g js-beautify
-(use-package web-beautify)
-
-
 ;; Clone indirect buffer
 (global-set-key (kbd "C-c C-c") 'clone-indirect-buffer)
 
