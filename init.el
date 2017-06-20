@@ -29,7 +29,7 @@
 
 
 ;; Custom File
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
 
