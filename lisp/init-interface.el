@@ -40,14 +40,6 @@
   (nyan-mode))
 
 
-;; Relative line number
-(use-package nlinum-relative
-  :config
-  (setq nlinum-relative-redisplay-delay 0
-        nlinum-relative-current-symbol "->")
-  (add-hook 'prog-mode-hook 'nlinum-relative-mode))
-
-
 ;; Set default theme
 (use-package gruvbox-theme
   :init
