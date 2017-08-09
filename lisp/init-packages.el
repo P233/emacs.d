@@ -197,9 +197,9 @@
   (global-set-key (kbd "C-\"") 'pinyin-search))
 
 
-(use-package window-numbering
+(use-package ace-window
   :init
-  (window-numbering-mode))
+  (global-set-key (kbd "M-p") 'ace-window))
 
 
 (use-package buffer-move
