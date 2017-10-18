@@ -43,26 +43,7 @@
 ;; Set default theme
 (use-package gruvbox-theme
   :init
-  (load-theme 'gruvbox t)
-  (set-face-foreground 'default "#ebdbb2")
-  (set-face-foreground 'fringe "#665c54"))
-
-
-;; Switch theme
-(defvar current-theme-name "gruvbox")
-(defun switch-theme ()
-  (interactive)
-  (if (string-equal current-theme-name "gruvbox")
-      (progn
-        (disable-theme 'gruvbox)
-        (set-face-foreground 'default "#000")
-        (set-face-foreground 'fringe "#7f7f7f")
-        (setq current-theme-name "default"))
-    (progn
-      (load-theme 'gruvbox t)
-      (set-face-foreground 'default "#ebdbb2")
-      (set-face-foreground 'fringe "#665c54")
-      (setq current-theme-name "gruvbox"))))
+  (load-theme 'gruvbox t))
 
 
 
