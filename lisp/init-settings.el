@@ -19,6 +19,10 @@
 (recentf-mode)
 
 
+;; Setup default path for 'find file'
+(setq default-directory "~/Projects")
+
+
 ;; Enable timestamps for undo tree
 (setq undo-tree-visualizer-timestamps t)
 
