@@ -83,5 +83,8 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "M-S") 'my-screaming-snake-case-word)
 
 
+;;----------------------------------------------------------------------------
+;; end
+;;----------------------------------------------------------------------------
 
 (provide 'init-my-functions)
