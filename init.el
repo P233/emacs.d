@@ -22,9 +22,7 @@
 
 ;; Language Settings
 (require 'init-code-styles)
-(require 'init-markup)
-(require 'init-css)
-(require 'init-javascript)
+(require 'init-front-end)
 (require 'init-elixir)
 (require 'init-lisp)
 (require 'init-org)
