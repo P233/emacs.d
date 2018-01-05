@@ -7,7 +7,7 @@
   (tern-mode))
 
 
-;; npm install -g tern
+;; Tern mode
 (use-package tern
   :init
   (setq tern-command '("tern" "--no-port-file")))
@@ -15,6 +15,7 @@
 (use-package company-tern)
 
 
+;; Prettier mode
 (use-package prettier-js
   :init
   (setq prettier-js-args '(
@@ -23,19 +24,7 @@
                            "--single-quote" "true")))
 
 
-(use-package js2-mode
-  :mode
-  ("\\.js$" . js2-mode)
-  ("\\.ts$" . js2-mode)
-  :init
-  (setq js2-basic-offset global-indentation-size
-        js-switch-indent-offset global-indentation-size
-        js2-mode-show-parse-errors nil
-        js2-mode-show-strict-warnings nil)
-  :config
-  (add-hook 'js2-mode-hook 'my-js-minor-modes))
-
-
+;; JSON mode
 (use-package json-mode
   :init
   (setq js-indent-level global-indentation-size))

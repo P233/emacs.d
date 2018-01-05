@@ -133,6 +133,14 @@
 
 (use-package evil-surround
   :config
+  (evil-add-to-alist
+   'evil-surround-pairs-alist
+     ?\( '("(" . ")")
+     ?\[ '("[" . "]")
+     ?\{ '("{" . "}")
+     ?\) '("( " . " )")
+     ?\] '("[ " . " ]")
+     ?\} '("{ " . " }"))
   (global-evil-surround-mode))
 
 
@@ -194,12 +202,7 @@
 
 (use-package pinyin-search
   :init
-  (global-set-key (kbd "C-\"") 'pinyin-search))
-
-
-(use-package ace-window
-  :init
-  (global-set-key (kbd "M-p") 'ace-window))
+  (global-set-key (kbd "C-c C-\"") 'pinyin-search))
 
 
 (use-package buffer-move

@@ -23,30 +23,5 @@
 (electric-pair-mode t)
 
 
-;; Enable subword-mode
-(global-subword-mode t)
-
-
-;; Enable show-paren-mode
-(setq show-paren-delay 0)
-(show-paren-mode t)
-
-
-;; Enable the following minor modes for programming languages
-(use-package rainbow-delimiters
-  :config
-  (set-face-background 'rainbow-delimiters-unmatched-face "#cc241d")
-  (set-face-background 'rainbow-delimiters-mismatched-face "#cc241d"))
-
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (hs-minor-mode)
-            (rainbow-delimiters-mode)))
-
-
-;; Clone indirect buffer
-(global-set-key (kbd "C-c C-c") 'clone-indirect-buffer)
-
-
 
 (provide 'init-code-styles)

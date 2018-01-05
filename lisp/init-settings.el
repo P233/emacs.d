@@ -1,8 +1,3 @@
-;; Set global-indentation-size
-(defvar global-indentation-size 2
-  "Globally shared indentation setting.")
-
-
 ;; Disable backup, auto-save and lockfiles
 (setq backup-inhibited t
       make-backup-files nil
@@ -15,10 +10,6 @@
 (setq ring-bell-function 'ignore)
 
 
-;; Enable recentf-mode
-(recentf-mode)
-
-
 ;; Setup default path for 'find file'
 (setq default-directory "~/Projects")
 
@@ -29,6 +20,14 @@
 
 ;; Enable quick yes
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+
+;; Enable recentf-mode
+(recentf-mode)
+
+
+;; Enable subword-mode
+(global-subword-mode t)
 
 
 ;; Enable advanced ibuffer

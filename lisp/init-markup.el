@@ -1,8 +1,8 @@
+;; Web mode
 (use-package web-mode
   :mode
   ("\\.html\\'" . web-mode)
-  ("\\.jsx\\'"  . web-mode)
-  ("\\.tsx\\'"  . web-mode)
+  ("\\.js[x]?\\'"   . web-mode)
   :init
   (setq web-mode-script-padding global-indentation-size
         web-mode-style-padding global-indentation-size
@@ -13,6 +13,7 @@
         web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
 
 
+;; Emmet mode
 (use-package emmet-mode
   :init
   (setq emmet-move-cursor-between-quotes t
@@ -22,6 +23,7 @@
   (define-key emmet-mode-keymap (kbd "<C-return>") nil))
 
 
+;; Markdown mode
 (use-package markdown-mode
   :mode
   ("README\\.md\\'" . gfm-mode)
@@ -29,10 +31,10 @@
   :init
   (setq markdown-command "multimarkdown")
   :config
-  ;; brew install aspell --with-lang-en
   (add-hook 'markdown-mode-hook 'turn-on-flyspell))
 
 
+;; YAML mode
 (use-package yaml-mode)
 
 

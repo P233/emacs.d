@@ -1,10 +1,8 @@
-(setq css-indent-offset global-indentation-size)
-
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 
-(use-package rainbow-mode)
+(setq css-indent-offset global-indentation-size)
 
-(use-package stylefmt)
+(use-package rainbow-mode)
 
 (use-package postcss-sorting)
 

@@ -1,5 +1,11 @@
 ;; (package-initialize)
 
+
+;; Global Variables
+(defvar global-indentation-size 2
+  "Globally shared indentation setting.")
+
+
 ;; Load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-use-package)
