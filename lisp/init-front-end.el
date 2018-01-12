@@ -33,13 +33,8 @@
 
 
 ;; Emmet mode
-(use-package emmet-mode
-  :init
-  (setq emmet-move-cursor-between-quotes t
-        emmet-insert-flash-time 0.1)
-  :config
-  (add-hook 'web-mode-hook 'emmet-mode)
-  (define-key emmet-mode-keymap (kbd "<C-return>") nil))
+(setq emmet-move-cursor-between-quotes t
+      emmet-insert-flash-time 0.1)
 
 
 ;;----------------------------------------------------------------------------
@@ -101,6 +96,8 @@
 ;; Add support for JSX
 (add-hook 'web-mode-hook
           (lambda ()
+            (emmet-mode)
+            (emmet-preview-mode)
             (when (equal web-mode-content-type "jsx")
               (setq-local emmet-expand-jsx-className? t)
               (setq-local web-mode-enable-auto-quoting nil)
