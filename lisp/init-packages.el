@@ -1,4 +1,23 @@
 ;;----------------------------------------------------------------------------
+;; Mark package to never be considered for upgrade
+;;----------------------------------------------------------------------------
+
+;; https://emacs.stackexchange.com/questions/9331/mark-package-to-never-be-considered-for-upgrade
+(defvar package-menu-exclude-packages '("emmet-mode"))
+
+(defun package-menu--remove-excluded-packages (orig)
+  (let ((included (-filter
+                   (lambda (entry)
+                     (let ((name (symbol-name (package-desc-name (car entry)))))
+                       (not (member name package-menu-exclude-packages))))
+                   tabulated-list-entries)))
+    (setq-local tabulated-list-entries included)
+    (funcall orig)))
+
+(advice-add 'package-menu--find-upgrades :around #'package-menu--remove-excluded-packages)
+
+
+;;----------------------------------------------------------------------------
 ;; Ivy
 ;;----------------------------------------------------------------------------
 
