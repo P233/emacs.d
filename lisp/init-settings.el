@@ -24,6 +24,7 @@
 
 ;; Enable recentf-mode
 (recentf-mode)
+(add-to-list 'recentf-exclude (format (concat (expand-file-name user-emacs-directory) "elpa/.*")))
 
 
 ;; Enable subword-mode
