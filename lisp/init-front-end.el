@@ -97,7 +97,6 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (emmet-mode)
-            (emmet-preview-mode)
             (when (equal web-mode-content-type "jsx")
               (setq-local emmet-expand-jsx-className? t)
               (setq-local web-mode-enable-auto-quoting nil)
