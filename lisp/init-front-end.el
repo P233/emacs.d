@@ -35,6 +35,9 @@
 ;; Emmet mode
 (setq emmet-move-cursor-between-quotes t
       emmet-insert-flash-time 0.1)
+(add-hook 'emmet-mode-hook
+          (lambda ()
+            (define-key emmet-mode-keymap (kbd "<C-return>") nil)))
 
 
 ;;----------------------------------------------------------------------------
