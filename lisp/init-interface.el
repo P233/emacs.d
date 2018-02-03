@@ -1,11 +1,3 @@
-;; Set default farme size and position
-(setq default-frame-alist '((width  . 200)
-                            (height . 56)
-                            (top    . 0)
-                            (left   . 150)
-                            (vertical-scroll-bars . nil)))
-
-
 ;; Disable startup screen
 (setq inhibit-startup-message t
       initial-scratch-message "")
@@ -13,6 +5,14 @@
 
 ;; Display buffer name on titlebar
 (setq frame-title-format "%b")
+
+
+;; Maximize Emacs frame on start-up
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+
+;; Hide scroll bar
+(scroll-bar-mode -1)
 
 
 ;; Hide tool bar
