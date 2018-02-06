@@ -69,7 +69,8 @@
 ;; Default color theme
 (use-package gruvbox-theme
   :init
-  (load-theme 'gruvbox t))
+  (load-theme 'gruvbox t)
+  (set-face-foreground 'linum "#a89984"))
 
 
 
