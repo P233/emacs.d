@@ -12,12 +12,6 @@
 ;; Disable tab indentation
 (setq-default indent-tabs-mode nil)
 
-;; Remove trailing whitespace and untabify before saving file
-(add-hook 'before-save-hook
-          (lambda ()
-            (untabify 1 (point-max))
-            (delete-trailing-whitespace)))
-
 
 ;; Enable electric-pair-mode
 (electric-pair-mode t)

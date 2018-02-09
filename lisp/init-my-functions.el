@@ -84,7 +84,31 @@ Repeated invocations toggle between the two most recently open buffers."
 
 
 ;;----------------------------------------------------------------------------
-;; end
+;; Untabify and Remove trailing whitespace
+;;----------------------------------------------------------------------------
+
+
+(defun my-untabify-and-remove-trailing-whitespace ()
+  "Untabify and remove trailing whitespace."
+  (untabify 1 (point-max))
+  (delete-trailing-whitespace))
+
+(defun my-enable-untabify-on-save ()
+  "Enable format before saving file."
+  (interactive)
+  (add-hook 'before-save-hook 'my-untabify-and-remove-trailing-whitespace)
+  (message "Untabify enabled"))
+
+(defun my-disable-untabify-on-save ()
+  "Disable format before saving file."
+  (interactive)
+  (remove-hook 'before-save-hook 'my-untabify-and-remove-trailing-whitespace)
+  (message "Untabify disabled"))
+
+(my-enable-untabify-on-save)
+
+
+
 ;;----------------------------------------------------------------------------
 
 (provide 'init-my-functions)
