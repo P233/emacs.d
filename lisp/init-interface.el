@@ -47,8 +47,7 @@
 ;; Relative line number mode
 (use-package nlinum-relative
   :config
-  (setq nlinum-relative-current-symbol "->")
-  (nlinum-relative-mode))
+  (setq nlinum-relative-current-symbol "->"))
 
 
 ;; Rainbow delimiters mode
