@@ -73,6 +73,10 @@
   (tern-mode))
 
 
+;; JS2 mode
+(use-package js2-mode)
+
+
 ;; Tern mode
 (use-package tern
   :init
