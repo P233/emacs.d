@@ -220,6 +220,11 @@
   (global-set-key (kbd "C-c C-'") 'avy-goto-char))
 
 
+(use-package ace-window
+  :init
+  (global-set-key (kbd "M-o") 'ace-window))
+
+
 (use-package pinyin-search
   :init
   (global-set-key (kbd "C-c C-\"") 'pinyin-search))
