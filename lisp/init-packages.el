@@ -26,7 +26,8 @@
   :init
   (setq ivy-use-virtual-buffers t
         ivy-height 20
-        ivy-wrap t)
+        ivy-wrap t
+        ivy-use-selectable-prompt t)
   (ivy-mode t)
   (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "M-x") 'counsel-M-x)
