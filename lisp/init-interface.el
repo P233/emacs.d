@@ -7,10 +7,6 @@
 (setq frame-title-format "%b")
 
 
-;; Maximize Emacs frame on start-up
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-
 ;; Hide scroll bar
 (scroll-bar-mode -1)
 
