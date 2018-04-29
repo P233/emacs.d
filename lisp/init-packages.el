@@ -203,7 +203,8 @@
   (setq neo-theme 'arrow
         neo-smart-open t
         neo-window-position 'right
-        neo-autorefresh nil)
+        neo-autorefresh nil
+        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :config
   (add-hook 'neotree-mode-hook
             (lambda ()
