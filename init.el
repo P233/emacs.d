@@ -23,6 +23,7 @@
 ;; Language Settings
 (require 'init-code-styles)
 (require 'init-front-end)
+(require 'init-flutter)
 (require 'init-elixir)
 (require 'init-lisp)
 (require 'init-org)
