@@ -66,6 +66,7 @@
 
 (defun my-js-minor-modes ()
   "Shared minor modes for both js2-mode and web-mode (JSX)."
+  (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
   ;; (flycheck-select-checker 'javascript-eslint)
   ;; (flycheck-mode)
   (prettier-js-mode)
@@ -81,9 +82,7 @@
   :init
   (setq tern-command '("tern" "--no-port-file")))
 
-(use-package company-tern
-  :config
-  (add-to-list 'company-backends 'company-tern))
+(use-package company-tern)
 
 
 ;; Prettier mode
