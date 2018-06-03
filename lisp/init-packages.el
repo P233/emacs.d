@@ -22,13 +22,13 @@
 ;;----------------------------------------------------------------------------
 
 (use-package counsel
-  :diminish ivy-mode
   :init
   (setq ivy-use-virtual-buffers t
         ivy-height 20
         ivy-wrap t
         ivy-use-selectable-prompt t)
   (ivy-mode t)
+  :config
   (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-g") 'counsel-git)
@@ -43,7 +43,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package company
-  :diminish company-mode
   :init
   (setq company-idle-delay 0
         company-echo-delay 0
@@ -73,10 +72,10 @@
 ;;----------------------------------------------------------------------------
 
 (use-package yasnippet
-  :diminish yas-minor-mode
   :init
-  (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory))
-  (yas-global-mode t))
+  (yas-global-mode t)
+  :config
+  (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory)))
 
 
 ;;----------------------------------------------------------------------------
@@ -125,9 +124,9 @@
 ;;----------------------------------------------------------------------------
 
 (use-package evil-leader
-  ;; not works in *Messages*
-  :config
+  :init
   (global-evil-leader-mode)
+  :config
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
     "b" 'switch-to-buffer
@@ -146,12 +145,14 @@
     "x" 'kill-this-buffer))
 
 
+
 (use-package evil-commentary
-  :diminish evil-commentary-mode
   :init
   (evil-commentary-mode))
 
 (use-package evil-surround
+  :init
+  (global-evil-surround-mode)
   :config
   (evil-add-to-alist
    'evil-surround-pairs-alist
@@ -160,8 +161,7 @@
      ?\{ '("{" . "}")
      ?\) '("( " . " )")
      ?\] '("[ " . " ]")
-     ?\} '("{ " . " }"))
-  (global-evil-surround-mode))
+     ?\} '("{ " . " }")))
 
 
 ;;----------------------------------------------------------------------------
@@ -175,7 +175,6 @@
 (use-package evil-magit)
 
 (use-package git-gutter-fringe
-  :diminish git-gutter-mode
   :init
   (global-git-gutter-mode t))
 
