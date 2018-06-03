@@ -41,9 +41,8 @@
 
 
 ;; Relative line number mode
-(use-package nlinum-relative
-  :config
-  (setq nlinum-relative-current-symbol "->"))
+(setq display-line-numbers-type 'relative
+      display-line-numbers-current-absolute nil)
 
 
 ;; Rainbow delimiters mode
@@ -58,15 +57,14 @@
           (lambda ()
             (nyan-mode)
             (hs-minor-mode)
-            (nlinum-relative-mode)
+            (display-line-numbers-mode)
             (rainbow-delimiters-mode)))
 
 
 ;; Default color theme
 (use-package gruvbox-theme
   :init
-  (load-theme 'gruvbox t)
-  (set-face-foreground 'linum "#a89984"))
+  (load-theme 'gruvbox t))
 
 
 
