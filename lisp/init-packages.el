@@ -27,13 +27,13 @@
         ivy-height 20
         ivy-wrap t
         ivy-use-selectable-prompt t)
-  (ivy-mode t)
-  :config
   (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-g") 'counsel-git)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (global-set-key (kbd "C-c C-g") 'counsel-git-grep)
+  (ivy-mode t)
+  :config
   (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
   (define-key ivy-minibuffer-map (kbd "RET") 'ivy-alt-done))
 
@@ -143,8 +143,6 @@
     "t" 'neotree-toggle
     "u" 'undo-tree-visualize
     "x" 'kill-this-buffer))
-
-
 
 (use-package evil-commentary
   :init
