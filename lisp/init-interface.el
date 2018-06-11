@@ -63,8 +63,8 @@
 
 ;; Default color theme
 (use-package gruvbox-theme
-  :init
-  (load-theme 'gruvbox t))
+  :config
+  (load-theme 'gruvbox-dark-hard t))
 
 
 
