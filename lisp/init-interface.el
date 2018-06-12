@@ -46,10 +46,7 @@
 
 
 ;; Rainbow delimiters mode
-(use-package rainbow-delimiters
-  :config
-  (set-face-background 'rainbow-delimiters-unmatched-face "#cc241d")
-  (set-face-background 'rainbow-delimiters-mismatched-face "#cc241d"))
+(use-package rainbow-delimiters)
 
 
 ;; Enable minor modes for programming languages only
