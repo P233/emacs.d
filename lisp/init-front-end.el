@@ -89,7 +89,7 @@
 (use-package prettier-js
   :init
   (setq prettier-js-args '(
-                           "--print-width" "100"
+                           "--print-width" "120"
                            "--trailing-comma" "all"
                            "--single-quote" "true")))
 
