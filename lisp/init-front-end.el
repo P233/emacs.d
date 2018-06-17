@@ -77,6 +77,30 @@
 (use-package js2-mode)
 
 
+;; TypeScript mode
+(use-package typescript-mode
+  :init
+  (setq typescript-indent-level global-indentation-size))
+
+;; Tide
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (prettier-js-mode)
+  (company-mode +1))
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+(use-package tide
+  :config
+  (add-hook 'before-save-hook 'tide-format-before-save)
+  (add-hook 'typescript-mode-hook #'setup-tide-mode))
+
+
 ;; Tern mode
 (use-package tern
   :init
