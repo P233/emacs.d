@@ -1,0 +1,3 @@
+[submodule "custom-packages/emmet-mode"]
+	path = custom-packages/emmet-mode
+	url = https://github.com/P233/emmet-mode
