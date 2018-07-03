@@ -24,6 +24,7 @@
 (require 'init-code-styles)
 (require 'init-front-end)
 (require 'init-elixir)
+(require 'init-clojure)
 (require 'init-lisp)
 (require 'init-org)
 
