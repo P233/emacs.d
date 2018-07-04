@@ -1,8 +1,8 @@
-(use-package clojure-mode)
+(use-package clojure-mode
+  :init
+  (setq clojure-indent-style :always-indent))
 
-(defun cljs-node-repl ()
-  (interactive)
-  (run-clojure "lein trampoline run -m clojure.main repl.clj"))
+(use-package cider)
 
 
 
