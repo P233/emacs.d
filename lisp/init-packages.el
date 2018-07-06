@@ -79,98 +79,12 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Evil
-;;----------------------------------------------------------------------------
-
-(use-package evil
-  :init
-  (setq evil-shift-width global-indentation-size
-        evil-want-C-i-jump nil
-        evil-emacs-state-cursor 'bar)
-  (evil-mode)
-
-  :config
-  ;; Replace evil insert state with Emacs state
-  (defadvice evil-insert-state (around emacs-state-instead-of-insert-state activate)
-    (evil-emacs-state))
-
-  ;; Evil emacs state for Magit commit
-  (add-hook 'with-editor-mode-hook 'evil-emacs-state)
-
-  ;; Key bindings for evil-emacs state
-  ;; ---------------------------------
-  (define-key evil-normal-state-map (kbd "M-.") nil) ; unbind "M-." for tags
-  (define-key evil-emacs-state-map  [escape]    'evil-normal-state)
-  (define-key evil-emacs-state-map  (kbd "C-o") 'evil-execute-in-normal-state)
-  (define-key evil-emacs-state-map  (kbd "M-p") 'evil-complete-previous)
-  (define-key evil-emacs-state-map  (kbd "M-n") 'evil-complete-next)
-  (define-key evil-emacs-state-map  (kbd "M-P") 'evil-complete-previous-line)
-  (define-key evil-emacs-state-map  (kbd "M-N") 'evil-complete-next-line)
-  ;; show all yasnippet in company
-  (define-key evil-emacs-state-map  (kbd "C-.") 'company-yasnippet)
-  ;; expand yasnippet instead of trigging company autocomple.
-  (define-key evil-emacs-state-map  (kbd "C-,") 'yas-expand)
-  ;; align-regexp
-  (define-key evil-visual-state-map (kbd "C-=") 'align-regexp)
-  ;; yank without moving cursor
-  (define-key evil-visual-state-map (kbd "y") (lambda ()
-                                                (interactive)
-                                                (save-excursion
-                                                  (call-interactively 'evil-yank)))))
-
-
-;;----------------------------------------------------------------------------
-;; Evil Plugins
-;;----------------------------------------------------------------------------
-
-(use-package evil-leader
-  :init
-  (global-evil-leader-mode)
-  :config
-  (evil-leader/set-leader "<SPC>")
-  (evil-leader/set-key
-    "b" 'switch-to-buffer
-    "c" 'evil-commentary-line
-    "f" 'find-file
-    "g" 'counsel-git
-    "h" 'hs-toggle-hiding
-    "k" 'kill-buffer
-    "m" 'magit-status
-    "p" 'parinfer-toggle-mode
-    "q" 'kill-buffer-and-window
-    "r" 'neotree-refresh
-    "s" 'save-buffer
-    "t" 'neotree-toggle
-    "u" 'undo-tree-visualize
-    "x" 'kill-this-buffer))
-
-(use-package evil-commentary
-  :init
-  (evil-commentary-mode))
-
-(use-package evil-surround
-  :init
-  (global-evil-surround-mode)
-  :config
-  (evil-add-to-alist
-   'evil-surround-pairs-alist
-     ?\( '("(" . ")")
-     ?\[ '("[" . "]")
-     ?\{ '("{" . "}")
-     ?\) '("( " . " )")
-     ?\] '("[ " . " ]")
-     ?\} '("{ " . " }")))
-
-
-;;----------------------------------------------------------------------------
 ;; Magit
 ;;----------------------------------------------------------------------------
 
 (use-package magit
   :bind
   ("C-x C-'" . magit-status))
-
-(use-package evil-magit)
 
 (use-package git-gutter-fringe
   :init
@@ -201,16 +115,7 @@
         neo-smart-open t
         neo-window-position 'right
         neo-autorefresh nil
-        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
-  :config
-  (add-hook 'neotree-mode-hook
-            (lambda ()
-              (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
-              (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
-              (define-key evil-normal-state-local-map (kbd "r") 'neotree-refresh)
-              (define-key evil-normal-state-local-map (kbd "c") 'neotree-change-root)
-              (define-key evil-normal-state-local-map (kbd "C-c C-t") 'neotree-hidden-file-toggle))))
-
+        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules")))
 
 (use-package avy
   :init
