@@ -14,10 +14,6 @@
 (setq default-directory "~/Projects")
 
 
-;; Enable timestamps for undo tree
-(setq undo-tree-visualizer-timestamps t)
-
-
 ;; Enable quick yes
 (defalias 'yes-or-no-p 'y-or-n-p)
 
