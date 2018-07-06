@@ -47,14 +47,12 @@
   (setq company-idle-delay 0
         company-echo-delay 0
         company-show-numbers t
-        company-minimum-prefix-length 2
+        company-minimum-prefix-length 3
         company-dabbrev-downcase nil
         company-selection-wrap-around t
-        company-global-modes '(not org-mode markdown-mode))
+        company-global-modes '(not org-mode))
   (global-company-mode)
   :config
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
