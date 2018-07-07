@@ -58,16 +58,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "<C-return>")  'my-open-line-above)
 (global-set-key (kbd "M-RET")       'my-open-line-below)
 
-;; Highlight current word
-(require 'hi-lock)
-(defun my-highlight-word ()
-  (interactive)
-  (if hi-lock-interactive-patterns
-      (unhighlight-regexp (car (car hi-lock-interactive-patterns)))
-    (highlight-regexp (thing-at-point 'word))))
-
-(global-set-key (kbd "M-'") 'my-highlight-word)
-
 
 ;; Backward kill line
 (defun my-backward-kill-line (arg)
