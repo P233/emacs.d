@@ -56,14 +56,6 @@
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
-(use-package company-quickhelp
-  :init
-  (setq company-quickhelp-delay nil)
-  (company-quickhelp-mode)
-  :config
-  (eval-after-load 'company
-    '(define-key company-active-map (kbd "C-h") #'company-quickhelp-manual-begin)))
-
 
 ;;----------------------------------------------------------------------------
 ;; Yasnippet
@@ -93,6 +85,14 @@
   :config
   (define-key global-map (kbd "C-r") 'vr/replace)
   (define-key global-map (kbd "C-q") 'vr/query-replace))
+
+
+;;----------------------------------------------------------------------------
+;; Popwin
+;;----------------------------------------------------------------------------
+
+(use-package popwin)
+(popwin-mode 1)
 
 
 ;;----------------------------------------------------------------------------
