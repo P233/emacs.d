@@ -17,5 +17,9 @@
 (electric-pair-mode t)
 
 
+;; Custome yark key binding
+(global-set-key (kbd "C-,") 'kill-ring-save)
+
+
 
 (provide 'init-code-styles)
