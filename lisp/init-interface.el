@@ -19,8 +19,7 @@
 (column-number-mode)
 
 
-;; Set cursor styles
-(setq-default cursor-type 'bar)
+;; Disable blinking cursor
 (blink-cursor-mode -1)
 
 
