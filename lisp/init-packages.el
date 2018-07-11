@@ -27,11 +27,11 @@
         ivy-height 20
         ivy-wrap t
         ivy-use-selectable-prompt t)
-  (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-x C-g") 'counsel-git)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "C-c C-s") 'swiper)
   (global-set-key (kbd "C-c C-g") 'counsel-git-grep)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+  (global-set-key (kbd "C-x C-g") 'counsel-git)
   (ivy-mode t)
   :config
   (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
@@ -83,8 +83,8 @@
 
 (use-package visual-regexp
   :config
-  (define-key global-map (kbd "C-r") 'vr/replace)
-  (define-key global-map (kbd "C-q") 'vr/query-replace))
+  (define-key global-map (kbd "C-c C-r") 'vr/replace)
+  (define-key global-map (kbd "C-c C-q") 'vr/query-replace))
 
 
 ;;----------------------------------------------------------------------------
