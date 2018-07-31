@@ -28,7 +28,7 @@
         ivy-wrap t
         ivy-use-selectable-prompt t)
   (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "M-s M-s") 'swiper)
+  (global-set-key (kbd "C-c C-s") 'swiper)
   (global-set-key (kbd "C-c C-g") 'counsel-git-grep)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (global-set-key (kbd "C-x C-g") 'counsel-git)

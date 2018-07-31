@@ -10,7 +10,9 @@
         web-mode-attr-indent-offset global-indentation-size
         web-mode-attr-value-indent-offset global-indentation-size
         web-mode-enable-current-element-highlight t
-        web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
+        web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+  :config
+  (define-key web-mode-map (kbd "C-c C-s") nil)) ;; ignore web-mode-snippet-insert
 
 ;; YAML mode
 (use-package yaml-mode)
