@@ -55,8 +55,8 @@ Repeated invocations toggle between the two most recently open buffers."
     (end-of-line))
   (newline-and-indent))
 
-(global-set-key (kbd "M-RET")       'my-open-line-above)
-(global-set-key (kbd "<C-return>")  'my-open-line-below)
+(global-set-key (kbd "M-RET")       'my-open-line-below)
+(global-set-key (kbd "<C-return>")  'my-open-line-above)
 
 
 ;; Backward kill line
