@@ -30,7 +30,9 @@
 
 ;; Set fonts
 (set-frame-font "PragmataPro Mono 16" t t)
-(set-fontset-font t 'han (font-spec :family "PingFang SC"))
+(dolist (charset '(kana han cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font) charset
+                    (font-spec :family "Kai")))
 (mac-auto-operator-composition-mode t) ; Enable ligatures
 
 
