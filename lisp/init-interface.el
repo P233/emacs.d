@@ -42,13 +42,14 @@
   (setq nyan-bar-length 24))
 
 
-;; Relative line number mode
-(setq display-line-numbers-type 'relative
-      display-line-numbers-current-absolute nil)
-
-
 ;; Rainbow delimiters mode
 (use-package rainbow-delimiters)
+
+
+;; Default color theme
+(use-package gruvbox-theme
+  :config
+  (load-theme 'gruvbox-dark-hard t))
 
 
 ;; Enable minor modes for programming languages only
@@ -56,14 +57,7 @@
           (lambda ()
             (nyan-mode)
             (hs-minor-mode)
-            (display-line-numbers-mode)
             (rainbow-delimiters-mode)))
-
-
-;; Default color theme
-(use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-dark-hard t))
 
 
 
