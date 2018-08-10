@@ -2,12 +2,12 @@
 (setq package-enable-at-startup nil)
 (setq package-archives
       '(("gnu"          . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-        ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-        ("melpa"        . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))
+        ("melpa-stable" . "http://stable.melpa.org/packages/")
+        ("melpa"        . "http://melpa.org/packages/"))
       package-archive-priorities
-      '(("melpa-stable" . 3)
+      '(("melpa-stable" . 1)
         ("gnu"          . 2)
-        ("melpa"        . 1)))
+        ("melpa"        . 3)))
 (package-initialize)
 
 ;; Bootstrap `use-package'
