@@ -47,13 +47,13 @@
 
 
 ;; Gruvbox Theme
-(use-package gruvbox-theme)
+;; (use-package gruvbox-theme)
 
 
 ;; Doom Theme
 (use-package doom-themes
   :config
-  (load-theme 'doom-dracula t))
+  (load-theme 'doom-nord-light t))
 
 
 ;; Enable minor modes for programming languages only
