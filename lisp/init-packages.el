@@ -132,6 +132,7 @@
         neo-smart-open t
         neo-window-position 'right
         neo-autorefresh nil
+        neo-mode-line-type 'none
         neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules")))
 
 (use-package avy
