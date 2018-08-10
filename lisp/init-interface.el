@@ -36,26 +36,29 @@
 (mac-auto-operator-composition-mode t) ; Enable ligatures
 
 
-;; Nyan cat mode
-(use-package nyan-mode
-  :init
-  (setq nyan-bar-length 24))
-
-
 ;; Rainbow delimiters mode
 (use-package rainbow-delimiters)
 
 
-;; Default color theme
-(use-package gruvbox-theme
+;; Doom Modeline
+(use-package doom-modeline
   :config
-  (load-theme 'gruvbox-dark-hard t))
+  (setq doom-modeline-height 30))
+
+
+;; Gruvbox Theme
+(use-package gruvbox-theme)
+
+
+;; Doom Theme
+(use-package doom-themes
+  :config
+  (load-theme 'doom-dracula t))
 
 
 ;; Enable minor modes for programming languages only
 (add-hook 'prog-mode-hook
           (lambda ()
-            (nyan-mode)
             (hs-minor-mode)
             (rainbow-delimiters-mode)))
 
