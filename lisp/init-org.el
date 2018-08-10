@@ -1,6 +1,4 @@
-(add-hook 'org-mode-hook
-          (lambda ()
-            (modify-syntax-entry ?~ "(~" org-mode-syntax-table)))
+(setq org-hide-emphasis-markers t)
 
 
 
