@@ -1,4 +1,4 @@
-(defun my-js-minor-modes ()
+(defun my/js-minor-modes ()
   "Shared minor modes for both js2-mode and web-mode (JSX)."
   (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
   ;; (flycheck-select-checker 'javascript-eslint)
@@ -65,7 +65,7 @@
             (when (equal web-mode-content-type "jsx")
               (setq-local emmet-expand-jsx-className? t)
               (setq-local web-mode-enable-auto-quoting nil)
-              (my-js-minor-modes))))
+              (my/js-minor-modes))))
 
 
 (provide 'init-javascript)
