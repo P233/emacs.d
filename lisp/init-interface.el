@@ -3,8 +3,10 @@
       initial-scratch-message "")
 
 
-;; Display buffer name on titlebar
-(setq frame-title-format "%b")
+;; Titlebar Settings
+;; defaults write org.gnu.Emacs TransparentTitleBar LIGHT
+;; defaults write org.gnu.Emacs HideDocumentIcon YES
+(setq frame-title-format nil)
 
 
 ;; Hide scroll bar
