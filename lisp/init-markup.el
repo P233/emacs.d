@@ -10,12 +10,12 @@
         web-mode-attr-indent-offset global-indentation-size
         web-mode-attr-value-indent-offset global-indentation-size
         web-mode-enable-current-element-highlight t
-        web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
-  :config
-  (define-key web-mode-map (kbd "C-c C-s") nil)) ;; ignore web-mode-snippet-insert
+        web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'"))))
+
 
 ;; YAML mode
 (use-package yaml-mode)
+
 
 ;; Emmet mode
 ;; (package-install-file "custom-packages/emmet-mode/emmet-mode.el")
@@ -24,6 +24,7 @@
 (add-hook 'emmet-mode-hook
           (lambda ()
             (define-key emmet-mode-keymap (kbd "<C-return>") nil)))
+
 
 
 (provide 'init-markup)

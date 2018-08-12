@@ -21,21 +21,21 @@
 ;; Ivy
 ;;----------------------------------------------------------------------------
 
-(use-package counsel
+(use-package ivy
   :init
   (setq ivy-use-virtual-buffers t
         ivy-height 20
         ivy-wrap t
         ivy-use-selectable-prompt t)
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "C-c C-s") 'swiper)
-  (global-set-key (kbd "C-c C-g") 'counsel-git-grep)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "C-x C-g") 'counsel-git)
-  (ivy-mode t)
   :config
+  (ivy-mode t)
   (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
-  (define-key ivy-minibuffer-map (kbd "RET") 'ivy-alt-done))
+  (define-key ivy-minibuffer-map (kbd "RET") 'ivy-alt-done)
+  :bind
+  ("M-x"   . counsel-M-x)
+  ("C-c s" . swiper)
+  ("C-c g" . counsel-git)
+  ("C-c f" . counsel-git-grep))
 
 
 ;;----------------------------------------------------------------------------
@@ -51,8 +51,8 @@
         company-dabbrev-downcase nil
         company-selection-wrap-around t
         company-global-modes '(not org-mode))
-  (global-company-mode)
   :config
+  (global-company-mode)
   (define-key company-active-map (kbd "C-n") 'company-select-next)
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
@@ -62,9 +62,8 @@
 ;;----------------------------------------------------------------------------
 
 (use-package yasnippet
-  :init
-  (yas-global-mode t)
   :config
+  (yas-global-mode t)
   (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory)))
 
 
@@ -73,8 +72,12 @@
 ;;----------------------------------------------------------------------------
 
 (use-package expand-region
-  :config
-  (global-set-key (kbd "C-'") 'er/expand-region))
+  :bind
+  ("C-'" . er/expand-region))
+
+;; Custome copy and cut key bindings
+(global-set-key (kbd "C-,") 'kill-ring-save)
+(global-set-key (kbd "C-.") 'kill-region)
 
 
 ;;----------------------------------------------------------------------------
@@ -82,17 +85,18 @@
 ;;----------------------------------------------------------------------------
 
 (use-package visual-regexp
-  :config
-  (define-key global-map (kbd "C-c C-r") 'vr/replace)
-  (define-key global-map (kbd "C-c C-q") 'vr/query-replace))
+  :bind
+  ("C-c r" . vr/replace)
+  ("C-c q" . vr/query-replace))
 
 
 ;;----------------------------------------------------------------------------
 ;; Popwin
 ;;----------------------------------------------------------------------------
 
-(use-package popwin)
-(popwin-mode 1)
+(use-package popwin
+  :config
+  (popwin-mode t))
 
 
 ;;----------------------------------------------------------------------------
@@ -101,10 +105,10 @@
 
 (use-package magit
   :bind
-  ("C-x C-'" . magit-status))
+  ("C-c m" . magit-status))
 
 (use-package git-gutter-fringe
-  :init
+  :config
   (global-git-gutter-mode t))
 
 (use-package git-timemachine)
@@ -133,41 +137,40 @@
         neo-window-position 'right
         neo-autorefresh nil
         neo-mode-line-type 'none
-        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules")))
+        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
+  :bind
+  ("C-c t" . neotree-toggle))
+
 
 (use-package avy
   :init
   (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
-  (global-set-key (kbd "C-c C-'") 'avy-goto-char))
-
-
-(use-package ace-window
-  :init
-  (global-set-key (kbd "M-o") 'ace-window))
+  :bind
+  ("C-c '" . avy-goto-char))
 
 
 (use-package pinyin-search
-  :init
-  (global-set-key (kbd "C-c C-\"") 'pinyin-search))
+  :bind
+  ("C-c \"" . pinyin-search))
 
 
 (use-package buffer-move
-  :init
+  :bind
   ;; move buffer
-  (global-set-key (kbd "<C-S-up>")    'buf-move-up)
-  (global-set-key (kbd "<C-S-down>")  'buf-move-down)
-  (global-set-key (kbd "<C-S-left>")  'buf-move-left)
-  (global-set-key (kbd "<C-S-right>") 'buf-move-right)
+  ("<C-S-up>"    .  buf-move-up)
+  ("<C-S-down>"  .  buf-move-down)
+  ("<C-S-left>"  .  buf-move-left)
+  ("<C-S-right>" .  buf-move-right)
   ;; resize window
-  (global-set-key (kbd "<S-up>")      'shrink-window)
-  (global-set-key (kbd "<S-down>")    'enlarge-window)
-  (global-set-key (kbd "<S-left>")    'shrink-window-horizontally)
-  (global-set-key (kbd "<S-right>")   'enlarge-window-horizontally))
+  ("<S-up>"      .  shrink-window)
+  ("<S-down>"    .  enlarge-window)
+  ("<S-left>"    .  shrink-window-horizontally)
+  ("<S-right>"   .  enlarge-window-horizontally))
 
 
 (use-package popup-kill-ring
   :bind
-  ("C-c C-p" . popup-kill-ring))
+  ("C-c p" . popup-kill-ring))
 
 
 ;;----------------------------------------------------------------------------
