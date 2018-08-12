@@ -49,13 +49,12 @@
 
 
 ;; Gruvbox Theme
-;; (use-package gruvbox-theme)
-
-
-;; Doom Theme
-(use-package doom-themes
+(use-package gruvbox-theme
+  :init
+  (load-theme 'gruvbox-dark-hard t)
   :config
-  (load-theme 'doom-nord-light t))
+  (set-face-background 'mode-line-inactive "ARGBBB000000")
+  (set-face-background 'mode-line "#3C3836"))
 
 
 ;; Enable minor modes for programming languages only
