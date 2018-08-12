@@ -10,13 +10,13 @@
         ivy-use-selectable-prompt t)
   :config
   (ivy-mode t)
-  (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial)
-  (define-key ivy-minibuffer-map (kbd "RET") 'ivy-alt-done)
   :bind
   ("M-x"   . counsel-M-x)
   ("C-c s" . swiper)
   ("C-c g" . counsel-git)
-  ("C-c f" . counsel-git-grep))
+  ("C-c f" . counsel-git-grep)
+  (:map ivy-minibuffer-map ("TAB" . ivy-partial))
+  (:map ivy-minibuffer-map ("RET" . ivy-alt-done)))
 
 
 ;;----------------------------------------------------------------------------
@@ -34,8 +34,9 @@
         company-global-modes '(not org-mode))
   :config
   (global-company-mode)
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+  :bind
+  (:map company-active-map ("C-n" . company-select-next))
+  (:map company-active-map ("C-p" . company-select-previous)))
 
 
 ;;----------------------------------------------------------------------------
