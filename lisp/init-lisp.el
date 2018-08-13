@@ -5,9 +5,8 @@
 (use-package parinfer
   :init
   (setq parinfer-extensions '(defaults pretty-parens lispy smart-tab smart-yank))
-  :config
-  (add-hook 'clojure-mode-hook 'parinfer-mode)
-  (add-hook 'emacs-lisp-mode-hook 'parinfer-mode)
+  (add-hook 'clojure-mode-hook #'parinfer-mode)
+  (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
   :bind
   ("C-c p" . parinfer-toggle-mode))
 
