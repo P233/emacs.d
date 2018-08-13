@@ -53,7 +53,7 @@
   :init
   (load-theme 'gruvbox-dark-hard t)
   :config
-  (set-face-background 'mode-line-inactive "ARGBBB000000")
+  (set-face-background 'mode-line-inactive "#282828")
   (set-face-background 'mode-line "#3C3836"))
 
 
