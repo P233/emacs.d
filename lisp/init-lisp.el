@@ -1,14 +1,13 @@
 ;; Lispy
 (use-package lispy)
 
+
 ;; Parinfer mode
 (use-package parinfer
   :init
   (setq parinfer-extensions '(defaults pretty-parens lispy smart-tab smart-yank))
   (add-hook 'clojure-mode-hook #'parinfer-mode)
-  (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-  :bind
-  ("C-c p" . parinfer-toggle-mode))
+  (add-hook 'emacs-lisp-mode-hook #'parinfer-mode))
 
 
 ;; Clojure and ClojureScript mode
@@ -16,7 +15,10 @@
   :init
   (setq clojure-indent-style :align-arguments))
 
+
+;; Cider Repl
 (use-package cider)
+
 
 
 (provide 'init-lisp)

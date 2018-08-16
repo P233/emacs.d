@@ -1,4 +1,5 @@
 (use-package rainbow-mode)
+
 (use-package postcss-sorting)
 
 (setq css-indent-offset global-indentation-size)

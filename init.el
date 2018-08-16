@@ -16,12 +16,9 @@
 (require 'init-settings)
 
 
-;; Pagkaces Settings
-(require 'init-packages)
-
-
 ;; Language Settings
-(require 'init-code-styles)
+(require 'init-coding-style)
+(require 'init-coding-tools)
 
 (require 'init-markup)
 (require 'init-css)
@@ -31,6 +28,14 @@
 (require 'init-php)
 (require 'init-lisp)
 (require 'init-org)
+
+
+;; Git
+(require 'init-git)
+
+
+;; Utilities
+(require 'init-utilities)
 
 
 ;; My Functions

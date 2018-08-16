@@ -1,8 +1,8 @@
 (defun my/js-minor-modes ()
   "Shared minor modes for both js2-mode and web-mode (JSX)."
   (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
-  ;; (flycheck-select-checker 'javascript-eslint)
-  ;; (flycheck-mode)
+  (flycheck-select-checker 'javascript-standard)
+  (flycheck-mode)
   (prettier-js-mode)
   (tern-mode))
 
@@ -16,6 +16,7 @@
   :init
   (setq typescript-indent-level global-indentation-size))
 
+
 ;; Tide
 (defun setup-tide-mode ()
   (interactive)
@@ -26,11 +27,12 @@
   (tide-hl-identifier-mode +1)
   (prettier-js-mode)
   (company-mode +1))
+
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
 (use-package tide
-  :config
+  :init
   (add-hook 'before-save-hook 'tide-format-before-save)
   (add-hook 'typescript-mode-hook #'setup-tide-mode))
 
