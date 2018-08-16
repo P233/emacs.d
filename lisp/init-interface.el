@@ -38,10 +38,6 @@
 (mac-auto-operator-composition-mode t) ; Enable ligatures
 
 
-;; Rainbow delimiters mode
-(use-package rainbow-delimiters)
-
-
 ;; Doom Modeline
 (use-package doom-modeline
   :config
@@ -55,13 +51,6 @@
   :config
   (set-face-background 'mode-line-inactive "#282828")
   (set-face-background 'mode-line "#3C3836"))
-
-
-;; Enable minor modes for programming languages only
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (hs-minor-mode)
-            (rainbow-delimiters-mode)))
 
 
 
