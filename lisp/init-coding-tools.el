@@ -29,7 +29,9 @@
 ;; Expand region mode
 (use-package expand-region
   :bind
-  ("C-'" . er/expand-region))
+  ("C-'" . er/expand-region)
+  ("C-=" . er/contract-region))
+
 
 ;; Custome copy and cut key bindings
 (global-set-key (kbd "C-,") 'kill-ring-save)
