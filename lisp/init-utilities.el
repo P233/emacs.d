@@ -8,15 +8,14 @@
   (popwin-mode t))
 
 
-;; Ivy mode
-(use-package ivy
+;; Ivy, Counsel, and Swiper
+(use-package counsel
   :init
   (setq ivy-use-virtual-buffers t
         ivy-height 20
         ivy-wrap t
         ivy-use-selectable-prompt t)
-  :config
-  (ivy-mode t)
+  (ivy-mode 1)
   :bind
   ("M-x"   . counsel-M-x)
   ("C-c s" . swiper)
