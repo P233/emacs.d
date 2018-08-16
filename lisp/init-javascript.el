@@ -48,10 +48,7 @@
 ;; Prettier mode
 (use-package prettier-js
   :init
-  (setq prettier-js-args '(
-                           "--print-width" "120"
-                           "--trailing-comma" "all"
-                           "--single-quote" "true")))
+  (setq prettier-js-command "prettier-standard"))
 
 
 ;; JSON mode
