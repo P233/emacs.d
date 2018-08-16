@@ -20,8 +20,8 @@
   :bind
   ("M-x"   . counsel-M-x)
   ("C-c s" . swiper)
-  ("C-c g" . counsel-git)
-  ("C-c f" . counsel-git-grep)
+  ("C-c f" . counsel-git)
+  ("C-c g" . counsel-git-grep)
   (:map ivy-minibuffer-map ("TAB" . ivy-partial))
   (:map ivy-minibuffer-map ("RET" . ivy-alt-done)))
 
