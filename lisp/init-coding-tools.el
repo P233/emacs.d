@@ -62,7 +62,8 @@
   :init
   (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
-  ("C-c '" . avy-goto-char))
+  ("C-c '" . avy-goto-char)
+  ("C-c l" . avy-goto-line))
 
 
 ;; Pinyin search
