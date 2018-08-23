@@ -45,6 +45,12 @@
         doom-modeline-buffer-file-name-style 'relative-from-project))
 
 
+;; Zoom mode
+(use-package zoom
+  :config
+  (zoom-mode t))
+
+
 ;; Gruvbox Theme
 (use-package gruvbox-theme
   :init
