@@ -42,7 +42,7 @@
 (use-package doom-modeline
   :config
   (setq doom-modeline-height 30
-        doom-modeline-buffer-file-name-style 'relative-from-project))
+        doom-modeline-buffer-file-name-style 'file-name))
 
 
 ;; Zoom mode
