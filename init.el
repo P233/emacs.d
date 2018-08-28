@@ -26,6 +26,7 @@
 (require 'init-solidity)
 (require 'init-elixir)
 (require 'init-php)
+(require 'init-rust)
 (require 'init-lisp)
 (require 'init-org)
 
