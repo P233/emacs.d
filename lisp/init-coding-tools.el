@@ -1,3 +1,8 @@
+;; Hs mode
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+(global-set-key (kbd "C-c h") 'hs-toggle-hiding)
+
+
 ;; Enable electric-pair-mode
 (electric-pair-mode t)
 
