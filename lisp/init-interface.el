@@ -45,6 +45,12 @@
         doom-modeline-buffer-file-name-style 'file-name))
 
 
+;; Window numbering mode
+(use-package window-numbering
+  :config
+  (window-numbering-mode))
+
+
 ;; Zoom mode
 (use-package zoom
   :config
