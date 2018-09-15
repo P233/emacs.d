@@ -1,3 +1,6 @@
+(setq load-prefer-newer t)
+
+
 ;; Disable backup, auto-save and lockfiles
 (setq backup-inhibited t
       make-backup-files nil

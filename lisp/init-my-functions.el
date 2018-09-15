@@ -108,6 +108,18 @@ Repeated invocations toggle between the two most recently open buffers."
 (my/enable-untabify-on-save)
 
 
+;;----------------------------------------------------------------------------
+;; Byte-compilation
+;;----------------------------------------------------------------------------
+
+;; http://emacsredux.com/blog/2013/06/25/boost-performance-by-leveraging-byte-compilation/
+
+(defun my/byte-compile-init-dir ()
+  "Byte-compile all your dotfiles."
+  (interactive)
+  (byte-recompile-directory user-emacs-directory 0))
+
+
 
 ;;----------------------------------------------------------------------------
 

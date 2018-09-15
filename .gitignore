@@ -4,6 +4,8 @@ tramp
 smex-items
 custom.el
 
+*.elc
+
 elpa/
 auto-save-list/
 snippets/*-mode/
