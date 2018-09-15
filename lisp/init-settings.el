@@ -1,4 +1,7 @@
-(setq load-prefer-newer t)
+;; Setup garbage collection
+;; https://emacs.stackexchange.com/questions/34342/is-there-any-downside-to-setting-gc-cons-threshold-very-high-and-collecting-ga
+(setq gc-cons-threshold (eval-when-compile (* 1024 1024 1024)))
+(run-with-idle-timer 2 t (lambda () (garbage-collect)))
 
 
 ;; Disable backup, auto-save and lockfiles
