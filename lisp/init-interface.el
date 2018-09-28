@@ -41,8 +41,7 @@
 ;; Doom Modeline
 (use-package doom-modeline
   :config
-  (setq doom-modeline-height 30
-        doom-modeline-buffer-file-name-style 'file-name))
+  (setq doom-modeline-height 30))
 
 
 ;; Window numbering mode
