@@ -9,3 +9,4 @@ custom.el
 elpa/
 auto-save-list/
 snippets/*-mode/
+projectile-bookmarks.eld

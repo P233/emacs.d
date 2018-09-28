@@ -25,6 +25,18 @@
   (:map ivy-minibuffer-map ("RET" . ivy-alt-done)))
 
 
+;; Projectile
+(use-package projectile
+  :config
+  (projectile-mode t)
+  (setq projectile-completion-system 'ivy))
+
+(use-package counsel-projectile
+  :config
+  (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c o") 'counsel-projectile-switch-project))
+
+
 ;; Buffer-move mode
 (use-package buffer-move
   :bind
