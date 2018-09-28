@@ -65,5 +65,11 @@
   ("C-c t" . neotree-toggle))
 
 
+;; Zoom mode
+(use-package zoom
+  :config
+  (zoom-mode t))
+
+
 
 (provide 'init-utilities)

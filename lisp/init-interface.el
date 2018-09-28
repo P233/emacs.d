@@ -51,12 +51,6 @@
   (window-numbering-mode))
 
 
-;; Zoom mode
-(use-package zoom
-  :config
-  (zoom-mode t))
-
-
 ;; Gruvbox Theme
 (use-package gruvbox-theme
   :config
