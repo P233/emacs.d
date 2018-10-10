@@ -1,54 +1,51 @@
-(defun my/js-minor-modes ()
-  "Shared minor modes for both js2-mode and web-mode (JSX)."
-  (setq-local company-backends '(company-files (company-tern :with company-dabbrev)))
-  (flycheck-select-checker 'javascript-standard)
-  (flycheck-mode)
-  (prettier-js-mode)
-  (tern-mode))
+;; Tide
+(use-package tide)
+
+(defun setup-tide-mode ()
+  (tide-setup)
+  (eldoc-mode)
+  (tide-hl-identifier-mode)
+  (prettier-js-mode))
+
+
+;; Prettier mode
+(use-package prettier-js)
 
 
 ;; JS2 mode
-(use-package js2-mode)
+(use-package js2-mode
+  :mode "\\.js\\'"
+  :init
+  (setq js2-basic-offset global-indentation-size
+        js2-highlight-level 3
+        js2-mode-show-parse-errors nil
+        js2-mode-show-strict-warnings nil)
+  :config
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (setq-local prettier-js-command "prettier-standard")
+              (setup-tide-mode))))
+              ;; (flycheck-select-checker 'javascript-standard)
+              ;; (flycheck-mode))))
+
+
+;; RJSX mode
+(use-package rjsx-mode
+  :init
+  (add-to-list 'magic-mode-alist '("import.*react" . rjsx-mode))
+  :config
+  (add-hook 'rjsx-mode-hook
+            (lambda()
+              (emmet-mode)
+              (setq-local emmet-expand-jsx-className? t))))
 
 
 ;; TypeScript mode
 (use-package typescript-mode
   :init
-  (setq typescript-indent-level global-indentation-size))
-
-
-;; Tide
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (prettier-js-mode)
-  (company-mode +1))
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-(use-package tide
-  :init
-  (add-hook 'before-save-hook 'tide-format-before-save)
+  (setq typescript-indent-level global-indentation-size)
+  :config
   (add-hook 'typescript-mode-hook #'setup-tide-mode))
-
-
-;; Tern mode
-(use-package tern
-  :init
-  (setq tern-command '("tern" "--no-port-file")))
-
-(use-package company-tern)
-
-
-;; Prettier mode
-(use-package prettier-js
-  :init
-  (setq prettier-js-command "prettier-standard"))
 
 
 ;; JSON mode
@@ -56,15 +53,6 @@
   :init
   (setq js-indent-level global-indentation-size))
 
-
-;; Add support for JSX
-(add-hook 'web-mode-hook
-          (lambda ()
-            (emmet-mode)
-            (when (equal web-mode-content-type "jsx")
-              (setq-local emmet-expand-jsx-className? t)
-              (setq-local web-mode-enable-auto-quoting nil)
-              (my/js-minor-modes))))
 
 
 (provide 'init-javascript)

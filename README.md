@@ -1,5 +1,5 @@
 ```
-yarn global add tern standard prettier-standard postcss-cli postcss-sorting
+yarn global add standard prettier-standard postcss-cli postcss-sorting typescript
 
 brew install aspell --with-lang-en
 ```

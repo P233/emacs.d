@@ -3,15 +3,13 @@
   :mode
   ("\\.html\\'"   .  web-mode)
   ("\\.twig\\'"   .  web-mode)
-  ("\\.js[x]?\\'" .  web-mode)
   :init
   (setq web-mode-script-padding global-indentation-size
         web-mode-style-padding global-indentation-size
         web-mode-block-padding global-indentation-size
         web-mode-attr-indent-offset global-indentation-size
         web-mode-attr-value-indent-offset global-indentation-size
-        web-mode-enable-current-element-highlight t
-        web-mode-content-types-alist '(("jsx" . "\\.[jt]s[x]?\\'"))))
+        web-mode-enable-current-element-highlight t))
 
 
 ;; YAML mode
