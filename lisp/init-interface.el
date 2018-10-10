@@ -55,8 +55,7 @@
   :config
   (load-theme 'gruvbox-dark-hard t)
   (set-face-background 'mode-line-inactive "#282828")
-  (set-face-background 'mode-line "#3C3836")
-  (set-face-background 'doom-modeline-bar "#8EC07C"))
+  (set-face-background 'mode-line "#3C3836"))
 
 
 
