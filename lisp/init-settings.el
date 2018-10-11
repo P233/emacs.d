@@ -29,10 +29,6 @@
 (add-to-list 'recentf-exclude (format (concat (expand-file-name user-emacs-directory) "elpa/.*")))
 
 
-;; Enable subword-mode
-(global-subword-mode t)
-
-
 ;; Enable advanced ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
