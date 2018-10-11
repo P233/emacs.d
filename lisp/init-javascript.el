@@ -3,9 +3,7 @@
 
 (defun setup-tide-mode ()
   (tide-setup)
-  (eldoc-mode)
-  (tide-hl-identifier-mode)
-  (prettier-js-mode))
+  (tide-hl-identifier-mode))
 
 
 ;; Prettier mode
@@ -29,23 +27,24 @@
               ;; (flycheck-mode))))
 
 
-;; RJSX mode
-(use-package rjsx-mode
-  :init
-  (add-to-list 'magic-mode-alist '("import.*react" . rjsx-mode))
-  :config
-  (add-hook 'rjsx-mode-hook
-            (lambda()
-              (emmet-mode)
-              (setq-local emmet-expand-jsx-className? t))))
-
-
 ;; TypeScript mode
 (use-package typescript-mode
   :init
   (setq typescript-indent-level global-indentation-size)
   :config
   (add-hook 'typescript-mode-hook #'setup-tide-mode))
+
+
+;; Web mode settnigs for JSX / TSX
+(add-to-list 'magic-mode-alist '("import.*react" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "jsx")
+              (if (string-match "js[x]?" (file-name-extension buffer-file-name))
+                  (setq-local prettier-js-command "prettier-standard"))
+              (setq-local emmet-expand-jsx-className? t)
+              (setq-local web-mode-enable-auto-quoting nil)
+              (setup-tide-mode))))
 
 
 ;; JSON mode
