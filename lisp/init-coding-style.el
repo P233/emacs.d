@@ -15,9 +15,7 @@
 
 
 ;; Flycheck
-(use-package flycheck
-  :config
-  (flycheck-add-mode 'javascript-standard 'web-mode))
+;; (use-package flycheck)
 
 
 
