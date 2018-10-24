@@ -51,11 +51,22 @@
 
 
 ;; Gruvbox Theme
-(use-package gruvbox-theme
-  :config
+(defun my/load-daytime-theme ()
+  "Load gruvbox-light-soft theme."
+  (interactive)
+  (load-theme 'gruvbox-light-soft t)
+  (set-face-background 'mode-line "#FAF0C9"))
+
+(defun my/load-nighttime-theme ()
+  "Load gruvbox-dark-hard theme."
+  (interactive)
   (load-theme 'gruvbox-dark-hard t)
   (set-face-background 'mode-line-inactive "#282828")
   (set-face-background 'mode-line "#3C3836"))
+
+(use-package gruvbox-theme
+  :config
+  (my/load-daytime-theme))
 
 
 
