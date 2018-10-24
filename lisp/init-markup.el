@@ -11,6 +11,8 @@
         web-mode-attr-value-indent-offset global-indentation-size
         web-mode-enable-current-element-highlight t
         web-mode-content-types-alist '(("jsx" . "\\.[jt]?s[x]?\\'")))
+  :config
+  (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
   :hook
   (web-mode . emmet-mode))
 
