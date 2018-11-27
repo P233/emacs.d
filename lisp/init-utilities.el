@@ -62,7 +62,8 @@
         neo-mode-line-type 'none
         neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :bind
-  ("C-c t" . neotree-toggle))
+  ("C-c t" . neotree-toggle)
+  ("C-c e" . neotree-refresh))
 
 
 ;; Zoom mode
