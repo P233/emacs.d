@@ -14,7 +14,7 @@ defaults write org.gnu.Emacs HideDocumentIcon YES
 defaults write org.gnu.Emacs TransparentTitleBar DARK
 ```
 
-see: https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar
+See: https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar
 
 
 ## Install Git Submodules (customised packages)
@@ -47,3 +47,5 @@ curl https://gist.githubusercontent.com/P233/2cc2e2c739f04f142847604ac3855a94/ra
 ```
 M-x my/byte-compile-init-dir
 ```
+
+Make sure to execute this function each time after you updated the configuration.
