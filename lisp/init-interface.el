@@ -4,8 +4,6 @@
 
 
 ;; Titlebar Settings
-;; defaults write org.gnu.Emacs TransparentTitleBar LIGHT
-;; defaults write org.gnu.Emacs HideDocumentIcon YES
 (setq frame-title-format nil)
 
 
