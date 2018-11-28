@@ -35,10 +35,10 @@
 
 
 ;; Yasnippet
-(use-package yasnippet
-  :config
-  (yas-global-mode t)
-  (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory)))
+;; (use-package yasnippet
+;;   :config
+;;   (yas-global-mode t)
+;;   (setq yas-snippet-dirs (expand-file-name "snippets" user-emacs-directory)))
 
 
 ;; Expand region mode
