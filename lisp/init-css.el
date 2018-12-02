@@ -12,9 +12,6 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-(add-hook 'scss-mode-hook
-          (lambda ()
-            (setq-local emmet-use-scss-syntax t)))
 
 
 
