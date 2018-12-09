@@ -1,3 +1,7 @@
+;; Allows Emacs to find project based installs
+(use-package add-node-modules-path)
+
+
 ;; Tide
 (use-package tide)
 
@@ -21,9 +25,9 @@
   :config
   (add-hook 'js2-mode-hook
             (lambda ()
-              (setq-local prettier-js-command "prettier-standard")
+              (add-node-modules-path)
+              (prettier-js-mode)
               (setup-tide-mode))))
-              ;; (flycheck-select-checker 'javascript-standard)
               ;; (flycheck-mode))))
 
 
@@ -44,6 +48,8 @@
                   (setq-local prettier-js-command "prettier-standard"))
               (setq-local emmet-expand-jsx-className? t)
               (setq-local web-mode-enable-auto-quoting nil)
+              (add-node-modules-path)
+              (prettier-js-mode)
               (setup-tide-mode))))
 
 
