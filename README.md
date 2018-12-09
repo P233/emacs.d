@@ -32,7 +32,7 @@ git submodule update
 ## Install Global NPM Packages
 
 ```
-yarn global add standard prettier-standard postcss-cli postcss-sorting typescript
+yarn global add postcss-cli postcss-sorting typescript
 ```
 
 ### Add postcss-sorting config file
