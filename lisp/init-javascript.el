@@ -26,7 +26,6 @@
   (add-hook 'js2-mode-hook
             (lambda ()
               (add-node-modules-path)
-              (prettier-js-mode)
               (setup-tide-mode))))
               ;; (flycheck-mode))))
 
@@ -44,12 +43,9 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (when (equal web-mode-content-type "jsx")
-              (if (string-match "js[x]?" (file-name-extension buffer-file-name))
-                  (setq-local prettier-js-command "prettier-standard"))
               (setq-local emmet-expand-jsx-className? t)
               (setq-local web-mode-enable-auto-quoting nil)
               (add-node-modules-path)
-              (prettier-js-mode)
               (setup-tide-mode))))
 
 
