@@ -14,6 +14,10 @@
 (use-package prettier-js)
 
 
+;; ESlint fix
+(use-package eslint-fix)
+
+
 ;; JS2 mode
 (use-package js2-mode
   :mode "\\.js\\'"
