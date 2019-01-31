@@ -5,10 +5,6 @@
 ;; Tide
 (use-package tide)
 
-(defun setup-tide-mode ()
-  (tide-setup)
-  (tide-hl-identifier-mode))
-
 
 ;; Prettier mode
 (use-package prettier-js)
@@ -16,6 +12,14 @@
 
 ;; ESlint fix
 (use-package eslint-fix)
+
+
+;; My/js-minor-modes
+(defun my/js-minor-modes ()
+  (add-node-modules-path)
+  (prettier-js-mode)
+  (tide-setup)
+  (tide-hl-identifier-mode))
 
 
 ;; JS2 mode
@@ -27,11 +31,7 @@
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil)
   :config
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (add-node-modules-path)
-              (setup-tide-mode))))
-              ;; (flycheck-mode))))
+  (add-hook 'js2-mode-hook #'my/js-minor-modes))
 
 
 ;; TypeScript mode
@@ -39,7 +39,7 @@
   :init
   (setq typescript-indent-level global-indentation-size)
   :config
-  (add-hook 'typescript-mode-hook #'setup-tide-mode))
+  (add-hook 'typescript-mode-hook #'my/js-minor-modes))
 
 
 ;; Web mode settnigs for JSX / TSX
@@ -49,8 +49,7 @@
             (when (equal web-mode-content-type "jsx")
               (setq-local emmet-expand-jsx-className? t)
               (setq-local web-mode-enable-auto-quoting nil)
-              (add-node-modules-path)
-              (setup-tide-mode))))
+              (my/js-minor-modes))))
 
 
 ;; JSON mode
