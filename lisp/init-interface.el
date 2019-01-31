@@ -40,7 +40,8 @@
 (use-package doom-modeline
   :config
   (setq doom-modeline-height 30
-        doom-modeline-major-mode-icon nil))
+        doom-modeline-major-mode-icon nil)
+  (doom-modeline-mode))
 
 
 ;; Window numbering mode
