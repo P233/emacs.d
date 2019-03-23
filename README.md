@@ -32,13 +32,29 @@ git submodule update
 ## Install Global NPM Packages
 
 ```
-yarn global add postcss-cli postcss-sorting typescript
+yarn global add postcss-cli@5 postcss-sorting typescript prettier
 ```
 
 ### Add postcss-sorting config file
 
 ```
 curl https://gist.githubusercontent.com/P233/2cc2e2c739f04f142847604ac3855a94/raw/.postcssrc.json -o ~/.postcssrc.json
+```
+
+
+## Change default directory for `M-x find-file`
+
+Modify the following line in `init-setting.el` file.
+
+```
+(setq default-directory "~/Projects")
+```
+
+
+## Install all the icons for doom-modeline
+
+```
+M-x all-the-icons-install-fonts
 ```
 
 
