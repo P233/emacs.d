@@ -1,5 +1,3 @@
-(use-package rainbow-mode)
-
 (use-package postcss-sorting)
 
 (setq css-indent-offset global-indentation-size)
@@ -7,7 +5,6 @@
           (lambda ()
             (setq-local company-backends '(company-files (company-css :with company-dabbrev company-dabbrev-code)))
             (add-hook 'before-save-hook 'postcss-sorting-buffer nil 'local)
-            (rainbow-mode)
             (emmet-mode)))
 
 
