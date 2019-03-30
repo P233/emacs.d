@@ -46,10 +46,13 @@
 (add-to-list 'magic-mode-alist '("import.*react" . web-mode))
 (add-hook 'web-mode-hook
           (lambda ()
-            (when (equal web-mode-content-type "jsx")
-              (setq-local emmet-expand-jsx-className? t)
-              (setq-local web-mode-enable-auto-quoting nil)
-              (my/js-minor-modes))))
+            (if (equal web-mode-content-type "jsx")
+                (progn
+                  (setq-local emmet-expand-jsx-className? t)
+                  (setq-local web-mode-enable-auto-quoting nil)
+                  (my/js-minor-modes))
+              (if (equal web-mode-content-type "vue")
+                  (my/js-minor-modes)))))
 
 
 ;; JSON mode
