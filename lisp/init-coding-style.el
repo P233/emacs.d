@@ -12,6 +12,7 @@
 
 ;; Disable tab indentation
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width global-indentation-size)
 
 
 ;; Flycheck
