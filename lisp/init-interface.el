@@ -66,7 +66,7 @@
 
 (use-package gruvbox-theme
   :config
-  (my/load-nighttime-theme))
+  (my/load-daytime-theme))
 
 
 
