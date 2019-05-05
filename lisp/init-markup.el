@@ -32,5 +32,9 @@
 (define-key emmet-mode-keymap (kbd "<C-return>") nil)
 
 
+;; Markdown mode
+(use-package markdown-mode)
+
+
 
 (provide 'init-markup)
