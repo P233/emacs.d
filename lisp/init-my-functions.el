@@ -90,6 +90,7 @@ Repeated invocations toggle between the two most recently open buffers."
 
 (defun my/untabify-and-remove-trailing-whitespace ()
   "Untabify and remove trailing whitespace."
+  (interactive)
   (untabify 1 (point-max))
   (delete-trailing-whitespace))
 
@@ -104,8 +105,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (remove-hook 'before-save-hook 'my/untabify-and-remove-trailing-whitespace)
   (message "Untabify disabled"))
-
-(my/enable-untabify-on-save)
 
 
 ;;----------------------------------------------------------------------------
