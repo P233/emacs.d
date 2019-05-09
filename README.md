@@ -51,13 +51,6 @@ Modify the following line in `init-setting.el` file.
 ```
 
 
-## Install all the icons for doom-modeline
-
-```
-M-x all-the-icons-install-fonts
-```
-
-
 ## Byte Compile .emacs.d
 
 ```

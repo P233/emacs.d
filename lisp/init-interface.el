@@ -36,14 +36,6 @@
 (mac-auto-operator-composition-mode t) ; Enable ligatures
 
 
-;; Doom Modeline
-(use-package doom-modeline
-  :config
-  (setq doom-modeline-height 30
-        doom-modeline-major-mode-icon nil)
-  (doom-modeline-mode))
-
-
 ;; Window numbering mode
 (use-package window-numbering
   :config
@@ -60,9 +52,7 @@
 (defun my/load-nighttime-theme ()
   "Load gruvbox-dark-hard theme."
   (interactive)
-  (load-theme 'gruvbox-dark-hard t)
-  (set-face-background 'mode-line-inactive "#282828")
-  (set-face-background 'mode-line "#3C3836"))
+  (load-theme 'gruvbox-dark-hard t))
 
 (use-package gruvbox-theme
   :config
