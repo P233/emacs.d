@@ -25,6 +25,7 @@
 (require 'init-javascript)
 (require 'init-solidity)
 (require 'init-elixir)
+(require 'init-flutter)
 (require 'init-php)
 (require 'init-rust)
 (require 'init-lisp)
