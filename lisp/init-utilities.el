@@ -2,12 +2,6 @@
 (use-package smex)
 
 
-;; Popwin mode
-(use-package popwin
-  :config
-  (popwin-mode t))
-
-
 ;; Ivy, Counsel, and Swiper
 (use-package counsel
   :custom
