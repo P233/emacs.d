@@ -15,8 +15,8 @@
 (tool-bar-mode -1)
 
 
-;; Show column number
-(column-number-mode)
+;; Disable line-number-mode
+(line-number-mode -1)
 
 
 ;; Disable blinking cursor
@@ -47,7 +47,13 @@
   "Load gruvbox-light-soft theme."
   (interactive)
   (load-theme 'gruvbox-light-soft t)
-  (set-face-background 'mode-line "#FAF0C9"))
+  (set-face-foreground 'window-numbering-face "#AF3A03")
+  (set-face-foreground 'mode-line-buffer-id "#AF3A03")
+  (set-face-foreground 'vc-up-to-date-state "#8EC07C")
+  (set-face-foreground 'vc-edited-state "#005F87")
+  (set-face-foreground 'vc-locally-added-state "#B57614")
+  (set-face-foreground 'vc-conflict-state "#9D0006)")
+  (set-face-attribute 'mode-line nil :foreground "#427B58" :background "#FAF0C9"))
 
 (defun my/load-nighttime-theme ()
   "Load gruvbox-dark-hard theme."
@@ -55,8 +61,19 @@
   (load-theme 'gruvbox-dark-hard t))
 
 (use-package gruvbox-theme
+  :after window-numbering
   :config
   (my/load-daytime-theme))
+
+
+;; Minor mode menu
+(use-package minions
+  :config
+  (minions-mode 1))
+
+
+;; Hide mode-line-percent-position
+(setq mode-line-percent-position nil)
 
 
 
