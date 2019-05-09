@@ -10,11 +10,12 @@
 
 ;; Ivy, Counsel, and Swiper
 (use-package counsel
-  :init
-  (setq ivy-use-virtual-buffers t
-        ivy-height 20
-        ivy-wrap t
-        ivy-use-selectable-prompt t)
+  :custom
+  (ivy-use-virtual-buffers t)
+  (ivy-height 20)
+  (ivy-wrap t)
+  (ivy-use-selectable-prompt t)
+  :config
   (ivy-mode 1)
   :bind
   ("M-x"   . counsel-M-x)
@@ -27,9 +28,10 @@
 
 ;; Projectile
 (use-package projectile
+  :custom
+  (projectile-completion-system 'ivy)
   :config
-  (projectile-mode t)
-  (setq projectile-completion-system 'ivy))
+  (projectile-mode t))
 
 (use-package counsel-projectile
   :config
@@ -54,13 +56,13 @@
 
 ;; Neotree
 (use-package neotree
-  :init
-  (setq neo-theme 'arrow
-        neo-smart-open t
-        neo-window-position 'right
-        neo-autorefresh nil
-        neo-mode-line-type 'none
-        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
+  :custom
+  (neo-theme 'arrow)
+  (neo-smart-open t)
+  (neo-window-position 'right)
+  (neo-autorefresh nil)
+  (neo-mode-line-type 'none)
+  (neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :bind
   ("C-c t" . neotree-toggle)
   ("C-c e" . neotree-refresh))

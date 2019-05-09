@@ -25,19 +25,19 @@
 ;; JS2 mode
 (use-package js2-mode
   :mode "\\.js\\'"
-  :init
-  (setq js2-basic-offset global-indentation-size
-        js2-highlight-level 3
-        js2-mode-show-parse-errors nil
-        js2-mode-show-strict-warnings nil)
+  :custom
+  (js2-basic-offset global-indentation-size)
+  (js2-highlight-level 3)
+  (js2-mode-show-parse-errors nil)
+  (js2-mode-show-strict-warnings nil)
   :config
   (add-hook 'js2-mode-hook #'my/js-minor-modes))
 
 
 ;; TypeScript mode
 (use-package typescript-mode
-  :init
-  (setq typescript-indent-level global-indentation-size)
+  :custom
+  (typescript-indent-level global-indentation-size)
   :config
   (add-hook 'typescript-mode-hook #'my/js-minor-modes))
 
@@ -57,8 +57,8 @@
 
 ;; JSON mode
 (use-package json-mode
-  :init
-  (setq js-indent-level global-indentation-size))
+  :custom
+  (js-indent-level global-indentation-size))
 
 
 

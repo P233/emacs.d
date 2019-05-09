@@ -4,15 +4,15 @@
   ("\\.html\\'" . web-mode)
   ("\\.twig\\'" . web-mode)
   ("\\.vue\\'" . web-mode)
-  :init
-  (setq web-mode-script-padding global-indentation-size
-        web-mode-style-padding global-indentation-size
-        web-mode-block-padding global-indentation-size
-        web-mode-attr-indent-offset global-indentation-size
-        web-mode-attr-value-indent-offset global-indentation-size
-        web-mode-enable-current-element-highlight t
-        web-mode-content-types-alist '(("jsx" . "\\.[jt]?s[x]?\\'")
-                                       ("vue" . "\\.vue\\'")))
+  :custom
+  (web-mode-script-padding global-indentation-size)
+  (web-mode-style-padding global-indentation-size)
+  (web-mode-block-padding global-indentation-size)
+  (web-mode-attr-indent-offset global-indentation-size)
+  (web-mode-attr-value-indent-offset global-indentation-size)
+  (web-mode-enable-current-element-highlight t)
+  (web-mode-content-types-alist '(("jsx" . "\\.[jt]?s[x]?\\'")
+                                  ("vue" . "\\.vue\\'")))
   :config
   (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
   :hook

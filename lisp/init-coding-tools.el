@@ -19,14 +19,14 @@
 
 ;; Company
 (use-package company
-  :init
-  (setq company-idle-delay 0
-        company-echo-delay 0
-        company-show-numbers t
-        company-minimum-prefix-length 2
-        company-dabbrev-downcase nil
-        company-selection-wrap-around t
-        company-global-modes '(not org-mode))
+  :custom
+  (company-idle-delay 0)
+  (company-echo-delay 0)
+  (company-show-numbers t)
+  (company-minimum-prefix-length 2)
+  (company-dabbrev-downcasbe nil)
+  (company-selection-wrap-around t)
+  (company-global-modes '(not org-mode))
   :config
   (global-company-mode)
   :bind
@@ -68,8 +68,8 @@
 
 ;; Avy mode
 (use-package avy
-  :init
-  (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
+  :custom
+  (avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
   ("C-c '" . avy-goto-char)
   ("C-c l" . avy-goto-line))
