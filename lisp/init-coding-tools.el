@@ -11,6 +11,12 @@
 (electric-pair-mode t)
 
 
+;; Move Text mode
+(use-package move-text
+  :config
+  (move-text-default-bindings))
+
+
 ;; Rainbow delimiters mode
 (use-package rainbow-delimiters
   :config
