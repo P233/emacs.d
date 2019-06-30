@@ -33,6 +33,7 @@
   (company-dabbrev-downcasbe nil)
   (company-selection-wrap-around t)
   (company-global-modes '(not org-mode))
+  (company-backends '(company-files company-dabbrev-code company-dabbrev))
   :config
   (global-company-mode)
   :bind

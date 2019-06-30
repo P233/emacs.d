@@ -19,7 +19,8 @@
   (add-node-modules-path)
   (prettier-js-mode)
   (tide-setup)
-  (tide-hl-identifier-mode))
+  (tide-hl-identifier-mode)
+  (setq-local company-backends '(company-tide)))
 
 
 ;; JS2 mode

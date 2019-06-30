@@ -14,9 +14,7 @@
   (web-mode-content-types-alist '(("jsx" . "\\.[jt]?s[x]?\\'")
                                   ("vue" . "\\.vue\\'")))
   :config
-  (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
-  :hook
-  (web-mode . emmet-mode))
+  (set-face-background 'web-mode-current-element-highlight-face "#AF3A03"))
 
 
 ;; YAML mode
@@ -30,6 +28,8 @@
       emmet-insert-flash-time 0.1)
 
 (define-key emmet-mode-keymap (kbd "<C-return>") nil)
+
+(add-hook 'web-mode-hook #'emmet-mode)
 
 
 ;; Markdown mode
