@@ -36,5 +36,9 @@
 (use-package markdown-mode)
 
 
+;; Impatient Mode
+(use-package impatient-mode)
+
+
 
 (provide 'init-markup)
