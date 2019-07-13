@@ -58,7 +58,10 @@
 (defun my/load-nighttime-theme ()
   "Load gruvbox-dark-hard theme."
   (interactive)
-  (load-theme 'gruvbox-dark-hard t))
+  (load-theme 'gruvbox-dark-hard t)
+  (set-face-foreground 'window-numbering-face "#FB4934")
+  (set-face-foreground 'mode-line-buffer-id "#FB4934")
+  (set-face-attribute 'mode-line nil :background "#282828"))
 
 (use-package gruvbox-theme
   :after window-numbering
