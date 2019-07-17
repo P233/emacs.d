@@ -53,6 +53,14 @@ Modify the following line in `init-setting.el` file.
 (setq default-directory "~/Projects")
 ```
 
+## Install TabNine binary
+
+See https://tabnine.com/
+
+```
+M-x company-tabnine-install-binary
+```
+
 ## Byte Compile .emacs.d
 
 ```

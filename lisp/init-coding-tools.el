@@ -33,12 +33,14 @@
   (company-dabbrev-downcasbe nil)
   (company-selection-wrap-around t)
   (company-global-modes '(not org-mode))
-  (company-backends '(company-files company-dabbrev-code company-dabbrev))
+  (company-backends '(company-tabnine company-files company-dabbrev-code company-dabbrev))
   :config
   (global-company-mode)
   :bind
   (:map company-active-map ("C-n" . company-select-next))
   (:map company-active-map ("C-p" . company-select-previous)))
+
+(use-package company-tabnine)
 
 
 ;; Yasnippet
