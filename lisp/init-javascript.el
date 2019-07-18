@@ -20,7 +20,7 @@
   (prettier-js-mode)
   (tide-setup)
   (tide-hl-identifier-mode)
-  (setq-local company-backends '(company-tabnine company-tide)))
+  (setq-local company-backends '((company-tide :with company-tabnine :separate))))
 
 
 ;; JS2 mode

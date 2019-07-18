@@ -42,6 +42,27 @@
 
 (use-package company-tabnine)
 
+;; https://emacs-china.org/t/tabnine/9988/40
+(defun company//sort-by-tabnine (candidates)
+  (if (or (functionp company-backend)
+          (not (and (listp company-backend) (memq 'company-tabnine company-backend))))
+      candidates
+    (let (candidates-1 candidates-2)
+      (dolist (candidate candidates)
+        (push candidate
+              (if (eq (get-text-property 0 'company-backend candidate)
+                      'company-tabnine)
+                  candidates-2
+                candidates-1)))
+      (setq candidates-1 (nreverse candidates-1))
+      (setq candidates-2 (nreverse candidates-2))
+      (nconc (seq-take candidates-1 2)
+             (seq-take candidates-2 2)
+             (seq-drop candidates-1 2)
+             (seq-drop candidates-2 2)))))
+
+(add-to-list 'company-transformers 'company//sort-by-tabnine t)
+
 
 ;; Yasnippet
 ;; (use-package yasnippet
