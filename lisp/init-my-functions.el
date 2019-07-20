@@ -18,7 +18,6 @@
 (global-set-key (kbd "C-x 2") 'my/split-window-below)
 (global-set-key (kbd "C-x 3") 'my/split-window-right)
 
-
 ;;----------------------------------------------------------------------------
 ;; Buffer
 ;;----------------------------------------------------------------------------
@@ -31,7 +30,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 (global-set-key (kbd "C-c b") 'my/switch-to-previous-buffer)
-
 
 ;;----------------------------------------------------------------------------
 ;; Editing
@@ -58,13 +56,11 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "M-RET")       'my/open-line-below)
 (global-set-key (kbd "<C-return>")  'my/open-line-above)
 
-
 ;; Backward kill line
 (defun my/backward-kill-line (arg)
   (interactive "p")
   (kill-line (- 1 arg)))
 (global-set-key (kbd "M-DEL") 'my/backward-kill-line)
-
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
 (defun my/screaming-snake-case-word ()
@@ -82,11 +78,9 @@ Repeated invocations toggle between the two most recently open buffers."
 
 (global-set-key (kbd "M-S") 'my/screaming-snake-case-word)
 
-
 ;;----------------------------------------------------------------------------
 ;; Untabify and Remove trailing whitespace
 ;;----------------------------------------------------------------------------
-
 
 (defun my/untabify-and-remove-trailing-whitespace ()
   "Untabify and remove trailing whitespace."
@@ -105,20 +99,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (remove-hook 'before-save-hook 'my/untabify-and-remove-trailing-whitespace)
   (message "Untabify disabled"))
-
-
-;;----------------------------------------------------------------------------
-;; Byte-compilation
-;;----------------------------------------------------------------------------
-
-;; http://emacsredux.com/blog/2013/06/25/boost-performance-by-leveraging-byte-compilation/
-
-(defun my/byte-compile-init-dir ()
-  "Byte-compile all your dotfiles."
-  (interactive)
-  (byte-recompile-directory user-emacs-directory 0))
-
-
 
 ;;----------------------------------------------------------------------------
 

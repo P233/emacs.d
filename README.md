@@ -60,11 +60,3 @@ See https://tabnine.com/
 ```
 M-x company-tabnine-install-binary
 ```
-
-## Byte Compile .emacs.d
-
-```
-M-x my/byte-compile-init-dir
-```
-
-Make sure to execute this function each time after you updated the configuration.
