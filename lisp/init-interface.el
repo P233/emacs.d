@@ -29,7 +29,7 @@
 
 
 ;; Set fonts
-(set-frame-font "PragmataPro Mono Liga 16" t t)
+(set-frame-font "PragmataPro Mono Liga 18" t t)
 (dolist (charset '(kana han cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font) charset
                     (font-spec :family "Kai")))
