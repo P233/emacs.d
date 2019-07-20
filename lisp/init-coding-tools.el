@@ -29,11 +29,9 @@
   (company-idle-delay 0)
   (company-echo-delay 0)
   (company-show-numbers t)
-  (company-minimum-prefix-length 2)
   (company-dabbrev-downcasbe nil)
   (company-selection-wrap-around t)
   (company-global-modes '(not org-mode))
-  (company-backends '(company-tabnine company-files company-dabbrev-code company-dabbrev))
   :config
   (global-company-mode)
   :bind
@@ -54,8 +52,8 @@
         (if (eq (get-text-property 0 'company-backend candidate)
                 'company-tabnine)
             (unless (gethash candidate candidates-table)
-              (push candidate candidates-2))
-          (push candidate candidates-1)
+              (push candidate candidates-1))
+          (push candidate candidates-2)
           (puthash candidate t candidates-table)))
       (setq candidates-1 (nreverse candidates-1))
       (setq candidates-2 (nreverse candidates-2))
