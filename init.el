@@ -23,7 +23,6 @@
 (require 'init-markup)
 (require 'init-css)
 (require 'init-javascript)
-(require 'init-solidity)
 (require 'init-elixir)
 (require 'init-flutter)
 (require 'init-php)
