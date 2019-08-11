@@ -33,7 +33,9 @@
 
 
 ;; Markdown mode
-(use-package markdown-mode)
+(use-package markdown-mode
+  :mode
+  ("\\.mdx?\\'" . markdown-mode))
 
 
 ;; Impatient Mode
