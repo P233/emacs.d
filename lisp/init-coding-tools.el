@@ -65,6 +65,14 @@
 (add-to-list 'company-transformers 'company//sort-by-tabnine t)
 
 
+;; Jump to definition
+(use-package dumb-jump
+  :bind (("M-g g" . dumb-jump-go)
+         ("M-g o" . dumb-jump-go-other-window)
+         ("M-g b" . dumb-jump-back))
+  :config (setq dumb-jump-selector 'ivy))
+
+
 ;; Yasnippet
 ;; (use-package yasnippet
 ;;   :config
