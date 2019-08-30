@@ -73,6 +73,11 @@
   :config (setq dumb-jump-selector 'ivy))
 
 
+;; Goto last change
+(use-package goto-last-change
+  :bind (("C-`" . goto-last-change)))
+
+
 ;; Yasnippet
 ;; (use-package yasnippet
 ;;   :config
