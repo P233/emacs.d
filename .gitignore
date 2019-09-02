@@ -3,6 +3,7 @@ recentf
 tramp
 smex-items
 custom.el
+bookmarks
 
 *.elc
 
