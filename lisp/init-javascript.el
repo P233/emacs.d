@@ -1,7 +1,3 @@
-;; Allows Emacs to find project based installs
-(use-package add-node-modules-path)
-
-
 ;; Tide
 (use-package tide)
 
