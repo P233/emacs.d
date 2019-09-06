@@ -22,8 +22,7 @@
 
 
 ;; Emmet mode
-(add-to-list 'load-path (expand-file-name "custom-packages/emmet-mode" user-emacs-directory))
-(require 'emmet-mode)
+(load (expand-file-name "custom-packages/emmet-mode/emmet-mode" user-emacs-directory))
 (setq emmet-move-cursor-between-quotes t
       emmet-insert-flash-time 0.1)
 
