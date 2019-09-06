@@ -26,6 +26,7 @@ git submodule update
 ### Submodules List:
 
 - [emmet-mode](https://github.com/P233/emmet-mode)
+- [emacs-pragmatapro-ligatures](https://github.com/lumiknit/emacs-pragmatapro-ligatures)
 
 ## Install Global NPM Packages
 

@@ -1,3 +1,6 @@
 [submodule "custom-packages/emmet-mode"]
 	path = custom-packages/emmet-mode
 	url = https://github.com/P233/emmet-mode
+[submodule "custom-packages/emacs-pragmatapro-ligatures"]
+	path = custom-packages/emacs-pragmatapro-ligatures
+	url = https://github.com/lumiknit/emacs-pragmatapro-ligatures.git
