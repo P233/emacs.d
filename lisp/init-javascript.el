@@ -12,7 +12,6 @@
 
 ;; My/js-minor-modes
 (defun my/js-minor-modes ()
-  (add-node-modules-path)
   (prettier-js-mode)
   (tide-setup)
   (tide-hl-identifier-mode)
