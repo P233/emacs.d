@@ -36,6 +36,10 @@
   :mode
   ("\\.mdx?\\'" . markdown-mode))
 
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'prettier-js nil 'local)))
+
 
 ;; Impatient Mode
 (use-package impatient-mode)
