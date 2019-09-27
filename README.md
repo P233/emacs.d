@@ -40,12 +40,6 @@ yarn global add postcss-cli@5 postcss-sorting typescript prettier
 curl https://gist.githubusercontent.com/P233/2cc2e2c739f04f142847604ac3855a94/raw/.postcssrc.json -o ~/.postcssrc.json
 ```
 
-## Install graphviz
-
-```
-brew install graphviz
-```
-
 ## Change default directory for `M-x find-file`
 
 Modify the following line in `init-setting.el` file.
