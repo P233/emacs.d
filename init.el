@@ -29,6 +29,7 @@
 (require 'init-rust)
 (require 'init-lisp)
 (require 'init-org)
+(require 'init-docker)
 
 
 ;; Git
