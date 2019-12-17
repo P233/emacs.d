@@ -10,6 +10,10 @@
 
 (use-package git-timemachine)
 
+(use-package vc-msg
+  :bind
+  ("C-c ," . vc-msg-show))
+
 
 
 (provide 'init-git)
