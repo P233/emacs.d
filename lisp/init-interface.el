@@ -37,7 +37,7 @@
 
 ;; Enable ligatures
 (load (expand-file-name "custom-packages/emacs-pragmatapro-ligatures/pragmatapro-lig" user-emacs-directory))
-(pragmatapro-lig-global-mode)
+(add-hook 'prog-mode-hook #'pragmatapro-lig-mode)
 
 
 ;; Window numbering mode
