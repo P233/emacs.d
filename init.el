@@ -30,6 +30,7 @@
 (require 'init-lisp)
 (require 'init-org)
 (require 'init-docker)
+(require 'init-plantuml)
 
 
 ;; Git

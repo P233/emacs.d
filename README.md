@@ -55,3 +55,11 @@ See https://tabnine.com/
 ```
 M-x company-tabnine-install-binary
 ```
+
+## PlantUML
+
+Install Java from https://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+```
+M-x plantuml-download-jar
+```
