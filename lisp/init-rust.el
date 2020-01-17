@@ -10,5 +10,10 @@
   (racer-mode . eldoc-mode))
 
 
+(use-package rust-playground
+  :custom
+  (rust-playground-basedir "~/Desktop/rust-playground"))
+
+
 
 (provide 'init-rust)
