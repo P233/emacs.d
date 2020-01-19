@@ -16,7 +16,7 @@
 
 
 ;; Flycheck
-;; (use-package flycheck)
+(use-package flycheck)
 
 
 

@@ -2,7 +2,10 @@
   :custom
   (rust-format-on-save t)
   :hook
-  (rust-mode . racer-mode))
+  (flycheck-mode . flycheck-rust-setup)
+  (rust-mode . (lambda ()
+                 (racer-mode)
+                 (flycheck-mode))))
 
 
 (use-package racer
@@ -10,9 +13,15 @@
   (racer-mode . eldoc-mode))
 
 
+(use-package flycheck-rust)
+
+
+(use-package cargo)
+
+
 (use-package rust-playground
   :custom
-  (rust-playground-basedir "~/Desktop/rust-playground"))
+  (rust-playground-basedir "~/Projects/rust-playground"))
 
 
 
