@@ -2,7 +2,7 @@
 
 (defun my/css-before-save-hook ()
   (postcss-sorting-buffer)
-  (prettier-js))
+  (format-all-buffer))
 
 (setq css-indent-offset global-indentation-size)
 (add-hook 'css-mode-hook

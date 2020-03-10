@@ -11,6 +11,10 @@
 (electric-pair-mode t)
 
 
+;; Format all
+(use-package format-all)
+
+
 ;; Move Text mode
 (use-package move-text
   :config

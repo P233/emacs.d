@@ -2,20 +2,16 @@
 (use-package tide)
 
 
-;; Prettier mode
-(use-package prettier-js)
-
-
 ;; ESlint fix
 (use-package eslint-fix)
 
 
 ;; My/js-minor-modes
 (defun my/js-minor-modes ()
-  (prettier-js-mode)
   (tide-setup)
   (tide-hl-identifier-mode)
-  (setq-local company-backends '((company-tide :with company-tabnine :separate))))
+  (setq-local company-backends '((company-tide :with company-tabnine :separate)))
+  (add-hook 'before-save-hook 'format-all-buffer nil 'local))
 
 
 ;; JS2 mode

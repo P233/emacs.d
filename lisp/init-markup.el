@@ -38,7 +38,7 @@
 
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'prettier-js nil 'local)))
+            (add-hook 'before-save-hook 'format-all-buffer nil 'local)))
 
 
 ;; Impatient Mode
