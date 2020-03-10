@@ -93,6 +93,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (add-hook 'before-save-hook 'my/untabify-and-remove-trailing-whitespace)
   (message "Untabify enabled"))
+(my/enable-untabify-on-save)
 
 (defun my/disable-untabify-on-save ()
   "Disable format before saving file."
