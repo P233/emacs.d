@@ -12,7 +12,7 @@
 
 (use-package vc-msg
   :bind
-  ("C-c ," . vc-msg-show))
+  ("C-c C-'" . vc-msg-show))
 
 
 
