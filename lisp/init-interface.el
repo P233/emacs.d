@@ -40,6 +40,10 @@
 (add-hook 'prog-mode-hook #'pragmatapro-lig-mode)
 
 
+;; Prettify symbols
+(global-prettify-symbols-mode)
+
+
 ;; Window numbering mode
 (use-package window-numbering
   :config
