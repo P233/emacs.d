@@ -1,19 +1,18 @@
+(setq css-indent-offset my/indentation-size)
+
 (use-package postcss-sorting)
 
 (defun my/css-before-save-hook ()
   (postcss-sorting-buffer)
-  (format-all-buffer))
+  (prettier-js))
 
-(setq css-indent-offset global-indentation-size)
 (add-hook 'css-mode-hook
           (lambda ()
-            (setq-local company-backends '(company-css company-tabnine))
+            (setq-local company-backends '(company-files (company-css :with company-dabbrev company-dabbrev-code)))
             (add-hook 'before-save-hook 'my/css-before-save-hook nil 'local)
             (emmet-mode)))
 
-
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-
 
 
 (provide 'init-css)
