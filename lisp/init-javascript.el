@@ -25,13 +25,13 @@
 
 (add-hook 'web-mode-hook
           (lambda ()
-            (if (equal web-mode-content-type "jsx")
-                (progn
-                  (setq-local emmet-expand-jsx-className? t)
-                  (setq-local web-mode-enable-auto-quoting nil)
-                  (my/js-minor-modes))
-              (if (equal web-mode-content-type "vue")
-                  (my/js-minor-modes)))))
+            (pcase web-mode-content-type
+              ("jsx" (progn
+                       (setq-local emmet-expand-jsx-className? t)
+                       (setq-local web-mode-enable-auto-quoting nil)
+                       (my/js-minor-modes)))
+              ("vue" (my/js-minor-modes))
+              ("html" (prettier-js-mode)))))
 
 (use-package json-mode
   :custom
