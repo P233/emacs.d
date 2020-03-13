@@ -25,7 +25,5 @@
 
 (use-package yaml-mode)
 
-(use-package impatient-mode)
-
 
 (provide 'init-markup)
