@@ -9,7 +9,9 @@
 
 (use-package smex)
 
-(use-package flycheck)
+(use-package flycheck
+  :config
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 (use-package company
   :custom

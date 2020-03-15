@@ -1,6 +1,6 @@
 (use-package web-mode
   :mode
-  ("\\.html\\'" "\\.vue\\'" "\\.svelte\\'" "\\.twig\\'")
+  ("\\.html\\'" "\\.tsx\\'" "\\.vue\\'" "\\.svelte\\'" "\\.twig\\'")
   :init
   (add-to-list 'magic-mode-alist '("import.*react" . web-mode))
   :custom

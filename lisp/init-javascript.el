@@ -1,9 +1,13 @@
 (use-package tide)
 
+(use-package add-node-modules-path)
+
 (defun my/js-minor-modes ()
+  (add-node-modules-path)
   (tide-setup)
   (tide-hl-identifier-mode)
   (flycheck-mode)
+  (flycheck-select-checker 'javascript-eslint)
   (prettier-js-mode)
   (setq-local company-backends '((company-tide :with company-tabnine :separate))))
 
