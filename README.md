@@ -31,21 +31,19 @@ git submodule update
 ## Install Global NPM Packages
 
 ```
-yarn global add postcss-cli@5 postcss-sorting typescript prettier
+npm i -g postcss-cli@5 postcss-sorting postcss-scss typescript prettier eslint
 ```
 
-### Add postcss-sorting config file
+### Create a global postcss-sorting config file
 
 ```
 curl https://gist.githubusercontent.com/P233/2cc2e2c739f04f142847604ac3855a94/raw/.postcssrc.json -o ~/.postcssrc.json
 ```
 
-## Change default directory for `M-x find-file`
-
-Modify the following line in `init-setting.el` file.
+### Create a global eslint config file
 
 ```
-(setq default-directory "~/Projects")
+touch ~/.eslintrc
 ```
 
 ## Install TabNine binary
@@ -54,12 +52,4 @@ See https://tabnine.com/
 
 ```
 M-x company-tabnine-install-binary
-```
-
-## PlantUML
-
-Install Java from https://www.oracle.com/technetwork/java/javase/downloads/index.html
-
-```
-M-x plantuml-download-jar
 ```
