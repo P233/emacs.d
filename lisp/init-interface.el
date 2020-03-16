@@ -26,6 +26,7 @@
 (use-package doom-modeline
   :custom
   (doom-modeline-icon nil)
+  (doom-modeline-minor-modes t)
   :hook
   (after-init . doom-modeline-mode))
 
