@@ -10,6 +10,8 @@
 (use-package smex)
 
 (use-package flycheck
+  :custom
+  (flycheck-check-syntax-automatically '(mode-enabled save))
   :config
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
