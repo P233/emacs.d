@@ -1,5 +1,7 @@
 (use-package tide)
 
+(use-package eslint-fix)
+
 (use-package add-node-modules-path)
 
 (defun my/js-minor-modes ()
