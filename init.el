@@ -20,9 +20,7 @@
 
 (require 'init-my-functions)
 
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file 'noerror)
-
+(setq custom-file (concat user-emacs-directory "/custom.el"))
 (setq default-directory "~/Projects")
 
 
