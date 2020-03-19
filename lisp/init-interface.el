@@ -45,7 +45,7 @@
   (set-fontset-font (frame-parameter nil 'font) charset
                     (font-spec :family "Kai")))
 
-(load (expand-file-name "custom-packages/emacs-pragmatapro-ligatures/pragmatapro-lig" user-emacs-directory))
+(load (concat user-emacs-directory "custom-packages/emacs-pragmatapro-ligatures/pragmatapro-lig"))
 (add-hook 'prog-mode-hook #'pragmatapro-lig-mode)
 (global-prettify-symbols-mode)
 

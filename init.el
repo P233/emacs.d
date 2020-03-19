@@ -1,5 +1,5 @@
 ;; (package-initialize)
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (concat user-emacs-directory "/lisp"))
 (require 'init-use-package)
 
 (require 'init-interface)

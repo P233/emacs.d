@@ -50,7 +50,7 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
-(load (expand-file-name "custom-packages/emmet-mode/emmet-mode" user-emacs-directory))
+(load (concat user-emacs-directory "custom-packages/emmet-mode/emmet-mode"))
 (setq emmet-move-cursor-between-quotes t
       emmet-insert-flash-time 0.1)
 (define-key emmet-mode-keymap (kbd "<C-return>") nil)

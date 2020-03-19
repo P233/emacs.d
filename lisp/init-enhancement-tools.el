@@ -1,7 +1,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (recentf-mode)
-(add-to-list 'recentf-exclude (format (concat (expand-file-name user-emacs-directory) "elpa/.*")))
+(add-to-list 'recentf-exclude (concat user-emacs-directory "/elpa/.*"))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
