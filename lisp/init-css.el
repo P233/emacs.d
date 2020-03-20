@@ -2,14 +2,10 @@
 
 (use-package postcss-sorting)
 
-(defun my/css-before-save-hook ()
-  (postcss-sorting-buffer)
-  (prettier-js))
-
 (add-hook 'css-mode-hook
           (lambda ()
             (setq-local company-backends '(company-files (company-css :with company-dabbrev company-dabbrev-code)))
-            (add-hook 'before-save-hook 'my/css-before-save-hook nil 'local)
+            (add-hook 'before-save-hook #'prettier-js nil 'local)
             (emmet-mode)))
 
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
