@@ -41,7 +41,10 @@
 
 (use-package json-mode
   :custom
-  (js-indent-level my/indentation-size))
+  (js-indent-level my/indentation-size)
+  :hook
+  (json-mode . (lambda ()
+                 (add-hook 'before-save-hook 'prettier-js nil 'local))))
 
 
 (provide 'init-javascript)
