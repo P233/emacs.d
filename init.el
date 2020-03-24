@@ -1,5 +1,5 @@
 ;; (package-initialize)
-(add-to-list 'load-path (concat user-emacs-directory "/lisp"))
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'init-use-package)
 
 (require 'init-interface)
@@ -20,7 +20,7 @@
 
 (require 'init-my-functions)
 
-(setq custom-file (concat user-emacs-directory "/custom.el"))
+(setq custom-file (concat user-emacs-directory "custom.el"))
 (setq default-directory "~/Projects")
 
 
