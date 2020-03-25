@@ -27,6 +27,7 @@
   :custom
   (doom-modeline-icon nil)
   (doom-modeline-minor-modes t)
+  (doom-modeline-buffer-file-name-style 'truncate-with-project)
   :hook
   (after-init . doom-modeline-mode))
 
