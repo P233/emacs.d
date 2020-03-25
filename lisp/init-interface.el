@@ -4,8 +4,8 @@
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(line-number-mode -1)
 (blink-cursor-mode -1)
+(column-number-mode)
 
 (defun my/load-daytime-theme ()
   "Load gruvbox-light-soft theme."
