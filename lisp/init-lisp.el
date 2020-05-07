@@ -5,6 +5,7 @@
   (parinfer-extensions '(defaults pretty-parens lispy smart-tab smart-yank))
   :hook
   (clojure-mode . parinfer-mode)
+  (clojurescript-mode . parinfer-mode)
   (emacs-lisp-mode . parinfer-mode)
   :bind
   ("C-;" . parinfer-toggle-mode))
