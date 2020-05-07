@@ -16,5 +16,10 @@
 (use-package cider
   :after clojure-mode)
 
+(use-package flycheck-clj-kondo
+  :init
+  (dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
+    (setq flycheck-checkers (cons checker (delq checker flycheck-checkers)))))
+
 
 (provide 'init-lisp)
