@@ -4,15 +4,18 @@
   :custom
   (parinfer-extensions '(defaults pretty-parens lispy smart-tab smart-yank))
   :hook
-  (clojure-mode . parinfer-mode)
-  (clojurescript-mode . parinfer-mode)
   (emacs-lisp-mode . parinfer-mode)
   :bind
   ("C-;" . parinfer-toggle-mode))
 
+(defun my/clj-minor-modes ()
+  (parinfer-mode)
+  (flycheck-mode))
+
 (use-package clojure-mode
-  :custom
-  (clojure-indent-style :align-arguments))
+  :hook
+  (clojure-mode . my/clj-minor-modes)
+  (clojurescript-mode . my/clj-minor-modes))
 
 (use-package cider
   :after clojure-mode)
