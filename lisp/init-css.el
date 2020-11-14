@@ -1,7 +1,5 @@
 (setq css-indent-offset my/indentation-size)
 
-(use-package postcss-sorting)
-
 (add-hook 'css-mode-hook
           (lambda ()
             (setq-local company-backends '(company-files (company-css :with company-dabbrev company-dabbrev-code)))
