@@ -1,6 +1,6 @@
 (use-package web-mode
   :mode
-  ("\\.html\\'" "\\.tsx\\'" "\\.vue\\'" "\\.svelte\\'" "\\.twig\\'")
+  ("\\.html\\'" "\\.[jt]sx?\\'" "\\.vue\\'" "\\.svelte\\'" "\\.twig\\'")
   :init
   (add-to-list 'magic-mode-alist '("import.*react" . web-mode))
   :custom
@@ -10,12 +10,18 @@
   (web-mode-attr-indent-offset my/indentation-size)
   (web-mode-attr-value-indent-offset my/indentation-size)
   (web-mode-enable-current-element-highlight t)
-  (web-mode-content-types-alist '(("jsx" . "\\.[jt]?s[x]?\\'")
+  (web-mode-content-types-alist '(("jsx" . "\\.[jt]sx?\\'")
                                   ("vue" . "\\.vue\\'")))
   :config
   (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
   :hook
-  (web-mode . emmet-mode))
+  (web-mode . (lambda ()
+                (when (equal web-mode-content-type "jsx")
+                  (progn
+                    (setq-local emmet-expand-jsx-className? t)
+                    (setq-local web-mode-enable-auto-quoting nil)))
+                (emmet-mode)
+                (prettier-js-mode))))
 
 (use-package markdown-mode
   :mode "\\.mdx?\\'"

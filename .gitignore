@@ -11,3 +11,5 @@ elpa/
 auto-save-list/
 transient/
 projectile-bookmarks.eld
+/.lsp-session-v1
+/.cache/

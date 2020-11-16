@@ -7,6 +7,7 @@
 
 (require 'init-editing-tools)
 (require 'init-enhancement-tools)
+(require 'init-lsp)
 (require 'init-git)
 
 (require 'init-markup)

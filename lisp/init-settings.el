@@ -21,6 +21,8 @@
       create-lockfiles nil)
 (setq ring-bell-function 'ignore)
 
+(setq read-process-output-max (* 1024 1024))
+
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 

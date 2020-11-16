@@ -28,28 +28,8 @@ git submodule update
 - [emmet-mode](https://github.com/P233/emmet-mode)
 - [emacs-pragmatapro-ligatures](https://github.com/lumiknit/emacs-pragmatapro-ligatures)
 
-## Install Global NPM Packages
+## Dependencies
 
 ```
-npm i -g postcss-cli@5 postcss-sorting postcss-scss typescript prettier eslint
-```
-
-### Create a global postcss-sorting config file
-
-```
-curl https://gist.githubusercontent.com/P233/2cc2e2c739f04f142847604ac3855a94/raw/.postcssrc.json -o ~/.postcssrc.json
-```
-
-### Create a global eslint config file
-
-```
-touch ~/.eslintrc
-```
-
-## Install TabNine binary
-
-See https://tabnine.com/
-
-```
-M-x company-tabnine-install-binary
+npm i -g typescript-language-server typescript
 ```
