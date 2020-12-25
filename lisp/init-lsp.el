@@ -3,6 +3,7 @@
 (use-package lsp-mode
   :custom
   (lsp-enable-file-watchers nil)
+  (lsp-headerline-breadcrumb-enable nil)
   :hook
   ((web-mode . lsp)
    (js2-mode . lsp)
