@@ -15,6 +15,7 @@
 (require 'init-javascript)
 (require 'init-php)
 (require 'init-rust)
+(require 'init-swift)
 (require 'init-lisp)
 (require 'init-org)
 (require 'init-docker)
