@@ -1,5 +1,8 @@
 (use-package swift-mode
-  :hook (swift-mode . (lambda () (lsp))))
+  :custom
+  (swift-mode:basic-offset my/indentation-size)
+  :hook
+  (swift-mode . (lambda () (lsp))))
 
 (use-package lsp-sourcekit
   :after lsp-mode
