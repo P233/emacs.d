@@ -4,9 +4,9 @@
 
 (setq package-enable-at-startup nil
       package-archives
-      '(("gnu"          . "https://elpa.emacs-china.org/gnu/")
-        ("melpa-stable" . "https://elpa.emacs-china.org/melpa-stable/")
-        ("melpa"        . "https://elpa.emacs-china.org/melpa/"))
+      '(("gnu"          . "https://elpa.gnu.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa"        . "https://melpa.org/packages/"))
       package-archive-priorities
       '(("melpa-stable" . 1)
         ("gnu"          . 2)
