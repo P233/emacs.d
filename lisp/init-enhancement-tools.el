@@ -76,30 +76,5 @@
   :config
   (zoom-mode t))
 
-;; https://github.com/skeeto/impatient-mode/issues/22
-(use-package impatient-mode)
-;;;###autoload
-(define-minor-mode impatient-mode
-  "Serves the buffer live over HTTP."
-  :group 'impatient-mode
-  :lighter " imp"
-  :keymap impatient-mode-map
-  (if (not impatient-mode)
-      (progn
-        (imp--cleanup-timer)
-        (remove-hook 'after-change-functions #'imp--on-change t))
-    (add-hook 'kill-buffer-hook #'imp--cleanup-timer nil t)
-    (add-hook 'after-change-functions #'imp--on-change nil t)
-    (imp-remove-user-filter)
-    (unless (process-status "httpd") (httpd-start))
-    (let ((url (format "http://%s:%d/imp/live/%s/"
-                       (cl-case httpd-host
-                         ((nil) "0.0.0.0")
-                         ((local) "localhost")
-                         (otherwise httpd-host))
-                       httpd-port
-                       (url-hexify-string (buffer-name)))))
-      (browse-url url))))
-
 
 (provide 'init-enhancement-tools)
