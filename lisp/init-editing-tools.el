@@ -1,6 +1,5 @@
 (setq show-paren-delay 0)
 (show-paren-mode t)
-(electric-pair-mode t)
 (global-subword-mode t)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)

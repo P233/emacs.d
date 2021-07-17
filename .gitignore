@@ -13,3 +13,4 @@ transient/
 projectile-bookmarks.eld
 /.lsp-session-v1
 /.cache/
+/parinfer-rust/

@@ -1,12 +1,9 @@
 (use-package lispy)
 
-(use-package parinfer
+(use-package parinfer-rust-mode
   :custom
-  (parinfer-extensions '(defaults pretty-parens lispy smart-tab smart-yank))
-  :hook
-  (emacs-lisp-mode . parinfer-mode)
-  :bind
-  ("C-;" . parinfer-toggle-mode))
+  (parinfer-rust-auto-download t)
+  :hook emacs-lisp-mode)
 
 (defun my/clj-minor-modes ()
   (parinfer-mode)
