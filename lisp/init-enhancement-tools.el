@@ -66,7 +66,7 @@
   (neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :bind
   ("C-c t" . neotree-toggle)
-  ("C-c e" . neotree-refresh))
+  ("C-c e" . neotree-show))
 
 (use-package gcmh
   :config
