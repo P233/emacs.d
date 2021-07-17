@@ -13,7 +13,12 @@
   :custom
   (flycheck-check-syntax-automatically '(mode-enabled save)))
 
+(use-package company-tabnine)
+
 (use-package company
+  :after company-tabnine
+  :init
+  (add-to-list 'company-backends #'company-tabnine)
   :custom
   (company-idle-delay 0)
   (company-echo-delay 0)
