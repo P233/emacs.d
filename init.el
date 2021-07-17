@@ -1,4 +1,5 @@
 ;; (package-initialize)
+(setq byte-compile-warnings '(cl-functions))
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'init-use-package)
 
