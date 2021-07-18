@@ -8,6 +8,7 @@
 (set-keyboard-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
+(setq initial-major-mode 'fundamental-mode)
 
 (defvar my/indentation-size 2)
 (setq standard-indent my/indentation-size)
