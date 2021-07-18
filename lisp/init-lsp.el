@@ -1,10 +1,11 @@
+;; -*- lexical-binding: t; -*-
 (setq lsp-keymap-prefix "C-l")
 
 (use-package lsp-mode
-  :custom
-  (lsp-enable-snippet nil)
-  (lsp-enable-file-watchers nil)
-  (lsp-headerline-breadcrumb-enable nil)
+  :config
+  (setq lsp-enable-snippet nil
+        lsp-enable-file-watchers nil
+        lsp-headerline-breadcrumb-enable nil)
   :hook
   (((web-mode css-mode js2-mode clojure-mode swift-mode) . lsp)
    (lsp-mode . electric-pair-local-mode)

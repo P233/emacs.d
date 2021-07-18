@@ -1,6 +1,7 @@
+;; -*- lexical-binding: t; -*-
 (use-package swift-mode
-  :custom
-  (swift-mode:basic-offset my/indentation-size))
+  :config
+  (setq swift-mode:basic-offset my/indentation-size))
 
 (use-package lsp-sourcekit
   :after lsp-mode

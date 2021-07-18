@@ -1,7 +1,4 @@
-(setq frame-title-format nil
-      inhibit-startup-message t
-      initial-scratch-message "")
-
+;; -*- lexical-binding: t; -*-
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (blink-cursor-mode -1)
@@ -24,10 +21,10 @@
   (my/load-daytime-theme))
 
 (use-package doom-modeline
-  :custom
-  (doom-modeline-icon nil)
-  (doom-modeline-minor-modes t)
-  (doom-modeline-buffer-file-name-style 'truncate-with-project)
+  :config
+  (setq doom-modeline-icon nil
+        doom-modeline-minor-modes t
+        doom-modeline-buffer-file-name-style 'truncate-with-project)
   :hook
   (after-init . doom-modeline-mode))
 

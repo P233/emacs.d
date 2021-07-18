@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (setq css-indent-offset my/indentation-size)
 
 (add-hook 'css-mode-hook

@@ -1,6 +1,7 @@
+;; -*- lexical-binding: t; -*-
 (use-package rust-mode
-  :custom
-  (rust-format-on-save t)
+  :config
+  (set rust-format-on-save t)
   :hook
   (flycheck-mode . flycheck-rust-setup)
   (rust-mode . (lambda ()
@@ -20,8 +21,8 @@
 
 (use-package rust-playground
   :after rust-mode
-  :custom
-  (rust-playground-basedir "~/Projects/rust-playground"))
+  :config
+  (set rust-playground-basedir "~/Projects/rust-playground"))
 
 
 (provide 'init-rust)

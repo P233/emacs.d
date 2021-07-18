@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package php-mode)
 
 (use-package apache-mode)

@@ -1,9 +1,7 @@
+;; -*- lexical-binding: t; -*-
 (require 'package)
 
-(defvar package-menu-exclude-packages '("emmet-mode"))
-
-(setq package-enable-at-startup nil
-      package-archives
+(setq package-archives
       '(("gnu"          . "https://elpa.gnu.org/packages/")
         ("melpa-stable" . "https://stable.melpa.org/packages/")
         ("melpa"        . "https://melpa.org/packages/"))
@@ -11,8 +9,6 @@
       '(("melpa-stable" . 1)
         ("gnu"          . 2)
         ("melpa"        . 3)))
-
-(package-initialize)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -22,6 +18,7 @@
 (require 'use-package)
 
 ;; https://emacs.stackexchange.com/questions/9331/mark-package-to-never-be-considered-for-upgrade
+(defvar package-menu-exclude-packages '("emmet-mode"))
 (defun package-menu--remove-excluded-packages (orig)
   (let ((included (-filter
                    (lambda (entry)

@@ -1,3 +1,4 @@
+:;; -*- lexical-binding: t; -*-
 (setq show-paren-delay 0)
 (show-paren-mode t)
 (global-subword-mode t)
@@ -14,36 +15,36 @@
 
 (use-package expand-region
   :bind
-  ("C-'" . er/expand-region)
-  ("C-=" . er/contract-region))
+  (("C-'" . er/expand-region)
+   ("C-=" . er/contract-region)))
 
 (use-package visual-regexp
   :bind
-  ("C-c r" . vr/replace)
-  ("C-c q" . vr/query-replace))
+  (("C-c r" . vr/replace)
+   ("C-c q" . vr/query-replace)))
 
 (use-package popup-kill-ring
   :bind
   ("C-c p" . popup-kill-ring))
 
 (use-package avy
-  :custom
-  (avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
+  :config
+  (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
-  ("C-c '" . avy-goto-char)
-  ("C-c l" . avy-goto-line))
+  (("C-c '" . avy-goto-char)
+   ("C-c l" . avy-goto-line)))
 
 (use-package goto-last-change
   :bind
   ("C-`" . goto-last-change))
 
 (use-package dumb-jump
-  :custom
-  (dumb-jump-selector 'ivy)
+  :config
+  (set dumb-jump-selector 'ivy)
   :bind
-  ("M-g g" . dumb-jump-go)
-  ("M-g o" . dumb-jump-go-other-window)
-  ("M-g b" . dumb-jump-back))
+  (("M-g g" . dumb-jump-go)
+   ("M-g o" . dumb-jump-go-other-window)
+   ("M-g b" . dumb-jump-back)))
 
 (use-package rainbow-delimiters
   :hook

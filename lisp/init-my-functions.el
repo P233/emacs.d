@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; https://emacs-china.org/t/topic/945/2
 (defun my/split-window-below ()
   "Split window with another buffer."

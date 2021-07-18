@@ -1,18 +1,18 @@
+;; -*- lexical-binding: t; -*-
 (use-package web-mode
   :mode
   ("\\.html\\'" "\\.[jt]sx?\\'" "\\.vue\\'" "\\.svelte\\'" "\\.twig\\'")
   :init
   (add-to-list 'magic-mode-alist '("import.*react" . web-mode))
-  (setq web-mode-content-types-alist '(("jsx" . "\\.[jt]sx?\\'")
-                                       ("vue" . "\\.vue\\'")))
-  :custom
-  (web-mode-block-padding my/indentation-size)
-  (web-mode-style-padding my/indentation-size)
-  (web-mode-script-padding my/indentation-size)
-  (web-mode-attr-indent-offset my/indentation-size)
-  (web-mode-attr-value-indent-offset my/indentation-size)
-  (web-mode-enable-current-element-highlight t)
   :config
+  (setq web-mode-content-types-alist '(("jsx" . "\\.[jt]sx?\\'")
+                                       ("vue" . "\\.vue\\'"))
+        web-mode-block-padding my/indentation-size
+        web-mode-style-padding my/indentation-size
+        web-mode-script-padding my/indentation-size
+        web-mode-attr-indent-offset my/indentation-size
+        web-mode-attr-value-indent-offset my/indentation-size
+        web-mode-enable-current-element-highlight t)
   (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
   :hook
   (web-mode . (lambda ()
