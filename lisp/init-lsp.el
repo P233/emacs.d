@@ -2,11 +2,12 @@
 
 (use-package lsp-mode
   :custom
+  (lsp-enable-snippet nil)
   (lsp-enable-file-watchers nil)
   (lsp-headerline-breadcrumb-enable nil)
   :hook
-  ((web-mode . lsp)
-   (js2-mode . lsp)
+  (((web-mode css-mode js2-mode clojure-mode swift-mode) . lsp)
+   (lsp-mode . electric-pair-local-mode)
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 

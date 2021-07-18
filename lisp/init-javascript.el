@@ -4,15 +4,11 @@
   (js2-basic-offset my/indentation-size)
   (js2-highlight-level 3)
   (js2-mode-show-parse-errors nil)
-  (js2-mode-show-strict-warnings nil)
-  :hook
-  (js2-mode . prettier-js-mode))
+  (js2-mode-show-strict-warnings nil))
 
 (use-package typescript-mode
   :custom
-  (typescript-indent-level my/indentation-size)
-  :hook
-  (typescript-mode . prettier-js-mode))
+  (typescript-indent-level my/indentation-size))
 
 (use-package json-mode
   :custom
