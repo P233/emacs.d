@@ -10,6 +10,7 @@ bookmarks
 elpa/
 auto-save-list/
 transient/
+projectile.cache
 projectile-bookmarks.eld
 /.lsp-session-v1
 /.cache/

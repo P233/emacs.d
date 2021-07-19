@@ -1,7 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 (use-package rust-mode
+  :defer t
   :config
-  (set rust-format-on-save t)
+  (setq rust-format-on-save t)
   :hook
   (flycheck-mode . flycheck-rust-setup)
   (rust-mode . (lambda ()
@@ -9,20 +10,24 @@
                  (flycheck-mode))))
 
 (use-package flycheck-rust
+  :defer t
   :after (rust-mode flycheck))
 
 (use-package racer
+  :defer t
   :after rust-mode
   :hook
   (racer-mode . eldoc-mode))
 
 (use-package cargo
+  :defer t
   :after rust-mode)
 
 (use-package rust-playground
+  :defer t
   :after rust-mode
   :config
-  (set rust-playground-basedir "~/Projects/rust-playground"))
+  (setq rust-playground-basedir "~/Projects/rust-playground"))
 
 
 (provide 'init-rust)
