@@ -27,6 +27,13 @@
   (setq projectile-completion-system 'ivy)
   (projectile-mode t))
 
+(use-package ibuffer-projectile
+  :after projectile
+  :hook (ibuffer-mode . (lambda ()
+                          (ibuffer-projectile-set-filter-groups)
+                          (unless (eq ibuffer-sorting-mode 'alphabetic)
+                            (ibuffer-do-sort-by-alphabetic)))))
+
 (use-package counsel-projectile
   :after (counsel projectile)
   :bind
