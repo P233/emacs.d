@@ -24,7 +24,8 @@
 
 (use-package projectile
   :config
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-completion-system 'ivy
+        projectile-enable-caching t)
   (projectile-mode t))
 
 (use-package ibuffer-projectile
