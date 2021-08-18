@@ -16,3 +16,4 @@ projectile-bookmarks.eld
 /.cache/
 /parinfer-rust/
 /package-quickstart.el
+/url/
