@@ -112,7 +112,7 @@
         lsp-enable-file-watchers nil
         lsp-headerline-breadcrumb-enable nil)
   :hook
-  ((web-mode css-mode clojure-mode swift-mode) . lsp)
+  ((web-mode clojure-mode swift-mode) . lsp)
   (lsp-mode . lsp-enable-which-key-integration)
   :commands lsp)
 
