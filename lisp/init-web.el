@@ -17,7 +17,8 @@
         web-mode-script-padding my/indentation-size
         web-mode-attr-indent-offset my/indentation-size
         web-mode-attr-value-indent-offset my/indentation-size
-        web-mode-enable-current-element-highlight t)
+        web-mode-enable-current-element-highlight t
+        web-mode-enable-auto-indentation nil)
   (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
   :hook
   (web-mode . (lambda ()
