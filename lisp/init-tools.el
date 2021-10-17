@@ -48,10 +48,12 @@
         neo-window-position 'right
         neo-autorefresh nil
         neo-mode-line-type 'none
+        neo-default-system-application "open"
         neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :bind
   (("C-c t" . neotree-toggle)
-   ("C-c e" . neotree-show)))
+   ("C-c e" . neotree-show)
+   ("C-c C-o" . neotree-open-file-in-system-application)))
 
 (use-package move-text
   :config
