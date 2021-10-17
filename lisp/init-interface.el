@@ -48,9 +48,6 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
-(dolist (charset '(kana han cjk-misc bopomofo))
-  (set-fontset-font (frame-parameter nil 'font) charset
-                    (font-spec :family "Kai")))
 
 (load (concat user-emacs-directory "custom-packages/emacs-pragmatapro-ligatures/pragmatapro-lig"))
 (add-hook 'prog-mode-hook #'pragmatapro-lig-mode)
