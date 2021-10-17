@@ -5,6 +5,7 @@
 ```
 brew tap railwaycat/emacsmacport
 brew install emacs-mac --with-natural-title-bar
+brew install ripgrep
 ```
 
 ### Natural Title Bar

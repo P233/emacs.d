@@ -18,7 +18,7 @@
   (("M-x"   . counsel-M-x)
    ("C-c s" . swiper)
    ("C-c f" . counsel-git)
-   ("C-c g" . counsel-git-grep)
+   ("C-c g" . counsel-rg)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
