@@ -26,7 +26,9 @@
   :config
   (setq projectile-completion-system 'ivy
         projectile-enable-caching t)
-  (projectile-mode t))
+  (projectile-mode t)
+  :bind
+  (("C-c o" . projectile-switch-project)))
 
 (use-package ibuffer-projectile
   :after projectile
@@ -34,12 +36,6 @@
                           (ibuffer-projectile-set-filter-groups)
                           (unless (eq ibuffer-sorting-mode 'alphabetic)
                             (ibuffer-do-sort-by-alphabetic)))))
-
-(use-package counsel-projectile
-  :after (counsel projectile)
-  :bind
-  (:map projectile-mode-map ("C-c C-p" . projectile-command-map))
-  (:map projectile-mode-map ("C-c o" . counsel-projectile-switch-project)))
 
 (use-package neotree
   :config
