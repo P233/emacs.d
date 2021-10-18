@@ -15,16 +15,16 @@
         enable-recursive-minibuffers t)
   (ivy-mode 1)
   :bind
-  (("M-x"   . counsel-M-x)
-   ("C-c s" . swiper)
+  (("C-c s" . swiper)
    ("C-c g" . counsel-rg)
+   ("M-x"   . counsel-M-x)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
 (use-package projectile
   :config
-  (setq projectile-completion-system 'ivy
-        projectile-enable-caching t)
+  (setq projectile-enable-caching t
+        projectile-completion-system 'ivy)
   (projectile-mode t)
   :bind
   (("C-c f" . projectile-find-file)
@@ -41,14 +41,14 @@
   :config
   (setq neo-theme 'arrow
         neo-smart-open t
-        neo-window-position 'right
         neo-autorefresh nil
         neo-mode-line-type 'none
+        neo-window-position 'right
         neo-default-system-application "open"
         neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :bind
-  (("C-c t" . neotree-toggle)
-   ("C-c e" . neotree-show)
+  (("C-c e"   . neotree-show)
+   ("C-c t"   . neotree-toggle)
    ("C-c C-o" . neotree-open-file-in-system-application)))
 
 (use-package move-text
@@ -142,9 +142,9 @@
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
-(global-set-key (kbd "C-c h") 'hs-toggle-hiding)
-(global-set-key (kbd "C-,") 'kill-ring-save)
 (global-set-key (kbd "C-.") 'kill-region)
+(global-set-key (kbd "C-,") 'kill-ring-save)
+(global-set-key (kbd "C-c h") 'hs-toggle-hiding)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
