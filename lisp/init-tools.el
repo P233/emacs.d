@@ -17,7 +17,6 @@
   :bind
   (("M-x"   . counsel-M-x)
    ("C-c s" . swiper)
-   ("C-c f" . counsel-git)
    ("C-c g" . counsel-rg)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
@@ -28,7 +27,8 @@
         projectile-enable-caching t)
   (projectile-mode t)
   :bind
-  (("C-c o" . projectile-switch-project)))
+  (("C-c f" . projectile-find-file)
+   ("C-c o" . projectile-switch-project)))
 
 (use-package ibuffer-projectile
   :after projectile

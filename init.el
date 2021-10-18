@@ -13,7 +13,8 @@
       create-lockfiles nil
       read-process-output-max (* 1024 1024)
       custom-file (concat user-emacs-directory "custom.el")
-      byte-compile-warnings '(cl-functions))
+      byte-compile-warnings '(cl-functions)
+      find-program "fd")
 
 (defvar my/indentation-size 2)
 (defvar my/file-name-handler-alist file-name-handler-alist)
