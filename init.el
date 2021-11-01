@@ -47,7 +47,8 @@
             (setq-default indent-tabs-mode nil
                           tab-width my/indentation-size)
             (defalias 'yes-or-no-p 'y-or-n-p)
-            (set-language-environment 'utf-8)))
+            (set-language-environment 'utf-8)
+            (add-to-list 'exec-path "/opt/homebrew/bin")))
 
 
 (provide 'init)
