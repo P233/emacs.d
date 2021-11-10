@@ -33,5 +33,5 @@ git submodule update
 
 ```
 brew install clojure-lsp/brew/clojure-lsp-native
-npm i -g typescript-language-server vscode-css-languageserver-bin typescript prettier
+npm i -g typescript-language-server typescript prettier
 ```
