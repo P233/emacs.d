@@ -54,20 +54,6 @@ Repeated invocations toggle between the two most recently open buffers."
       (insert (let ((case-fold-search nil))
                 (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
 
-(defun my/wrap-region (begin end open)
-  (interactive  "r\nsChar: ")
-  (let ((close (cond ((string= open "\"") "\"")
-                     ((string= open "'")  "'")
-                     ((string= open "{")  "}")
-                     ((string= open "[")  "]")
-                     ((string= open "(")  ")")
-                     ((string= open "<")  ">")
-                     (t (reverse open)))))
-    (save-excursion
-      (goto-char end)
-      (insert close)
-      (goto-char begin)
-      (insert open))))
 
 (global-set-key (kbd "C-x 2") 'my/split-window-below)
 (global-set-key (kbd "C-x 3") 'my/split-window-right)
@@ -76,7 +62,6 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "M-RET") 'my/open-line-below)
 (global-set-key (kbd "M-DEL") 'my/backward-kill-line)
 (global-set-key (kbd "M-S") 'my/screaming-snake-case-word)
-(global-set-key (kbd "C-c w") 'my/wrap-region)
 
 
 (provide 'init-my-functions)
