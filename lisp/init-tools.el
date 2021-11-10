@@ -30,12 +30,11 @@
   (("C-c f" . projectile-find-file)
    ("C-c o" . projectile-switch-project)))
 
-(use-package ibuffer-projectile
-  :after projectile
-  :hook (ibuffer-mode . (lambda ()
-                          (ibuffer-projectile-set-filter-groups)
-                          (unless (eq ibuffer-sorting-mode 'alphabetic)
-                            (ibuffer-do-sort-by-alphabetic)))))
+(use-package perspective
+  :init
+  (setq persp-mode-prefix-key (kbd "M-p"))
+  :config
+  (persp-mode))
 
 (use-package neotree
   :config
