@@ -114,6 +114,11 @@
 
 (use-package lsp-ivy :defer t)
 
+(use-package ivy-xref
+  :config
+  (setq xref-show-xrefs-function #'ivy-xref-show-defs
+        xref-show-definitions-function #'ivy-xref-show-defs))
+
 (use-package magit
   :bind
   ("C-c m" . magit-status))
