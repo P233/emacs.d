@@ -26,7 +26,10 @@
                   (setq-local emmet-expand-jsx-className? t
                               web-mode-enable-auto-quoting nil))
                 (emmet-mode)
-                (electric-pair-local-mode))))
+                (electric-pair-local-mode)))
+  :bind
+  (:map web-mode-map
+        ("C-c C-r" . nil)))
 
 (setq css-indent-offset my/indentation-size)
 (add-hook 'css-mode-hook

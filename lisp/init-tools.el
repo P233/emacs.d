@@ -105,23 +105,15 @@
 (use-package lsp-mode
   :defer t
   :config
-  (setq lsp-keymap-prefix "C-l"
-        lsp-enable-snippet nil
+  (setq lsp-enable-snippet nil
         lsp-enable-file-watchers nil
         lsp-headerline-breadcrumb-enable nil)
   :hook
   ((web-mode clojure-mode swift-mode) . lsp)
-  (lsp-mode . lsp-enable-which-key-integration)
-  :commands lsp)
-
-(use-package lsp-ui :defer t :commands lsp-ui-mode)
-(use-package lsp-ivy :defer t :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :defer t :commands lsp-treemacs-errors-list)
-
-(use-package which-key
-  :defer t
-  :config
-  (which-key-mode))
+  :bind
+  ("C-c d" . lsp-find-definition)
+  ("C-c u" . lsp-find-references)
+  ("C-c C-r" . lsp-rename))
 
 (use-package magit
   :bind
