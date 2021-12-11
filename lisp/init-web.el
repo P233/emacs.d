@@ -29,7 +29,8 @@
                 (electric-pair-local-mode)))
   :bind
   (:map web-mode-map
-        ("C-c C-r" . nil)))
+        ("C-c C-r" . nil)
+        ("C-c C-s" . nil)))
 
 (setq css-indent-offset my/indentation-size)
 (add-hook 'css-mode-hook

@@ -113,7 +113,10 @@
   :bind
   ("C-c d" . lsp-find-definition)
   ("C-c u" . lsp-find-references)
-  ("C-c C-r" . lsp-rename))
+  ("C-c C-r" . lsp-rename)
+  ("C-c C-s" . lsp-ivy-workspace-symbol))
+
+(use-package lsp-ivy :defer t)
 
 (use-package magit
   :bind
@@ -141,4 +144,3 @@
 
 
 (provide 'init-tools)
- 
