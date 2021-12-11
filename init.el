@@ -36,6 +36,7 @@
 (require 'init-lisp)
 (require 'init-org)
 (require 'init-docker)
+(require 'init-solidity)
 
 (require 'init-my-functions)
 
