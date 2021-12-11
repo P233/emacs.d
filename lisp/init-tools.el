@@ -15,9 +15,11 @@
         enable-recursive-minibuffers t)
   (ivy-mode 1)
   :bind
-  (("C-c s" . swiper)
-   ("C-c g" . counsel-rg)
-   ("M-x"   . counsel-M-x)
+  (("M-x"     . counsel-M-x)
+   ("C-c s"   . swiper)
+   ("C-c g"   . counsel-rg)
+   ("C-c f"   . counsel-git)
+   ("C-c C-f" . counsel-find-file)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
@@ -27,8 +29,7 @@
         projectile-completion-system 'ivy)
   (projectile-mode t)
   :bind
-  (("C-c f" . projectile-find-file)
-   ("C-c o" . projectile-switch-project)))
+  ("C-c o" . projectile-switch-project))
 
 (use-package perspective
   :init
@@ -72,7 +73,7 @@
   :config
   (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
-  (("C-c '" . avy-goto-char)
+  (("C-c j" . avy-goto-char)
    ("C-c l" . avy-goto-line)))
 
 (use-package goto-last-change
@@ -148,3 +149,4 @@
 
 
 (provide 'init-tools)
+ 
