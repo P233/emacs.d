@@ -82,36 +82,61 @@
 
 (use-package flycheck
   :config
-  (setq flycheck-check-syntax-automatically '(mode-enabled save)))
+  (setq flycheck-display-errors-delay 0
+        flycheck-check-syntax-automatically '(mode-enabled save)))
 
 (use-package company
   :config
   (setq company-idle-delay 0
         company-echo-delay 0
         company-show-numbers t
-        company-dabbrev-downcasbe nil
+        company-dabbrev-downcase nil
         company-selection-wrap-around t
-        company-minimum-prefix-length 1
         company-global-modes '(not org-mode))
   (global-company-mode)
   :bind
   ((:map company-active-map ("C-n" . company-select-next))
    (:map company-active-map ("C-p" . company-select-previous))))
 
+(use-package company-posframe
+  :config
+  (setq company-posframe-show-metadata nil
+        company-posframe-show-indicator nil
+        company-posframe-quickhelp-show-header nil)
+  (company-posframe-mode 1))
+
+(use-package yasnippet
+  :config (yas-global-mode))
+
 (use-package lsp-mode
   :defer t
   :config
   (setq lsp-enable-snippet nil
         lsp-enable-file-watchers nil
-        lsp-headerline-breadcrumb-enable nil)
+        lsp-enable-symbol-highlighting nil
+        lsp-ui-doc-enable nil
+        lsp-ui-doc-show-with-cursor nil
+        lsp-ui-doc-show-with-mouse nil
+        lsp-ui-sideline-enable nil
+        lsp-lens-enable nil
+        lsp-eldoc-enable-hover nil
+        lsp-headerline-breadcrumb-enable nil
+        lsp-signature-auto-activate nil
+        lsp-signature-render-documentation nil
+        lsp-modeline-diagnostics-enable nil
+        lsp-modeline-code-actions-enable nil
+        lsp-completion-show-detail nil)
   :hook
   ((web-mode clojure-mode swift-mode) . lsp)
   :bind
+  ("C-x d" . lsp-ui-doc-show)
   ("C-c d" . lsp-find-definition)
   ("C-c u" . lsp-find-references)
   ("C-c C-r" . lsp-rename)
+  ("C-c C-t" . lsp-find-type-definition)
   ("C-c C-s" . lsp-ivy-workspace-symbol))
 
+(use-package lsp-ui :defer t)
 (use-package lsp-ivy :defer t)
 
 (use-package ivy-xref
