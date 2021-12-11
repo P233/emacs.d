@@ -14,6 +14,7 @@
       read-process-output-max (* 1024 1024)
       custom-file (concat user-emacs-directory "custom.el")
       byte-compile-warnings '(cl-functions)
+      confirm-kill-emacs 'y-or-n-p
       find-program "fd")
 
 (defvar my/indentation-size 2)
