@@ -84,11 +84,7 @@
   :config
   (setq flycheck-check-syntax-automatically '(mode-enabled save)))
 
-(use-package company-tabnine)
-
 (use-package company
-  :init
-  (add-to-list 'company-backends #'company-tabnine)
   :config
   (setq company-idle-delay 0
         company-echo-delay 0
