@@ -30,7 +30,8 @@
   :bind
   (:map web-mode-map
         ("C-c C-r" . nil)
-        ("C-c C-s" . nil)))
+        ("C-c C-s" . nil)
+        ("C-c C-c C-r" . web-mode-reload)))
 
 (setq css-indent-offset my/indentation-size)
 (add-hook 'css-mode-hook
