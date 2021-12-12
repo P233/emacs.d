@@ -23,6 +23,11 @@
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
+(use-package ivy-xref
+  :config
+  (setq xref-show-xrefs-function #'ivy-xref-show-defs
+        xref-show-definitions-function #'ivy-xref-show-defs))
+
 (use-package projectile
   :config
   (setq projectile-enable-caching t
@@ -138,11 +143,6 @@
 
 (use-package lsp-ui :defer t)
 (use-package lsp-ivy :defer t)
-
-(use-package ivy-xref
-  :config
-  (setq xref-show-xrefs-function #'ivy-xref-show-defs
-        xref-show-definitions-function #'ivy-xref-show-defs))
 
 (use-package magit
   :bind
