@@ -90,8 +90,6 @@
   (setq flycheck-display-errors-delay 0
         flycheck-check-syntax-automatically '(mode-enabled save)))
 
-(use-package company-tabnine)
-
 (use-package company
   :config
   (setq company-idle-delay 0
@@ -99,8 +97,7 @@
         company-show-numbers t
         company-dabbrev-downcase nil
         company-selection-wrap-around t
-        company-global-modes '(not org-mode)
-        company-backends '(company-tabnine))
+        company-global-modes '(not org-mode))
   (global-company-mode)
   :bind
   ((:map company-active-map ("C-n" . company-select-next))
@@ -133,9 +130,9 @@
         lsp-signature-render-documentation nil
         lsp-modeline-diagnostics-enable nil
         lsp-modeline-code-actions-enable nil
-        lsp-completion-enable nil)
+        lsp-completion-show-detail nil)
   :hook
-  ((web-mode clojure-mode swift-mode) . lsp)
+  ((web-mode scss-mode clojure-mode swift-mode) . lsp)
   :bind
   ("C-x d" . lsp-ui-doc-show)
   ("C-c d" . lsp-find-definition)
