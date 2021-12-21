@@ -118,7 +118,6 @@
   :config
   (setq lsp-enable-snippet nil
         lsp-enable-file-watchers nil
-        lsp-enable-symbol-highlighting nil
         lsp-ui-doc-enable nil
         lsp-ui-doc-show-with-cursor nil
         lsp-ui-doc-show-with-mouse nil
