@@ -97,6 +97,7 @@
         company-show-numbers t
         company-dabbrev-downcase nil
         company-selection-wrap-around t
+        company-minimum-prefix-length 2
         company-global-modes '(not org-mode))
   (global-company-mode)
   :bind
