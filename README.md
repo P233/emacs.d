@@ -4,7 +4,7 @@
 
 ```
 brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-natural-title-bar
+brew install emacs-mac --with-mac-metal --with-rsvg --with-starter --with-native-comp --with-natural-title-bar
 brew install fd ripgrep
 ```
 
