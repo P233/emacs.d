@@ -49,6 +49,7 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
+(set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
 
 (load (concat user-emacs-directory "custom-packages/emacs-pragmatapro-ligatures/pragmatapro-lig"))
 (add-hook 'prog-mode-hook #'pragmatapro-lig-mode)
