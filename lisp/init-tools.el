@@ -118,12 +118,9 @@
 (use-package lsp-mode
   :defer t
   :config
-  (setq lsp-enable-snippet nil
+  (setq lsp-use-plists t
+        lsp-enable-snippet nil
         lsp-enable-file-watchers nil
-        lsp-ui-doc-enable nil
-        lsp-ui-doc-show-with-cursor nil
-        lsp-ui-doc-show-with-mouse nil
-        lsp-ui-sideline-enable nil
         lsp-lens-enable nil
         lsp-eldoc-enable-hover nil
         lsp-headerline-breadcrumb-enable nil
@@ -135,14 +132,12 @@
   :hook
   ((web-mode scss-mode clojure-mode swift-mode) . lsp)
   :bind
-  ("C-x d" . lsp-ui-doc-show)
   ("C-c d" . lsp-find-definition)
   ("C-c u" . lsp-find-references)
   ("C-c C-r" . lsp-rename)
   ("C-c C-t" . lsp-find-type-definition)
   ("C-c C-s" . lsp-ivy-workspace-symbol))
 
-(use-package lsp-ui :defer t)
 (use-package lsp-ivy :defer t)
 
 (use-package magit
