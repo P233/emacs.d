@@ -70,5 +70,12 @@
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
 
+(use-package keytar
+  :defer t
+  :config
+  (keytar-install))
+(use-package lsp-grammarly
+  :after keytar)
+
 
 (provide 'init-org)
