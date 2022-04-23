@@ -18,3 +18,5 @@ projectile-bookmarks.eld
 /package-quickstart.el
 /url/
 /eln-cache/
+/org-roam.db
+/.org-id-locations

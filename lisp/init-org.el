@@ -30,11 +30,11 @@
     (set-face-attribute face nil :inherit 'fixed-pitch))
   :hook
   (org-mode . (lambda ()
+                (setq-local line-spacing 2)
                 (mixed-pitch-mode)
                 (visual-line-mode)
-                (org-superstar-mode)
                 (visual-fill-column-mode)
-                (setq-local line-spacing 2))))
+                (org-superstar-mode))))
 
 (use-package mixed-pitch
   :after org
@@ -55,6 +55,20 @@
   :after org
   :custom
   (visual-fill-column-width 72))
+
+(use-package org-roam
+  :config
+  (setq org-roam-directory "~/Dropbox/org-roam")
+  :bind
+  (("C-c n f" . org-roam-node-find)
+   ("C-c n i" . org-roam-node-insert)))
+
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 
 (provide 'init-org)
