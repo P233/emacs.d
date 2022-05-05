@@ -39,10 +39,6 @@
   :config
   (window-numbering-mode))
 
-(use-package zoom
-  :config
-  (zoom-mode t))
-
 (use-package rainbow-delimiters
   :defer t
   :hook
