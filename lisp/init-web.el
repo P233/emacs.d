@@ -20,6 +20,7 @@
         web-mode-enable-current-element-highlight t
         web-mode-enable-auto-indentation nil)
   (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
+  (add-to-list 'web-mode-comment-formats '("jsx" . "//" ))
   :hook
   (web-mode . (lambda ()
                 (when (equal web-mode-content-type "jsx")
