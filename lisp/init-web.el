@@ -1,8 +1,11 @@
 ;; -*- lexical-binding: t; -*-
-(load (concat user-emacs-directory "custom-packages/emmet-mode/emmet-mode"))
-(setq emmet-move-cursor-between-quotes t
-      emmet-insert-flash-time 0.1)
-(define-key emmet-mode-keymap (kbd "<C-return>") nil)
+(use-package emmet-mode
+  :load-path "custom-packages/emmet-mode"
+  :custom
+  (emmet-move-cursor-between-quotes t)
+  (emmet-insert-flash-time 0.1)
+  :config
+  (define-key emmet-mode-keymap (kbd "<C-return>") nil))
 
 (use-package web-mode
   :mode

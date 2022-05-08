@@ -4,6 +4,10 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 (column-number-mode)
+(global-prettify-symbols-mode)
+
+(add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
+(set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
 
 (defun my/load-daytime-theme ()
   "Load gruvbox-light-soft theme."
@@ -44,12 +48,10 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
-(add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
-(set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
-
-(load (concat user-emacs-directory "custom-packages/emacs-pragmatapro-ligatures/pragmatapro-lig"))
-(add-hook 'prog-mode-hook #'pragmatapro-lig-mode)
-(global-prettify-symbols-mode)
+(use-package pragmatapro-lig
+  :load-path "custom-packages/emacs-pragmatapro-ligatures"
+  :hook
+  (prog-mode . pragmatapro-lig-mode))
 
 
 (provide 'init-interface)
