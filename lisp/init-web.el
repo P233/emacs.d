@@ -2,28 +2,27 @@
 (use-package emmet-mode
   :load-path "custom-packages/emmet-mode"
   :custom
-  (emmet-move-cursor-between-quotes t)
   (emmet-insert-flash-time 0.1)
+  (emmet-move-cursor-between-quotes t)
   :config
   (define-key emmet-mode-keymap (kbd "<C-return>") nil))
 
 (use-package web-mode
   :mode
   ("\\.html\\'" "\\.[jt]sx?\\'" "\\.vue\\'" "\\.svelte\\'")
-  :init
-  (add-to-list 'magic-mode-alist '("import.*react" . web-mode))
   :config
-  (setq web-mode-content-types-alist '(("jsx" . "\\.[jt]sx?\\'")
-                                       ("vue" . "\\.vue\\'"))
-        web-mode-block-padding my/indentation-size
-        web-mode-style-padding my/indentation-size
-        web-mode-script-padding my/indentation-size
-        web-mode-attr-indent-offset my/indentation-size
-        web-mode-attr-value-indent-offset my/indentation-size
-        web-mode-enable-current-element-highlight t
-        web-mode-enable-auto-indentation nil)
-  (set-face-background 'web-mode-current-element-highlight-face "#AF3A03")
   (add-to-list 'web-mode-comment-formats '("jsx" . "//" ))
+  :custom
+  (web-mode-content-types-alist '(("jsx" . "\\.[jt]sx?\\'")
+                                  ("vue" . "\\.vue\\'")))
+  (web-mode-block-padding my/indentation-size)
+  (web-mode-style-padding my/indentation-size)
+  (web-mode-script-padding my/indentation-size)
+  (web-mode-attr-indent-offset my/indentation-size)
+  (web-mode-attr-value-indent-offset my/indentation-size)
+  (web-mode-enable-current-element-highlight t)
+  (web-mode-enable-auto-indentation nil)
+  (web-mode-enable-current-element-highlight nil)
   :hook
   (web-mode . (lambda ()
                 (when (equal web-mode-content-type "jsx")
@@ -46,17 +45,19 @@
 
 (use-package json-mode
   :defer t
-  :config
-  (setq js-indent-level my/indentation-size))
+  :custom
+  (js-indent-level my/indentation-size))
 
-(use-package yaml-mode :defer t)
+(use-package yaml-mode
+  :defer t)
 
 (use-package markdown-mode
   :mode "\\.mdx?\\'")
 
 (use-package prettier-js
   :defer t
-  :hook ((web-mode css-mode markdown-mode json-mode) . prettier-js-mode))
+  :hook
+  ((web-mode css-mode markdown-mode json-mode) . prettier-js-mode))
 
 
 (provide 'init-web)

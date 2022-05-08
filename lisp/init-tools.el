@@ -3,17 +3,22 @@
 (show-paren-mode t)
 (global-subword-mode t)
 
+(use-package gcmh
+  :config
+  (gcmh-mode))
+
 (use-package smex)
 
 (use-package counsel
   :demand t
+  :custom
+  (ivy-wrap t)
+  (ivy-height 20)
+  (ivy-use-virtual-buffers t)
+  (ivy-use-selectable-prompt t)
+  (ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
+  (enable-recursive-minibuffers t)
   :config
-  (setq ivy-wrap t
-        ivy-height 20
-        ivy-use-virtual-buffers t
-        ivy-use-selectable-prompt t
-        enable-recursive-minibuffers t
-        ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
   (ivy-mode 1)
   :bind
   (("M-x"     . counsel-M-x)
@@ -25,33 +30,34 @@
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
 (use-package ivy-xref
-  :config
-  (setq xref-show-xrefs-function #'ivy-xref-show-defs
-        xref-show-definitions-function #'ivy-xref-show-defs))
+  :custom
+  (xref-show-xrefs-function #'ivy-xref-show-defs)
+  (xref-show-definitions-function #'ivy-xref-show-defs))
 
 (use-package projectile
+  :custom
+  (projectile-enable-caching t)
+  (projectile-completion-system 'ivy)
   :config
-  (setq projectile-enable-caching t
-        projectile-completion-system 'ivy)
   (projectile-mode t)
   :bind
   ("C-c o" . projectile-switch-project))
 
 (use-package perspective
-  :init
-  (setq persp-mode-prefix-key (kbd "M-p"))
+  :custom
+  (persp-mode-prefix-key (kbd "M-p"))
   :config
   (persp-mode))
 
 (use-package neotree
-  :config
-  (setq neo-theme 'arrow
-        neo-smart-open t
-        neo-autorefresh nil
-        neo-mode-line-type 'none
-        neo-window-position 'right
-        neo-default-system-application "open"
-        neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
+  :custom
+  (neo-theme 'arrow)
+  (neo-smart-open t)
+  (neo-autorefresh nil)
+  (neo-mode-line-type 'none)
+  (neo-window-position 'right)
+  (neo-default-system-application "open")
+  (neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
   :bind
   (("C-c e"   . neotree-show)
    ("C-c t"   . neotree-toggle)
@@ -76,8 +82,8 @@
   ("C-c p" . popup-kill-ring))
 
 (use-package avy
-  :config
-  (setq avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
+  :custom
+  (avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
   (("C-c j" . avy-goto-char-2)
    ("C-c l" . avy-goto-line)))
@@ -87,55 +93,59 @@
   ("C-`" . goto-last-change))
 
 (use-package flycheck
-  :config
-  (setq flycheck-display-errors-delay 0
-        flycheck-check-syntax-automatically '(mode-enabled save)))
+  :custom
+  (flycheck-display-errors-delay 0)
+  (flycheck-check-syntax-automatically '(mode-enabled save)))
 
 (use-package company
+  :custom
+  (company-idle-delay 0)
+  (company-echo-delay 0)
+  (company-show-numbers t)
+  (company-dabbrev-downcase nil)
+  (company-selection-wrap-around t)
+  (company-minimum-prefix-length 2)
+  (company-global-modes '(not org-mode))
   :config
-  (setq company-idle-delay 0
-        company-echo-delay 0
-        company-show-numbers t
-        company-dabbrev-downcase nil
-        company-selection-wrap-around t
-        company-minimum-prefix-length 2
-        company-global-modes '(not org-mode))
   (global-company-mode)
   :bind
   ((:map company-active-map ("C-n" . company-select-next))
    (:map company-active-map ("C-p" . company-select-previous))))
 
 (use-package company-posframe
+  :after company
+  :custom
+  (company-posframe-show-metadata nil)
+  (company-posframe-show-indicator nil)
+  (company-posframe-quickhelp-show-header nil)
   :config
-  (setq company-posframe-show-metadata nil
-        company-posframe-show-indicator nil
-        company-posframe-quickhelp-show-header nil)
   (company-posframe-mode 1))
 
 (use-package company-tabnine
   :after company
   :init
   (add-to-list 'company-backends #'company-tabnine)
-  :config
-  (setq company-tabnine-show-annotation nil))
+  :custom
+  (company-tabnine-show-annotation nil))
 
 (use-package yasnippet
-  :config (yas-global-mode))
+  :config
+  (yas-global-mode))
 
 (use-package lsp-mode
   :defer t
-  :config
-  (setq lsp-use-plists t
-        lsp-enable-snippet nil
-        lsp-enable-file-watchers nil
-        lsp-lens-enable nil
-        lsp-eldoc-enable-hover nil
-        lsp-headerline-breadcrumb-enable nil
-        lsp-signature-auto-activate nil
-        lsp-signature-render-documentation nil
-        lsp-modeline-diagnostics-enable nil
-        lsp-modeline-code-actions-enable nil
-        lsp-completion-enable nil)
+  :custom
+  (lsp-use-plists t)
+  (lsp-enable-snippet nil)
+  (lsp-enable-file-watcphers nil)
+  (lsp-lens-enable nil)
+  (lsp-eldoc-enable-hover nil)
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-signature-auto-activate nil)
+  (lsp-signature-render-documentation nil)
+  (lsp-modeline-diagnostics-enable nil)
+  (lsp-modeline-code-actions-enable nil)
+  (lsp-completion-enable nil)
   :hook
   ((web-mode scss-mode clojure-mode swift-mode) . lsp)
   :bind
@@ -145,7 +155,8 @@
   ("C-c C-t" . lsp-find-type-definition)
   ("C-c C-s" . lsp-ivy-workspace-symbol))
 
-(use-package lsp-ivy :defer t)
+(use-package lsp-ivy
+  :after lsp-mode)
 
 (use-package magit
   :bind
@@ -159,7 +170,8 @@
   :bind
   ("C-c C-'" . vc-msg-show))
 
-(use-package git-timemachine :defer t)
+(use-package git-timemachine
+  :defer t)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired

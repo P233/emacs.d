@@ -1,21 +1,14 @@
 ;; -*- lexical-binding: t; -*-
 (setq package-enable-at-startup nil
       package-quickstart t
-      frame-inhibit-implied-resize t
       frame-title-format nil
+      frame-inhibit-implied-resize t
       inhibit-startup-message t
       initial-scratch-message ""
       initial-major-mode 'fundamental-mode
-      backup-inhibited t
-      make-backup-files nil
-      auto-save-list-file-prefix nil
-      auto-save-default nil
-      create-lockfiles nil
       read-process-output-max (* 1024 1024)
       custom-file (concat user-emacs-directory "custom.el")
-      byte-compile-warnings '(cl-functions)
-      confirm-kill-emacs 'y-or-n-p
-      find-program "fd")
+      byte-compile-warnings '(cl-functions))
 
 (defvar my/indentation-size 2)
 (defvar my/file-name-handler-alist file-name-handler-alist)
@@ -23,31 +16,31 @@
 
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'init-use-package)
-
-(use-package gcmh :config (gcmh-mode))
-
-(require 'init-interface)
-
 (require 'init-tools)
-
+(require 'init-interface)
+(require 'init-org)
 (require 'init-web)
+(require 'init-lisp)
 (require 'init-rust)
 (require 'init-swift)
-(require 'init-lisp)
-(require 'init-org)
 (require 'init-docker)
 (require 'init-solidity)
-
 (require 'init-my-functions)
 
 (add-hook 'emacs-startup-hook
           (lambda ()
-            (setq ring-bell-function 'ignore
+            (setq backup-inhibited t
+                  make-backup-files nil
+                  auto-save-default nil
+                  auto-save-list-file-prefix nil
+                  create-lockfiles nil
+                  ring-bell-function 'ignore
+                  find-program "fd"
                   default-directory "~/Projects"
+                  confirm-kill-emacs 'y-or-n-p
                   standard-indent my/indentation-size
                   file-name-handler-alist my/file-name-handler-alist)
-            (setq-default indent-tabs-mode nil
-                          tab-width my/indentation-size)
+            (setq-default indent-tabs-mode nil)
             (defalias 'yes-or-no-p 'y-or-n-p)
             (set-language-environment 'utf-8)
             (add-to-list 'exec-path "/opt/homebrew/bin")))

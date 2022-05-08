@@ -2,32 +2,31 @@
 (use-package org
   :pin manual
   :defer t
-  :config
-  (setq org-directory "~/Dropbox/org"
-        org-agenda-files "~/Dropbox/org/agenda.org"
-        org-ellipsis " ⭍"
-        org-startup-indented t
-        org-pretty-entities t
-        org-hide-leading-stars t
-        org-hide-emphasis-markers t
-        org-startup-with-inline-images t
-        org-image-actual-width '(800)
-        org-todo-keywords '((sequence "     " "   ")))
-  (dolist (face '((org-level-1 . 1.15)
-                  (org-level-2 . 1.13)
-                  (org-level-3 . 1.11)
-                  (org-level-4 . 1.09)
-                  (org-level-5 . 1.07)
-                  (org-level-6 . 1.05)
-                  (org-level-7 . 1.03)
-                  (org-level-8 . 1.01)))
-    (set-face-attribute (car face) nil :height (cdr face)))
-  (dolist (face '(org-todo
-                  org-done
-                  org-ellipsis
-                  org-special-keyword
-                  org-property-value))
-    (set-face-attribute face nil :inherit 'fixed-pitch))
+  :custom
+  (org-directory "~/Dropbox/org")
+  (org-agenda-files "~/Dropbox/org/agenda.org")
+  (org-ellipsis " ⭍")
+  (org-pretty-entities t)
+  (org-startup-indented t)
+  (org-hide-leading-stars t)
+  (org-hide-emphasis-markers t)
+  (org-image-actual-width '(800))
+  (org-startup-with-inline-images t)
+  (org-todo-keywords '((sequence "     " "   ")))
+  :custom-face
+  (org-level-1 ((t (:height 1.15))))
+  (org-level-2 ((t (:height 1.13))))
+  (org-level-3 ((t (:height 1.11))))
+  (org-level-4 ((t (:height 1.09))))
+  (org-level-5 ((t (:height 1.07))))
+  (org-level-6 ((t (:height 1.05))))
+  (org-level-7 ((t (:height 1.03))))
+  (org-level-8 ((t (:height 1.01))))
+  (org-todo ((t (:inherit 'fixed-pitch))))
+  (org-done ((t (:inherit 'fixed-pitch))))
+  (org-ellipsis ((t (:inherit 'fixed-pitch))))
+  (org-property-value ((t (:inherit 'fixed-pitch))))
+  (org-special-keyword ((t (:inherit 'fixed-pitch))))
   :hook
   (org-mode . (lambda ()
                 (setq-local line-spacing 2)
@@ -38,18 +37,19 @@
 
 (use-package mixed-pitch
   :after org
-  :config
-  (set-face-attribute 'default nil :font "PragmataPro Mono Liga")
-  (set-face-attribute 'fixed-pitch nil :font "PragmataPro Mono Liga")
-  (set-face-attribute 'variable-pitch nil :font "Noto Serif"))
+  :custom-face
+  (default ((t (:font "PragmataPro Mono Liga"))))
+  (fixed-pitch ((t (:font "PragmataPro Mono Liga"))))
+  (variable-pitch ((t (:font "Noto Serif")))))
 
 (use-package org-superstar
   :after org
-  :config
-  (setq org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷")
-        org-superstar-item-bullet-alist '((43 . "⬧") (45 . "⬨")))
-  (set-face-attribute 'org-superstar-item nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-superstar-header-bullet nil :height 232 :inherit 'fixed-pitch))
+  :custom
+  (org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷"))
+  (org-superstar-item-bullet-alist '((43 . "⬧") (45 . "⬨")))
+  :custom-face
+  (org-superstar-item ((t (:inherit 'fixed-pitch))))
+  (org-superstar-header-bullet ((t (:height 232 :inherit 'fixed-pitch)))))
 
 (use-package visual-fill-column
   :after org
@@ -57,25 +57,18 @@
   (visual-fill-column-width 72))
 
 (use-package org-roam
-  :config
-  (setq org-roam-directory "~/Dropbox/org-roam")
+  :custom
+  (org-roam-directory "~/Dropbox/org-roam")
   :bind
   (("C-c n f" . org-roam-node-find)
    ("C-c n i" . org-roam-node-insert)))
 
 (use-package org-roam-ui
   :after org-roam
-  :config
-  (setq org-roam-ui-follow t
-        org-roam-ui-update-on-save t
-        org-roam-ui-open-on-start t))
-
-(use-package keytar
-  :defer t
-  :config
-  (keytar-install))
-(use-package lsp-grammarly
-  :after keytar)
+  :custom
+  (org-roam-ui-follow t)
+  (org-roam-ui-update-on-save t)
+  (org-roam-ui-open-on-start t))
 
 
 (provide 'init-org)
