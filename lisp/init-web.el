@@ -5,7 +5,7 @@
   (emmet-insert-flash-time 0.1)
   (emmet-move-cursor-between-quotes t)
   :config
-  (define-key emmet-mode-keymap (kbd "<C-return>") nil))
+  (unbind-key "<C-return>" emmet-mode-keymap))
 
 (use-package web-mode
   :mode

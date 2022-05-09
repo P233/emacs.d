@@ -27,6 +27,9 @@
   (org-ellipsis ((t (:inherit 'fixed-pitch))))
   (org-property-value ((t (:inherit 'fixed-pitch))))
   (org-special-keyword ((t (:inherit 'fixed-pitch))))
+  :config
+  (unbind-key "C-'" org-mode-map)
+  (unbind-key "C-," org-mode-map)
   :hook
   (org-mode . (lambda ()
                 (setq-local line-spacing 2)
