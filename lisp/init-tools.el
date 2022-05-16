@@ -121,13 +121,6 @@
   :config
   (company-posframe-mode 1))
 
-(use-package company-tabnine
-  :after company
-  :init
-  (add-to-list 'company-backends #'company-tabnine)
-  :custom
-  (company-tabnine-show-annotation nil))
-
 (use-package yasnippet
   :config
   (yas-global-mode))
@@ -145,7 +138,7 @@
   (lsp-signature-render-documentation nil)
   (lsp-modeline-diagnostics-enable nil)
   (lsp-modeline-code-actions-enable nil)
-  (lsp-completion-enable nil)
+  (lsp-completion-show-detail nil)
   :hook
   ((web-mode scss-mode clojure-mode swift-mode) . lsp)
   :bind
