@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 (setq package-enable-at-startup nil
       package-quickstart t
+      make-backup-files nil
       frame-title-format nil
       frame-inhibit-implied-resize t
       inhibit-startup-message t
@@ -24,13 +25,13 @@
 (require 'init-rust)
 (require 'init-swift)
 (require 'init-docker)
+(require 'init-flutter)
 (require 'init-solidity)
 (require 'init-my-functions)
 
 (add-hook 'emacs-startup-hook
           (lambda ()
             (setq backup-inhibited t
-                  make-backup-files nil
                   auto-save-default nil
                   auto-save-list-file-prefix nil
                   create-lockfiles nil

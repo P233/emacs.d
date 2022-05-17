@@ -129,6 +129,7 @@
   :defer t
   :custom
   (lsp-use-plists t)
+  (lsp-auto-guess-root t)
   (lsp-enable-snippet nil)
   (lsp-enable-file-watcphers nil)
   (lsp-lens-enable nil)
@@ -140,7 +141,7 @@
   (lsp-modeline-code-actions-enable nil)
   (lsp-completion-show-detail nil)
   :hook
-  ((web-mode scss-mode clojure-mode swift-mode) . lsp)
+  ((web-mode scss-mode clojure-mode swift-mode dart-mode) . lsp)
   :bind
   ("C-c d" . lsp-find-definition)
   ("C-c u" . lsp-find-references)

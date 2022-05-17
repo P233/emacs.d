@@ -2,6 +2,7 @@
 .lsp-*
 .cache
 .org-id-locations
+.dap-breakpoints
 
 *.elc
 custom.el
