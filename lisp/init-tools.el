@@ -16,9 +16,9 @@
   (ivy-height 20)
   (ivy-use-virtual-buffers t)
   (ivy-use-selectable-prompt t)
-  (ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
   (enable-recursive-minibuffers t)
   :config
+  (setq ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
   (ivy-mode 1)
   :bind
   (("M-x"     . counsel-M-x)
