@@ -1,12 +1,19 @@
 ;; -*- lexical-binding: t; -*-
 (use-package swift-mode
-  :defer t)
+  :defer t
+  :custom
+  (swift-mode:basic-offset 2))
 
 (use-package lsp-sourcekit
-  :defer t
   :after lsp-mode
   :custom
   (lsp-sourcekit-executable "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp"))
+
+(use-package swift-format
+  :load-path "custom-packages/swift-format"
+  :hook
+  (swift-mode . (lambda ()
+                  (add-hook 'before-save-hook 'swift-format-buffer nil t))))
 
 
 (provide 'init-swift)
