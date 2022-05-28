@@ -2,7 +2,7 @@
 (use-package swift-mode
   :defer t
   :custom
-  (swift-mode:basic-offset 2))
+  (swift-mode:basic-offset my/indentation-size))
 
 (use-package lsp-sourcekit
   :after lsp-mode
