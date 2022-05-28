@@ -43,9 +43,7 @@
                   file-name-handler-alist my/file-name-handler-alist)
             (setq-default indent-tabs-mode nil)
             (defalias 'yes-or-no-p 'y-or-n-p)
-            (set-language-environment 'utf-8)
-            (add-to-list 'exec-path "/opt/homebrew/bin")
-            (add-to-list 'exec-path "~/swift/swift-format/.build/release")))
+            (set-language-environment 'utf-8)))
 
 
 (provide 'init)
