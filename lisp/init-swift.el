@@ -11,6 +11,7 @@
 
 (use-package swift-format
   :load-path "custom-packages/swift-format"
+  :after swift-mode
   :hook
   (swift-mode . (lambda ()
                   (add-hook 'before-save-hook 'swift-format-buffer nil t))))
