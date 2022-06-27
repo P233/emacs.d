@@ -4,14 +4,7 @@
   :custom
   (rust-format-on-save t)
   :hook
-  (flycheck-mode . flycheck-rust-setup)
-  (rust-mode . (lambda ()
-                 (racer-mode)
-                 (flycheck-mode))))
-
-(use-package flycheck-rust
-  :defer t
-  :after (rust-mode flycheck))
+  (rust-mode . racer-mode))
 
 (use-package racer
   :defer t

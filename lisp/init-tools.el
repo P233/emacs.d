@@ -96,65 +96,23 @@
   :bind
   ("C-`" . goto-last-change))
 
-(use-package flycheck
-  :custom
-  (flycheck-display-errors-delay 0)
-  (flycheck-check-syntax-automatically '(mode-enabled save)))
-
-(use-package company
-  :custom
-  (company-idle-delay 0)
-  (company-echo-delay 0)
-  (company-show-numbers t)
-  (company-dabbrev-downcase nil)
-  (company-selection-wrap-around t)
-  (company-minimum-prefix-length 2)
-  (company-global-modes '(not org-mode))
-  :config
-  (global-company-mode)
-  :bind
-  ((:map company-active-map ("C-n" . company-select-next))
-   (:map company-active-map ("C-p" . company-select-previous))))
-
-(use-package company-posframe
-  :after company
-  :custom
-  (company-posframe-show-metadata nil)
-  (company-posframe-show-indicator nil)
-  (company-posframe-quickhelp-show-header nil)
-  :config
-  (company-posframe-mode 1))
-
 (use-package yasnippet
   :config
   (yas-global-mode))
 
-(use-package lsp-mode
-  :defer t
-  :custom
-  (lsp-use-plists t)
-  (lsp-auto-guess-root t)
-  (lsp-enable-snippet nil)
-  (lsp-enable-file-watcphers nil)
-  (lsp-lens-enable nil)
-  (lsp-eldoc-enable-hover nil)
-  (lsp-headerline-breadcrumb-enable nil)
-  (lsp-signature-auto-activate nil)
-  (lsp-signature-render-documentation nil)
-  (lsp-modeline-diagnostics-enable nil)
-  (lsp-modeline-code-actions-enable nil)
-  (lsp-completion-show-detail nil)
-  :hook
-  ((web-mode scss-mode clojure-mode swift-mode dart-mode) . lsp)
-  :bind
-  ("C-c d" . lsp-find-definition)
-  ("C-c u" . lsp-find-references)
-  ("C-c C-r" . lsp-rename)
-  ("C-c C-t" . lsp-find-type-definition)
-  ("C-c C-s" . lsp-ivy-workspace-symbol))
+(use-package posframe)
 
-(use-package lsp-ivy
-  :after lsp-mode)
+(use-package lsp-bridge
+  :load-path "custom-packages/lsp-bridge"
+  :config
+  (add-to-list 'lsp-bridge-lang-server-extension-list '(("tsx")  . "typescriptreact"))
+  (add-to-list 'lsp-bridge-lang-server-extension-list '(("scss") . "vscode-css-language-server")) 
+  (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
+  (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-lookup-documentation)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-e") 'lsp-bridge-list-diagnostics)
+  (global-lsp-bridge-mode))
 
 (use-package magit
   :bind
