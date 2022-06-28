@@ -111,7 +111,7 @@
   (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
   (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-lookup-documentation)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-e") 'lsp-bridge-list-diagnostics)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-l") 'lsp-bridge-list-diagnostics)
   (global-lsp-bridge-mode))
 
 (use-package magit
