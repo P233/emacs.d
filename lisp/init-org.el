@@ -57,7 +57,7 @@
 (use-package visual-fill-column
   :after org
   :custom
-  (visual-fill-column-width 72))
+  (visual-fill-column-width 80))
 
 (use-package org-roam
   :custom
