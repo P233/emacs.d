@@ -134,10 +134,7 @@
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
-(global-set-key (kbd "C-.") 'kill-region)
-(global-set-key (kbd "C-,") 'kill-ring-save)
 (global-set-key (kbd "C-c h") 'hs-toggle-hiding)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
 (provide 'init-tools)
