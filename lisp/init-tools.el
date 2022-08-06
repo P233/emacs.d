@@ -102,7 +102,63 @@
   :config
   (yas-global-mode))
 
-(use-package posframe)
+(use-package flycheck
+  :custom
+  (flycheck-display-errors-delay 0)
+  (flycheck-check-syntax-automatically '(mode-enabled save)))
+
+(use-package company
+  :custom
+  (company-idle-delay 0)
+  (company-echo-delay 0)
+  (company-show-numbers t)
+  (company-dabbrev-downcase nil)
+  (company-selection-wrap-around t)
+  (company-minimum-prefix-length 2)
+  (company-global-modes '(not org-mode))
+  :config
+  (global-company-mode)
+  :bind
+  ((:map company-active-map ("C-n" . company-select-next))
+   (:map company-active-map ("C-p" . company-select-previous))))
+
+(use-package company-posframe
+  :after company
+  :custom
+  (company-posframe-show-metadata nil)
+  (company-posframe-show-indicator nil)
+  (company-posframe-quickhelp-show-header nil)
+  (company-posframe-quickhelp-delay 0.5)
+  :config
+  (company-posframe-mode 1))
+
+(use-package lsp-mode
+  :defer t
+  :custom
+  (lsp-use-plists t)
+  (lsp-auto-guess-root t)
+  (lsp-enable-snippet nil)
+  (lsp-enable-file-watcphers nil)
+  (lsp-lens-enable nil)
+  (lsp-eldoc-enable-hover nil)
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-signature-auto-activate nil)
+  (lsp-signature-render-documentation nil)
+  (lsp-modeline-diagnostics-enable nil)
+  (lsp-modeline-code-actions-enable nil)
+  (lsp-completion-show-detail nil)
+  :config
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.log\\'")
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.next\\'")
+  :hook
+  ((web-mode scss-mode clojure-mode) . lsp)
+  :bind
+  ("C-c d" . lsp-find-definition)
+  ("C-c u" . lsp-find-references)
+  ("C-c C-r" . lsp-rename))
+
+(use-package lsp-ivy
+  :after lsp-mode)
 
 (use-package magit
   :bind
