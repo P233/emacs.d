@@ -8,22 +8,7 @@
 
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
 (set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
-
-(defun my/load-daytime-theme ()
-  "Load gruvbox-light-soft theme."
-  (interactive)
-  (load-theme 'gruvbox-light-soft t)
-  (set-face-attribute 'mode-line nil :foreground "#427B58" :background "#FAF0C9"))
-
-(defun my/load-nighttime-theme ()
-  "Load gruvbox-dark-hard theme."
-  (interactive)
-  (load-theme 'gruvbox-dark-hard t)
-  (set-face-attribute 'mode-line nil :background "#282828"))
-
-(use-package gruvbox-theme
-  :config
-  (my/load-daytime-theme))
+(set-face-foreground 'vertical-border "gray")
 
 (use-package doom-modeline
   :custom
