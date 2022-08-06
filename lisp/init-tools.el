@@ -104,18 +104,6 @@
 
 (use-package posframe)
 
-(use-package lsp-bridge
-  :load-path "custom-packages/lsp-bridge"
-  :config
-  (add-to-list 'lsp-bridge-lang-server-extension-list '(("tsx")  . "typescriptreact"))
-  (add-to-list 'lsp-bridge-lang-server-extension-list '(("scss") . "vscode-css-language-server")) 
-  (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
-  (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-lookup-documentation)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-l") 'lsp-bridge-list-diagnostics)
-  (global-lsp-bridge-mode))
-
 (use-package magit
   :bind
   ("C-c m" . magit-status))

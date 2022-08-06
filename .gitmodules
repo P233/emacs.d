@@ -7,6 +7,3 @@
 [submodule "custom-packages/swift-format"]
 	path = custom-packages/swift-format
 	url = git@github.com:P233/swift-format.el.git
-[submodule "custom-packages/lsp-bridge"]
-	path = custom-packages/lsp-bridge
-	url = git@github.com:manateelazycat/lsp-bridge.git
