@@ -50,7 +50,9 @@
 (use-package perspective
   :custom
   (persp-mode-prefix-key (kbd "M-p"))
-  :config
+  :bind
+  ("C-x C-b" . persp-ivy-switch-buffer)
+  :init
   (persp-mode))
 
 (use-package neotree
