@@ -30,6 +30,10 @@
    ("C-c g"   . counsel-rg)
    ("C-c f"   . counsel-git)
    ("C-c C-f" . counsel-find-file)
+   ("C-c y"   . counsel-flycheck)
+   ("C-c p"   . counsel-yank-pop)
+   ("C-h f"   . counsel-describe-function)
+   ("C-h v"   . counsel-describe-variable)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
@@ -82,10 +86,6 @@
   :bind
   (("C-c r" . vr/replace)
    ("C-c q" . vr/query-replace)))
-
-(use-package popup-kill-ring
-  :bind
-  ("C-c p" . popup-kill-ring))
 
 (use-package avy
   :custom
