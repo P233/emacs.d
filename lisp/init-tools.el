@@ -137,8 +137,12 @@
   :custom
   (lsp-use-plists t)
   (lsp-auto-guess-root t)
+  (lsp-enable-links nil)
+  (lsp-enable-folding nil)
   (lsp-enable-snippet nil)
+  (lsp-enable-indentation nil)
   (lsp-enable-file-watcphers nil)
+  (lsp-enable-symbol-highlighting nil)
   (lsp-lens-enable nil)
   (lsp-eldoc-enable-hover nil)
   (lsp-headerline-breadcrumb-enable nil)

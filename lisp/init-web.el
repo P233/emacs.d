@@ -20,9 +20,8 @@
   (web-mode-script-padding my/indentation-size)
   (web-mode-attr-indent-offset my/indentation-size)
   (web-mode-attr-value-indent-offset my/indentation-size)
-  (web-mode-enable-current-element-highlight t)
   (web-mode-enable-auto-indentation nil)
-  (web-mode-enable-current-element-highlight nil)
+  (web-mode-enable-current-element-highlight t)
   :hook
   (web-mode . (lambda ()
                 (when (equal web-mode-content-type "jsx")
