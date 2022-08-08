@@ -4,8 +4,11 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 (column-number-mode)
-(global-hl-line-mode)
 (global-prettify-symbols-mode)
+
+(global-hl-line-mode)
+(add-hook 'activate-mark-hook (lambda () (global-hl-line-mode 0)))
+(add-hook 'deactivate-mark-hook (lambda () (global-hl-line-mode 1)))
 
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
 (set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
