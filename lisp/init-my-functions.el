@@ -36,9 +36,12 @@ Repeated invocations toggle between the two most recently open buffers."
     (end-of-line))
   (newline-and-indent))
 
-(defun my/backward-kill-line (arg)
-  (interactive "p")
-  (kill-line (- 1 arg)))
+(defun my/backward-kill-line ()
+  (interactive)
+  (let ((prev-pos (point)))
+    (forward-visible-line 0)
+    (delete-region (point) prev-pos)
+    (indent-according-to-mode)))
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
 (defun my/screaming-snake-case-word ()
@@ -55,13 +58,13 @@ Repeated invocations toggle between the two most recently open buffers."
                 (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
 
 
-(global-set-key (kbd "C-x 2") 'my/split-window-below)
-(global-set-key (kbd "C-x 3") 'my/split-window-right)
-(global-set-key (kbd "C-c b") 'my/switch-to-previous-buffer)
-(global-set-key (kbd "<C-return>") 'my/open-line-above)
-(global-set-key (kbd "M-RET") 'my/open-line-below)
-(global-set-key (kbd "M-DEL") 'my/backward-kill-line)
-(global-set-key (kbd "M-S") 'my/screaming-snake-case-word)
+(global-set-key (kbd "C-x 2")         'my/split-window-below)
+(global-set-key (kbd "C-x 3")         'my/split-window-right)
+(global-set-key (kbd "C-c b")         'my/switch-to-previous-buffer)
+(global-set-key (kbd "M-RET")         'my/open-line-below)
+(global-set-key (kbd "<C-return>")    'my/open-line-above)
+(global-set-key (kbd "S-<backspace>") 'my/backward-kill-line)
+(global-set-key (kbd "M-S")           'my/screaming-snake-case-word)
 
 
 (provide 'init-my-functions)
