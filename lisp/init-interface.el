@@ -4,6 +4,7 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 (column-number-mode)
+(global-hl-line-mode)
 (global-prettify-symbols-mode)
 
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
