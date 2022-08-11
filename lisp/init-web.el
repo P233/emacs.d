@@ -25,8 +25,9 @@
   :hook
   (web-mode . (lambda ()
                 (when (equal web-mode-content-type "jsx")
-                  (setq-local emmet-expand-jsx-className? t
-                              web-mode-enable-auto-quoting nil))
+                  (setq-local web-mode-enable-auto-quoting nil
+                              emmet-jsx-className-braces? t
+                              emmet-jsx-major-modes '(web-mode)))
                 (emmet-mode)
                 (electric-pair-local-mode)))
   :bind
