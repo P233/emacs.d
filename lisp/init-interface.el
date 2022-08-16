@@ -27,7 +27,7 @@
         '((bg-main . "#fff0f2")
           (bg-dim . "#fbe6ef")
           (bg-alt . "#f5dae6")
-          (bg-hl-line . "#fad8e3")
+          (bg-hl-line . "#ffd6e5")
           (bg-active . "#efcadf")
           (bg-inactive . "#f3ddef")
           (bg-active-accent . "#ffbbef")
