@@ -29,7 +29,6 @@
   (org-special-keyword ((t (:inherit 'fixed-pitch))))
   :config
   (unbind-key "C-'" org-mode-map)
-  (unbind-key "C-," org-mode-map)
   :hook
   (org-mode . (lambda ()
                 (setq-local line-spacing 2)

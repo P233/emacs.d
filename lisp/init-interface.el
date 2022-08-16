@@ -17,6 +17,7 @@
   :init
   (setq modus-themes-bold-constructs nil
         modus-themes-italic-constructs t
+        modus-themes-org-blocks 'tinted-background
         modus-themes-region '(bg-only no-extend)
         modus-themes-mode-line '(accented borderless)
         modus-themes-completions '((matches . (background intense))
