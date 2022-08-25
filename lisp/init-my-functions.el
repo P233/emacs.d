@@ -57,11 +57,6 @@ Repeated invocations toggle between the two most recently open buffers."
       (insert (let ((case-fold-search nil))
                 (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
 
-;; https://www.emacswiki.org/emacs/GccEmacs
-(defun my/aot-compile-all ()
-  (interactive)
-  (native-compile-async "~/.emacs.d/elpa" 'recursively))
-
 
 (global-set-key (kbd "C-x 2")         'my/split-window-below)
 (global-set-key (kbd "C-x 3")         'my/split-window-right)
