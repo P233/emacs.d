@@ -113,7 +113,7 @@
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
   :config
-  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("tsx")  . "typescriptreact"))
+  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("tsx" "mjs")  . "typescriptreact"))
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("scss") . "vscode-css-language-server"))
   (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
   (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
