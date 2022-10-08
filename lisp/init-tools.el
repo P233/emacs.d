@@ -30,7 +30,6 @@
    ("C-c g"   . counsel-rg)
    ("C-c f"   . counsel-git)
    ("C-c C-f" . counsel-find-file)
-   ("C-c y"   . counsel-flycheck)
    ("C-h f"   . counsel-describe-function)
    ("C-h v"   . counsel-describe-variable)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
@@ -105,67 +104,23 @@
   :config
   (yas-global-mode))
 
-(use-package flycheck
-  :custom
-  (flycheck-display-errors-delay 0)
-  (flycheck-check-syntax-automatically '(mode-enabled save)))
+(use-package posframe)
 
-(use-package company
+(use-package lsp-bridge
+  :load-path "custom-packages/lsp-bridge"
   :custom
-  (company-idle-delay 0)
-  (company-echo-delay 0)
-  (company-show-numbers t)
-  (company-dabbrev-downcase nil)
-  (company-selection-wrap-around t)
-  (company-minimum-prefix-length 2)
-  (company-global-modes '(not org-mode))
+  (acm-enable-yas nil)
+  (acm-enable-doc nil)
+  (acm-enable-tabnine nil)
   :config
-  (global-company-mode)
-  :bind
-  ((:map company-active-map ("C-n" . company-select-next))
-   (:map company-active-map ("C-p" . company-select-previous))))
-
-(use-package company-posframe
-  :after company
-  :custom
-  (company-posframe-show-metadata nil)
-  (company-posframe-show-indicator nil)
-  (company-posframe-quickhelp-show-header nil)
-  (company-posframe-quickhelp-delay 0.5)
-  :config
-  (company-posframe-mode 1))
-
-(use-package lsp-mode
-  :defer t
-  :custom
-  (lsp-use-plists t)
-  (lsp-auto-guess-root t)
-  (lsp-enable-links nil)
-  (lsp-enable-folding nil)
-  (lsp-enable-snippet nil)
-  (lsp-enable-indentation nil)
-  (lsp-enable-file-watcphers nil)
-  (lsp-enable-symbol-highlighting nil)
-  (lsp-lens-enable nil)
-  (lsp-eldoc-enable-hover nil)
-  (lsp-headerline-breadcrumb-enable nil)
-  (lsp-signature-auto-activate nil)
-  (lsp-signature-render-documentation nil)
-  (lsp-modeline-diagnostics-enable nil)
-  (lsp-modeline-code-actions-enable nil)
-  (lsp-completion-show-detail nil)
-  :config
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.log\\'")
-  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]\\.next\\'")
-  :hook
-  ((web-mode scss-mode clojure-mode) . lsp)
-  :bind
-  ("C-c d" . lsp-find-definition)
-  ("C-c u" . lsp-find-references)
-  ("C-c C-r" . lsp-rename))
-
-(use-package lsp-ivy
-  :after lsp-mode)
+  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("tsx")  . "typescriptreact"))
+  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("scss") . "vscode-css-language-server"))
+  (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
+  (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
+  (define-key lsp-bridge-mode-map (kbd "C-c y") 'lsp-bridge-list-diagnostics)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation)
+  (global-lsp-bridge-mode))
 
 (use-package magit
   :bind
