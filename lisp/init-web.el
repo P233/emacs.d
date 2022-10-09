@@ -10,10 +10,7 @@
 (use-package web-mode
   :mode
   ("\\.html\\'" "\\.[jt]sx?\\'" "\\.[cm]js\\'" "\\.astro\\'")
-  :config
-  (add-to-list 'web-mode-comment-formats '("jsx" . "//" ))
   :custom
-  (web-mode-content-types-alist '(("jsx" . "\\.[jt]sx?\\'")))
   (web-mode-block-padding my/indentation-size)
   (web-mode-style-padding my/indentation-size)
   (web-mode-script-padding my/indentation-size)

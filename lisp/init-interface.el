@@ -255,7 +255,13 @@
           (bg-diff-focus-removed . "#6f0f39")
           (fg-diff-focus-removed . "#eebdba")))
   :config
-  (modus-themes-load-operandi))
+  (defun my/modus-themes-custom-faces ()
+    (modus-themes-with-colors
+      (custom-set-faces
+       `(web-mode-css-property-name-face ((,class :foreground ,(modus-themes-color-alts 'cyan-alt-other 'cyan-alt-other)))))))
+  (modus-themes-load-operandi)
+  (my/modus-themes-custom-faces)
+  (add-hook 'modus-themes-after-load-theme-hook #'my/modus-themes-custom-faces))
 
 (use-package doom-modeline
   :custom
