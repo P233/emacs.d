@@ -100,10 +100,6 @@
   :bind
   ("C-`" . goto-last-change))
 
-(use-package yasnippet
-  :config
-  (yas-global-mode))
-
 (use-package posframe)
 
 (use-package lsp-bridge
@@ -112,6 +108,8 @@
   (acm-enable-yas nil)
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
+  (acm-enable-search-words nil)
+  (acm-backend-lsp-candidate-min-length 3)
   :config
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("tsx" "mjs")  . "typescriptreact"))
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("scss") . "vscode-css-language-server"))
