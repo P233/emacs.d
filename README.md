@@ -1,21 +1,10 @@
 # My Personal Emacs Configuration
 
-## Install [Emacs mac port](https://github.com/railwaycat/homebrew-emacsmacport) through Homebrew
+## Install [emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus)
 
 ```
-brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-mac-metal --with-rsvg --with-starter --with-natural-title-bar
-brew install fd ripgrep
+brew install emacs-plus@28 --with-no-titlebar-and-round-corners --HEAD
 ```
-
-### Natural Title Bar
-
-```
-defaults write org.gnu.Emacs HideDocumentIcon YES
-defaults write org.gnu.Emacs TransparentTitleBar DARK
-```
-
-See: https://github.com/railwaycat/homebrew-emacsmacport/wiki/Natural-Title-Bar
 
 ## Install Git Submodules (customised packages)
 
@@ -27,11 +16,12 @@ git submodule update
 ### Submodules List:
 
 - [emmet-mode](https://github.com/P233/emmet-mode)
+- [lsp-bridge](https://github.com/manateelazycat/lsp-bridge)
 - [emacs-pragmatapro-ligatures](https://github.com/lumiknit/emacs-pragmatapro-ligatures)
 
 ## Dependencies
 
 ```
-brew install clojure-lsp/brew/clojure-lsp-native
-npm i -g typescript-language-server typescript prettier
+brew install fd ripgrep clojure-lsp/brew/clojure-lsp-native
+npm i -g typescript-language-server typescript vscode-langservers-extracted prettier
 ```

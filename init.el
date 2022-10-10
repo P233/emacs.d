@@ -40,7 +40,10 @@
                   default-directory "~/Projects"
                   confirm-kill-emacs 'y-or-n-p
                   standard-indent my/indentation-size
-                  file-name-handler-alist my/file-name-handler-alist)
+                  file-name-handler-alist my/file-name-handler-alist
+                  mac-command-modifier 'meta
+                  mac-option-modifier nil)
+            (set-face-bold-p 'bold nil)
             (setq-default indent-tabs-mode nil)
             (defalias 'yes-or-no-p 'y-or-n-p)
             (set-language-environment 'utf-8)))
