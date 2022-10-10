@@ -255,13 +255,15 @@
           (bg-diff-focus-removed . "#6f0f39")
           (fg-diff-focus-removed . "#eebdba")))
   :config
-  (defun my/modus-themes-custom-faces ()
+  (defun my/apply-theme (appearance)
+    (mapc #'disable-theme custom-enabled-themes)
+    (pcase appearance
+      ('dark (load-theme 'modus-vivendi t))
+      ('light (load-theme 'modus-operandi t)))
     (modus-themes-with-colors
       (custom-set-faces
        `(web-mode-css-property-name-face ((,class :foreground ,(modus-themes-color-alts 'cyan-alt-other 'cyan-alt-other)))))))
-  (modus-themes-load-operandi)
-  (my/modus-themes-custom-faces)
-  (add-hook 'modus-themes-after-load-theme-hook #'my/modus-themes-custom-faces))
+  (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
 
 (use-package doom-modeline
   :custom
