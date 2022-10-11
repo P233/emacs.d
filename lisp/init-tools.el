@@ -108,17 +108,18 @@
   (acm-enable-yas nil)
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
-  (acm-enable-search-words nil)
+  (acm-enable-search-file-words nil)
   (acm-backend-lsp-candidate-min-length 3)
+  (lsp-bridge-enable-diagnostics nil)
+  (lsp-bridge-lookup-doc-tooltip-border-width 2)
+  (lsp-bridge-lookup-doc-tooltip-font-height 180)
   :config
-  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("tsx" "mjs")  . "typescriptreact"))
-  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("scss") . "vscode-css-language-server"))
+  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
   (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
   (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "C-c y") 'lsp-bridge-list-diagnostics)
   (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation)
-  (global-lsp-bridge-mode))
+  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation))
 
 (use-package magit
   :bind

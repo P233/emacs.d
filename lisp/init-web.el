@@ -25,6 +25,7 @@
                               emmet-jsx-className-braces? t
                               emmet-jsx-major-modes '(web-mode)))
                 (emmet-mode)
+                (lsp-bridge-mode)
                 (electric-pair-local-mode)))
   :bind
   (:map web-mode-map

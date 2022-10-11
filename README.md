@@ -23,5 +23,6 @@ git submodule update
 
 ```
 brew install fd ripgrep clojure-lsp/brew/clojure-lsp-native
-npm i -g typescript-language-server typescript vscode-langservers-extracted prettier
+pip3 install epc orjson pystardict
+npm i -g typescript-language-server typescript prettier
 ```
