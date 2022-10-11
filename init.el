@@ -43,7 +43,6 @@
                   file-name-handler-alist my/file-name-handler-alist
                   mac-command-modifier 'meta
                   mac-option-modifier nil)
-            (set-face-bold-p 'bold nil)
             (setq-default indent-tabs-mode nil)
             (defalias 'yes-or-no-p 'y-or-n-p)
             (set-language-environment 'utf-8)))

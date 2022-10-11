@@ -262,7 +262,8 @@
       ('light (load-theme 'modus-operandi t)))
     (modus-themes-with-colors
       (custom-set-faces
-       `(web-mode-css-property-name-face ((,class :foreground ,(modus-themes-color-alts 'cyan-alt-other 'cyan-alt-other)))))))
+       `(web-mode-css-property-name-face ((,class :foreground ,(modus-themes-color-alts 'cyan-alt-other 'cyan-alt-other))))))
+    (set-face-bold-p 'bold nil))
   (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
 
 (use-package doom-modeline
