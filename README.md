@@ -15,8 +15,9 @@ git submodule update
 
 ### Submodules List:
 
-- [emmet-mode](https://github.com/P233/emmet-mode)
 - [lsp-bridge](https://github.com/manateelazycat/lsp-bridge)
+- [deno-bridge](https://github.com/manateelazycat/deno-bridge)
+- [emmet2-mode](https://github.com/P233/emmet2-mode)
 - [emacs-pragmatapro-ligatures](https://github.com/lumiknit/emacs-pragmatapro-ligatures)
 
 ## Dependencies

@@ -121,6 +121,15 @@
   (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
   (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation))
 
+(use-package deno-bridge
+  :load-path "custom-packages/deno-bridge")
+
+(use-package emmet2-mode
+  :after deno-bridge
+  :load-path "custom-packages/emmet2-mode"
+  :hook
+  ((web-mode css-mode) . emmet2-mode))
+
 (use-package magit
   :bind
   ("C-c m" . magit-status))

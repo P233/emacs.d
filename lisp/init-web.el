@@ -1,12 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-(use-package emmet-mode
-  :load-path "custom-packages/emmet-mode"
-  :custom
-  (emmet-insert-flash-time 0.1)
-  (emmet-move-cursor-between-quotes t)
-  :config
-  (unbind-key "<C-return>" emmet-mode-keymap))
-
 (use-package web-mode
   :mode
   ("\\.html\\'" "\\.[jt]sx?\\'" "\\.[cm]js\\'" "\\.astro\\'")
@@ -20,11 +12,8 @@
   (web-mode-enable-current-element-highlight t)
   :hook
   (web-mode . (lambda ()
-                (when (equal web-mode-content-type "jsx")
-                  (setq-local web-mode-enable-auto-quoting nil
-                              emmet-jsx-className-braces? t
-                              emmet-jsx-major-modes '(web-mode)))
-                (emmet-mode)
+                (when (string-equal web-mode-content-type "jsx")
+                  (setq-local web-mode-enable-auto-quoting nil))
                 (lsp-bridge-mode)
                 (electric-pair-local-mode)))
   :bind
@@ -34,10 +23,7 @@
         ("C-c C-c C-r" . web-mode-reload)))
 
 (setq css-indent-offset my/indentation-size)
-(add-hook 'css-mode-hook
-          (lambda ()
-            (emmet-mode)
-            (electric-pair-local-mode)))
+(add-hook 'css-mode-hook 'electric-pair-local-mode)
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 
 (use-package json-mode
