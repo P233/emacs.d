@@ -102,6 +102,10 @@
 
 (use-package posframe)
 
+(use-package yasnippet
+  :config
+  (yas-global-mode))
+
 (use-package lsp-bridge
   :load-path "custom-packages/lsp-bridge"
   :custom
