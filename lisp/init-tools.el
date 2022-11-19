@@ -113,7 +113,7 @@
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
   (acm-enable-search-file-words nil)
-  (acm-backend-lsp-candidate-min-length 3)
+  (acm-backend-lsp-candidate-min-length 2)
   (lsp-bridge-enable-diagnostics nil)
   (lsp-bridge-lookup-doc-tooltip-border-width 2)
   (lsp-bridge-lookup-doc-tooltip-font-height 180)
