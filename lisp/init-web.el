@@ -13,14 +13,23 @@
   :hook
   (web-mode . (lambda ()
                 (when (string-equal web-mode-content-type "jsx")
-                  (setq-local web-mode-enable-auto-quoting nil))
+                  (setq-local web-mode-auto-quote-style 3))
                 (lsp-bridge-mode)
                 (electric-pair-local-mode)))
+  :config
+  (defun my/web-mode-attribute-complete ()
+    (interactive)
+    (when (acm-frame-visible-p acm-frame)
+      (acm-complete)
+      (insert "=")
+      (web-mode-auto-complete)))
+  (add-to-list 'acm-continue-commands 'my/web-mode-attribute-complete)
   :bind
   (:map web-mode-map
         ("C-c C-r" . nil)
         ("C-c C-s" . nil)
-        ("C-c C-c C-r" . web-mode-reload)))
+        ("C-c C-c C-r" . web-mode-reload)
+        ("C-=" . my/web-mode-attribute-complete)))
 
 (setq css-indent-offset my/indentation-size)
 (add-hook 'css-mode-hook 'electric-pair-local-mode)
