@@ -4,13 +4,7 @@
   :custom
   (rust-format-on-save t)
   :hook
-  (rust-mode . racer-mode))
-
-(use-package racer
-  :defer t
-  :after rust-mode
-  :hook
-  (racer-mode . eldoc-mode))
+  (rust-mode . lsp-bridge-mode))
 
 (use-package cargo
   :defer t
