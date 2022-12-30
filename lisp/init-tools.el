@@ -66,6 +66,9 @@
   (neo-window-position 'right)
   (neo-default-system-application "open")
   (neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
+  :custom-face
+  (neo-dir-link-face ((t (:inherit font-lock-builtin-face))))
+  (neo-expand-btn-face ((t (:inherit font-lock-builtin-face))))
   :bind
   (("C-c e"   . neotree-show)
    ("C-c t"   . neotree-toggle)
