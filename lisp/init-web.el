@@ -10,6 +10,10 @@
   (web-mode-attr-value-indent-offset my/indentation-size)
   (web-mode-enable-auto-indentation nil)
   (web-mode-enable-current-element-highlight t)
+  :custom-face
+  (web-mode-html-tag-face ((t (:inherit font-lock-function-name-face :foreground unspecified))))
+  (web-mode-html-attr-name-face ((t (:inherit font-lock-type-face :foreground unspecified))))
+  (web-mode-current-element-highlight-face ((t (:background "#cb1aaa"))))
   :hook
   (web-mode . (lambda ()
                 (when (string-equal web-mode-content-type "jsx")
