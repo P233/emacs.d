@@ -23,21 +23,11 @@
     (set-face-bold-p 'bold nil))
   (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
 
-(use-package doom-modeline
-  :custom
-  (doom-modeline-icon nil)
-  (doom-modeline-minor-modes t)
-  (doom-modeline-buffer-file-name-style 'truncate-with-project)
-  :hook
-  (after-init . doom-modeline-mode))
-
 (use-package minions
-  :after doom-modeline
   :config
   (minions-mode 1))
 
 (use-package window-numbering
-  :after doom-modeline
   :config
   (window-numbering-mode))
 
