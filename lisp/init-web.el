@@ -13,7 +13,7 @@
   :custom-face
   (web-mode-html-tag-face ((t (:inherit font-lock-function-name-face :foreground unspecified))))
   (web-mode-html-attr-name-face ((t (:inherit font-lock-type-face :foreground unspecified))))
-  (web-mode-current-element-highlight-face ((t (:background "#cb1aaa"))))
+  (web-mode-current-element-highlight-face ((t (:background "#3f6faf"))))
   :hook
   (web-mode . (lambda ()
                 (when (string-equal web-mode-content-type "jsx")
