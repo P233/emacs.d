@@ -43,7 +43,8 @@
                   file-name-handler-alist my/file-name-handler-alist
                   mac-command-modifier 'meta
                   mac-option-modifier nil
-                  frame-resize-pixelwise t)
+                  frame-resize-pixelwise t
+                  native-comp-deferred-compilation nil)
             (setq-default indent-tabs-mode nil)
             (defalias 'yes-or-no-p 'y-or-n-p)
             (set-language-environment 'utf-8)))

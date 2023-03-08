@@ -3,7 +3,7 @@
 ## Install [emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus)
 
 ```
-brew install emacs-plus@28 --with-no-titlebar-and-round-corners --HEAD
+brew install emacs-plus@28 --with-no-titlebar-and-round-corners --with-native-comp --HEAD
 ```
 
 ## Install Git Submodules (customised packages)
