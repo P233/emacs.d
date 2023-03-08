@@ -19,7 +19,6 @@
 (require 'init-use-package)
 (require 'init-tools)
 (require 'init-interface)
-(require 'init-org)
 (require 'init-web)
 (require 'init-lisp)
 (require 'init-rust)
@@ -27,6 +26,7 @@
 (require 'init-docker)
 (require 'init-flutter)
 (require 'init-solidity)
+(require 'init-note)
 (require 'init-my-functions)
 
 (add-hook 'emacs-startup-hook

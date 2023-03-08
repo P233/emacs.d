@@ -38,9 +38,6 @@
 (use-package yaml-mode
   :defer t)
 
-(use-package markdown-mode
-  :mode "\\.mdx?\\'")
-
 (use-package prettier-js
   :defer t
   :hook
