@@ -44,7 +44,7 @@
   :custom
   (persp-mode-prefix-key (kbd "M-p"))
   :bind
-  ("C-x C-b" . persp-ivy-switch-buffer)
+  ("C-x b" . persp-ivy-switch-buffer)
   :init
   (persp-mode))
 
