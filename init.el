@@ -24,7 +24,6 @@
 (require 'init-rust)
 (require 'init-swift)
 (require 'init-docker)
-(require 'init-flutter)
 (require 'init-solidity)
 (require 'init-note)
 (require 'init-my-functions)
