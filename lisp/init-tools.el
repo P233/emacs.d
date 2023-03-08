@@ -40,15 +40,6 @@
   (xref-show-xrefs-function #'ivy-xref-show-defs)
   (xref-show-definitions-function #'ivy-xref-show-defs))
 
-(use-package projectile
-  :custom
-  (projectile-enable-caching t)
-  (projectile-completion-system 'ivy)
-  :config
-  (projectile-mode t)
-  :bind
-  ("C-c o" . projectile-switch-project))
-
 (use-package perspective
   :custom
   (persp-mode-prefix-key (kbd "M-p"))
@@ -157,6 +148,9 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (global-set-key (kbd "C-c h") 'hs-toggle-hiding)
+
+(setq project-switch-commands 'project-find-file)
+(global-set-key (kbd "C-c o") 'project-switch-project)
 
 
 (provide 'init-tools)
