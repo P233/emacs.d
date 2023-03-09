@@ -6,7 +6,7 @@
 brew install emacs-plus@28 --with-no-titlebar-and-round-corners --with-native-comp --HEAD
 ```
 
-## Install Git Submodules (customised packages)
+## Install Git Submodules
 
 ```
 git submodule init

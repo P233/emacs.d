@@ -101,7 +101,7 @@
   (yas-global-mode))
 
 (use-package lsp-bridge
-  :load-path "custom-packages/lsp-bridge"
+  :load-path "submodules/lsp-bridge"
   :custom
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
@@ -116,11 +116,11 @@
   (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation))
 
 (use-package deno-bridge
-  :load-path "custom-packages/deno-bridge")
+  :load-path "submodules/deno-bridge")
 
 (use-package emmet2-mode
   :after deno-bridge
-  :load-path "custom-packages/emmet2-mode"
+  :load-path "submodules/emmet2-mode"
   :hook
   ((web-mode css-mode) . emmet2-mode))
 
@@ -143,7 +143,7 @@
   :defer t)
 
 (use-package mind-wave
-  :load-path "custom-packages/mind-wave")
+  :load-path "submodules/mind-wave")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired

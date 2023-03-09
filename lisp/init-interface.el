@@ -37,7 +37,7 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package pragmatapro-lig
-  :load-path "custom-packages/emacs-pragmatapro-ligatures"
+  :load-path "submodules/emacs-pragmatapro-ligatures"
   :hook
   (prog-mode . pragmatapro-lig-mode))
 

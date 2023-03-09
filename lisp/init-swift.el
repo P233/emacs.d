@@ -5,7 +5,7 @@
   (swift-mode:basic-offset my/indentation-size))
 
 (use-package swift-format
-  :load-path "custom-packages/swift-format"
+  :load-path "submodules/swift-format"
   :after swift-mode
   :hook
   (swift-mode . (lambda ()
