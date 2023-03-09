@@ -13,3 +13,6 @@
 [submodule "custom-packages/emmet2-mode"]
 	path = custom-packages/emmet2-mode
 	url = git@github.com:P233/emmet2-mode.git
+[submodule "custom-packages/mind-wave"]
+	path = custom-packages/mind-wave
+	url = git@github.com:manateelazycat/mind-wave.git

@@ -16,6 +16,7 @@ git submodule update
 ### Submodules List:
 
 - [lsp-bridge](https://github.com/manateelazycat/lsp-bridge)
+- [mind-wave](https://github.com/manateelazycat/mind-wave)
 - [deno-bridge](https://github.com/manateelazycat/deno-bridge)
 - [emmet2-mode](https://github.com/P233/emmet2-mode)
 - [emacs-pragmatapro-ligatures](https://github.com/lumiknit/emacs-pragmatapro-ligatures)
@@ -24,6 +25,6 @@ git submodule update
 
 ```
 brew install fd ripgrep clojure-lsp/brew/clojure-lsp-native
-pip3 install epc orjson pystardict six
+pip3 install epc orjson sexpdata six openai
 npm i -g typescript-language-server typescript prettier
 ```
