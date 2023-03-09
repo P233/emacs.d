@@ -57,7 +57,8 @@
   (org-superstar-header-bullet ((t (:height 232 :inherit 'fixed-pitch)))))
 
 (use-package markdown-mode
-  :mode "\\.mdx?\\'"
+  :mode
+  ("\\.mdx?\\'" "\\.chat\\'")
   :custom
   (markdown-hide-markup t)
   (markdown-fontify-code-blocks-natively t)

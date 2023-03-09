@@ -143,7 +143,9 @@
   :defer t)
 
 (use-package mind-wave
-  :load-path "submodules/mind-wave")
+  :load-path "submodules/mind-wave"
+  :bind
+  ("C-c a" . mind-wave-chat-ask))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
