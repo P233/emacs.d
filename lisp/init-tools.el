@@ -101,6 +101,7 @@
   (yas-global-mode))
 
 (use-package lsp-bridge
+  :after markdown-mode
   :load-path "submodules/lsp-bridge"
   :custom
   (acm-enable-doc nil)
@@ -116,7 +117,9 @@
   (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation))
 
 (use-package deno-bridge
-  :load-path "submodules/deno-bridge")
+  :load-path "submodules/deno-bridge"
+  :init
+  (use-package websocket))
 
 (use-package emmet2-mode
   :after deno-bridge
