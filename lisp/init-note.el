@@ -1,8 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 (use-package mixed-pitch
   :custom-face
-  (default ((t (:font "PragmataPro Mono Liga"))))
-  (fixed-pitch ((t (:font "PragmataPro Mono Liga" :height 1.0))))
+  (default ((t (:font "PragmataPro Mono"))))
+  (fixed-pitch ((t (:font "PragmataPro Mono" :height 1.0))))
   (variable-pitch ((t (:font "Noto Serif" :height 1.0)))))
 
 (use-package visual-fill-column

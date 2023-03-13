@@ -4,13 +4,12 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 (column-number-mode)
-(global-prettify-symbols-mode)
 
 (global-hl-line-mode)
 (add-hook 'activate-mark-hook (lambda () (global-hl-line-mode 0)))
 (add-hook 'deactivate-mark-hook (lambda () (global-hl-line-mode 1)))
 
-(add-to-list 'default-frame-alist '(font . "PragmataPro Mono Liga 18"))
+(add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
 (set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
 
 (use-package ef-themes
@@ -35,11 +34,6 @@
   :defer t
   :hook
   (prog-mode . rainbow-delimiters-mode))
-
-(use-package pragmatapro-lig
-  :load-path "submodules/emacs-pragmatapro-ligatures"
-  :hook
-  (prog-mode . pragmatapro-lig-mode))
 
 
 (provide 'init-interface)

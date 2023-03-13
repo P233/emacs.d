@@ -19,7 +19,6 @@ git submodule update
 - [mind-wave](https://github.com/manateelazycat/mind-wave)
 - [deno-bridge](https://github.com/manateelazycat/deno-bridge)
 - [emmet2-mode](https://github.com/P233/emmet2-mode)
-- [emacs-pragmatapro-ligatures](https://github.com/lumiknit/emacs-pragmatapro-ligatures)
 
 ## Dependencies
 

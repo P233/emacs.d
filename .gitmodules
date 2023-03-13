@@ -1,6 +1,3 @@
-[submodule "submodules/emacs-pragmatapro-ligatures"]
-	path = submodules/emacs-pragmatapro-ligatures
-	url = git@github.com:lumiknit/emacs-pragmatapro-ligatures.git
 [submodule "submodules/swift-format"]
 	path = submodules/swift-format
 	url = git@github.com:P233/swift-format.el.git
