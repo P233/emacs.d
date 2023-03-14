@@ -107,8 +107,8 @@
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
   (acm-enable-search-file-words nil)
+  (acm-markdown-render-font-height 180)
   (lsp-bridge-lookup-doc-tooltip-border-width 2)
-  (lsp-bridge-lookup-doc-tooltip-font-height 180)
   :config
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
   (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
