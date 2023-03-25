@@ -13,3 +13,6 @@
 [submodule "submodules/mind-wave"]
 	path = submodules/mind-wave
 	url = git@github.com:manateelazycat/mind-wave.git
+[submodule "submodules/copilot"]
+	path = submodules/copilot
+	url = git@github.com:zerolfx/copilot.el.git

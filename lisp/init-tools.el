@@ -127,6 +127,21 @@
   :hook
   ((web-mode css-mode) . emmet2-mode))
 
+(use-package copilot
+  :load-path "submodules/copilot"
+  :init
+  (use-package editorconfig)
+  :config
+  (defun my/copilot-tab ()
+    (interactive)
+    (or (copilot-accept-completion)
+        (acm-complete)
+        (indent-for-tab-command)))
+  (with-eval-after-load 'copilot
+    (define-key copilot-mode-map (kbd "<tab>") #'my/copilot-tab))
+  :hook
+  (prog-mode . copilot-mode))
+
 (use-package magit
   :bind
   ("C-c m" . magit-status))
