@@ -88,10 +88,10 @@
   (denote-file-type 'markdown-yaml)
   (denote-directory "~/Dropbox/denotes")
   :config
-  (defun counsel-denote-rg ()
+  (defun counsel-rg-denote ()
     (interactive)
     (counsel-rg "" denote-directory))
-  (defun counsel-denote-fd ()
+  (defun counsel-fd-denote ()
     (interactive)
     (counsel-find-file "" denote-directory))
   :bind
@@ -99,8 +99,8 @@
    ("C-c S" . denote-subdirectory)
    ("C-c K" . denote-keywords-add)
    ("C-c R" . denote-rename-file-using-front-matter)
-   ("C-c G" . counsel-denote-rg)
-   ("C-c F" . counsel-denote-fd)))
+   ("C-c G" . counsel-rg-denote)
+   ("C-c F" . counsel-fd-denote)))
 
 
 (provide 'init-note)

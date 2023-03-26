@@ -164,8 +164,11 @@
   :load-path "submodules/mind-wave"
   :custom
   (mind-wave-api-key-path (concat (expand-file-name user-emacs-directory) "chatgpt_api_key"))
-  :config
+  :init
   (defconst chats-directory "~/Dropbox/Chats")
+  (defun counsel-fd-chats ()
+    (interactive)
+    (counsel-find-file "" chats-directory))
   (defun counsel-rg-chats ()
     (interactive)
     (counsel-rg "" chats-directory))
