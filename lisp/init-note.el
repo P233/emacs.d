@@ -79,7 +79,9 @@
                      (setq-local line-spacing 2)
                      (mixed-pitch-mode)
                      (visual-line-mode)
-                     (visual-fill-column-mode))))
+                     (visual-fill-column-mode)
+                     (when (string-match-p "md" (file-name-extension buffer-file-name))
+                       (prettier-js-mode)))))
 
 (use-package denote
   :custom

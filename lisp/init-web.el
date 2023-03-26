@@ -41,7 +41,7 @@
 (use-package prettier-js
   :defer t
   :hook
-  ((web-mode css-mode markdown-mode json-mode) . prettier-js-mode))
+  ((web-mode css-mode json-mode) . prettier-js-mode))
 
 
 (provide 'init-web)
