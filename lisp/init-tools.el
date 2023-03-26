@@ -3,9 +3,8 @@
 (show-paren-mode t)
 (global-subword-mode t)
 
-(use-package gcmh
-  :config
-  (gcmh-mode))
+(with-eval-after-load 'recentf
+  (add-to-list 'recentf-exclude "\\.chat\\'"))
 
 (use-package exec-path-from-shell
   :config
