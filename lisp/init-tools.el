@@ -34,6 +34,10 @@
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode))
+
 (use-package ivy-xref
   :custom
   (xref-show-xrefs-function #'ivy-xref-show-defs)
