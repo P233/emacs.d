@@ -138,10 +138,14 @@
   (defun my/copilot-tab ()
     (interactive)
     (or (copilot-accept-completion)
-        (acm-complete)
-        (indent-for-tab-command)))
+        (move-end-of-line nil)))
+  (defun my/select-current-line ()
+    (interactive)
+    (move-end-of-line nil)
+    (set-mark (line-beginning-position)))
   (with-eval-after-load 'copilot
-    (define-key copilot-mode-map (kbd "<tab>") #'my/copilot-tab))
+    (define-key copilot-mode-map (kbd "C-e") #'my/copilot-tab)
+    (define-key copilot-mode-map (kbd "C-S-e") #'my/select-current-line))
   :hook
   (prog-mode . copilot-mode))
 
