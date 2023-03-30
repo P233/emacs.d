@@ -3,9 +3,6 @@
 (show-paren-mode t)
 (global-subword-mode t)
 
-(with-eval-after-load 'recentf
-  (add-to-list 'recentf-exclude "\\.chat\\'"))
-
 (use-package exec-path-from-shell
   :config
   (exec-path-from-shell-initialize))
@@ -33,10 +30,6 @@
    ("C-h v"   . counsel-describe-variable)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
-
-(use-package ivy-rich
-  :config
-  (ivy-rich-mode))
 
 (use-package ivy-xref
   :custom
@@ -97,15 +90,30 @@
   :bind
   ("C-`" . goto-last-change))
 
-(use-package posframe)
+(use-package copilot
+  :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
+  :config
+  (defun my/copilot-complete ()
+    (interactive)
+    (or (copilot-accept-completion)
+        (move-end-of-line nil)))
+  (defun my/select-current-line ()
+    (interactive)
+    (move-end-of-line nil)
+    (set-mark (line-beginning-position)))
+  (with-eval-after-load 'copilot
+    (define-key copilot-mode-map (kbd "C-e") #'my/copilot-complete)
+    (define-key copilot-mode-map (kbd "C-S-e") #'my/select-current-line))
+  :hook
+  (prog-mode . copilot-mode))
 
 (use-package yasnippet
   :config
   (yas-global-mode))
 
 (use-package lsp-bridge
+  :straight (:type git :host github :repo "manateelazycat/lsp-bridge" :files (:defaults "*.py" "acm" "core" "langserver"))
   :after markdown-mode
-  :load-path "submodules/lsp-bridge"
   :custom
   (acm-enable-doc nil)
   (acm-enable-tabnine nil)
@@ -117,37 +125,19 @@
   (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
   (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation))
+  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation)
+  :hook
+  ((js-ts-mode typescript-ts-mode tsx-ts-mode rust-ts-mode emacs-lisp-mode) . lsp-bridge-mode))
 
 (use-package deno-bridge
-  :load-path "submodules/deno-bridge"
+  :straight (:type git :host github :repo "manateelazycat/deno-bridge")
   :init
   (use-package websocket))
 
-(use-package emmet2-mode
-  :after deno-bridge
-  :load-path "submodules/emmet2-mode"
-  :hook
-  ((web-mode css-mode) . emmet2-mode))
-
-(use-package copilot
-  :load-path "submodules/copilot"
-  :init
-  (use-package editorconfig)
-  :config
-  (defun my/copilot-tab ()
-    (interactive)
-    (or (copilot-accept-completion)
-        (move-end-of-line nil)))
-  (defun my/select-current-line ()
-    (interactive)
-    (move-end-of-line nil)
-    (set-mark (line-beginning-position)))
-  (with-eval-after-load 'copilot
-    (define-key copilot-mode-map (kbd "C-e") #'my/copilot-tab)
-    (define-key copilot-mode-map (kbd "C-S-e") #'my/select-current-line))
-  :hook
-  (prog-mode . copilot-mode))
+(use-package treesit
+  :straight (:type built-in)
+  :custom
+  (treesit-extra-load-path (list (concat user-emacs-directory "tree-sitter-module/dist"))))
 
 (use-package magit
   :bind
@@ -168,7 +158,7 @@
   :defer t)
 
 (use-package mind-wave
-  :load-path "submodules/mind-wave"
+  :straight (:type git :host github :repo "manateelazycat/mind-wave" :files (:defaults "*.py"))
   :custom
   (mind-wave-api-key-path (concat (expand-file-name user-emacs-directory) "chatgpt_api_key"))
   :init
@@ -181,14 +171,14 @@
     (counsel-rg "" chats-directory))
   (defun new-chat ()
     (interactive)
-    (find-file "~/Dropbox/Chats/__temp__.chat")
+    (find-file (concat chats-directory "/__temp__.chat"))
     (mind-wave-chat-ask))
-  (defun delete-current-chat ()
+  (defun kill-chat ()
     (interactive)
     (let ((filename (buffer-file-name)))
       (if (not (file-exists-p filename))
           (error "Buffer '%s' is not visiting a file!" (buffer-name))
-        (when (yes-or-no-p (format "Are you sure you want to delete '%s'?" filename))
+        (progn
           (delete-file filename)
           (kill-buffer)
           (message "Deleted file '%s' and killed buffer" filename)))))

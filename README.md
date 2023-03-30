@@ -1,29 +1,25 @@
-# My Personal Emacs Configuration
+# My Personal Emacs Configuration on MacOS
 
 ## Install [emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus)
 
 ```
-brew install emacs-plus@28 --with-no-titlebar-and-round-corners --with-native-comp --HEAD
+brew install emacs-plus@29 --with-native-comp
+git clone git@github.com:P233/emacs.d.git .emacs.d
 ```
-
-## Install Git Submodules
-
-```
-git submodule init
-git submodule update
-```
-
-### Submodules List:
-
-- [lsp-bridge](https://github.com/manateelazycat/lsp-bridge)
-- [mind-wave](https://github.com/manateelazycat/mind-wave)
-- [deno-bridge](https://github.com/manateelazycat/deno-bridge)
-- [emmet2-mode](https://github.com/P233/emmet2-mode)
 
 ## Dependencies
 
 ```
-brew install fd ripgrep clojure-lsp/brew/clojure-lsp-native
+brew install deno fd ripgrep tree-sitter clojure-lsp/brew/clojure-lsp-native
 pip3 install epc orjson sexpdata six openai
 npm i -g typescript-language-server typescript prettier
+```
+
+### Tree-sitter Modules
+
+```
+git submodule init
+git submodule update
+
+~/.emacs.d/tree-sitter-module/batch.sh
 ```
