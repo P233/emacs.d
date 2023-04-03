@@ -137,7 +137,9 @@
 (use-package treesit
   :straight (:type built-in)
   :custom
-  (treesit-extra-load-path (list (concat user-emacs-directory "tree-sitter-module/dist"))))
+  (treesit-extra-load-path (list (concat user-emacs-directory "tree-sitter-module/dist")))
+  :config
+  (setq-default treesit-font-lock-level 4))
 
 (use-package magit
   :bind
