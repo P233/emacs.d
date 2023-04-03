@@ -124,6 +124,7 @@
   (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
   (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation)
+  (define-key lsp-bridge-mode-map (kbd "C-c C-c C-r") 'lsp-bridge-restart-process)
   :hook
   ((js-ts-mode typescript-ts-mode tsx-ts-mode rust-ts-mode emacs-lisp-mode) . lsp-bridge-mode))
 
