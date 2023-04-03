@@ -88,6 +88,8 @@
 
 (use-package copilot
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
+  :custom
+  (copilot-idle-delay 0.5)
   :config
   (defun my/copilot-complete ()
     (interactive)
