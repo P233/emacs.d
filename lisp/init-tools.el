@@ -117,6 +117,7 @@
   (acm-enable-tabnine nil)
   (acm-enable-search-file-words nil)
   (acm-markdown-render-font-height 180)
+  (lsp-bridge-diagnostic-fetch-idle 1)
   (lsp-bridge-lookup-doc-tooltip-border-width 2)
   :config
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
@@ -161,6 +162,7 @@
 (use-package mind-wave
   :straight (:type git :host github :repo "manateelazycat/mind-wave" :files (:defaults "*.py"))
   :custom
+  (mind-wave-auto-change-title nil)
   (mind-wave-api-key-path (concat (expand-file-name user-emacs-directory) "chatgpt_api_key"))
   :init
   (defconst chats-directory "~/Dropbox/Chats")
@@ -172,8 +174,10 @@
     (counsel-rg "" chats-directory))
   (defun new-chat ()
     (interactive)
-    (find-file (concat chats-directory "/__temp__.chat"))
-    (mind-wave-chat-ask))
+    (let ((filename (read-string "Chat name: ")))
+      (find-file (concat chats-directory "/" filename ".chat"))
+      (save-buffer)
+      (mind-wave-chat-ask)))
   (defun kill-chat ()
     (interactive)
     (let ((filename (buffer-file-name)))
