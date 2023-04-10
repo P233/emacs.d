@@ -39,7 +39,7 @@
 (use-package denote
   :custom
   (denote-file-type 'markdown-yaml)
-  (denote-directory "~/Dropbox/denotes")
+  (denote-directory "~/Dropbox/denotes/")
   :config
   (defun counsel-rg-denote ()
     (interactive)

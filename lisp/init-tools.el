@@ -165,7 +165,7 @@
   (mind-wave-auto-change-title nil)
   (mind-wave-api-key-path (concat (expand-file-name user-emacs-directory) "chatgpt_api_key"))
   :init
-  (defconst chats-directory "~/Dropbox/Chats")
+  (defconst chats-directory "~/Dropbox/Chats/")
   (defun fd-chats ()
     (interactive)
     (counsel-find-file "" chats-directory))
@@ -175,7 +175,7 @@
   (defun new-chat ()
     (interactive)
     (let ((filename (read-string "Chat name: ")))
-      (find-file (concat chats-directory "/" filename ".chat"))
+      (find-file (concat chats-directory filename ".chat"))
       (save-buffer)
       (mind-wave-chat-ask)))
   (defun kill-chat ()
