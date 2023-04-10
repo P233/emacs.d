@@ -1,6 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-(defvar native-comp-deferred-compilation-deny-list nil) ; temp fix
-
 (defvar my/indentation-size 2)
 (defvar my/file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
