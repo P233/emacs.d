@@ -36,24 +36,5 @@
                      (when (string-match-p "md" (file-name-extension buffer-file-name))
                        (prettier-js-mode)))))
 
-(use-package denote
-  :custom
-  (denote-file-type 'markdown-yaml)
-  (denote-directory "~/Dropbox/denotes/")
-  :config
-  (defun counsel-rg-denote ()
-    (interactive)
-    (counsel-rg "" denote-directory))
-  (defun counsel-fd-denote ()
-    (interactive)
-    (counsel-find-file "" denote-directory))
-  :bind
-  (("C-c N" . denote)
-   ("C-c S" . denote-subdirectory)
-   ("C-c K" . denote-keywords-add)
-   ("C-c R" . denote-rename-file-using-front-matter)
-   ("C-c G" . counsel-rg-denote)
-   ("C-c F" . counsel-fd-denote)))
-
 
 (provide 'init-note)
