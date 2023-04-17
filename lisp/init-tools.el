@@ -127,7 +127,7 @@
   (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation)
   (define-key lsp-bridge-mode-map (kbd "C-c C-c C-r") 'lsp-bridge-restart-process)
   :hook
-  ((js-ts-mode typescript-ts-mode tsx-ts-mode rust-ts-mode emacs-lisp-mode) . lsp-bridge-mode))
+  ((js-ts-mode typescript-ts-mode tsx-ts-mode rust-ts-mode emacs-lisp-mode swift-mode) . lsp-bridge-mode))
 
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
