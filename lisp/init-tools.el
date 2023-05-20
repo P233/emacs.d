@@ -159,37 +159,6 @@
 (use-package rainbow-mode
   :defer t)
 
-(use-package mind-wave
-  :straight (:type git :host github :repo "manateelazycat/mind-wave" :files (:defaults "*.py"))
-  :custom
-  (mind-wave-auto-change-title nil)
-  (mind-wave-api-key-path (concat (expand-file-name user-emacs-directory) "chatgpt_api_key"))
-  :init
-  (defconst chats-directory "~/Dropbox/Chats/")
-  (defun fd-chats ()
-    (interactive)
-    (counsel-find-file "" chats-directory))
-  (defun rg-chats ()
-    (interactive)
-    (counsel-rg "" chats-directory))
-  (defun new-chat ()
-    (interactive)
-    (let ((filename (read-string "Chat name: ")))
-      (find-file (concat chats-directory filename ".chat"))
-      (save-buffer)
-      (mind-wave-chat-ask)))
-  (defun kill-chat ()
-    (interactive)
-    (let ((filename (buffer-file-name)))
-      (if (not (file-exists-p filename))
-          (error "Buffer '%s' is not visiting a file!" (buffer-name))
-        (progn
-          (delete-file filename)
-          (kill-buffer)
-          (message "Deleted file '%s' and killed buffer" filename)))))
-  :bind
-  ("C-c a" . mind-wave-chat-ask))
-
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
