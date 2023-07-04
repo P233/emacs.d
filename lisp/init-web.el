@@ -28,12 +28,12 @@
   :straight (:type git :host github :repo "p233/emmet2-mode" :files (:defaults "*.ts" "src" "data"))
   :after deno-bridge
   :hook
-  ((scss-mode tsx-ts-mode) . emmet2-mode))
+  ((scss-mode tsx-ts-mode web-mode) . emmet2-mode))
 
 (use-package prettier-js
   :defer t
   :hook
-  ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode) . prettier-js-mode))
+  ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
 
 (use-package web-mode
   :mode
