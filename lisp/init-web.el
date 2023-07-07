@@ -8,6 +8,7 @@
 (add-hook 'typescript-ts-mode-hook 'electric-pair-local-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js$"  . js-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.mjs$" . js-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ts$"  . typescript-ts-mode))
 
