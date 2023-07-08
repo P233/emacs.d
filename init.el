@@ -15,9 +15,6 @@
 (require 'init-note)
 (require 'init-my-functions)
 
-(with-eval-after-load 'recentf
-  (add-to-list 'recentf-exclude "\\.chat\\'"))
-
 (add-hook 'emacs-startup-hook
           (lambda ()
             (setq backup-inhibited t

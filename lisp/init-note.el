@@ -11,8 +11,7 @@
 
 (use-package markdown-mode
   :demand t
-  :mode
-  ("\\.mdx?\\'" "\\.chat\\'")
+  :mode "\\.mdx?\\'"
   :custom
   (markdown-hide-markup t)
   (markdown-fontify-code-blocks-natively t)
