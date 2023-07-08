@@ -13,8 +13,10 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(setq straight-use-package-by-default t
+      straight-vc-git-default-clone-depth 1)
+
 (straight-use-package '(use-package :type built-in))
-(setq straight-use-package-by-default t)
 
 
 (provide 'init-straight)
