@@ -97,8 +97,8 @@
         (move-end-of-line nil)))
   (defun my/select-current-line ()
     (interactive)
-    (move-end-of-line nil)
-    (set-mark (line-beginning-position)))
+    (set-mark-command nil)
+    (move-end-of-line nil))
   (with-eval-after-load 'copilot
     (define-key copilot-mode-map (kbd "C-e") #'my/copilot-complete)
     (define-key copilot-mode-map (kbd "C-S-e") #'my/select-current-line))
