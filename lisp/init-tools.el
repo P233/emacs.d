@@ -145,6 +145,11 @@
   :bind
   ("C-c m" . magit-status))
 
+(use-package magit-todos
+  :after magit
+  :config
+  (magit-todos-mode))
+
 (use-package git-gutter-fringe
   :config
   (global-git-gutter-mode t))
