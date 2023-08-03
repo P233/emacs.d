@@ -1,6 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 (setq package-enable-at-startup nil
-      package-native-compile t
       package-quickstart t
       make-backup-files nil
       frame-title-format nil

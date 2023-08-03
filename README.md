@@ -3,7 +3,7 @@
 ## Install [emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus)
 
 ```
-brew install emacs-plus@29 --with-native-comp
+brew install emacs-plus@29 --with-gnu-head-icon
 git clone git@github.com:P233/emacs.d.git .emacs.d
 ```
 
