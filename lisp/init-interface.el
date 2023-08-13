@@ -1,10 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (column-number-mode)
 
-;; (global-hl-line-mode)
-;; (add-hook 'activate-mark-hook (lambda () (global-hl-line-mode 0)))
-;; (add-hook 'deactivate-mark-hook (lambda () (global-hl-line-mode 1)))
-
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
 (set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
 
@@ -14,8 +10,7 @@
     (mapc #'disable-theme custom-enabled-themes)
     (pcase appearance
       ('dark (load-theme 'ef-winter :no-confirm))
-      ('light (load-theme 'ef-summer :no-confirm)))
-    (set-face-bold-p 'bold nil))
+      ('light (load-theme 'ef-summer :no-confirm))))
   (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
 
 (use-package minions

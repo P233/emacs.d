@@ -129,6 +129,17 @@
   :hook
   ((js-ts-mode typescript-ts-mode tsx-ts-mode rust-ts-mode emacs-lisp-mode swift-mode) . lsp-bridge-mode))
 
+(use-package holo-layer
+  :straight (:type git :host github :repo "manateelazycat/holo-layer" :files (:defaults "*.py" "plugin"))
+  :custom
+  (holo-layer-cursor-alpha 120)
+  (holo-layer-cursor-color "#cf0090")
+  (holo-layer-enable-window-border t)
+  (holo-layer-enable-cursor-animation t)
+  :config
+  (add-to-list 'holo-layer-cursor-block-commands "self-insert-command")
+  (holo-layer-enable))
+
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
   :init
