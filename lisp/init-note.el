@@ -21,7 +21,6 @@
   (org-hide-emphasis-markers t)
   (org-image-actual-width '(800))
   (org-startup-with-inline-images t)
-  (org-todo-keywords '((sequence "[TODO]" "[WIP]" "[DONE]")))
   :custom-face
   (org-level-1 ((t (:height 1.15))))
   (org-level-2 ((t (:height 1.13))))
@@ -34,12 +33,18 @@
   (org-date ((t (:inherit 'fixed-pitch))))
   (org-todo ((t (:inherit 'fixed-pitch))))
   (org-done ((t (:inherit 'fixed-pitch))))
+  (org-drawer ((t (:inherit 'fixed-pitch))))
   (org-ellipsis ((t (:inherit 'fixed-pitch))))
   (org-property-value ((t (:inherit 'fixed-pitch))))
   (org-special-keyword ((t (:inherit 'fixed-pitch))))
   (org-headline-done ((t (:inherit 'variable-pitch))))
   :config
+  (defun counsel-fd-my-org ()
+    (interactive)
+    (counsel-find-file "" "~/Dropbox/MyAgenda/"))
   (unbind-key "C-'" org-mode-map)
+  :bind
+  ("C-c a" . counsel-fd-my-org)
   :hook
   (org-mode . (lambda ()
                 (setq-local line-spacing 2)
