@@ -2,6 +2,9 @@
 (setq show-paren-delay 0)
 (show-paren-mode t)
 (global-subword-mode t)
+(use-package gcmh
+  :config
+  (gcmh-mode))
 
 (use-package smex)
 
