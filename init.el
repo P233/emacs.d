@@ -3,7 +3,6 @@
 (defvar my/file-name-handler-alist file-name-handler-alist)
 (setq file-name-handler-alist nil)
 
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 (require 'init-straight)
 (require 'init-tools)
 (require 'init-interface)

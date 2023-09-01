@@ -1,7 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-(setq show-paren-delay 0)
-(show-paren-mode t)
-(global-subword-mode t)
 (use-package gcmh
   :config
   (gcmh-mode))
@@ -22,7 +19,7 @@
   (enable-recursive-minibuffers t)
   :config
   (setq ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
-  (ivy-mode 1)
+  (ivy-mode t)
   :bind
   (("M-x"     . counsel-M-x)
    ("C-c s"   . swiper)

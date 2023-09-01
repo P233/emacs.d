@@ -1,9 +1,4 @@
 ;; -*- lexical-binding: t; -*-
-(column-number-mode)
-
-(add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
-(set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
-
 (use-package ef-themes
   :config
   (defun my/apply-theme (appearance)
@@ -15,7 +10,7 @@
 
 (use-package minions
   :config
-  (minions-mode 1))
+  (minions-mode t))
 
 (use-package window-numbering
   :config
