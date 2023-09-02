@@ -114,7 +114,11 @@
   (yas-global-mode))
 
 (use-package lsp-bridge
-  :straight (:type git :host github :repo "manateelazycat/lsp-bridge" :files (:defaults "*.py" "acm" "core" "langserver"))
+  :straight (:type git
+             :host github
+             :repo "manateelazycat/lsp-bridge"
+             :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+             :build (:not compile))
   :after markdown-mode
   :custom
   (acm-enable-doc nil)
