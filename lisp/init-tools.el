@@ -94,6 +94,7 @@
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
   (copilot-idle-delay 0.5)
+  (copilot-max-char 1000000)
   :config
   (defun my/copilot-complete ()
     (interactive)
