@@ -1,4 +1,7 @@
 ;; -*- lexical-binding: t; -*-
+(add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
+(set-fontset-font "fontset-default" 'han "FZFW ZhuZi MinchoS")
+
 (use-package ef-themes
   :config
   (defun my/apply-theme (appearance)
