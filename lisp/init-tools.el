@@ -19,6 +19,7 @@
   (enable-recursive-minibuffers t)
   :config
   (setq ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
+  (ivy-configure 'counsel-yank-pop :height ivy-height)
   (ivy-mode t)
   :bind
   (("M-x"     . counsel-M-x)
@@ -28,8 +29,15 @@
    ("C-c C-f" . counsel-find-file)
    ("C-h f"   . counsel-describe-function)
    ("C-h v"   . counsel-describe-variable)
+   ("C-c p"   . counsel-yank-pop)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
+
+(use-package ivy-posframe
+  :custom
+  (ivy-posframe-display-functions-alist '((counsel-yank-pop . ivy-posframe-display-at-point)))
+  :config
+  (ivy-posframe-mode))
 
 (use-package ivy-xref
   :custom
@@ -74,10 +82,6 @@
   :bind
   (("C-c r" . vr/replace)
    ("C-c q" . vr/query-replace)))
-
-(use-package popup-kill-ring
-  :bind
-  ("C-c p" . popup-kill-ring))
 
 (use-package avy
   :custom
