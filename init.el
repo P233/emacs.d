@@ -29,6 +29,7 @@
                   mac-command-modifier 'meta
                   mac-option-modifier nil
                   frame-resize-pixelwise t
+                  word-wrap-by-category t
                   custom-file (concat user-emacs-directory "custom.el"))
             (setq-default indent-tabs-mode nil)
             (defalias 'yes-or-no-p 'y-or-n-p)
