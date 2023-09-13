@@ -10,6 +10,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$"  . js-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.mjs$" . js-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . tsx-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ts$"  . typescript-ts-mode))
 
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
@@ -29,7 +30,7 @@
   :straight (:type git :host github :repo "p233/emmet2-mode" :files (:defaults "*.ts" "src" "data"))
   :after deno-bridge
   :hook
-  ((scss-mode tsx-ts-mode web-mode) . emmet2-mode))
+  ((css-mode tsx-ts-mode web-mode) . emmet2-mode))
 
 (use-package prettier-js
   :defer t
