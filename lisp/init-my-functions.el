@@ -57,6 +57,9 @@ Repeated invocations toggle between the two most recently open buffers."
       (insert (let ((case-fold-search nil))
                 (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
 
+(defun my/counsel-fd-my-org ()
+  (interactive)
+  (counsel-find-file "" "~/Dropbox/MyAgenda/"))
 
 (global-set-key (kbd "C-x 2")         'my/split-window-below)
 (global-set-key (kbd "C-x 3")         'my/split-window-right)
@@ -65,6 +68,7 @@ Repeated invocations toggle between the two most recently open buffers."
 (global-set-key (kbd "<C-return>")    'my/open-line-above)
 (global-set-key (kbd "S-<backspace>") 'my/backward-kill-line)
 (global-set-key (kbd "M-S")           'my/screaming-snake-case-word)
+(global-set-key (kbd "C-c a")         'my/counsel-fd-my-org)
 
 
 (provide 'init-my-functions)

@@ -39,12 +39,7 @@
   (org-special-keyword ((t (:inherit 'fixed-pitch))))
   (org-headline-done ((t (:inherit 'variable-pitch))))
   :config
-  (defun counsel-fd-my-org ()
-    (interactive)
-    (counsel-find-file "" "~/Dropbox/MyAgenda/"))
   (unbind-key "C-'" org-mode-map)
-  :bind
-  ("C-c a" . counsel-fd-my-org)
   :hook
   (org-mode . (lambda ()
                 (setq-local line-spacing 2)
