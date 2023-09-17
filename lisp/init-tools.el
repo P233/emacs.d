@@ -132,6 +132,7 @@
   (acm-markdown-render-font-height 180)
   (lsp-bridge-diagnostic-fetch-idle 1)
   (lsp-bridge-lookup-doc-tooltip-border-width 2)
+  (lsp-bridge-enable-diagnostics nil)
   :config
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
   (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
