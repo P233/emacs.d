@@ -1,4 +1,9 @@
 ;; -*- lexical-binding: t; -*-
+(show-paren-mode t)
+(column-number-mode t)
+(electric-pair-mode t)
+(global-subword-mode t)
+
 (use-package gcmh
   :config
   (gcmh-mode))

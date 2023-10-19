@@ -15,10 +15,6 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 
-(show-paren-mode t)
-(column-number-mode t)
-(global-subword-mode t)
-
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 

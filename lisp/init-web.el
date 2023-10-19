@@ -2,11 +2,6 @@
 (setq js-indent-level my/indentation-size
       css-indent-offset my/indentation-size)
 
-(add-hook 'scss-mode-hook 'electric-pair-local-mode)
-(add-hook 'js-ts-mode-hook 'electric-pair-local-mode)
-(add-hook 'tsx-ts-mode-hook 'electric-pair-local-mode)
-(add-hook 'typescript-ts-mode-hook 'electric-pair-local-mode)
-
 (add-to-list 'auto-mode-alist '("\\.js$"  . js-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.mjs$" . js-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
