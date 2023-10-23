@@ -13,14 +13,6 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . json-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-ts-mode))
 
-(use-package tsx-ts-helper-mode
-  :straight (:type git :host codeberg :repo "ckruse/tsx-ts-helper-mode")
-  :custom
-  (tsx-ts-helper-mode-auto-close-tags nil)
-  (tsx-ts-helper-mode-keymap-prefix (kbd "C-c C-e"))
-  :hook
-  (tsx-ts-mode . tsx-ts-helper-mode))
-
 (use-package emmet2-mode
   :straight (:type git :host github :repo "p233/emmet2-mode" :files (:defaults "*.ts" "src" "data"))
   :after deno-bridge

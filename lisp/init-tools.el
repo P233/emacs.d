@@ -160,6 +160,19 @@
   :config
   (setq-default treesit-font-lock-level 4))
 
+(use-package combobulate
+  :straight (:type git :host github :repo "mickeynp/combobulate")
+  :after treesit
+  :custom
+  (combobulate-key-prefix "C-c C-z")
+  :hook
+  ((js-ts-mode . combobulate-mode)
+   (css-ts-mode . combobulate-mode)
+   (yaml-ts-mode . combobulate-mode)
+   (json-ts-mode . combobulate-mode)
+   (typescript-ts-mode . combobulate-mode)
+   (tsx-ts-mode . combobulate-mode)))
+
 (use-package magit
   :bind
   ("C-c m" . magit-status))
