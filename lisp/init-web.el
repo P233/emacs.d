@@ -28,7 +28,7 @@
   :mode
   ("\\.html\\'" "\\.astro\\'")
   :custom
-  (web-mode-block-padding my/indentation-size)
+  (web-mode-block-padding 0)
   (web-mode-style-padding my/indentation-size)
   (web-mode-script-padding my/indentation-size)
   (web-mode-attr-indent-offset my/indentation-size)
