@@ -15,12 +15,14 @@
 
 (use-package web-mode
   :custom
+  (web-mode-enable-auto-indentation nil)
   (web-mode-block-padding 0)
-  (web-mode-style-padding my/indentation-size)
-  (web-mode-script-padding my/indentation-size)
+  (web-mode-css-indent-offset my/indentation-size)
+  (web-mode-markup-indent-offset my/indentation-size)
   (web-mode-attr-indent-offset my/indentation-size)
   (web-mode-attr-value-indent-offset my/indentation-size)
-  (web-mode-enable-auto-indentation nil)
+  (web-mode-style-padding my/indentation-size)
+  (web-mode-script-padding my/indentation-size)
   (web-mode-enable-current-element-highlight t)
   :custom-face
   (web-mode-html-tag-face ((t (:inherit font-lock-function-name-face :foreground unspecified))))
