@@ -2,17 +2,6 @@
 (setq js-indent-level my/indentation-size
       css-indent-offset my/indentation-size)
 
-(add-to-list 'auto-mode-alist '("\\.js$"  . js-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.mjs$" . js-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx$" . tsx-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.ts$"  . typescript-ts-mode))
-
-(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-
-(add-to-list 'auto-mode-alist '("\\.json$" . json-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-ts-mode))
-
 (use-package emmet2-mode
   :straight (:type git :host github :repo "p233/emmet2-mode" :files (:defaults "*.ts" "src" "data"))
   :after deno-bridge
@@ -25,8 +14,6 @@
   ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
 
 (use-package web-mode
-  :mode
-  ("\\.html\\'" "\\.astro\\'")
   :custom
   (web-mode-block-padding 0)
   (web-mode-style-padding my/indentation-size)

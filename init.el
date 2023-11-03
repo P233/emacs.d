@@ -14,6 +14,23 @@
 (require 'init-note)
 (require 'init-my-functions)
 
+(setq auto-mode-alist '(("/git-rebase-todo\\'"          . git-rebase-mode)
+                        ("\\.el$"                       . emacs-lisp-mode)
+                        ("\\.tsx\\'"                    . tsx-ts-mode)
+                        ("\\.ts\\'"                     . typescript-ts-mode)
+                        ("\\.jsx$"                      . tsx-ts-mode)
+                        ("\\.m?js$"                     . typescript-ts-mode)
+                        ("\\.css$"                      . css-mode)
+                        ("\\.scss$"                     . scss-mode)
+                        ("\\.json$"                     . json-ts-mode)
+                        ("\\.yaml$"                     . yaml-ts-mode)
+                        ("\\.org\\'"                    . org-mode)
+                        ("\\.mdx?\\'"                   . markdown-mode)
+                        ("\\.\\(html\\|astro\\)\\'"     . web-mode)
+                        ("\\.\\(svg\\|jpe?g\\|png\\)$"  . image-mode)
+                        ("\\.swift\\(interface\\)?\\'"  . swift-mode)
+                        ("\\.rs$"                       . rust-ts-mode)))
+
 (add-hook 'emacs-startup-hook
           (lambda ()
             (setq backup-inhibited t
