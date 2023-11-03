@@ -10,7 +10,6 @@
 (require 'init-lisp)
 (require 'init-rust)
 (require 'init-swift)
-(require 'init-solidity)
 (require 'init-note)
 (require 'init-my-functions)
 
