@@ -80,8 +80,7 @@
 
 (use-package expand-region
   :bind
-  (("C-'" . er/expand-region)
-   ("C-=" . er/contract-region)))
+  ("C-'" . er/expand-region))
 
 (use-package visual-regexp
   :bind
@@ -177,6 +176,35 @@
 
 (use-package rainbow-mode
   :defer t)
+
+(use-package vundo
+  :bind
+  ("C-=" . vundo))
+
+(use-package goto-line-preview
+  :bind
+  ("M-g M-g" . goto-line-preview))
+
+(use-package open-newline
+  :straight (:type git :host github :repo "manateelazycat/open-newline")
+  :bind
+  (("M-RET" . open-newline-below)
+   ("<C-return>" . open-newline-above)))
+
+(use-package popper
+  :bind
+  (("C-," . popper-toggle)
+   ("C-." . popper-cycle)
+   ("C-;" . popper-toggle-type))
+  :init
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "Output\\*$"
+          "\\*Async Shell Command\\*"
+          help-mode
+          compilation-mode))
+  (popper-mode)
+  (popper-echo-mode))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
