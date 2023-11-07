@@ -22,6 +22,7 @@
   (ivy-use-virtual-buffers t)
   (ivy-use-selectable-prompt t)
   (enable-recursive-minibuffers t)
+  (counsel-find-file-ignore-regexp (regexp-opt '(".git" ".next" ".obsidian" ".husky" ".DS_Store" "node_modules")))
   :config
   (setq ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
   (ivy-configure 'counsel-yank-pop :height ivy-height)
@@ -31,7 +32,7 @@
    ("C-c s"   . swiper)
    ("C-c g"   . counsel-rg)
    ("C-c f"   . counsel-git)
-   ("C-c C-f" . counsel-find-file)
+   ("C-x C-f" . counsel-find-file)
    ("C-h f"   . counsel-describe-function)
    ("C-h v"   . counsel-describe-variable)
    ("C-c p"   . counsel-yank-pop)
