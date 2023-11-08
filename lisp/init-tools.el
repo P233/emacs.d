@@ -161,6 +161,10 @@
   (setq-default treesit-font-lock-level 4))
 
 (use-package magit
+  :custom
+  (magit-diff-highlight-hunk-region-functions '(magit-diff-highlight-hunk-region-dim-outside magit-diff-highlight-hunk-region-using-face))
+  :custom-face
+  (magit-diff-hunk-region ((t (:slant italic))))
   :bind
   ("C-c m" . magit-status))
 
