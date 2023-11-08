@@ -1,14 +1,33 @@
 ;; -*- lexical-binding: t; -*-
-(setq package-enable-at-startup nil
-      package-quickstart t
-      make-backup-files nil
-      frame-title-format nil
+(set-language-environment 'utf-8)
+
+(setq auto-save-list-file-prefix nil
+      backup-inhibited t
+      confirm-kill-emacs 'y-or-n-p
+      create-lockfiles nil
+      custom-file (concat user-emacs-directory "custom.el")
+      default-directory "~/Projects"
+      file-name-handler-alist nil
+      find-program "fd"
       frame-inhibit-implied-resize t
+      frame-resize-pixelwise t
+      frame-title-format nil
       inhibit-startup-message t
-      initial-scratch-message ""
       initial-major-mode 'fundamental-mode
+      initial-scratch-message ""
+      mac-command-modifier 'meta
+      mac-option-modifier nil
+      make-backup-files nil
+      package-enable-at-startup nil
       read-process-output-max (* 1024 1024)
-      show-paren-delay 0)
+      ring-bell-function 'ignore
+      show-paren-delay 0
+      standard-indent 2
+      word-wrap-by-category t
+      auto-save-default nil)
+
+(setq-default indent-tabs-mode nil)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -17,4 +36,3 @@
 
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))
-
