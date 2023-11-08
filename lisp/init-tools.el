@@ -81,7 +81,8 @@
 
 (use-package expand-region
   :bind
-  ("C-'" . er/expand-region))
+  (("C-'" . er/expand-region)
+   ("C-\"" . er/contract-region)))
 
 (use-package visual-regexp
   :bind
@@ -92,8 +93,8 @@
   :custom
   (avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
-  (("C-c j" . avy-goto-char)
-   ("C-c l" . avy-goto-line)))
+  ("C-c C-g" . avy-goto-char)
+  ("C-c C-l" . avy-goto-char-in-line))
 
 (use-package goto-last-change
   :bind
@@ -196,10 +197,12 @@
   (("M-RET" . open-newline-below)
    ("<C-return>" . open-newline-above)))
 
+(use-package corral)
+
 (use-package popper
   :bind
   (("C-," . popper-toggle)
-   ("C-." . popper-cycle)
+   ("C-<" . popper-cycle)
    ("C-;" . popper-toggle-type))
   :init
   (setq popper-reference-buffers

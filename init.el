@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 (require 'init-straight)
 (require 'init-tools)
+(require 'init-hydra)
 (require 'init-web)
 (require 'init-lisp)
 (require 'init-rust)
