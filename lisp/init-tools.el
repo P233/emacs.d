@@ -91,7 +91,8 @@
 
 (use-package avy
   :custom
-  (avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
+  (avy-keys '(?o ?e ?u ?h ?l ?r ?p ?a ?s ?d ?f ?g ?j ?k ?c ?v ?b ?w ?q))
+  (avy-styles-alist '((avy-goto-char . de-bruijn)))
   :bind
   (("C-." . avy-goto-char)
    ("C-," . avy-goto-char-in-line)))
