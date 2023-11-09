@@ -16,9 +16,13 @@
   :config
   (minions-mode t))
 
-(use-package window-numbering
-  :config
-  (window-numbering-mode))
+(use-package ace-window
+  :custom
+  (aw-keys '(?1 ?2 ?3 ?4 ?5 ?6 ?7))
+  :custom-face
+  (aw-leading-char-face ((t (:height 1.0))))
+  :bind
+  ("M-'" . ace-window))
 
 (use-package rainbow-delimiters
   :defer t
