@@ -93,8 +93,8 @@
   :custom
   (avy-keys '(?u ?h ?e ?t ?o ?n ?a ?s ?i ?d))
   :bind
-  ("C-c C-g" . avy-goto-char)
-  ("C-c C-l" . avy-goto-char-in-line))
+  (("C-." . avy-goto-char)
+   ("C-," . avy-goto-char-in-line)))
 
 (use-package goto-last-change
   :bind
@@ -200,19 +200,20 @@
 (use-package corral)
 
 (use-package popper
-  :bind
-  (("C-," . popper-toggle)
-   ("C-<" . popper-cycle)
-   ("C-;" . popper-toggle-type))
   :init
   (setq popper-reference-buffers
         '("\\*Messages\\*"
+          "\\*Backtrace\\*"
           "Output\\*$"
           "\\*Async Shell Command\\*"
           help-mode
           compilation-mode))
   (popper-mode)
-  (popper-echo-mode))
+  (popper-echo-mode)
+  :bind
+  (("C-c C-t" . popper-toggle)
+   ("C-;"     . popper-cycle)
+   ("C-:"     . popper-toggle-type)))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
