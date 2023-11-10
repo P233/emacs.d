@@ -33,6 +33,7 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
+(electric-indent-mode -1)
 
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 (add-to-list 'load-path (concat user-emacs-directory "lisp"))

@@ -214,6 +214,10 @@
    ("C-;"     . popper-cycle)
    ("C-:"     . popper-toggle-type)))
 
+(use-package aggressive-indent
+  :config
+  (global-aggressive-indent-mode t))
+
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
