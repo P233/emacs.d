@@ -198,8 +198,6 @@
   (("M-RET" . open-newline-below)
    ("<C-return>" . open-newline-above)))
 
-(use-package corral)
-
 (use-package popper
   :init
   (setq popper-reference-buffers
