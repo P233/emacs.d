@@ -50,14 +50,6 @@
   (xref-show-xrefs-function #'ivy-xref-show-defs)
   (xref-show-definitions-function #'ivy-xref-show-defs))
 
-(use-package avy
-  :custom
-  (avy-keys '(?o ?e ?u ?h ?l ?r ?p ?a ?s ?d ?f ?g ?j ?k ?c ?v ?b ?w ?q))
-  (avy-styles-alist '((avy-goto-char . de-bruijn)))
-  :bind
-  (("C-." . avy-goto-char)
-   ("C-," . avy-goto-char-in-line)))
-
 (use-package copilot
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
@@ -150,10 +142,6 @@
 
 (use-package git-timemachine
   :defer t)
-
-(use-package goto-last-change
-  :bind
-  ("C-`" . goto-last-change))
 
 (use-package goto-line-preview
   :bind
