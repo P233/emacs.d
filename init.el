@@ -25,7 +25,8 @@
                         ("\\.\\(html\\|astro\\)\\'"      . web-mode)
                         ("\\.\\(svg\\|jpe?g\\|png\\)\\'" . image-mode)
                         ("\\.swift\\(interface\\)?\\'"   . swift-mode)
-                        ("\\.rs\\'"                      . rust-ts-mode)))
+                        ("\\.rs\\'"                      . rust-ts-mode)
+                        ("\\.py\\'"                      . python-ts-mode)))
 
 
 (provide 'init)
