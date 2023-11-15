@@ -4,7 +4,6 @@
 (require 'init-hydra)
 (require 'init-web)
 (require 'init-lisp)
-(require 'init-rust)
 (require 'init-swift)
 (require 'init-note)
 (require 'init-my-functions)
