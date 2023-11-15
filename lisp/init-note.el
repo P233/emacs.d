@@ -1,5 +1,7 @@
 ;; -*- lexical-binding: t; -*-
-(use-package olivetti)
+(use-package visual-fill-column
+  :custom
+  (visual-fill-column-width 88))
 
 (use-package mixed-pitch
   :custom-face
@@ -22,7 +24,8 @@
   :hook
   (markdown-mode . (lambda ()
                      (setq-local line-spacing 2)
-                     (olivetti-mode)
+                     (visual-line-mode)
+                     (visual-fill-column-mode)
                      (mixed-pitch-mode))))
 
 
