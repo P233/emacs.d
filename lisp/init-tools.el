@@ -162,6 +162,10 @@
   :config
   (setq-default treesit-font-lock-level 4))
 
+(use-package apheleia
+  :config
+  (apheleia-global-mode))
+
 (use-package magit
   :custom
   (magit-diff-highlight-hunk-region-functions '(magit-diff-highlight-hunk-region-dim-outside magit-diff-highlight-hunk-region-using-face))

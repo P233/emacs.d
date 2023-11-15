@@ -8,11 +8,6 @@
   :hook
   ((css-mode tsx-ts-mode web-mode) . emmet2-mode))
 
-(use-package prettier-js
-  :defer t
-  :hook
-  ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
-
 (use-package web-mode
   :custom
   (web-mode-enable-auto-indentation nil)
