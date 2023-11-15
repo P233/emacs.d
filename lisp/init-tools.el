@@ -8,11 +8,11 @@
   :config
   (gcmh-mode))
 
+(use-package smex)
+
 (use-package exec-path-from-shell
   :config
   (exec-path-from-shell-initialize))
-
-(use-package smex)
 
 (use-package counsel
   :demand t
@@ -50,45 +50,6 @@
   (xref-show-xrefs-function #'ivy-xref-show-defs)
   (xref-show-definitions-function #'ivy-xref-show-defs))
 
-(use-package perspective
-  :custom
-  (persp-mode-prefix-key (kbd "M-p"))
-  :bind
-  ("C-x b" . persp-ivy-switch-buffer)
-  :init
-  (persp-mode))
-
-(use-package neotree
-  :custom
-  (neo-theme 'arrow)
-  (neo-smart-open t)
-  (neo-autorefresh nil)
-  (neo-mode-line-type 'none)
-  (neo-window-position 'right)
-  (neo-default-system-application "open")
-  (neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
-  :custom-face
-  (neo-dir-link-face ((t (:inherit font-lock-builtin-face))))
-  (neo-expand-btn-face ((t (:inherit font-lock-builtin-face))))
-  :bind
-  (("C-c e"   . neotree-show)
-   ("C-c t"   . neotree-toggle)
-   ("C-c C-o" . neotree-open-file-in-system-application)))
-
-(use-package move-text
-  :config
-  (move-text-default-bindings))
-
-(use-package expand-region
-  :bind
-  (("C-'" . er/expand-region)
-   ("C-\"" . er/contract-region)))
-
-(use-package visual-regexp
-  :bind
-  (("C-c r" . vr/replace)
-   ("C-c q" . vr/query-replace)))
-
 (use-package avy
   :custom
   (avy-keys '(?o ?e ?u ?h ?l ?r ?p ?a ?s ?d ?f ?g ?j ?k ?c ?v ?b ?w ?q))
@@ -96,10 +57,6 @@
   :bind
   (("C-." . avy-goto-char)
    ("C-," . avy-goto-char-in-line)))
-
-(use-package goto-last-change
-  :bind
-  ("C-`" . goto-last-change))
 
 (use-package copilot
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
@@ -127,10 +84,10 @@
 
 (use-package lsp-bridge
   :straight (:type git
-             :host github
-             :repo "manateelazycat/lsp-bridge"
-             :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
-             :build (:not compile))
+                   :host github
+                   :repo "manateelazycat/lsp-bridge"
+                   :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+                   :build (:not compile))
   :after markdown-mode
   :custom
   (acm-enable-doc nil)
@@ -162,9 +119,13 @@
   :config
   (setq-default treesit-font-lock-level 4))
 
-(use-package apheleia
-  :config
-  (apheleia-global-mode))
+(use-package perspective
+  :custom
+  (persp-mode-prefix-key (kbd "M-p"))
+  :bind
+  ("C-x b" . persp-ivy-switch-buffer)
+  :init
+  (persp-mode))
 
 (use-package magit
   :custom
@@ -190,12 +151,9 @@
 (use-package git-timemachine
   :defer t)
 
-(use-package rainbow-mode
-  :defer t)
-
-(use-package vundo
+(use-package goto-last-change
   :bind
-  ("C-=" . vundo))
+  ("C-`" . goto-last-change))
 
 (use-package goto-line-preview
   :bind
@@ -207,25 +165,31 @@
   (("M-RET" . open-newline-below)
    ("<C-return>" . open-newline-above)))
 
-(use-package popper
-  :init
-  (setq popper-reference-buffers
-        '("\\*Messages\\*"
-          "\\*Backtrace\\*"
-          "Output\\*$"
-          "\\*Async Shell Command\\*"
-          help-mode
-          compilation-mode))
-  (popper-mode)
-  (popper-echo-mode)
+(use-package move-text
+  :config
+  (move-text-default-bindings))
+
+(use-package visual-regexp
   :bind
-  (("C-c C-t" . popper-toggle)
-   ("C-;"     . popper-cycle)
-   ("C-:"     . popper-toggle-type)))
+  (("C-c r" . vr/replace)
+   ("C-c q" . vr/query-replace)))
+
+(use-package expand-region
+  :bind
+  (("C-'" . er/expand-region)
+   ("C-\"" . er/contract-region)))
 
 (use-package aggressive-indent
   :config
   (global-aggressive-indent-mode t))
+
+(use-package vundo
+  :bind
+  ("C-=" . vundo))
+
+(use-package apheleia
+  :config
+  (apheleia-global-mode))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
