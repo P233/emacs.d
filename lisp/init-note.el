@@ -29,17 +29,17 @@
                      (mixed-pitch-mode))))
 
 
-(defvar my/knowledge-base-path "~/Documents/MyKnowledgeBase")
+(defvar my/brain-path "~/Documents/MyBrain/")
 
-(defun my/knowledge-base-rg ()
+(defun my/brain-rg ()
   (interactive)
-  (counsel-rg "" my/knowledge-base-path))
-(global-set-key (kbd "C-c a") 'my/knowledge-base-rg)
+  (counsel-rg "" my/brain-path))
+(global-set-key (kbd "C-c a") 'my/brain-rg)
 
-(defun my/knowledge-base-fd ()
+(defun my/brain-fd ()
   (interactive)
-  (counsel-find-file "" my/knowledge-base-path))
-(global-set-key (kbd "C-c C-a") 'my/knowledge-base-fd)
+  (counsel-find-file "" my/brain-path))
+(global-set-key (kbd "C-c C-a") 'my/brain-fd)
 
 
 (provide 'init-note)
