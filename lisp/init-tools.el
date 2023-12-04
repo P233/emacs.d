@@ -53,8 +53,9 @@
 (use-package copilot
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
+  (copilot-max-char -1)
   (copilot-idle-delay 0.5)
-  (copilot-max-char 1000000)
+  (copilot-enable-predicates '(evil-emacs-state-p copilot--buffer-changed))
   :config
   (defun my/copilot-complete ()
     (interactive)
