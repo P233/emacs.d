@@ -190,5 +190,7 @@
 (setq project-switch-commands 'project-find-file)
 (global-set-key (kbd "C-c o") 'project-switch-project)
 
+(global-set-key (kbd "C-`") 'goto-last-change)
+
 
 (provide 'init-tools)
