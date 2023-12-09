@@ -7,7 +7,8 @@
   (avy-styles-alist '((avy-goto-char . de-bruijn)))
   :bind
   (("C-." . avy-goto-char)
-   ("C-," . avy-goto-char-in-line)))
+   ("C-," . avy-goto-char-in-line)
+   ("C-c C-l" . avy-goto-line)))
 
 (use-package evil
   :custom
@@ -34,8 +35,8 @@ _p_: paste pop
   ("d" evil-delete)
   ("y" evil-yank)
   ("p" counsel-yank-pop)
-  ("rd" (progn (call-interactively 'evil-delete) (avy-pop-mark)))
-  ("ry" (progn (call-interactively 'evil-yank) (avy-pop-mark)))
+  ("rd" (progn (call-interactively 'evil-delete) (avy-pop-mark) (yank)))
+  ("ry" (progn (call-interactively 'evil-yank) (avy-pop-mark) (yank)))
   ("gd" (progn (call-interactively 'evil-delete) (avy-goto-word-0 "")))
   ("gy" (progn (call-interactively 'evil-yank) (avy-goto-word-0 ""))))
 
