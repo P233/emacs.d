@@ -176,10 +176,6 @@
   :bind
   ("C-=" . vundo))
 
-(use-package apheleia
-  :config
-  (apheleia-global-mode))
-
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))

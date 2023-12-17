@@ -24,5 +24,10 @@
   (web-mode-html-attr-name-face ((t (:inherit font-lock-type-face :foreground unspecified))))
   (web-mode-current-element-highlight-face ((t (:background "#3f6faf")))))
 
+(use-package prettier-js
+  :defer t
+  :hook
+  ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
+
 
 (provide 'init-web)
