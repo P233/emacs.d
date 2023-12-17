@@ -170,6 +170,7 @@
 
 (use-package aggressive-indent
   :config
+  (add-to-list 'aggressive-indent-excluded-modes 'python-ts-mode)
   (global-aggressive-indent-mode t))
 
 (use-package vundo
