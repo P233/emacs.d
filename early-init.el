@@ -24,8 +24,10 @@
       show-paren-delay 0
       standard-indent 2
       word-wrap-by-category t
-      auto-save-default nil)
+      auto-save-default nil
+      warning-minimum-level :error)
 
+(setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 

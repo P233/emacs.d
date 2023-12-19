@@ -17,7 +17,7 @@ brew install deno fd ripgrep tree-sitter
 ```
 
 ```
-pip3 install epc orjson sexpdata six paramiko rapidfuzz pyright
+pip3 install epc orjson sexpdata six paramiko rapidfuzz pyright black
 ```
 
 ```

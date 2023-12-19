@@ -5,6 +5,7 @@
 (require 'init-web)
 (require 'init-lisp)
 (require 'init-swift)
+(require 'init-python)
 (require 'init-note)
 (require 'init-my-functions)
 (require 'init-interface)
