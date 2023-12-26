@@ -10,10 +10,6 @@
 
 (use-package smex)
 
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
-
 (use-package counsel
   :demand t
   :custom
