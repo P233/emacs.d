@@ -3,12 +3,18 @@
 ## Install [emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus)
 
 ```
+brew tap d12frosted/emacs-plus
 brew install emacs-plus@29 --with-gnu-head-icon
 ```
 
 ```
 git clone git@github.com:P233/emacs.d.git ~/.emacs.d
 ```
+
+## Install Fonts
+
+- https://fsd.it/shop/fonts/pragmatapro/
+- https://fonts.google.com/noto/specimen/Noto+Serif
 
 ## Dependencies
 
