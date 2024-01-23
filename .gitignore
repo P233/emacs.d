@@ -6,9 +6,8 @@ bookmarks
 custom.el
 eln-cache
 elpa
+org-persist
 package-quickstart.el
-projectile-bookmarks.eld
-projectile.cache
 projects
 recentf
 request
