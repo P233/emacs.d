@@ -63,17 +63,19 @@
                 (org-appear-mode))))
 
 (use-package visual-fill-column
+  :after org
   :custom
   (visual-fill-column-width 88))
 
 (use-package mixed-pitch
+  :after org
   :custom-face
   (default ((t (:font "PragmataPro Mono"))))
   (fixed-pitch ((t (:font "PragmataPro Mono" :height 1.0))))
   (variable-pitch ((t (:font "Noto Serif" :height 1.0)))))
 
 (use-package org-superstar
-  :defer t
+  :after org
   :custom
   (org-superstar-leading-bullet ?\s)
   (org-superstar-special-todo-items t)
@@ -83,7 +85,11 @@
   (org-superstar-item ((t (:inherit 'fixed-pitch))))
   (org-superstar-header-bullet ((t (:height 232 :inherit 'fixed-pitch)))))
 
-(use-package org-appear)
+(use-package org-appear
+  :after org)
+
+(use-package org-ql
+  :after org)
 
 
 (provide 'init-note)
