@@ -40,7 +40,7 @@ _p_: paste pop
   ("gd" (progn (call-interactively 'evil-delete) (avy-goto-word-0 "")))
   ("gy" (progn (call-interactively 'evil-yank) (avy-goto-word-0 ""))))
 
-(global-set-key (kbd "C-M-'") 'evil-execute-in-normal-state)
+(global-set-key (kbd "C-;") 'evil-execute-in-normal-state)
 
 (global-set-key (kbd "C-M-.") (lambda ()
                                 (interactive)

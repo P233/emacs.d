@@ -70,8 +70,8 @@
   (popper-echo-mode)
   :bind
   (("C-c C-t" . popper-toggle)
-   ("C-;"     . popper-cycle)
-   ("C-:"     . popper-toggle-type)))
+   ("C-c C-." . popper-cycle)
+   ("C-c C-," . popper-toggle-type)))
 
 
 (provide 'init-interface)
