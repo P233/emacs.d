@@ -79,15 +79,12 @@
                    :build (:not compile))
   :after markdown-mode
   :custom
-  (acm-enable-doc nil)
   (acm-enable-tabnine nil)
-  (acm-enable-search-file-words nil)
-  (acm-markdown-render-font-height 180)
-  (lsp-bridge-diagnostic-fetch-idle 1)
-  (lsp-bridge-lookup-doc-tooltip-border-width 2)
-  (lsp-bridge-enable-diagnostics nil)
+  (lsp-bridge-enable-hover-diagnostic t)
   :config
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
+  (define-key lsp-bridge-mode-map (kbd "C->") 'lsp-bridge-diagnostic-jump-next)
+  (define-key lsp-bridge-mode-map (kbd "C-<") 'lsp-bridge-diagnostic-jump-prev)
   (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
   (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
   (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
