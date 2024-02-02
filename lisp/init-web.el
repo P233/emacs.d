@@ -4,7 +4,6 @@
 
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
-  :defer t
   :init
   (use-package websocket))
 
