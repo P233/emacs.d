@@ -1,5 +1,7 @@
 ;; -*- lexical-binding: t; -*-
-(use-package markdown-mode)
+(use-package markdown-mode
+  :defer t)
+
 
 (use-package org
   :straight (:type built-in)

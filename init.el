@@ -1,13 +1,12 @@
 ;; -*- lexical-binding: t; -*-
 (require 'init-straight)
 (require 'init-tools)
-(require 'init-hydra)
+(require 'init-editing)
 (require 'init-web)
 (require 'init-lisp)
 (require 'init-swift)
 (require 'init-python)
 (require 'init-note)
-(require 'init-my-functions)
 (require 'init-interface)
 
 (setq auto-mode-alist '(("/git-rebase-todo\\'"            . git-rebase-mode)

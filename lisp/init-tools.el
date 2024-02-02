@@ -1,10 +1,6 @@
 ;; -*- lexical-binding: t; -*-
-(show-paren-mode t)
-(column-number-mode t)
-(electric-pair-mode t)
-(global-subword-mode t)
-
 (use-package gcmh
+  :demand t
   :config
   (gcmh-mode))
 
@@ -77,7 +73,6 @@
                    :repo "manateelazycat/lsp-bridge"
                    :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
                    :build (:not compile))
-  :after markdown-mode
   :custom
   (acm-enable-tabnine nil)
   (lsp-bridge-enable-hover-diagnostic t)
@@ -93,25 +88,21 @@
   :hook
   ((js-ts-mode typescript-ts-mode tsx-ts-mode emacs-lisp-mode rust-ts-mode swift-mode python-ts-mode) . lsp-bridge-mode))
 
-(use-package deno-bridge
-  :straight (:type git :host github :repo "manateelazycat/deno-bridge")
-  :init
-  (use-package websocket))
-
 (use-package treesit
   :straight (:type built-in)
+  :defer t
   :custom
   (treesit-extra-load-path (list (concat user-emacs-directory "tree-sitter-module/dist")))
   :config
   (setq-default treesit-font-lock-level 4))
 
 (use-package perspective
+  :init
+  (persp-mode)
   :custom
   (persp-mode-prefix-key (kbd "M-p"))
   :bind
-  ("C-x b" . persp-ivy-switch-buffer)
-  :init
-  (persp-mode))
+  ("C-x b" . persp-ivy-switch-buffer))
 
 (use-package magit
   :custom
@@ -121,14 +112,9 @@
   :bind
   ("C-c m" . magit-status))
 
-(use-package magit-todos
-  :after magit
-  :config
-  (magit-todos-mode))
-
 (use-package git-gutter-fringe
   :config
-  (global-git-gutter-mode t))
+  (global-git-gutter-mode))
 
 (use-package vc-msg
   :bind
@@ -137,50 +123,13 @@
 (use-package git-timemachine
   :defer t)
 
-(use-package goto-line-preview
-  :bind
-  ("M-g M-g" . goto-line-preview))
-
-(use-package open-newline
-  :straight (:type git :host github :repo "manateelazycat/open-newline")
-  :bind
-  (("M-RET" . open-newline-below)
-   ("<C-return>" . open-newline-above)))
-
-(use-package move-text
-  :config
-  (move-text-default-bindings))
-
-(use-package visual-regexp
-  :bind
-  (("C-c r" . vr/replace)
-   ("C-c q" . vr/query-replace)))
-
-(use-package expand-region
-  :bind
-  (("C-'" . er/expand-region)
-   ("C-\"" . er/contract-region)))
-
-(use-package aggressive-indent
-  :config
-  (add-to-list 'aggressive-indent-excluded-modes 'python-ts-mode)
-  (global-aggressive-indent-mode t))
-
-(use-package vundo
-  :bind
-  ("C-=" . vundo))
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
-(add-hook 'prog-mode-hook #'hs-minor-mode)
-(global-set-key (kbd "C-c h") 'hs-toggle-hiding)
-
 (setq project-switch-commands 'project-find-file)
 (global-set-key (kbd "C-c o") 'project-switch-project)
-
-(global-set-key (kbd "C-`") 'goto-last-change)
 
 
 (provide 'init-tools)

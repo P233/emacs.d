@@ -12,33 +12,26 @@
     (set-face-bold-p 'bold nil))
   (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
 
+(use-package doom-modeline
+  :custom
+  (doom-modeline-icon nil)
+  (doom-modeline-height 24)
+  (doom-modeline-minor-modes t)
+  (doom-modeline-buffer-file-name-style 'truncate-with-project)
+  :hook
+  (after-init . doom-modeline-mode))
+
 (use-package minions
+  :after doom-modeline
   :config
   (minions-mode t))
-
-(use-package ace-window
-  :custom
-  (aw-keys '(?1 ?2 ?3 ?4 ?5 ?6 ?7))
-  :custom-face
-  (aw-leading-char-face ((t (:height 1.0))))
-  :bind
-  ("M-'" . ace-window))
 
 (use-package rainbow-mode
   :defer t)
 
 (use-package rainbow-delimiters
-  :defer t
   :hook
   (prog-mode . rainbow-delimiters-mode))
-
-(use-package doom-modeline
-  :custom
-  (doom-modeline-icon nil)
-  (doom-modeline-minor-modes t)
-  (doom-modeline-buffer-file-name-style 'truncate-with-project)
-  :hook
-  (after-init . doom-modeline-mode))
 
 (use-package neotree
   :custom
@@ -72,6 +65,30 @@
   (("C-c C-t" . popper-toggle)
    ("C-c C-." . popper-cycle)
    ("C-c C-," . popper-toggle-type)))
+
+
+;; https://emacs-china.org/t/topic/945/2
+(defun my/split-window-below ()
+  "Split window with another buffer."
+  (interactive)
+  (select-window (split-window-below))
+  (switch-to-buffer (other-buffer)))
+(global-set-key (kbd "C-x 2") 'my/split-window-below)
+
+(defun my/split-window-right ()
+  "Split window with another buffer."
+  (interactive)
+  (select-window (split-window-right))
+  (switch-to-buffer (other-buffer)))
+(global-set-key (kbd "C-x 3") 'my/split-window-right)
+
+;; http://emacsredux.com/blog/2013/04/28/switch-to-previous-buffer/
+(defun my/switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+(global-set-key (kbd "C-c b") 'my/switch-to-previous-buffer)
 
 
 (provide 'init-interface)

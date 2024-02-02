@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package python-black
   :hook
   (python-ts-mode . python-black-on-save-mode))
