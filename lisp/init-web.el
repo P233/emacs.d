@@ -35,4 +35,7 @@
   ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
 
 
+(use-package restclient)
+
+
 (provide 'init-web)
