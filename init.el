@@ -25,7 +25,8 @@
                         ("\\.\\(svg\\|jpe?g\\|png\\)\\'"  . image-mode)
                         ("\\.swift\\(interface\\)?\\'"    . swift-mode)
                         ("\\.rs\\'"                       . rust-ts-mode)
-                        ("\\.py\\'"                       . python-ts-mode)))
+                        ("\\.py\\'"                       . python-ts-mode)
+                        ("\\.rest\\'"                     . restclient-mode)))
 
 
 (provide 'init)
