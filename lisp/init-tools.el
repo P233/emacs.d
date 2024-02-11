@@ -76,6 +76,7 @@
   :custom
   (acm-enable-tabnine nil)
   (lsp-bridge-enable-hover-diagnostic t)
+  (lsp-bridge-enable-completion-in-string t)
   :config
   (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
   (define-key lsp-bridge-mode-map (kbd "C->") 'lsp-bridge-diagnostic-jump-next)
