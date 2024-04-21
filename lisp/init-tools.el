@@ -75,6 +75,7 @@
                    :build (:not compile))
   :custom
   (acm-enable-tabnine nil)
+  (acm-enable-search-file-words nil)
   (lsp-bridge-enable-hover-diagnostic t)
   (lsp-bridge-enable-completion-in-string t)
   :config
