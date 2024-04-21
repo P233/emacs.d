@@ -8,6 +8,7 @@
 (require 'init-python)
 (require 'init-note)
 (require 'init-interface)
+(require 'init-talonvoice)
 
 (setq auto-mode-alist '(("/git-rebase-todo\\'"            . git-rebase-mode)
                         ("\\.el\\'"                       . emacs-lisp-mode)
@@ -26,7 +27,8 @@
                         ("\\.swift\\(interface\\)?\\'"    . swift-mode)
                         ("\\.rs\\'"                       . rust-ts-mode)
                         ("\\.py\\'"                       . python-ts-mode)
-                        ("\\.rest\\'"                     . restclient-mode)))
+                        ("\\.rest\\'"                     . restclient-mode)
+                        ("\\.talon\\'"                    . talonscript-mode)))
 
 
 (provide 'init)
