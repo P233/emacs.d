@@ -4,21 +4,31 @@
 (electric-pair-mode t)
 (global-subword-mode t)
 
-(global-set-key (kbd "C-`") 'goto-last-change)
+(global-set-key (kbd "C-w") 'kill-ring-save)
+(global-set-key (kbd "M-w") 'kill-region)
+
+(global-set-key (kbd "C-o") 'other-window)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 (global-set-key (kbd "C-c h") 'hs-toggle-hiding)
 
+(global-set-key (kbd "C-;") 'comment-dwim)
+
+(global-set-key (kbd "C-<wheel-up>") 'ignore)
+(global-set-key (kbd "C-<wheel-down>") 'ignore)
+(global-set-key (kbd "C-M-<wheel-up>") 'ignore)
+(global-set-key (kbd "C-M-<wheel-down>") 'ignore)
+
 
 (use-package goto-line-preview
   :bind
-  ("M-g M-g" . goto-line-preview))
+  ("C-c C-l" . goto-line-preview))
 
 (use-package open-newline
   :straight (:type git :host github :repo "manateelazycat/open-newline")
   :bind
-  (("M-RET" . open-newline-below)
-   ("<C-return>" . open-newline-above)))
+  (("C-c C-n" . open-newline-below)
+   ("C-c C-p" . open-newline-above)))
 
 (use-package move-text
   :config
@@ -50,7 +60,7 @@
   :bind
   (("C-." . avy-goto-char)
    ("C-," . avy-goto-char-in-line)
-   ("C-c C-l" . avy-goto-line)))
+   ("<f12>" . avy-goto-line)))
 
 (use-package evil
   :custom
@@ -66,38 +76,6 @@
 
 (use-package hydra
   :defer t)
-
-
-(defhydra evil-hydra (:color blue :hint nil)
-  "
-^Anchor^               ^Edit and Return^       ^Edit and Goto^
-^^^^^^^^-------------------------------------------------------------
-_c_: change
-_d_: delete            _rd_: delete            _gd_: delete
-_y_: yank              _ry_: yank              _gy_: yank
-_p_: paste pop
-"
-  ("c" evil-change)
-  ("d" evil-delete)
-  ("y" evil-yank)
-  ("p" counsel-yank-pop)
-  ("rd" (progn (call-interactively 'evil-delete) (avy-pop-mark) (yank)))
-  ("ry" (progn (call-interactively 'evil-yank) (avy-pop-mark) (yank)))
-  ("gd" (progn (call-interactively 'evil-delete) (avy-goto-word-0 "")))
-  ("gy" (progn (call-interactively 'evil-yank) (avy-goto-word-0 ""))))
-
-(global-set-key (kbd "C-;") 'evil-execute-in-normal-state)
-
-(global-set-key (kbd "C-M-.") (lambda ()
-                                (interactive)
-                                (call-interactively 'avy-goto-char)
-                                (evil-hydra/body)))
-
-(global-set-key (kbd "C-M-,") (lambda ()
-                                (interactive)
-                                (call-interactively 'avy-goto-char-in-line)
-                                (evil-hydra/body)))
-
 
 (defhydra avy-hydra (:color blue :columns 3)
   "Avy Hydra"

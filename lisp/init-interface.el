@@ -46,8 +46,7 @@
   (neo-dir-link-face ((t (:inherit font-lock-builtin-face))))
   (neo-expand-btn-face ((t (:inherit font-lock-builtin-face))))
   :bind
-  (("C-c e"   . neotree-show)
-   ("C-c t"   . neotree-toggle)
+  (("C-t"   . neotree-toggle)
    ("C-c C-o" . neotree-open-file-in-system-application)))
 
 (use-package popper

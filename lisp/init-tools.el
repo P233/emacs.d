@@ -20,14 +20,14 @@
   (ivy-configure 'counsel-yank-pop :height ivy-height)
   (ivy-mode t)
   :bind
-  (("M-x"     . counsel-M-x)
-   ("C-c s"   . swiper)
-   ("C-c g"   . counsel-rg)
-   ("C-c f"   . counsel-git)
-   ("C-x C-f" . counsel-find-file)
-   ("C-h f"   . counsel-describe-function)
-   ("C-h v"   . counsel-describe-variable)
-   ("C-c p"   . counsel-yank-pop)
+  (("C-s"        . swiper)
+   ("C-c g"      . counsel-rg)
+   ("C-c f"      . counsel-git)
+   ("C-x C-f"    . counsel-find-file)
+   ("C-h f"      . counsel-describe-function)
+   ("C-h v"      . counsel-describe-variable)
+   ("C-c p"      . counsel-yank-pop)
+   ("C-<return>" . counsel-M-x)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
@@ -102,7 +102,7 @@
   :init
   (persp-mode)
   :custom
-  (persp-mode-prefix-key (kbd "M-p"))
+  (persp-mode-prefix-key (kbd "C-r"))
   :bind
   ("C-x b" . persp-ivy-switch-buffer))
 

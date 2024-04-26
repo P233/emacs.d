@@ -16,7 +16,7 @@
       initial-major-mode 'fundamental-mode
       initial-scratch-message ""
       mac-command-modifier 'meta
-      mac-option-modifier nil
+      mac-option-modifier 'super
       make-backup-files nil
       package-enable-at-startup nil
       read-process-output-max (* 1024 1024)
