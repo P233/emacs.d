@@ -34,8 +34,45 @@
   :hook
   ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
 
-
 (use-package restclient)
+
+
+;; Jump to associated file
+(defun my/open-or-create-associated-scss-file ()
+  "Open or create the associated .module.scss file for the current .tsx or .jsx file."
+  (interactive)
+  (let* ((file-name (buffer-file-name))
+         (file-dir (file-name-directory file-name))
+         (file-base-name (file-name-base file-name))
+         (scss-file (concat file-dir file-base-name ".module.scss")))
+    (if (file-exists-p scss-file)
+        (find-file scss-file)
+      (let ((buffer (create-file-buffer scss-file)))
+        (switch-to-buffer buffer)
+        (write-file scss-file)))))
+(add-hook 'tsx-ts-mode-hook (lambda ()
+                              (define-key tsx-ts-mode-map (kbd "C-c C-s") 'my/open-or-create-associated-scss-file)))
+
+(defun my/open-associated-tsx-jsx-file ()
+  "Open the associated .tsx or .jsx file for the current .scss file."
+  (interactive)
+  (let* ((file-name (buffer-file-name))
+         (file-dir (file-name-directory file-name))
+         (file-base-name (file-name-base file-name))
+         (base-name (if (string-match "\\(.+\\)\\.module$" file-base-name)
+                        (match-string 1 file-base-name)
+                      file-base-name))
+         (tsx-file (concat file-dir base-name ".tsx"))
+         (jsx-file (concat file-dir base-name ".jsx")))
+    (cond
+     ((file-exists-p tsx-file)
+      (find-file tsx-file))
+     ((file-exists-p jsx-file)
+      (find-file jsx-file))
+     (t
+      (message "No associated .tsx or .jsx file found.")))))
+(add-hook 'scss-mode-hook (lambda ()
+                            (define-key scss-mode-map (kbd "C-c C-s") 'my/open-associated-tsx-jsx-file)))
 
 
 (provide 'init-web)
