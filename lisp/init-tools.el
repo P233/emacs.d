@@ -20,14 +20,14 @@
   (ivy-configure 'counsel-yank-pop :height ivy-height)
   (ivy-mode t)
   :bind
-  (("C-s"        . swiper)
-   ("C-c g"      . counsel-rg)
-   ("C-c f"      . counsel-git)
-   ("C-x C-f"    . counsel-find-file)
-   ("C-h f"      . counsel-describe-function)
-   ("C-h v"      . counsel-describe-variable)
-   ("C-c p"      . counsel-yank-pop)
-   ("C-<return>" . counsel-M-x)
+  (("M-x"                          . counsel-M-x)
+   ("C-s"                          . swiper)
+   ("<f1>"                         . counsel-rg)
+   ("<f2>"                         . counsel-git)
+   ("<f3>"                         . counsel-find-file)
+   ("C-h f"                        . counsel-describe-function)
+   ("C-h v"                        . counsel-describe-variable)
+   ("C-c p"                        . counsel-yank-pop)
    (:map ivy-minibuffer-map ("TAB" . ivy-partial))
    (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
 
@@ -46,7 +46,6 @@
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
   (copilot-max-char -1)
-  (copilot-idle-delay 0.5)
   (copilot-enable-predicates '(evil-emacs-state-p copilot--buffer-changed))
   :config
   (defun my/copilot-complete ()
@@ -102,7 +101,7 @@
   :init
   (persp-mode)
   :custom
-  (persp-mode-prefix-key (kbd "C-r"))
+  (persp-mode-prefix-key (kbd "<f5>"))
   :bind
   ("C-x b" . persp-ivy-switch-buffer))
 
@@ -131,7 +130,7 @@
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 (setq project-switch-commands 'project-find-file)
-(global-set-key (kbd "C-c o") 'project-switch-project)
+(global-set-key (kbd "<f4>") 'project-switch-project)
 
 
 (provide 'init-tools)

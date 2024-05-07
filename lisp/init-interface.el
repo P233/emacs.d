@@ -46,7 +46,8 @@
   (neo-dir-link-face ((t (:inherit font-lock-builtin-face))))
   (neo-expand-btn-face ((t (:inherit font-lock-builtin-face))))
   :bind
-  (("C-t"   . neotree-toggle)
+  (("C-t"     . neotree-toggle)
+   ("C-c t"   . neotree-show)
    ("C-c C-o" . neotree-open-file-in-system-application)))
 
 (use-package popper
@@ -59,11 +60,7 @@
           help-mode
           compilation-mode))
   (popper-mode)
-  (popper-echo-mode)
-  :bind
-  (("C-c C-t" . popper-toggle)
-   ("C-c C-." . popper-cycle)
-   ("C-c C-," . popper-toggle-type)))
+  (popper-echo-mode))
 
 
 ;; https://emacs-china.org/t/topic/945/2

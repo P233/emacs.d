@@ -4,9 +4,6 @@
 (electric-pair-mode t)
 (global-subword-mode t)
 
-(global-set-key (kbd "C-w") 'kill-ring-save)
-(global-set-key (kbd "M-w") 'kill-region)
-
 (global-set-key (kbd "C-o") 'other-window)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -18,6 +15,9 @@
 (global-set-key (kbd "C-<wheel-down>") 'ignore)
 (global-set-key (kbd "C-M-<wheel-up>") 'ignore)
 (global-set-key (kbd "C-M-<wheel-down>") 'ignore)
+
+(global-set-key (kbd "<f9>") 'delete-window)
+(global-set-key (kbd "<f10>") 'delete-other-windows)
 
 
 (use-package goto-line-preview
@@ -36,8 +36,7 @@
 
 (use-package visual-regexp
   :bind
-  (("C-c r" . vr/replace)
-   ("C-c q" . vr/query-replace)))
+  ("C-r" . vr/replace))
 
 (use-package expand-region
   :bind
@@ -60,7 +59,7 @@
   :bind
   (("C-." . avy-goto-char)
    ("C-," . avy-goto-char-in-line)
-   ("<f12>" . avy-goto-line)))
+   ("C-<return>" . avy-goto-line)))
 
 (use-package evil
   :custom
