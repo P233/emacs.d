@@ -61,18 +61,6 @@
    ("C-," . avy-goto-char-in-line)
    ("C-<return>" . avy-goto-line)))
 
-(use-package evil
-  :custom
-  (evil-default-state 'emacs)
-  :config
-  (evil-mode)
-  (defalias 'evil-insert-state 'evil-emacs-state)
-  (defalias 'evil-motion-state 'evil-emacs-state)
-  (setq evil-undo-system 'undo-redo
-        evil-normal-state-cursor '(hbar . 4)
-        evil-operator-state-cursor '(hbar . 9)
-        evil-visual-state-cursor 'hollow))
-
 (use-package hydra
   :defer t)
 

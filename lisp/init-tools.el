@@ -46,7 +46,7 @@
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
   (copilot-max-char -1)
-  (copilot-enable-predicates '(evil-emacs-state-p copilot--buffer-changed))
+  (copilot-enable-predicates '(copilot--buffer-changed))
   :config
   (defun my/copilot-complete ()
     (interactive)
