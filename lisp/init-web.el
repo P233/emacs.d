@@ -138,7 +138,9 @@ Return a cons cell (START . END) representing the bounds."
                                                              "expression_statement"
                                                              "function_declaration"
                                                              "lexical_declaration"
-                                                             "type_alias_declaration")))))
+                                                             "type_alias_declaration"
+                                                             "jsx_element"
+                                                             "jsx_self_closing_element")))))
               (start (treesit-node-start parent))
               (end (treesit-node-end parent)))
     (kill-ring-save start end)
@@ -242,6 +244,7 @@ Return a cons cell (START . END) representing the bounds."
               (parent (treesit-parent-until node (lambda (n)
                                                    (member (treesit-node-type n)
                                                            '("array"
+                                                             "array_pattern"
                                                              "string"
                                                              "arguments"
                                                              "named_imports"
@@ -252,12 +255,23 @@ Return a cons cell (START . END) representing the bounds."
               (end (1- (treesit-node-end parent))))
     (delete-region (point) end)))
 
-(defun jsx/empty-element ()
+(defun jsx/empty-element-or-brackets ()
   "Empty the content of the JSX element containing the point."
   (interactive)
   (when-let* ((node (treesit-node-at (point)))
               (element (treesit-parent-until node (lambda (n)
-                                                    (string= (treesit-node-type n) "jsx_element"))))
+                                                    (let ((node-type (treesit-node-type n)))
+                                                      (if (string= node-type "jsx_expression")
+                                                          (not (treesit-parent-until n (lambda (m)
+                                                                                         (string= (treesit-node-type m) "jsx_attribute"))))
+                                                        (member node-type
+                                                                '("jsx_element"
+                                                                  "array"
+                                                                  "array_pattern"
+                                                                  "arguments"
+                                                                  "named_imports"
+                                                                  "object_pattern"
+                                                                  "formal_parameters")))))))
               (opening-node (treesit-node-child element 0))
               (closing-node (treesit-node-child element -1))
               (start (treesit-node-end opening-node))
@@ -271,7 +285,8 @@ Return a cons cell (START . END) representing the bounds."
               (element (treesit-parent-until node (lambda (n)
                                                     (member (treesit-node-type n)
                                                             '("jsx_element"
-                                                              "jsx_self_closing_element")))))
+                                                              "jsx_self_closing_element"
+                                                              "jsx_expression")))))
               (element-text (treesit-node-text element t))
               (element-parent (treesit-parent-until element (lambda (n)
                                                               (string= (treesit-node-type n) "jsx_element"))))
@@ -384,8 +399,8 @@ Return a cons cell (START . END) representing the bounds."
                               (define-key tsx-ts-mode-map (kbd "C-c C-x") 'jsx/duplicate-block)
                               (define-key tsx-ts-mode-map (kbd "C-c C-SPC") 'jsx/select-block)
                               (define-key tsx-ts-mode-map (kbd "C-c C-u") 'jsx/delete-until)
+                              (define-key tsx-ts-mode-map (kbd "C-c C-e") 'jsx/empty-element-or-brackets)
                               (define-key tsx-ts-mode-map (kbd "C-c C-;") 'jsx/comment-uncomment-block)
-                              (define-key tsx-ts-mode-map (kbd "C-c C-t C-e") 'jsx/empty-element)
                               (define-key tsx-ts-mode-map (kbd "C-c C-t C-r") 'jsx/raise-element)
                               (define-key tsx-ts-mode-map (kbd "C-c C-t C-p") 'jsx/move-to-opening-tag)
                               (define-key tsx-ts-mode-map (kbd "C-c C-t C-n") 'jsx/move-to-closing-tag)
