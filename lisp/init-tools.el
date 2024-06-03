@@ -4,6 +4,10 @@
   :config
   (gcmh-mode))
 
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
 (use-package smex)
 
 (use-package counsel
@@ -46,6 +50,7 @@
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
   (copilot-max-char -1)
+  (copilot-idle-delay 0.3)
   (copilot-enable-predicates '(copilot--buffer-changed))
   :config
   (defun my/copilot-complete ()
@@ -66,28 +71,29 @@
   :config
   (yas-global-mode))
 
-(use-package lsp-bridge
-  :straight (:type git
-                   :host github
-                   :repo "manateelazycat/lsp-bridge"
-                   :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
-                   :build (:not compile))
+(use-package corfu
   :custom
-  (acm-enable-tabnine nil)
-  (acm-enable-search-file-words nil)
-  (lsp-bridge-enable-hover-diagnostic t)
-  (lsp-bridge-enable-completion-in-string t)
-  :config
-  (add-to-list 'lsp-bridge-single-lang-server-extension-list '(("ts" "tsx" "js" "mjs") . "typescript"))
-  (define-key lsp-bridge-mode-map (kbd "C->") 'lsp-bridge-diagnostic-jump-next)
-  (define-key lsp-bridge-mode-map (kbd "C-<") 'lsp-bridge-diagnostic-jump-prev)
-  (define-key lsp-bridge-mode-map (kbd "C-c d") 'lsp-bridge-find-def)
-  (define-key lsp-bridge-mode-map (kbd "C-c u") 'lsp-bridge-find-references)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-r") 'lsp-bridge-rename)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-d") 'lsp-bridge-popup-documentation)
-  (define-key lsp-bridge-mode-map (kbd "C-c C-c C-r") 'lsp-bridge-restart-process)
+  (corfu-auto t)
+  (corfu-auto-delay 0)
+  :init
+  (global-corfu-mode))
+
+(use-package eglot
+  :straight (:type built-in)
+  :custom
+  (eglot-send-changes-idle-time 0.1)
   :hook
-  ((js-ts-mode typescript-ts-mode tsx-ts-mode emacs-lisp-mode rust-ts-mode swift-mode python-ts-mode) . lsp-bridge-mode))
+  ((js-ts-mode typescript-ts-mode tsx-ts-mode ruby-ts-mode rust-ts-mode python-ts-mode swift-mode) . eglot-ensure)
+  :bind
+  (("C->"     . flymake-goto-next-error)
+   ("C-<"     . flymake-goto-prev-error)
+   ("C-c C-d" . xref-find-definitions)
+   ("C-c C-u" . xref-find-references)
+   ("C-c C-r" . eglot-rename)))
+
+(use-package eldoc-box
+  :hook
+  (eglot--managed-mode . eldoc-box-hover-mode))
 
 (use-package treesit
   :straight (:type built-in)
