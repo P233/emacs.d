@@ -90,8 +90,5 @@
 (use-package org-appear
   :after org)
 
-(use-package org-ql
-  :after org)
-
 
 (provide 'init-note)
