@@ -2,6 +2,8 @@
 (setq js-indent-level 2
       css-indent-offset 2)
 
+(add-to-list 'auto-mode-alist '("\\.\\(j\\|t\\)sx?$" . tsx-ts-mode))
+
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
   :init
@@ -18,6 +20,8 @@
 
 (use-package web-mode
   :defer t
+  :mode
+  ("\\.html\\'" "\\.astro\\'")
   :custom
   (web-mode-enable-auto-indentation nil)
   (web-mode-block-padding 0)
