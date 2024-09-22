@@ -6,6 +6,8 @@
 (add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?ts$" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?jsx?$" . js-ts-mode))
 
+(use-package glsl-mode
+  :straight (:type git :host github :repo "jimhourihan/glsl-mode"))
 
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
