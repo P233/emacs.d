@@ -93,7 +93,7 @@
 
 (use-package eldoc-box
   :hook
-  (eglot--managed-mode . eldoc-box-hover-mode))
+  (eglot--managed-mode . eldoc-box-hover-at-point-mode))
 
 (use-package treesit
   :straight (:type built-in)
