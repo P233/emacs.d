@@ -2,7 +2,10 @@
 (setq js-indent-level 2
       css-indent-offset 2)
 
-(add-to-list 'auto-mode-alist '("\\.\\(j\\|t\\)sx?$" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?ts$" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?jsx?$" . js-ts-mode))
+
 
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
@@ -13,7 +16,7 @@
   :straight (:type git :host github :repo "p233/emmet2-mode" :files (:defaults "*.ts" "src" "data"))
   :after deno-bridge
   :hook
-  ((css-mode tsx-ts-mode web-mode) . emmet2-mode))
+  ((css-mode tsx-ts-mode js-ts-mode web-mode) . emmet2-mode))
 
 (use-package jsx-jedi
   :straight (:type git :host github :repo "p233/jsx-jedi"))
@@ -77,8 +80,12 @@
      (t
       (message "No associated .tsx or .jsx file found.")))))
 
+(add-hook 'js-ts-mode-hook (lambda ()
+                             (define-key js-ts-mode-map (kbd "C-c C-s") 'my/open-or-create-associated-scss-file)))
 (add-hook 'tsx-ts-mode-hook (lambda ()
                               (define-key tsx-ts-mode-map (kbd "C-c C-s") 'my/open-or-create-associated-scss-file)))
+(add-hook 'typescript-ts-mode-hook (lambda ()
+                                     (define-key typescript-ts-mode-map (kbd "C-c C-s") 'my/open-or-create-associated-scss-file)))
 
 (add-hook 'scss-mode-hook (lambda ()
                             (define-key scss-mode-map (kbd "C-c C-s") 'my/open-associated-tsx-jsx-file)))
