@@ -9,7 +9,6 @@
 (require 'init-elixir)
 (require 'init-note)
 (require 'init-interface)
-(require 'init-talonvoice)
 
 
 
