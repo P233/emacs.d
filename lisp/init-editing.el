@@ -10,6 +10,8 @@
 (global-set-key (kbd "C-c h") 'hs-toggle-hiding)
 
 (global-set-key (kbd "C-;") 'comment-dwim)
+(global-set-key (kbd "C-w") 'kill-ring-save)
+(global-set-key (kbd "M-w") 'kill-region)
 
 (global-set-key (kbd "C-<wheel-up>") 'ignore)
 (global-set-key (kbd "C-<wheel-down>") 'ignore)
@@ -24,11 +26,9 @@
   :bind
   ("C-c C-l" . goto-line-preview))
 
-(use-package open-newline
-  :straight (:type git :host github :repo "manateelazycat/open-newline")
+(use-package goto-last-change
   :bind
-  (("C-c C-n" . open-newline-below)
-   ("C-c C-p" . open-newline-above)))
+  ("C-j" . goto-last-change))
 
 (use-package move-text
   :config
@@ -59,7 +59,52 @@
   :bind
   (("C-." . avy-goto-char)
    ("C-," . avy-goto-char-in-line)
-   ("C-<return>" . avy-goto-line)))
+   ("C-l" . avy-goto-line)))
+
+(set-default 'cursor-type 'bar)
+(use-package god-mode
+  :custom
+  (god-mode-enable-function-key-translation nil)
+  :config
+  (defun my/toggle-god-mode ()
+    (interactive)
+    (god-mode-all)
+    (set-default 'cursor-type (if god-local-mode 'box 'bar)))
+  (defun my/disable-god-mode ()
+    (interactive)
+    (when god-local-mode
+      (god-mode-all)
+      (set-default 'cursor-type 'bar)))
+  (defun my/insert-and-disable-god-mode ()
+    (interactive)
+    (insert last-input-event)
+    (my/disable-god-mode))
+  :bind
+  ("<f12>" . my/toggle-god-mode)
+  (:map god-local-mode-map
+        (";" . my/insert-and-disable-god-mode)
+        (":" . my/insert-and-disable-god-mode)
+        ("(" . my/insert-and-disable-god-mode)
+        (")" . my/insert-and-disable-god-mode)
+        ("[" . my/insert-and-disable-god-mode)
+        ("]" . my/insert-and-disable-god-mode)
+        ("{" . my/insert-and-disable-god-mode)
+        ("}" . my/insert-and-disable-god-mode)))
+
+(use-package open-newline
+  :straight (:type git :host github :repo "manateelazycat/open-newline")
+  :config
+  (defun my/open-newline-below-and-disable-god-mode ()
+    (interactive)
+    (call-interactively 'open-newline-below)
+    (my/disable-god-mode))
+  (defun my/open-newline-above-and-disable-god-mode ()
+    (interactive)
+    (call-interactively 'open-newline-above)
+    (my/disable-god-mode))
+  :bind
+  (("C-c C-n" . my/open-newline-below-and-disable-god-mode)
+   ("C-c C-p" . my/open-newline-above-and-disable-god-mode)))
 
 (use-package hydra
   :defer t)
