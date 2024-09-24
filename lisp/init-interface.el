@@ -33,23 +33,6 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
-(use-package neotree
-  :custom
-  (neo-theme 'arrow)
-  (neo-smart-open t)
-  (neo-autorefresh nil)
-  (neo-mode-line-type 'none)
-  (neo-window-position 'right)
-  (neo-default-system-application "open")
-  (neo-hidden-regexp-list '("^\\." "\\.pyc$" "~$" "^#.*#$" "\\.elc$" "node_modules"))
-  :custom-face
-  (neo-dir-link-face ((t (:inherit font-lock-builtin-face))))
-  (neo-expand-btn-face ((t (:inherit font-lock-builtin-face))))
-  :bind
-  (("C-t"     . neotree-toggle)
-   ("C-c t"   . neotree-show)
-   ("C-c C-o" . neotree-open-file-in-system-application)))
-
 (use-package popper
   :init
   (setq popper-reference-buffers
