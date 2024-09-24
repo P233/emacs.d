@@ -6,6 +6,7 @@ bookmarks
 custom.el
 eln-cache
 elpa
+eshell
 org-persist
 package-quickstart.el
 projects
@@ -13,5 +14,6 @@ recentf
 request
 smex-items
 straight
+tramp
 transient
 url
