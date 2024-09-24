@@ -5,6 +5,7 @@
 (add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?ts$" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?jsx?$" . js-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-ts-mode))
 
 (use-package glsl-mode
   :straight (:type git :host github :repo "jimhourihan/glsl-mode"))
