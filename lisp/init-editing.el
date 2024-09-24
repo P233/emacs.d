@@ -28,7 +28,7 @@
 
 (use-package goto-last-change
   :bind
-  ("C-j" . goto-last-change))
+  ("C--" . goto-last-change))
 
 (use-package move-text
   :config
@@ -117,8 +117,7 @@
   ("C" avy-copy-region "copy-region")
   ("K" avy-kill-region "kill-region")
   ("M" avy-move-region "move-region"))
-(global-set-key (kbd "C-c C-g") 'avy-hydra/body)
-
+(global-set-key (kbd "C-t") 'avy-hydra/body)
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
 (defun my/screaming-snake-case-word ()
@@ -134,6 +133,17 @@
       (insert (let ((case-fold-search nil))
                 (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
 (global-set-key (kbd "M-S") 'my/screaming-snake-case-word)
+
+;; http://emacsredux.com/blog/2013/04/28/switch-to-previous-buffer/
+(defun my/switch-to-previous-buffer ()
+  "Switch to previously open buffer.
+Repeated invocations toggle between the two most recently open buffers."
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+                                  (local-unset-key (kbd "C-c C-b"))))
+(global-set-key (kbd "C-c C-b") 'my/switch-to-previous-buffer)
 
 
 (provide 'init-editing)

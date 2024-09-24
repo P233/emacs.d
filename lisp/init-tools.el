@@ -26,14 +26,17 @@
   :bind
   (("M-x"                          . counsel-M-x)
    ("C-s"                          . swiper)
+   ("C-c C-s"                      . swiper-all-thing-at-point)
    ("<f1>"                         . counsel-rg)
    ("<f2>"                         . counsel-git)
    ("<f3>"                         . counsel-find-file)
    ("C-h f"                        . counsel-describe-function)
    ("C-h v"                        . counsel-describe-variable)
    ("C-c p"                        . counsel-yank-pop)
-   (:map ivy-minibuffer-map ("TAB" . ivy-partial))
-   (:map ivy-minibuffer-map ("RET" . ivy-alt-done))))
+   ("C-x C-b"                      . counsel-ibuffer)
+   (:map ivy-minibuffer-map
+         ("TAB" . ivy-partial)
+         ("RET" . ivy-alt-done))))
 
 (use-package ivy-posframe
   :custom
@@ -117,7 +120,7 @@
   :custom-face
   (magit-diff-hunk-region ((t (:slant italic))))
   :bind
-  ("C-c m" . magit-status))
+  ("C-v" . magit-status))
 
 (use-package git-gutter-fringe
   :config
@@ -137,6 +140,8 @@
 
 (setq project-switch-commands 'project-find-file)
 (global-set-key (kbd "<f4>") 'project-switch-project)
+(global-set-key (kbd "C-z") 'project-switch-project)
+(global-set-key (kbd "C-j") 'dired-jump)
 
 
 (provide 'init-tools)
