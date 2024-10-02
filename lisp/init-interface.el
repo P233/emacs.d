@@ -36,10 +36,10 @@
 (use-package popper
   :init
   (setq popper-reference-buffers
-        '("\\*Messages\\*"
+        '("\\*Async Shell Command\\*"
           "\\*Backtrace\\*"
+          "\\*Messages\\*"
           "Output\\*$"
-          "\\*Async Shell Command\\*"
           help-mode
           compilation-mode))
   (popper-mode)
