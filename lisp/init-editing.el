@@ -43,9 +43,10 @@
   ("C-r" . vr/replace))
 
 (use-package expand-region
+  :custom
+  (expand-region-fast-keys-enabled nil)
   :bind
-  (("C-'" . er/expand-region)
-   ("C-\"" . er/contract-region)))
+  ("C-'" . er/expand-region))
 
 (use-package aggressive-indent
   :config
