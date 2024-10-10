@@ -71,6 +71,10 @@
   (("C-c C-n" . open-newline-below)
    ("C-c C-p" . open-newline-above)))
 
+(use-package rg)
+
+(use-package wgrep)
+
 (use-package hydra
   :defer t)
 
