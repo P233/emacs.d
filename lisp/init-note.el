@@ -1,6 +1,8 @@
 ;; -*- lexical-binding: t; -*-
 (use-package markdown-mode
-  :defer t)
+  :defer t
+  :mode
+  ("\\.mdx?\\'" . gfm-mode))
 
 
 (use-package org
