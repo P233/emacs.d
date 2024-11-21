@@ -47,7 +47,6 @@
    ("M-<f1>"    . my/counsel-rg-at-point)
    ("<f1>"      . counsel-rg)
    ("<f2>"      . counsel-git)
-   ("<f3>"      . dired-jump)
    ("C-h f"     . counsel-describe-function)
    ("C-h v"     . counsel-describe-variable)
    ("C-c p"     . counsel-yank-pop)

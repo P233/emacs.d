@@ -45,6 +45,17 @@
   (popper-mode)
   (popper-echo-mode))
 
+(use-package dired-sidebar
+  :custom
+  (dired-sidebar-width 24)
+  (dired-sidebar-theme 'none)
+  (dired-sidebar-use-one-instance t)
+  (dired-sidebar-use-custom-modeline nil)
+  :config
+  (define-key dired-sidebar-mode-map (kbd "C-o") nil)
+  :bind
+  ("<f3>" . dired-sidebar-toggle-sidebar))
+
 
 ;; https://emacs-china.org/t/topic/945/2
 (defun my/split-window-below ()
