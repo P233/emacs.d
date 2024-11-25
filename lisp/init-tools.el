@@ -10,13 +10,6 @@
 
 (use-package smex)
 
-(use-package auto-save
-  :straight (:type git :host github :repo "manateelazycat/auto-save")
-  :custom
-  (auto-save-idle 5)
-  :config
-  (auto-save-enable))
-
 (use-package counsel
   :demand t
   :custom
