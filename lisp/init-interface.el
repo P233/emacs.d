@@ -8,8 +8,7 @@
     (mapc #'disable-theme custom-enabled-themes)
     (pcase appearance
       ('dark (load-theme 'ef-winter :no-confirm))
-      ('light (load-theme 'ef-summer :no-confirm)))
-    (set-face-bold-p 'bold nil))
+      ('light (load-theme 'ef-summer :no-confirm))))
   (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
 
 (use-package doom-modeline
