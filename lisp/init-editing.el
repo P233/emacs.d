@@ -22,10 +22,6 @@
 (global-set-key (kbd "<f10>") 'delete-other-windows)
 
 
-(use-package multiple-cursors
-  :bind
-  ("C-z" . mc/mark-all-symbols-like-this))
-
 (use-package goto-line-preview
   :bind
   ("C-c C-l" . goto-line-preview))
