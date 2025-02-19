@@ -44,16 +44,14 @@
   (popper-mode)
   (popper-echo-mode))
 
-(use-package dired-sidebar
+(use-package treemacs
   :custom
-  (dired-sidebar-width 24)
-  (dired-sidebar-theme 'none)
-  (dired-sidebar-use-one-instance t)
-  (dired-sidebar-use-custom-modeline nil)
-  :config
-  (define-key dired-sidebar-mode-map (kbd "C-o") nil)
+  (treemacs-width 28)
+  (treemacs-no-png-images t)
+  :custom-face
+  (treemacs-root-face ((t (:height 1.1))))
   :bind
-  ("<f3>" . dired-sidebar-toggle-sidebar))
+  ("<f3>" . treemacs))
 
 
 ;; https://emacs-china.org/t/topic/945/2
