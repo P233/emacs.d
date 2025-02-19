@@ -2,6 +2,8 @@
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
 (set-fontset-font "fontset-default" 'han "Noto Serif SC Medium")
 
+(pixel-scroll-precision-mode t)
+
 (use-package ef-themes
   :config
   (defun my/apply-theme (appearance)
