@@ -44,3 +44,13 @@ git submodule update
 ```
 ~/.emacs.d/tree-sitter-module/batch.sh
 ```
+
+## Straight lockfile
+
+```elisp
+(("deno-bridge" . "63890058ce6f391871f92ade77096f87c306dcc9"))
+:gamma
+```
+
+Add the above code to `./straight/versions/default.el`.
+
