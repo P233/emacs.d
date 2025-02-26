@@ -8,8 +8,6 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . json-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-ts-mode))
 
-(use-package glsl-mode
-  :straight (:type git :host github :repo "jimhourihan/glsl-mode"))
 
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
@@ -43,6 +41,9 @@
   (web-mode-html-tag-face ((t (:inherit font-lock-function-name-face :foreground unspecified))))
   (web-mode-html-attr-name-face ((t (:inherit font-lock-type-face :foreground unspecified))))
   (web-mode-current-element-highlight-face ((t (:background "#3f6faf")))))
+
+(use-package glsl-mode
+  :straight (:type git :host github :repo "jimhourihan/glsl-mode"))
 
 (use-package prettier-js
   :hook

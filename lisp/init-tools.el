@@ -8,8 +8,6 @@
   :config
   (exec-path-from-shell-initialize))
 
-(use-package smex)
-
 (use-package counsel
   :demand t
   :custom
@@ -18,7 +16,7 @@
   (ivy-use-virtual-buffers t)
   (ivy-use-selectable-prompt t)
   (enable-recursive-minibuffers t)
-  (counsel-find-file-ignore-regexp (regexp-opt '(".git" ".next" ".obsidian" ".husky" ".DS_Store" "node_modules")))
+  (counsel-find-file-ignore-regexp (regexp-opt '(".git" ".dist" ".next" ".husky" ".DS_Store" "node_modules")))
   :config
   (defun my/swiper-thing-at-point ()
     (interactive)
@@ -36,17 +34,27 @@
   :bind
   (("M-x"       . counsel-M-x)
    ("C-s"       . swiper)
-   ("C-M-s"     . my/swiper-thing-at-point)
-   ("M-<f1>"    . my/counsel-rg-at-point)
+   ("C-c C-s"   . my/swiper-thing-at-point)
    ("<f1>"      . counsel-rg)
    ("<f2>"      . counsel-git)
+   ("C-<f1>"    . my/counsel-rg-at-point)
    ("C-h f"     . counsel-describe-function)
    ("C-h v"     . counsel-describe-variable)
    ("C-c p"     . counsel-yank-pop)
-   ("C-x C-b"   . counsel-ibuffer)
    (:map ivy-minibuffer-map
          ("TAB" . ivy-partial)
          ("RET" . ivy-alt-done))))
+
+(use-package prescient
+  :config
+  (prescient-persist-mode))
+
+(use-package ivy-prescient
+  :custom
+  (ivy-prescient-enable-filtering nil)
+  (ivy-prescient-retain-classic-highlighting t)
+  :config
+  (ivy-prescient-mode))
 
 (use-package ivy-posframe
   :custom
@@ -63,7 +71,7 @@
   :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
   :custom
   (copilot-max-char -1)
-  (copilot-idle-delay 0.3)
+  (copilot-idle-delay 0.2)
   (copilot-enable-predicates '(copilot--buffer-changed))
   :config
   (defun my/copilot-complete ()
@@ -80,21 +88,16 @@
   :hook
   (prog-mode . copilot-mode))
 
-(use-package yasnippet
-  :config
-  (yas-global-mode))
+(use-package yasnippet)
 
 (use-package corfu
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 0)
   :init
   (global-corfu-mode))
 
 (use-package eglot
   :straight (:type built-in)
-  :custom
-  (eglot-send-changes-idle-time 0.1)
   :hook
   ((js-ts-mode typescript-ts-mode tsx-ts-mode ruby-ts-mode rust-ts-mode python-ts-mode swift-mode) . eglot-ensure)
   :bind
@@ -105,6 +108,8 @@
    ("C-c C-r" . eglot-rename)))
 
 (use-package eldoc-box
+  :custom
+  (eldoc-idle-delay 1)
   :hook
   (eglot--managed-mode . eldoc-box-hover-at-point-mode))
 
@@ -115,6 +120,28 @@
   (treesit-extra-load-path (list (concat user-emacs-directory "tree-sitter-module/dist")))
   :config
   (setq-default treesit-font-lock-level 4))
+
+(use-package treesit-fold
+  :straight (treesit-fold :type git :host github :repo "emacs-tree-sitter/treesit-fold")
+  :config
+  (defun my/treesit-fold-jsx-element (node offset)
+    (let* ((children (treesit-node-children node))
+           (opening-element nil)
+           (closing-element nil))
+      (dolist (child children)
+        (let ((type (treesit-node-type child)))
+          (cond
+           ((equal type "jsx_opening_element") (setq opening-element child))
+           ((equal type "jsx_closing_element") (setq closing-element child)))))
+      (when (and opening-element closing-element)
+        (let ((fold-start (treesit-node-end opening-element))
+              (fold-end (treesit-node-start closing-element)))
+          (treesit-fold--cons-add (cons fold-start fold-end) offset)))))
+  (push '(jsx_element . my/treesit-fold-jsx-element)
+        (alist-get 'tsx-ts-mode treesit-fold-range-alist))
+  ;; (push '(parenthesized_expression . treesit-fold-range-seq)
+  ;;       (alist-get 'tsx-ts-mode treesit-fold-range-alist))
+  (global-treesit-fold-indicators-mode))
 
 (use-package perspective
   :init
@@ -132,9 +159,17 @@
   :bind
   ("C-v" . magit-status))
 
-(use-package git-gutter-fringe
+(use-package diff-hl
+  :custom
+  (diff-hl-margin-symbols-alist '((insert  . " ")
+                                  (delete  . " ")
+                                  (change  . " ")
+                                  (unknown . " ")
+                                  (ignored . " ")))
   :config
-  (global-git-gutter-mode))
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode))
 
 (use-package vc-msg
   :bind
@@ -142,6 +177,12 @@
 
 (use-package git-timemachine
   :defer t)
+
+
+;; Loading yas snippets after startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (yas-global-mode)))
 
 
 (put 'dired-find-alternate-file 'disabled nil)

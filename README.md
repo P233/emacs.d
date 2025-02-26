@@ -4,12 +4,14 @@
 
 ```
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@29 --with-gnu-head-icon
+brew install emacs-plus@30 --with-gnu-head-icon
 ```
 
 ```
 git clone git@github.com:P233/emacs.d.git ~/.emacs.d
 ```
+
+For the first time, start Emacs from the command line.
 
 ## Install Fonts
 
@@ -23,7 +25,7 @@ brew install deno fd ripgrep tree-sitter
 ```
 
 ```
-pip3 install epc orjson sexpdata six paramiko rapidfuzz pyright black
+pip install epc orjson sexpdata six setuptools paramiko rapidfuzz watchdog packaging
 ```
 
 ```

@@ -1,4 +1,6 @@
 ;; -*- lexical-binding: t; -*-
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-ts-mode))
+
 (use-package python-black
   :hook
   (python-ts-mode . python-black-on-save-mode))

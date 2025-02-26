@@ -4,10 +4,8 @@
 (electric-pair-mode t)
 (global-subword-mode t)
 
+(global-set-key (kbd "<f12>") 'save-buffer)
 (global-set-key (kbd "C-o") 'other-window)
-
-(add-hook 'prog-mode-hook #'hs-minor-mode)
-(global-set-key (kbd "C-c h") 'hs-toggle-hiding)
 
 (global-set-key (kbd "C-;") 'comment-dwim)
 (global-set-key (kbd "C-w") 'kill-ring-save)
@@ -21,6 +19,11 @@
 (global-set-key (kbd "<f9>") 'delete-window)
 (global-set-key (kbd "<f10>") 'delete-other-windows)
 
+(use-package rg
+  :defer t)
+
+(use-package wgrep
+  :defer t)
 
 (use-package goto-line-preview
   :bind
@@ -38,20 +41,14 @@
   :bind
   ("C-r" . vr/replace))
 
-(use-package expand-region
-  :custom
-  (expand-region-fast-keys-enabled nil)
+(use-package expreg
   :bind
-  ("C-'" . er/expand-region))
+  ("C-'" . expreg-expand))
 
 (use-package aggressive-indent
   :config
   (add-to-list 'aggressive-indent-excluded-modes 'python-ts-mode)
   (global-aggressive-indent-mode t))
-
-(use-package vundo
-  :bind
-  ("C-=" . vundo))
 
 (use-package avy
   :custom
@@ -68,22 +65,6 @@
   (("C-c C-n" . open-newline-below)
    ("C-c C-p" . open-newline-above)))
 
-(use-package rg)
-
-(use-package wgrep)
-
-(use-package hydra
-  :defer t)
-
-(defhydra avy-hydra (:color blue :columns 3)
-  "Avy Hydra"
-  ("c" avy-copy-line "copy-line")
-  ("k" avy-kill-whole-line "kill-line")
-  ("m" avy-move-line "move-line")
-  ("C" avy-copy-region "copy-region")
-  ("K" avy-kill-region "kill-region")
-  ("M" avy-move-region "move-region"))
-(global-set-key (kbd "C-t") 'avy-hydra/body)
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
 (defun my/screaming-snake-case-word ()

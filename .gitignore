@@ -1,6 +1,7 @@
 .DS_Store
 .cache
 .dap-breakpoints
+*.elc
 auto-save-list
 bookmarks
 custom.el
@@ -17,3 +18,4 @@ straight
 tramp
 transient
 url
+var
