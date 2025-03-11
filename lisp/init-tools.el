@@ -121,27 +121,27 @@
   :config
   (setq-default treesit-font-lock-level 4))
 
-(use-package treesit-fold
-  :straight (treesit-fold :type git :host github :repo "emacs-tree-sitter/treesit-fold")
-  :config
-  (defun my/treesit-fold-jsx-element (node offset)
-    (let* ((children (treesit-node-children node))
-           (opening-element nil)
-           (closing-element nil))
-      (dolist (child children)
-        (let ((type (treesit-node-type child)))
-          (cond
-           ((equal type "jsx_opening_element") (setq opening-element child))
-           ((equal type "jsx_closing_element") (setq closing-element child)))))
-      (when (and opening-element closing-element)
-        (let ((fold-start (treesit-node-end opening-element))
-              (fold-end (treesit-node-start closing-element)))
-          (treesit-fold--cons-add (cons fold-start fold-end) offset)))))
-  (push '(jsx_element . my/treesit-fold-jsx-element)
-        (alist-get 'tsx-ts-mode treesit-fold-range-alist))
-  ;; (push '(parenthesized_expression . treesit-fold-range-seq)
-  ;;       (alist-get 'tsx-ts-mode treesit-fold-range-alist))
-  (global-treesit-fold-indicators-mode))
+;; (use-package treesit-fold
+;;   :straight (treesit-fold :type git :host github :repo "emacs-tree-sitter/treesit-fold")
+;;   :config
+;;   (defun my/treesit-fold-jsx-element (node offset)
+;;     (let* ((children (treesit-node-children node))
+;;            (opening-element nil)
+;;            (closing-element nil))
+;;       (dolist (child children)
+;;         (let ((type (treesit-node-type child)))
+;;           (cond
+;;            ((equal type "jsx_opening_element") (setq opening-element child))
+;;            ((equal type "jsx_closing_element") (setq closing-element child)))))
+;;       (when (and opening-element closing-element)
+;;         (let ((fold-start (treesit-node-end opening-element))
+;;               (fold-end (treesit-node-start closing-element)))
+;;           (treesit-fold--cons-add (cons fold-start fold-end) offset)))))
+;;   (push '(jsx_element . my/treesit-fold-jsx-element)
+;;         (alist-get 'tsx-ts-mode treesit-fold-range-alist))
+;;   ;; (push '(parenthesized_expression . treesit-fold-range-seq)
+;;   ;;       (alist-get 'tsx-ts-mode treesit-fold-range-alist))
+;;   (global-treesit-fold-indicators-mode))
 
 (use-package perspective
   :init
@@ -168,8 +168,7 @@
                                   (ignored . " ")))
   :config
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (global-diff-hl-mode)
-  (diff-hl-margin-mode))
+  (global-diff-hl-mode))
 
 (use-package vc-msg
   :bind
