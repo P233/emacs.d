@@ -49,9 +49,13 @@
 (use-package treemacs
   :custom
   (treemacs-width 28)
+  (treemacs-text-scale nil)
   (treemacs-no-png-images t)
+  (treemacs-project-follow-mode t)
   :custom-face
   (treemacs-root-face ((t (:height 1.1))))
+  :config
+  (treemacs-hide-gitignored-files-mode)
   :bind
   ("<f3>" . treemacs))
 
