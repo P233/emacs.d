@@ -46,9 +46,9 @@
   ("C-'" . expreg-expand))
 
 (use-package aggressive-indent
-  :config
-  (add-to-list 'aggressive-indent-excluded-modes 'python-ts-mode)
-  (global-aggressive-indent-mode t))
+  :hook ((emacs-lisp-mode . (lambda ()
+                              (aggressive-indent-mode 1)
+                              (electric-indent-local-mode -1)))))
 
 (use-package avy
   :custom
