@@ -96,4 +96,29 @@
                             (define-key scss-mode-map (kbd "C-c C-o") 'my/open-associated-tsx-jsx-file)))
 
 
+(defun my/hex-color-with-opacity (hex opacity)
+  "Convert HEX color to 8-digit hex with OPACITY percentage.
+HEX can be with or without leading #.
+OPACITY is a number between 0-100.
+Result will be inserted at point surrounded by double quotes."
+  (interactive
+   (list (read-string "Hex color (with or without #): ")
+         (read-number "Opacity percentage (0-100): ")))
+  (let* ((hex (if (string-prefix-p "#" hex) hex (concat "#" hex)))
+         (hex (if (= (length hex) 4)
+                  (concat "#"
+                          (char-to-string (aref hex 1))
+                          (char-to-string (aref hex 1))
+                          (char-to-string (aref hex 2))
+                          (char-to-string (aref hex 2))
+                          (char-to-string (aref hex 3))
+                          (char-to-string (aref hex 3)))
+                hex))
+         (alpha-dec (round (* (/ opacity 100.0) 255)))
+         (alpha-hex (format "%02x" alpha-dec))
+         (result (concat "\"" hex alpha-hex "\"")))
+    (insert result)
+    (concat hex alpha-hex)))
+
+
 (provide 'init-web)
