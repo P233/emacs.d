@@ -159,6 +159,11 @@
   :bind
   ("C-v" . magit-status))
 
+(use-package magit-prime
+  :straight (:type git :host github :repo "Azkae/magit-prime")
+  :config
+  (add-hook 'magit-pre-refresh-hook 'magit-prime-refresh-cache))
+
 (use-package diff-hl
   :custom
   (diff-hl-margin-symbols-alist '((insert  . " ")
