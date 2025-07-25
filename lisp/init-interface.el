@@ -48,22 +48,24 @@
 
 (use-package treemacs
   :custom
-  (treemacs-width 28)
+  (treemacs-width 32)
   (treemacs-text-scale nil)
   (treemacs-no-png-images t)
   (treemacs-show-hidden-files nil)
-  :init
-  (defun my/treemacs-ignore-files (_ absolute-path)
-    (or (string-suffix-p "dist" absolute-path)
-        (string-suffix-p "node_modules" absolute-path)))
-  :config
-  (treemacs-project-follow-mode t)
-  (add-to-list 'treemacs-ignored-file-predicates #'my/treemacs-ignore-files)
+  (treemacs-file-event-delay 1000)
   :custom-face
   (treemacs-root-face ((t (:height 1.1))))
+  :init
+  (defun my/treemacs-ignore-files (_ absolute-path)
+    (string-match-p "\\(cache\\|dist\\|node_modules\\)$" absolute-path))
+  :config
+  (treemacs-project-follow-mode t)
+  (setq treemacs--project-follow-delay 0.2)
+  (add-to-list 'treemacs-ignored-file-predicates #'my/treemacs-ignore-files)
   :bind
-  ("<f3>" . treemacs)
-  ("M-<f3>" . treemacs-select-window))
+  ("<f3>" . treemacs-select-window)
+  :hook
+  (after-init . treemacs))
 
 
 ;; https://emacs-china.org/t/topic/945/2
