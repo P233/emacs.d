@@ -8,6 +8,7 @@
 (require 'init-note)
 (require 'init-interface)
 (require 'init-hydra)
+(require 'init-evil)
 
 
 (provide 'init)

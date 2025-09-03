@@ -53,6 +53,7 @@
   (treemacs-no-png-images t)
   (treemacs-show-hidden-files nil)
   (treemacs-file-event-delay 1000)
+  (treemacs-position 'right)
   :custom-face
   (treemacs-root-face ((t (:height 1.1))))
   :init
@@ -65,7 +66,12 @@
   :bind
   ("<f3>" . treemacs-select-window)
   :hook
-  (after-init . treemacs))
+  (after-init . treemacs)
+  (treemacs-mode . (lambda ()
+                     (setq mode-line-format nil))))
+
+(use-package treemacs-evil
+  :after (treemacs evil))
 
 
 ;; https://emacs-china.org/t/topic/945/2

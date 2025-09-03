@@ -191,7 +191,7 @@
 
 (put 'dired-find-alternate-file 'disabled nil)
 (with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") #'dired-find-alternate-file))
 
 (setq project-switch-commands 'project-find-file)
 (global-set-key (kbd "<f4>") 'project-switch-project)

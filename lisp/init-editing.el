@@ -25,14 +25,6 @@
 (use-package wgrep
   :defer t)
 
-(use-package goto-line-preview
-  :bind
-  ("C-c C-l" . goto-line-preview))
-
-(use-package goto-last-change
-  :bind
-  ("C--" . goto-last-change))
-
 (use-package move-text
   :config
   (move-text-default-bindings))
@@ -64,6 +56,11 @@
   :bind
   (("C-c C-n" . open-newline-below)
    ("C-c C-p" . open-newline-above)))
+
+(use-package undo-fu
+  :bind
+  (("C-/" . undo-fu-only-undo)
+   ("C-=" . undo-fu-only-redo)))
 
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
