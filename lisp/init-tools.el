@@ -64,7 +64,7 @@
   (xref-show-definitions-function #'ivy-xref-show-defs))
 
 (use-package copilot
-  :straight (:type git :host github :repo "zerolfx/copilot.el" :files (:defaults "dist"))
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
   :custom
   (copilot-max-char -1)
   (copilot-idle-delay 0.2)
