@@ -4,12 +4,7 @@
 (electric-pair-mode t)
 (global-subword-mode t)
 
-(global-set-key (kbd "<f12>") 'save-buffer)
 (global-set-key (kbd "C-o") 'other-window)
-
-(global-set-key (kbd "C-;") 'comment-dwim)
-(global-set-key (kbd "C-w") 'kill-ring-save)
-(global-set-key (kbd "M-w") 'kill-region)
 
 (global-set-key (kbd "C-<wheel-up>") 'ignore)
 (global-set-key (kbd "C-<wheel-down>") 'ignore)
@@ -29,13 +24,12 @@
   :config
   (move-text-default-bindings))
 
-(use-package visual-regexp
-  :bind
-  ("C-r" . vr/replace))
+(use-package visual-regexp)
 
 (use-package expreg
   :bind
-  ("C-'" . expreg-expand))
+  ("M-]" . expreg-expand)
+  ("M-[" . expreg-contract))
 
 (use-package aggressive-indent
   :hook ((emacs-lisp-mode . (lambda ()
@@ -45,11 +39,7 @@
 (use-package avy
   :custom
   (avy-keys '(?o ?e ?u ?h ?l ?r ?p ?a ?s ?d ?f ?g ?j ?k ?c ?v ?b ?w ?q))
-  (avy-styles-alist '((avy-goto-char . de-bruijn)))
-  :bind
-  (("C-." . avy-goto-char)
-   ("C-," . avy-goto-char-in-line)
-   ("C-l" . avy-goto-line)))
+  (avy-styles-alist '((avy-goto-char . de-bruijn))))
 
 (use-package open-newline
   :straight (:type git :host github :repo "manateelazycat/open-newline")
@@ -84,10 +74,6 @@
 Repeated invocations toggle between the two most recently open buffers."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
-
-(add-hook 'emacs-lisp-mode-hook (lambda ()
-                                  (local-unset-key (kbd "C-c C-b"))))
-(global-set-key (kbd "C-c C-b") 'my/switch-to-previous-buffer)
 
 
 (provide 'init-editing)
