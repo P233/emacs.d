@@ -4,10 +4,10 @@
 
 (use-package evil
   :init
-  (setq evil-want-keybinding nil
-        evil-undo-system 'undo-fu
-        evil-visual-state-cursor 'hollow
-        evil-emacs-state-cursor 'bar)
+  (setq evil-want-keybinding      nil
+        evil-undo-system         'undo-fu
+        evil-emacs-state-cursor  'bar
+        evil-visual-state-cursor 'hollow)
   :config
   (evil-mode)
   (evil-set-leader 'normal (kbd "SPC"))
@@ -31,7 +31,7 @@
   (evil-define-key 'normal 'global  (kbd "<leader>s")   'my/switch-to-previous-buffer)
   (evil-define-key 'normal 'global  (kbd "<leader>w")   'save-buffer)
   (evil-define-key 'normal 'global  (kbd "<leader>x")   'counsel-M-x)
-  (evil-define-key 'normal 'global  (kbd "<leader>ESC") 'save-buffers-kill-terminal)
+  (evil-define-key 'normal 'global  (kbd "<leader>Z")   'save-buffers-kill-terminal)
   (define-key evil-emacs-state-map  (kbd "ESC")        #'evil-normal-state)
   (define-key evil-normal-state-map (kbd "s")          #'avy-goto-char-2)
   (define-key evil-normal-state-map (kbd "u")          #'undo-fu-only-undo)
@@ -48,6 +48,35 @@
             (evil-insert-state))))
       (setf (alist-get ?x avy-dispatch-alist) #'my/avy-action-kill-move-then-insert))))
 
+(with-eval-after-load 'jsx-jedi
+  ;; Use "," as a second leader key specifically for jsx-jedi
+  (evil-define-key 'normal jsx-jedi-mode-map (kbd ",") (make-sparse-keymap))
+  (evil-define-key 'normal jsx-jedi-mode-map
+    (kbd ", k") 'jsx-jedi-kill
+    (kbd ", e") (lambda () (interactive) (when (jsx-jedi-empty) (evil-insert-state)))
+    (kbd ", s") 'jsx-jedi-substitute
+    (kbd ", z") (lambda () (interactive) (when (jsx-jedi-zap) (evil-insert-state)))
+    (kbd ", y") 'jsx-jedi-copy
+    (kbd ", d") 'jsx-jedi-duplicate
+    (kbd ", m") 'jsx-jedi-mark
+    (kbd ", ;") 'jsx-jedi-comment-uncomment
+    (kbd ", j") 'jsx-jedi-avy-word
+    (kbd ", h") 'jsx-jedi-hoist-tag
+    (kbd ", u") 'jsx-jedi-unwrap-tag
+    (kbd ", w") 'jsx-jedi-wrap-tag
+    (kbd ", [") 'jsx-jedi-move-to-opening-tag
+    (kbd ", ]") 'jsx-jedi-move-to-closing-tag
+    (kbd ", r") 'jsx-jedi-rename-tag
+    (kbd ", t") 'jsx-jedi-toggle-self-closing-tag
+    (kbd ", a") (lambda () (interactive) (when (jsx-jedi-add-attribute) (evil-insert-state))))
+  ;; Map "\" to the original "," functionality (reverse character search)
+  (evil-define-key 'normal jsx-jedi-mode-map (kbd "\\") #'evil-repeat-find-char-reverse))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 (use-package evil-goggles
   :after evil
   :custom
@@ -55,11 +84,6 @@
   (evil-goggles-enable-delete nil)
   :config
   (evil-goggles-mode))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
 
 (use-package evil-matchit
   :after evil

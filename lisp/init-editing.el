@@ -4,8 +4,6 @@
 (electric-pair-mode t)
 (global-subword-mode t)
 
-(global-set-key (kbd "C-o") 'other-window)
-
 (global-set-key (kbd "C-<wheel-up>") 'ignore)
 (global-set-key (kbd "C-<wheel-down>") 'ignore)
 (global-set-key (kbd "C-M-<wheel-up>") 'ignore)
