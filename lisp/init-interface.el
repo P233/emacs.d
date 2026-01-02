@@ -2,16 +2,13 @@
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
 (set-fontset-font "fontset-default" 'han "Noto Serif SC Medium")
 
+(add-to-list 'default-frame-alist '(undecorated . t))
+
 (pixel-scroll-precision-mode t)
 
 (use-package ef-themes
   :config
-  (defun my/apply-theme (appearance)
-    (mapc #'disable-theme custom-enabled-themes)
-    (pcase appearance
-      ('dark (load-theme 'ef-winter :no-confirm))
-      ('light (load-theme 'ef-summer :no-confirm))))
-  (add-hook 'ns-system-appearance-change-functions #'my/apply-theme))
+  (ef-themes-load-theme 'ef-summer))
 
 (use-package doom-modeline
   :custom
@@ -55,7 +52,7 @@
   (treemacs-file-event-delay 1000)
   (treemacs-position 'right)
   :custom-face
-  (treemacs-root-face ((t (:height 1.1))))
+  (treemacs-root-face ((t (:height 1.0 :weight bold))))
   :init
   (defun my/treemacs-ignore-files (_ absolute-path)
     (string-match-p "\\(cache\\|dist\\|node_modules\\)$" absolute-path))
@@ -64,14 +61,16 @@
   (setq treemacs--project-follow-delay 0.2)
   (add-to-list 'treemacs-ignored-file-predicates #'my/treemacs-ignore-files)
   :bind
-  ("<f3>" . treemacs-select-window)
+  ("<f3>"   . treemacs-select-window)
+  ("M-<f3>" . treemacs)
   :hook
-  (after-init . treemacs)
   (treemacs-mode . (lambda ()
                      (setq mode-line-format nil))))
 
 (use-package treemacs-evil
   :after (treemacs evil))
+
+(windmove-default-keybindings)
 
 
 ;; https://emacs-china.org/t/topic/945/2
