@@ -22,7 +22,7 @@ _e_: goto-end             ^ ^
   ("w" whitespace-cleanup "whitespace-cleanup")
   ("q" nil "quit"))
 
-(global-set-key (kbd "C-t") 'my/hydra/body)
+(global-set-key (kbd "C-c C-t") 'my/hydra/body)
 
 
 (provide 'init-hydra)
