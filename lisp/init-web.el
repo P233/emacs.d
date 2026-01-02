@@ -51,6 +51,11 @@
 
 (use-package restclient)
 
+(use-package markdown-mode
+  :defer t
+  :mode
+  ("\\.mdx?\\'" . gfm-mode))
+
 
 ;; Jump to associated file
 (defun my/open-or-create-associated-scss-file ()
