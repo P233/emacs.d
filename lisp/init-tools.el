@@ -84,6 +84,12 @@
   :hook
   (prog-mode . copilot-mode))
 
+;; http://xahlee.info/emacs/emacs/emacs_open_in_vscode.html
+(defun my/open-in-vscode ()
+  (interactive)
+  (let ((xpath (if buffer-file-name buffer-file-name (expand-file-name default-directory))))
+    (shell-command (format "open -a Visual\\ Studio\\ Code.app %s" (shell-quote-argument xpath)))))
+
 (use-package yasnippet)
 
 (use-package corfu
