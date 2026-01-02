@@ -26,7 +26,7 @@
 (use-package web-mode
   :defer t
   :mode
-  ("\\.html\\'" "\\.astro\\'")
+  ("\\.html\\'" "\\.astro\\'" "\\.svelte\\'")
   :custom
   (web-mode-enable-auto-indentation nil)
   (web-mode-block-padding 0)
