@@ -2,8 +2,6 @@
 (add-to-list 'default-frame-alist '(font . "PragmataPro Mono 18"))
 (set-fontset-font "fontset-default" 'han "Noto Serif SC Medium")
 
-(add-to-list 'default-frame-alist '(undecorated . t))
-
 (pixel-scroll-precision-mode t)
 
 (use-package ef-themes
@@ -60,9 +58,6 @@
   (treemacs-project-follow-mode t)
   (setq treemacs--project-follow-delay 0.2)
   (add-to-list 'treemacs-ignored-file-predicates #'my/treemacs-ignore-files)
-  :bind
-  ("<f3>"   . treemacs-select-window)
-  ("M-<f3>" . treemacs)
   :hook
   (treemacs-mode . (lambda ()
                      (setq mode-line-format nil))))
@@ -79,14 +74,12 @@
   (interactive)
   (select-window (split-window-below))
   (switch-to-buffer (other-buffer)))
-(global-set-key (kbd "C-x 2") 'my/split-window-below)
 
 (defun my/split-window-right ()
   "Split window with another buffer."
   (interactive)
   (select-window (split-window-right))
   (switch-to-buffer (other-buffer)))
-(global-set-key (kbd "C-x 3") 'my/split-window-right)
 
 
 (provide 'init-interface)

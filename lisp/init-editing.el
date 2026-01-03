@@ -4,16 +4,7 @@
 (electric-pair-mode t)
 (global-subword-mode t)
 
-(global-set-key (kbd "C-<wheel-up>") 'ignore)
-(global-set-key (kbd "C-<wheel-down>") 'ignore)
-(global-set-key (kbd "C-M-<wheel-up>") 'ignore)
-(global-set-key (kbd "C-M-<wheel-down>") 'ignore)
-
-(global-set-key (kbd "<f9>") 'delete-window)
-(global-set-key (kbd "<f10>") 'delete-other-windows)
-
-(use-package rg
-  :defer t)
+(use-package undo-fu)
 
 (use-package wgrep
   :defer t)
@@ -24,10 +15,7 @@
 
 (use-package visual-regexp)
 
-(use-package expreg
-  :bind
-  ("M-]" . expreg-expand)
-  ("M-[" . expreg-contract))
+(use-package expreg)
 
 (use-package aggressive-indent
   :hook ((emacs-lisp-mode . (lambda ()
@@ -40,15 +28,7 @@
   (avy-styles-alist '((avy-goto-char . de-bruijn))))
 
 (use-package open-newline
-  :straight (:type git :host github :repo "manateelazycat/open-newline")
-  :bind
-  (("C-c C-n" . open-newline-below)
-   ("C-c C-p" . open-newline-above)))
-
-(use-package undo-fu
-  :bind
-  (("C-/" . undo-fu-only-undo)
-   ("C-=" . undo-fu-only-redo)))
+  :straight (:type git :host github :repo "manateelazycat/open-newline"))
 
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
@@ -64,7 +44,6 @@
       (delete-region (car bounds) (cdr bounds))
       (insert (let ((case-fold-search nil))
                 (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
-(global-set-key (kbd "M-S") 'my/screaming-snake-case-word)
 
 ;; http://emacsredux.com/blog/2013/04/28/switch-to-previous-buffer/
 (defun my/switch-to-previous-buffer ()

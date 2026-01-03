@@ -8,7 +8,6 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . json-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-ts-mode))
 
-
 (use-package deno-bridge
   :straight (:type git :host github :repo "manateelazycat/deno-bridge")
   :init
@@ -89,16 +88,6 @@
       (find-file jsx-file))
      (t
       (message "No associated .tsx or .jsx file found.")))))
-
-(add-hook 'js-ts-mode-hook (lambda ()
-                             (define-key js-ts-mode-map (kbd "C-c C-o") #'my/open-or-create-associated-scss-file)))
-(add-hook 'tsx-ts-mode-hook (lambda ()
-                              (define-key tsx-ts-mode-map (kbd "C-c C-o") #'my/open-or-create-associated-scss-file)))
-(add-hook 'typescript-ts-mode-hook (lambda ()
-                                     (define-key typescript-ts-mode-map (kbd "C-c C-o") #'my/open-or-create-associated-scss-file)))
-
-(add-hook 'scss-mode-hook (lambda ()
-                            (define-key scss-mode-map (kbd "C-c C-o") #'my/open-associated-tsx-jsx-file)))
 
 
 (defun my/hex-color-with-opacity (hex opacity)
