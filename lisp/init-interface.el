@@ -9,6 +9,9 @@
   (ef-themes-load-theme 'ef-summer))
 
 (use-package doom-modeline
+  :init
+  (setq mode-line-collapse-minor-modes t
+        mode-line-collapse-minor-modes-to " ≡")
   :custom
   (doom-modeline-icon nil)
   (doom-modeline-height 24)
@@ -16,11 +19,6 @@
   (doom-modeline-buffer-file-name-style 'truncate-with-project)
   :hook
   (after-init . doom-modeline-mode))
-
-(use-package minions
-  :after doom-modeline
-  :config
-  (minions-mode t))
 
 (use-package rainbow-mode
   :defer t)
@@ -42,6 +40,7 @@
   (popper-echo-mode))
 
 (use-package treemacs
+  :defer t
   :custom
   (treemacs-width 32)
   (treemacs-text-scale nil)
@@ -52,8 +51,9 @@
   :custom-face
   (treemacs-root-face ((t (:height 1.0 :weight bold))))
   :init
-  (defun my/treemacs-ignore-files (_ absolute-path)
-    (string-match-p "\\(cache\\|dist\\|node_modules\\)$" absolute-path))
+  (defun my/treemacs-ignore-files (name absolute-path)
+    (and (member name '("cache" "dist" "node_modules"))
+         (file-directory-p absolute-path)))
   :config
   (treemacs-project-follow-mode t)
   (setq treemacs--project-follow-delay 0.2)

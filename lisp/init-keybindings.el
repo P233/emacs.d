@@ -16,8 +16,8 @@
    ;; Editing
    "M-]" 'expreg-expand
    "M-[" 'expreg-contract
-   "C-/" 'undo-fu-only-undo
-   "C-=" 'undo-fu-only-redo
+   "C-/" 'undo-only
+   "C-=" 'undo-redo
    "C-c p" 'counsel-yank-pop
    "C-<return>" 'open-newline-above
    "M-<return>" 'open-newline-below
@@ -36,14 +36,14 @@
 
   ;; Leader Keybindings
   (general-create-definer my/leader-keys
-    :states '(normal visual emacs)
+    :states '(normal visual insert emacs)
     :keymaps 'override
     :prefix "SPC"
     :global-prefix "C-SPC")
 
   (my/leader-keys
     "SPC"  '(counsel-M-x :which-key "M-x")
-    "/"    '(my/swiper-thing-at-point :which-key "Swiper at point")
+    "/"    '(swiper-thing-at-point :which-key "Swiper at point")
     "?"    '(my/counsel-rg-at-point :which-key "Search in project at point")
     "TAB"  '(my/switch-to-previous-buffer :which-key "Switch to previous buffer")
     "<f3>" '(treemacs :which-key "Toggle file tree")
@@ -78,6 +78,7 @@
 
     ;; Error
     "e"   '(:ignore t :which-key "Error")
+    "e l" '(flymake-show-buffer-diagnostics :which-key "List diagnostics")
     "e n" '(flymake-goto-next-error :which-key "Next error")
     "e p" '(flymake-goto-prev-error :which-key "Prev error")
 
@@ -142,8 +143,8 @@
   (general-define-key
    :states 'normal
    "s" 'avy-goto-char-2
-   "u" 'undo-fu-only-undo
-   "U" 'undo-fu-only-redo
+   "u" 'evil-undo
+   "U" 'evil-redo
    "/" 'swiper)
 
   ;; Evil Visual State Bindings
@@ -180,11 +181,6 @@
    :keymaps 'ivy-minibuffer-map
    "TAB" 'ivy-partial
    "RET" 'ivy-alt-done)
-
-  (general-define-key
-   :keymaps 'copilot-mode-map
-   "C-e" 'my/copilot-complete
-   "C-S-e" 'my/select-current-line)
 
   (general-define-key
    :keymaps 'dired-mode-map

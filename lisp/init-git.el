@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (use-package magit
+  :defer t
   :custom
   (magit-diff-highlight-hunk-region-functions '(magit-diff-highlight-hunk-region-dim-outside magit-diff-highlight-hunk-region-using-face))
   :custom-face
@@ -7,16 +8,12 @@
 
 (use-package magit-prime
   :straight (:type git :host github :repo "Azkae/magit-prime")
+  :after magit
   :config
   (add-hook 'magit-pre-refresh-hook 'magit-prime-refresh-cache))
 
 (use-package diff-hl
-  :custom
-  (diff-hl-margin-symbols-alist '((insert  . " ")
-                                  (delete  . " ")
-                                  (change  . " ")
-                                  (unknown . " ")
-                                  (ignored . " ")))
+  :defer 1
   :config
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (global-diff-hl-mode))

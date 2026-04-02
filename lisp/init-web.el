@@ -2,22 +2,8 @@
 (setq js-indent-level 2
       css-indent-offset 2)
 
-(add-to-list 'auto-mode-alist '("\\.tsx$" . tsx-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?ts$" . typescript-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(c\\|m\\)?jsx?$" . js-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . json-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-ts-mode))
-
-(use-package deno-bridge
-  :straight (:type git :host github :repo "manateelazycat/deno-bridge")
-  :init
-  (use-package websocket))
-
-(use-package emmet2-mode
-  :straight (:type git :host github :repo "p233/emmet2-mode" :files (:defaults "*.ts" "src" "data"))
-  :after deno-bridge
-  :hook
-  ((css-mode tsx-ts-mode js-ts-mode web-mode) . emmet2-mode))
+(add-to-list 'auto-mode-alist '("\\.[cm]ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.[cm]js\\'" . js-ts-mode))
 
 (use-package jsx-jedi
   :straight (:type git :host github :repo "p233/jsx-jedi"))
@@ -41,15 +27,6 @@
   (web-mode-html-attr-name-face ((t (:inherit font-lock-type-face :foreground unspecified))))
   (web-mode-current-element-highlight-face ((t (:background "#3f6faf")))))
 
-(use-package glsl-mode
-  :straight (:type git :host github :repo "jimhourihan/glsl-mode"))
-
-(use-package prettier-js
-  :hook
-  ((css-mode js-ts-mode typescript-ts-mode tsx-ts-mode json-ts-mode web-mode) . prettier-js-mode))
-
-(use-package restclient)
-
 (use-package markdown-mode
   :defer t
   :mode
@@ -60,15 +37,12 @@
 (defun my/open-or-create-associated-scss-file ()
   "Open or create the associated .module.scss file for the current .tsx or .jsx file."
   (interactive)
-  (let* ((file-name (buffer-file-name))
-         (file-dir (file-name-directory file-name))
-         (file-base-name (file-name-base file-name))
-         (scss-file (concat file-dir file-base-name ".module.scss")))
-    (if (file-exists-p scss-file)
-        (find-file scss-file)
-      (let ((buffer (create-file-buffer scss-file)))
-        (switch-to-buffer buffer)
-        (write-file scss-file)))))
+  (let* ((scss-file (concat (file-name-sans-extension buffer-file-name) ".module.scss"))
+         (existing-buffer (find-buffer-visiting scss-file)))
+    (find-file scss-file)
+    ;; Create only a new target; leave an existing buffer's unsaved edits alone.
+    (unless (or existing-buffer (file-exists-p scss-file))
+      (save-buffer))))
 
 (defun my/open-associated-tsx-jsx-file ()
   "Open the associated .tsx or .jsx file for the current .scss file."

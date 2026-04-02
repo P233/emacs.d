@@ -5,24 +5,22 @@
 (use-package evil
   :init
   (setq evil-want-keybinding      nil
-        evil-undo-system         'undo-fu
+        evil-undo-system         'undo-redo
         evil-emacs-state-cursor  'bar
-        evil-visual-state-cursor 'hollow)
+        evil-visual-state-cursor 'hollow
+        evil-disable-insert-state-bindings t)
   :config
   (evil-mode)
   (evil-set-leader 'normal (kbd "SPC"))
-  (defalias 'evil-insert-state 'evil-emacs-state)
   (defalias 'evil-motion-state 'evil-emacs-state)
   (with-eval-after-load 'git-commit
     (add-hook 'git-commit-mode-hook #'evil-emacs-state))
   (with-eval-after-load 'avy
-    (let ((original-action (alist-get ?x avy-dispatch-alist)))
-      (defun my/avy-action-kill-move-then-insert (pt)
-        (prog1
-            (funcall (or original-action #'avy-action-kill-move) pt)
-          (when (featurep 'evil)
-            (evil-insert-state))))
-      (setf (alist-get ?x avy-dispatch-alist) #'my/avy-action-kill-move-then-insert))))
+    (defun my/avy-action-kill-move-then-insert (pt)
+      "Kill the Avy target at PT, move there, and enter insert state."
+      (prog1 (avy-action-kill-move pt)
+        (evil-insert-state)))
+    (setf (alist-get ?x avy-dispatch-alist) #'my/avy-action-kill-move-then-insert)))
 
 (use-package evil-collection
   :after evil

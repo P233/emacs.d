@@ -1,3 +1,0 @@
-[submodule "tree-sitter-module"]
-	path = tree-sitter-module
-	url = git@github.com:casouri/tree-sitter-module.git

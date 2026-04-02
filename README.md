@@ -18,28 +18,28 @@ git clone git@github.com:P233/emacs.d.git ~/.emacs.d
 ## Dependencies
 
 ```
-brew install deno fd ripgrep tree-sitter
+brew install ripgrep uv
 ```
 
 ```
 npm i -g typescript-language-server vscode-langservers-extracted typescript prettier
 ```
 
-```
-cargo install emacs-lsp-booster
-```
-
-### Tree-sitter Modules
+JS/TS files use the native language server of the global TypeScript (`tsc --lsp`), so it must be 7 or newer. `M-x eglot` can still pick `typescript-language-server`, but only in a workspace whose own `node_modules/typescript` is older than 7: TypeScript 7 no longer ships `tsserver.js`.
 
 ```
-cd ~/.emacs.d
+uv tool install basedpyright
+uv tool install black
 ```
 
-```
-git submodule init
-git submodule update
-```
+Web/JS/TS and Python formatting runs asynchronously through Apheleia, using the global Prettier and Black and their project configuration. Saving writes the buffer immediately; the formatted result is saved when ready.
 
 ```
-~/.emacs.d/tree-sitter-module/batch.sh
+brew install rust rust-analyzer
 ```
+
+Rust buffers are formatted on save by rust-analyzer, which runs the `rustfmt` shipped with `rust`.
+
+### Tree-sitter Grammars
+
+Emacs offers to install a missing grammar into `~/.emacs.d/var/treesit/` the first time a mode listed in `treesit-enabled-modes` needs it, using the version pinned by that mode. For other languages, run `M-x treesit-install-language-grammar` and install into the same directory. Both require `git` and a C compiler (`xcode-select --install`).

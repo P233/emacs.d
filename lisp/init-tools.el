@@ -2,7 +2,9 @@
 (use-package no-littering
   :demand t
   :config
-  (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
+  ;; Overrides the session-list location no-littering assigns at load time
+  (setq auto-save-list-file-prefix nil))
 
 (use-package gcmh
   :demand t
@@ -10,12 +12,20 @@
   (gcmh-mode))
 
 (use-package exec-path-from-shell
+  :if (not (bound-and-true-p ns-emacs-plus-injected-path))
   :config
   (exec-path-from-shell-initialize))
 
 (use-package which-key
+  :straight (:type built-in)
   :config
   (which-key-mode))
+
+;; Recentf must recognize remote paths while startup file handlers are disabled.
+(let ((file-name-handler-alist (or file-name-handler-alist default-file-name-handler-alist)))
+  (recentf-mode t))
+(savehist-mode t)
+(global-auto-revert-mode t)
 
 (put 'dired-find-alternate-file 'disabled nil)
 

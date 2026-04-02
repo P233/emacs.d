@@ -9,16 +9,12 @@
   (enable-recursive-minibuffers t)
   (counsel-find-file-ignore-regexp (regexp-opt '(".git" ".dist" ".next" ".husky" ".DS_Store" "node_modules")))
   :config
-  (defun my/swiper-thing-at-point ()
-    (interactive)
-    (swiper (thing-at-point 'symbol)))
   (defun my/counsel-rg-at-point ()
     (interactive)
     (let* ((symbol (thing-at-point 'symbol))
            (search-term (if symbol (regexp-quote symbol) ""))
-           (project-root (or (project-root (project-current))
-                             (vc-root-dir))))
-      (counsel-rg search-term project-root)))
+           (project (project-current)))
+      (counsel-rg search-term (and project (project-root project)))))
   (setq ivy-switch-buffer-faces-alist '((dired-mode . ivy-subdir) (org-mode . link)))
   (ivy-configure 'counsel-yank-pop :height ivy-height)
   (ivy-mode t))
@@ -45,36 +41,16 @@
   (xref-show-xrefs-function #'ivy-xref-show-defs)
   (xref-show-definitions-function #'ivy-xref-show-defs))
 
-(use-package copilot
-  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
-  :custom
-  (copilot-max-char -1)
-  (copilot-idle-delay 0.2)
-  (copilot-enable-predicates '(copilot--buffer-changed))
-  :config
-  (defun my/copilot-complete ()
-    (interactive)
-    (or (copilot-accept-completion)
-        (move-end-of-line nil)))
-  (defun my/select-current-line ()
-    (interactive)
-    (set-mark-command nil)
-    (move-end-of-line nil))
-  :hook
-  (prog-mode . copilot-mode))
-
-(use-package yasnippet)
+;; Only loaded by eglot to expand snippet completions (rust-analyzer call arguments)
+(use-package yasnippet
+  :defer t)
 
 (use-package corfu
   :custom
   (corfu-auto t)
+  (text-mode-ispell-word-completion nil)
   :init
   (global-corfu-mode))
-
-;; Loading yas snippets after startup
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (yas-global-mode)))
 
 
 (provide 'init-completion)

@@ -1,10 +1,10 @@
 ;; -*- lexical-binding: t; -*-
-(show-paren-mode t)
 (column-number-mode t)
 (electric-pair-mode t)
 (global-subword-mode t)
-
-(use-package undo-fu)
+(editorconfig-mode t)
+(global-so-long-mode 1)
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (use-package wgrep
   :defer t)
@@ -33,17 +33,24 @@
 
 ;; http://stackoverflow.com/questions/25188206/how-do-you-write-an-emacs-lisp-function-to-replace-a-word-at-point
 (defun my/screaming-snake-case-word ()
-  "Convert a camelCase word at point to SCREAMING_SNAKE_CASE."
+  "Convert the active region or symbol at point to SCREAMING_SNAKE_CASE."
   (interactive)
-  (let* ((bounds
-          (if (use-region-p)
-              (cons (region-beginning) (region-end))
-            (bounds-of-thing-at-point 'symbol)))
-         (text (buffer-substring-no-properties (car bounds) (cdr bounds))))
+  (let ((bounds
+         (if (use-region-p)
+             (cons (region-beginning) (region-end))
+           (bounds-of-thing-at-point 'symbol))))
     (when bounds
-      (delete-region (car bounds) (cdr bounds))
-      (insert (let ((case-fold-search nil))
-                (upcase (replace-regexp-in-string "\\([A-Z]\\)" "_\\1" text t)))))))
+      (let ((case-fold-search nil)
+            (text (buffer-substring-no-properties (car bounds) (cdr bounds))))
+        ;; Already-uppercase names such as MD5SUM must remain unchanged.
+        (unless (string= text (upcase text))
+          ;; Split acronyms from following words, then lower-to-upper boundaries.
+          (setq text (replace-regexp-in-string
+                      "\\([A-Z]+\\)\\([A-Z][a-z]\\)" "\\1_\\2" text t))
+          (setq text (replace-regexp-in-string
+                      "\\([a-z0-9]\\)\\([A-Z]\\)" "\\1_\\2" text t)))
+        (delete-region (car bounds) (cdr bounds))
+        (insert (upcase text))))))
 
 ;; http://emacsredux.com/blog/2013/04/28/switch-to-previous-buffer/
 (defun my/switch-to-previous-buffer ()
