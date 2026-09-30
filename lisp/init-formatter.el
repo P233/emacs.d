@@ -22,5 +22,16 @@
           (when (apheleia-formatters-extension-p "pyi") "--pyi")
           "--stdin-filename" filepath "-")))
 
+(defun my/format-buffer ()
+  "Format Rust with Eglot, and other buffers with their Apheleia formatter."
+  (interactive)
+  (if (derived-mode-p 'rust-ts-mode)
+      (progn
+        (require 'eglot)
+        (unless (eglot-managed-p)
+          (user-error "Connect rust-analyzer with M-x eglot before formatting Rust"))
+        (call-interactively #'eglot-format-buffer))
+    (call-interactively #'apheleia-format-buffer)))
+
 
 (provide 'init-formatter)

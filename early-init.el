@@ -31,6 +31,8 @@
       initial-major-mode 'fundamental-mode
       initial-scratch-message ""
       mac-command-modifier 'meta
+      ;; Right thumb handles Control; left Command remains Meta.
+      mac-right-command-modifier 'control
       mac-option-modifier 'super
       make-backup-files nil
       package-enable-at-startup nil

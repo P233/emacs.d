@@ -19,7 +19,7 @@
 (use-package which-key
   :straight (:type built-in)
   :config
-  (which-key-mode))
+  (which-key-mode 1))
 
 ;; Recentf must recognize remote paths while startup file handlers are disabled.
 (let ((file-name-handler-alist (or file-name-handler-alist default-file-name-handler-alist)))

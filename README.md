@@ -17,7 +17,7 @@ on `PATH` before building Emacs; the GUI uses the build terminal's `PATH`.
 
 Optional:
 
-- CSS/JSON via `M-x eglot`: `npm i -g vscode-langservers-extracted`.
+- CSS/JSON via Eglot: `npm i -g vscode-langservers-extracted`.
 - JS/TS fallback for projects using TypeScript < 7: `npm i -g typescript-language-server`.
 
 Install with Font Book:

@@ -21,6 +21,7 @@
 (use-package flymake
   :straight (:type built-in)
   :commands (flymake-show-buffer-diagnostics
+             flymake-show-project-diagnostics
              flymake-goto-next-error
              flymake-goto-prev-error))
 

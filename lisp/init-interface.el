@@ -80,6 +80,14 @@
 (use-package treemacs-evil
   :after (treemacs evil))
 
+(use-package winner
+  :straight (:type built-in)
+  :custom
+  ;; The leader provides undo/redo; avoid adding another Control prefix.
+  (winner-dont-bind-my-keys t)
+  :config
+  (winner-mode 1))
+
 (windmove-default-keybindings)
 
 

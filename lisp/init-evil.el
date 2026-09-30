@@ -40,18 +40,13 @@
   :config
   (global-evil-matchit-mode))
 
-(use-package evil-escape
-  :after evil
-  :custom
-  (evil-escape-delay 0.15)
-  (evil-escape-key-sequence "uh")
-  :config
-  (evil-escape-mode))
-
 (use-package evil-nerd-commenter
   :after evil
   :config
-  (evilnc-default-hotkeys))
+  ;; Keep comment text objects without installing the comma prefix or C-c keys.
+  ;; Leader bindings and gc provide the comment commands in init-keybindings.
+  (define-key evil-inner-text-objects-map evilnc-comment-text-object #'evilnc-inner-commenter)
+  (define-key evil-outer-text-objects-map evilnc-comment-text-object #'evilnc-outer-commenter))
 
 (use-package evil-surround
   :after evil
