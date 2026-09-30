@@ -1,0 +1,2 @@
+# Unified diff context preserves blank-line markers and upstream tab indentation.
+patches/emacs-31-frame-transparency-background.patch whitespace=-blank-at-eol,-space-before-tab

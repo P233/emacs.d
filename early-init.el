@@ -55,12 +55,17 @@
 (scroll-bar-mode -1)
 (blink-cursor-mode -1)
 
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'load-path (concat user-emacs-directory "lisp"))
-
-;; INTERIM (since 2026-09-26, until the bundled libgccjit stops passing -mmacosx-version-min=18.0 on Darwin 27)
+;; Emacs Plus with the frame-transparency patch keeps text fully opaque.
+;; Blur must be configured before Cocoa creates the first window.
+;; Background opacity follows the theme in init-interface.el.
 (when (eq system-type 'darwin)
-  (setq native-comp-driver-options '("-Wl,-w" "-mmacosx-version-min=27.0")))
+  (add-to-list 'default-frame-alist '(undecorated-round . t))
+  (add-to-list 'default-frame-alist '(alpha . 100))
+  (add-to-list 'default-frame-alist '(ns-background-blur . 32))
+  (add-to-list 'default-frame-alist
+               '(ns-alpha-elements
+                 ns-alpha-default ns-alpha-fringe ns-alpha-glyphs)))
+(add-to-list 'load-path (concat user-emacs-directory "lisp"))
 
 ;; Prefer bytecode on this Mac and avoid background native compilation.
 ;; Reassess both startup and editing performance when upgrading Emacs.

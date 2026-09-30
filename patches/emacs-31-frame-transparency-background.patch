@@ -1,0 +1,49 @@
+Subject: [PATCH] Paint translucent backgrounds only once on Cocoa
+
+Apply after the Emacs Plus frame-transparency community patch.
+The view already paints alpha-background; repeating it in NSWindow's
+background raises 85% opacity to about 98%. Keep the window background
+clear for translucent frames, while the view and text retain their own alpha.
+Cover background changes, alpha changes, initial creation and fullscreen.
+
+--- a/src/nsfns.m
++++ b/src/nsfns.m
+@@ -312,7 +312,7 @@
+   FRAME_BACKGROUND_PIXEL (f) = [col unsignedLong];
+   if (view != nil)
+     {
+-      [[view window] setBackgroundColor: [col colorWithAlphaComponent: alpha]];
++      [[view window] setBackgroundColor: [col colorWithAlphaComponent: alpha < 1.0 ? 0.0 : 1.0]];
+ 
+       if (alpha != (EmacsCGFloat) 1.0)
+           [[view window] setOpaque: NO];
+@@ -368,7 +368,7 @@
+     {
+       [[view window] setBackgroundColor:
+ 		     [f->output_data.ns->background_color
+-		       colorWithAlphaComponent: alpha]];
++		       colorWithAlphaComponent: alpha < 1.0 ? 0.0 : 1.0]];
+       if (alpha != 1.0)
+ 	[[view window] setOpaque: NO];
+       else
+--- a/src/nsterm.m
++++ b/src/nsterm.m
+@@ -9417,7 +9417,7 @@
+ 
+       [w setContentView:[fw contentView]];
+       [w setBackgroundColor: [col colorWithAlphaComponent:
+-                                    f->alpha_background]];
++                                    f->alpha_background < 1.0 ? 0.0 : 1.0]];
+       if (f->alpha_background != (EmacsCGFloat) 1.0)
+         [w setOpaque: NO];
+ 
+@@ -10173,7 +10173,8 @@
+       col = [NSColor colorWithUnsignedLong:NS_FACE_BACKGROUND
+                      (FACE_FROM_ID (f, DEFAULT_FACE_ID))];
+       [self setBackgroundColor:
+-              [col colorWithAlphaComponent:f->alpha_background]];
++              [col colorWithAlphaComponent:
++                     f->alpha_background < 1.0 ? 0.0 : 1.0]];
+       if (f->alpha_background != (EmacsCGFloat) 1.0)
+         [self setOpaque:NO];
+ #ifdef NS_IMPL_COCOA

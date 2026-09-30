@@ -6,7 +6,22 @@
 
 (use-package ef-themes
   :config
-  (ef-themes-load-theme 'ef-summer))
+  (defun my/apply-system-appearance (appearance)
+    "Match the color theme and background opacity to macOS APPEARANCE."
+    (let ((theme (if (eq appearance 'dark) 'ef-winter 'ef-summer))
+          (opacity (if (eq appearance 'dark) 80 90)))
+      (unless (memq theme custom-enabled-themes)
+        (ef-themes-load-theme theme))
+      (when (eq system-type 'darwin)
+        (setf (alist-get 'alpha-background default-frame-alist) opacity)
+        (dolist (frame (frame-list))
+          (when (eq (window-system frame) 'ns)
+            (set-frame-parameter frame 'alpha-background opacity))))))
+  (when (boundp 'ns-system-appearance-change-functions)
+    (add-hook 'ns-system-appearance-change-functions
+              #'my/apply-system-appearance))
+  (my/apply-system-appearance
+   (if (boundp 'ns-system-appearance) ns-system-appearance 'light)))
 
 (use-package doom-modeline
   :init
